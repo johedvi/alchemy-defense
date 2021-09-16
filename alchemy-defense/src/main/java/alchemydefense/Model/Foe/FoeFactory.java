@@ -2,7 +2,6 @@ package alchemydefense.Model.Foe;
 
 import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Foe;
-//import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 public class FoeFactory {
     public enum FoeTypes{
@@ -14,7 +13,6 @@ public class FoeFactory {
             return new ConcreteFoe(boardHeight, pathFinder);
         }
         else
-            //throw new NotImplementedException();
-        return null;
+            throw new IllegalArgumentException();
     }
 }
