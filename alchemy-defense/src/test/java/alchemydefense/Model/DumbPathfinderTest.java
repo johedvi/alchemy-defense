@@ -1,7 +1,8 @@
 package alchemydefense.Model;
 
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import alchemydefense.Model.Tower;
+
+import alchemydefense.Model.Towers.Tower;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
