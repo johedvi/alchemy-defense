@@ -1,0 +1,22 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: -/-/2021
+	Chair: ----
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	Resolve any issues preventing progress.
+	Short clear descriptions.
+
+3. Reports.
+	Each member reports outcome of assigned issues.
+
+4. Discussion items.
+	Discuss the identified issues, and possibly new or more general issues (veryshort notes and/or keywords).
+
+5. Outcomes and assignments.
+	Write down outcomes from discussion items with motivation.
+	Assign new issues to each member.
+
+6. Wrap up.
+	Write down any unresolved issues for next meeting.

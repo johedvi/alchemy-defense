@@ -1,0 +1,37 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 6/9/2021
+	Chair: Willem Brahmstaedt
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Minor possible issues with Maven setup.
+	- The group is confused about some of the terminology and distincitions used in the course.
+
+3. Reports.
+	- The group decided upon to make use of the game development framework libGDX. This was the most widely used
+	  framework with regards to game development and seems to great documentation and a user friendly API. 
+	- An initial git repository has been made.
+	- The game should have a pixel art style. This will allow the group to invest minimal time in both programming 
+	  relating to the applications graphics and the actual production of the art, while still a good looking game.
+
+4. Discussion items.
+	- Decide upon a programming style which the group should follow to produce a cohesive code body.
+	- Generate user stories.
+	- Sketch up a rough GUI.
+	- Establish a common understanding of the terminology used in the course.
+
+
+5. Outcomes and assignments.
+	- Refined user stories by categorising epics and breaking them up into more manageable and concrete stories.
+	- Identified the user stories with higest priorities. 
+	- Created a SCRUM board. 
+	- Produced a first draft of the GUI. << KLISTRA IN BILD >> 
+	- Created a text file that defines a unified definition of different terms used by the group.
+	- Willem will try to setup Maven with the libGDX framework. 
+	- Every team member should do some research into the API of libGDX to get a basic understanding of the framework.
+
+6. Wrap up.
+	- There is still some confusion about the difference between "Acceptance Criteria" and "Definition of Done". The
+	  group members will do some further research regarding this and then write out the definition for each term in the groups
+	  unified definition document.

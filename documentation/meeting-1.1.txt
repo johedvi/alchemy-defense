@@ -1,0 +1,26 @@
+  
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 3/9/2021
+	Chair: Felix Jönsson
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- No objectives, this is the first meeting.
+
+3. Reports.
+	- No reports, this is the first meeting.
+
+4. Discussion items.
+	- Set up team communication platforms.
+	- Generate possible project ideas.
+	- Examine the project ideas with regards to examination goals of the current course and feasibility given our limited time.
+	- Establish a fixed schedule for group meetings.
+
+5. Outcomes and assignments.
+	- The group decided upon to create a tower defense game with enemies that can utilize dynamic pathfinding on a two-dimensional grid.
+	- The theme of the game was decided to revolve around medieval alchemy. Towers should be represented by different crystals.
+	- Every group member was tasked with researching possible relevant libraries that the project could make use of.
+	- Group meetings will take place on a fixed time each Monday, Wednesday and Friday.
+
+	

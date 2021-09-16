@@ -1,0 +1,52 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 13/9/2021
+	Chair: Valdemar Stenhammar
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+  - Create a clean and correct UML-diagram of the domain model to use for the seminar on
+    Tuesday, 09-14.
+    
+  - Create a simple runnable version of the application based on the UML-diagram created during
+    Friday the 10:th meeting.
+    
+  - Switch from from Maven to Gradle since Gradle is preferred when using libGDX.
+  
+  - Assign each member a responsibility to have over the code.
+
+
+3. Reports.
+  Since last meeting took place on Friday the 10:th and this meeting takes place on Monday the
+  13:th, no assignments were given during the weekend.
+
+
+4. Discussion items.
+  - Decide where in the project the game loop should be implemented.
+  
+  - Decide how the ”board-grid” should be implemented, i.e. whether to use the applications
+    coordinates or a grid with larger cells, or a combination of both to represent the positions of
+    towers and foes.
+
+5. Outcomes and assignments.
+  - The game loop was decided to be implemented within the controller module since that is what
+    gives directions to the model and it is therefore logical that that’s also where the looping is
+    handled.
+    
+  - The ”board-grid” was decided to use a combination of both the applications coordinates and
+   a grid with large cells in order to represent the positioning of objects on the board. The
+   coordinates will be used to represent the foes position which will allow the foes to move
+   ”smoothly” over the board while the grid will allow a tower, that is always stationary, to
+   easily be placed in one cell.
+   
+  - Since the UML-diagram was not entirely done Johan will add the finishing touches for it to
+    be ready for Tuesdays seminar.
+    
+  - No coding was done during this meeting, but each members responsibilities were decided and
+    until next meeting some coding should be done in order to be able to have a runnable version
+    this week.
+
+6. Wrap up.
+  - Discuss whether a more accurate prototype of the GUI should be created in e.g. Figma.
+  
+  - Next meeting is scheduled for Wednesday at 13:15.
