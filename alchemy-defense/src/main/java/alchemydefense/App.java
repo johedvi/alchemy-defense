@@ -18,7 +18,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("primary"), 768, 448);
+        scene = new Scene(loadFXML("game"), 768, 448);
         Image appIcon = new Image("/app-icon.png");
         stage.getIcons().add(appIcon);
         stage.setTitle("Alchemy Defense");
