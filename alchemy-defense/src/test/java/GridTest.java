@@ -1,6 +1,5 @@
-package alchemydefense.Model;
-
 import alchemydefense.Model.Board.Grid.PositionalGrid;
+import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.PixelRatios;

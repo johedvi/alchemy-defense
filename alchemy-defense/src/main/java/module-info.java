@@ -6,4 +6,5 @@ module alchemydefense {
 
     opens alchemydefense to javafx.fxml;
     exports alchemydefense;
+    exports alchemydefense.Model;
 }
