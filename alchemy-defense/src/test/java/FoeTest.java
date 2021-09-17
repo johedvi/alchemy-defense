@@ -1,5 +1,3 @@
-package alchemydefense.Model;
-
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import org.junit.jupiter.api.Assertions;

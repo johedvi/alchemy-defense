@@ -1,5 +1,3 @@
-package alchemydefense.Model;
-
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 
 import alchemydefense.Model.Towers.Tower;
