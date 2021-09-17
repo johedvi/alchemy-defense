@@ -1,6 +1,7 @@
 package alchemydefense.Model.Foe;
 
 import alchemydefense.Model.Foe.Pathfinding.PathFinder;
+import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Interfaces.Foe;
 
 import java.awt.*;
@@ -58,6 +59,11 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public void setCellPosition(Point cell) {
         this.cellPosition = cell;
+    }
+
+    @Override
+    public void setWorldPosition(Point cell) {
+        //TODO
     }
 
     @Override

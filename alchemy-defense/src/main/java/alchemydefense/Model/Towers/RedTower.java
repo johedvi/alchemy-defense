@@ -35,6 +35,9 @@ public class RedTower extends Tower {
     }
 
 
-
+    @Override
+    public void setWorldPosition(Point cell) {
+        //TODO
+    }
 }
 

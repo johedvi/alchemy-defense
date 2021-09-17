@@ -1,5 +1,5 @@
 package alchemydefense.Model.Towers;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import alchemydefense.Model.Interfaces.BoardObject;
 import java.awt.*;
 
 
@@ -53,7 +53,7 @@ public abstract class Tower implements BoardObject {
     }
 
     public void update() {
-        throw new NotImplementedException();
+        //TODO
     }
 
 }
