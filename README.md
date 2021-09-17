@@ -13,6 +13,7 @@
     <li><a href="#overview"> ➤ Overview</a></li>
     <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
     <li><a href="#getting-started"> ➤ Getting Started</a></li>
+    <li><a href="#links"> ➤ Links</a></li>
     <li><a href="#credits"> ➤ Credits</a></li>
   </ol>
 </details>
@@ -31,6 +32,13 @@ WIP
 <!-- GETTING STARTED -->
 <h2 id="getting-started"> :video_game: Getting Started</h2>
 WIP
+
+<!-- LINKS -->
+<h2 id="links"> :link: Links </h2>
+https://lucid.app/lucidchart/132eace1-782c-4565-8cd4-7f884120e5eb/edit?viewport_loc=913%2C1390%2C2667%2C1516%2CHWEp-vi-RSFO
+
+https://trello.com/b/LVPQ76BL/handymen
+
 
 <!-- CREDITS -->
 <h2 id="credits"> :scroll: Credits</h2>
