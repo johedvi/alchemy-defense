@@ -12,5 +12,8 @@ module alchemydefense {
     exports alchemydefense.Model.Interfaces;
     exports alchemydefense.Model.Towers;
     exports alchemydefense.Utility;
+    exports alchemydefense.Model.Foe;
+    exports alchemydefense.Model.Board;
+
 
 }
