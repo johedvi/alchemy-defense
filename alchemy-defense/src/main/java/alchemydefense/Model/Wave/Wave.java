@@ -4,7 +4,9 @@ import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @author Valdemar Stenhammar
@@ -21,8 +23,7 @@ public class Wave {
 
     private static int waveCounter = 0;
 
-    //TODO Should probably not be of type List. Map might be a better option to easily access each Foe.
-    private List<ConcreteFoe> aliveFoes = new ArrayList<>();
+    private Map<Integer, ConcreteFoe> aliveFoes = new HashMap<>();
 
     public Wave(int boardHeight, PathFinder pathFinder) {
         spawnFoes(boardHeight, pathFinder);
@@ -34,7 +35,7 @@ public class Wave {
     public void spawnFoes(int boardHeight, PathFinder pathFinder) {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter));
         for(int i = 0; i <= nFoes; i++) {
-            aliveFoes.add(new ConcreteFoe(boardHeight, pathFinder));
+            aliveFoes.put(i, new ConcreteFoe(boardHeight, pathFinder, i));
         }
     }
 

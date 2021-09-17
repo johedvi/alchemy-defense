@@ -14,6 +14,10 @@ import java.util.LinkedList;
  *
  * Date: 2021-09-14
  *
+ * --- Modofied ---
+ * Added attribute int ID.
+ * Date: 2021-09-17
+ *
  */
 
 public class ConcreteFoe implements BoardObject, Foe {
@@ -23,14 +27,16 @@ public class ConcreteFoe implements BoardObject, Foe {
     private Point cellPosition;
     private final PathFinder pathFinder;
     private LinkedList<Point> path;
+    private final int ID;
 
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder) {
+    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id) {
         int randomHeight = (int) (Math.random() * boardHeight);
         setCellPosition(new Point(0, randomHeight));
 
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
+        this.ID = id;
     }
 
     /**
@@ -91,4 +97,6 @@ public class ConcreteFoe implements BoardObject, Foe {
     public void move() {
         setCellPosition(path.removeFirst());
     }
+
+    public void getID() { return this. ID; }
 }
