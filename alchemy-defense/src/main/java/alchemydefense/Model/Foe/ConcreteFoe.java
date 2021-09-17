@@ -98,5 +98,5 @@ public class ConcreteFoe implements BoardObject, Foe {
         setCellPosition(path.removeFirst());
     }
 
-    public void getID() { return this. ID; }
+    public int getID() { return this.ID; }
 }
