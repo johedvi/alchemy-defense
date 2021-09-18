@@ -9,7 +9,8 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alchemydefense.GameController">
+
+<AnchorPane fx:id="rootPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="448.0" prefWidth="768.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="alchemydefense.GameController">
     <children>
         <GridPane fx:id="grid" gridLinesVisible="true" prefHeight="274.0" prefWidth="769.0">
             <columnConstraints>
@@ -32,14 +33,14 @@
                 <RowConstraints minHeight="64.0" prefHeight="64.0" vgrow="SOMETIMES" />
             </rowConstraints>
         </GridPane>
-        <Pane layoutY="322.0" prefHeight="126.0" prefWidth="768.0">
+        <Pane fx:id="userInterfacePane" layoutY="322.0" prefHeight="126.0" prefWidth="768.0">
             <children>
-                <ImageView fx:id="controlPanelImage" fitHeight="127.0" fitWidth="769.0" pickOnBounds="true" smooth="false">
+                <ImageView fitHeight="127.0" fitWidth="769.0" pickOnBounds="true" smooth="false">
                     <image>
                         <Image url="@../images/UI-Panel.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="327.0" layoutY="35.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="111.0" text="Tower Button" />
+                <Button fx:id="towerButton" layoutX="327.0" layoutY="35.0" mnemonicParsing="false" onMouseClicked="#mouseClickedTowerButton" prefHeight="56.0" prefWidth="111.0" text="Tower Button" />
             </children>
         </Pane>
     </children>
