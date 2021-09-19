@@ -22,14 +22,14 @@ public class GridTest {
     @Test
     public void testPlaceTowerInCell(){
         testPoint = new Point(1,1);
-        gameModel.placeTowerInCell(testPoint);
+        gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), Tower.class);
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Point(3,3);
-        gameModel.placeTowerInCell(testPoint);
+        gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), Tower.class);
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
@@ -38,7 +38,7 @@ public class GridTest {
     @Test
     public void testTowerSyncWithCellPosition(){
         testPoint = new Point(2,2);
-        gameModel.placeTowerInCell(testPoint);
+        gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
         BoardObject tower = gameModel.getBoardObjectInCell(testPoint);
         Assertions.assertEquals(testPoint, tower.getCellPosition());
     }

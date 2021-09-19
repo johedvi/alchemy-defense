@@ -16,7 +16,7 @@ public class GameModel {
         concreteBoard = new ConcreteBoard();
     }
 
-    public void placeTowerInCell(Point point) {
+    public void placeTowerInCell(Tower.TowerType towerType, Point point) {
         Tower tower = createTower();
         concreteBoard.placeBoardObject(tower, point);
     }
