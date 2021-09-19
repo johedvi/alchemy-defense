@@ -10,7 +10,9 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.*;
 import javafx.util.Duration;
 
@@ -22,17 +24,12 @@ public class GameController implements Initializable {
 
     @FXML
     private AnchorPane rootPane;
-
     @FXML
     private GridPane grid;
     @FXML
     Button towerButton;
     @FXML
     Pane userInterfacePane;
-
-    boolean isHoldingTower = false;     //temporary
-
-
 
     // https://stackoverflow.com/questions/31095954/how-to-get-gridpane-row-and-column-ids-on-mouse-entered-in-each-cell-of-grid-in
     @Override
@@ -48,18 +45,18 @@ public class GameController implements Initializable {
     }
 
     private void addPane(int colIndex, int rowIndex) {
-        Pane pane = new Pane();
+        StackPane pane = new StackPane();
         pane.setOnMouseEntered(e -> {
-            //System.out.printf("Mouse is at grid cell [%d, %d]%n", colIndex, rowIndex);
+            System.out.printf("Mouse is at grid cell [%d, %d]%n", colIndex, rowIndex);
         });
         grid.add(pane, colIndex, rowIndex);
     }
 
+
+
+
     @FXML
     private void mouseClickedTowerButton(MouseEvent e){
-        if(isHoldingTower == true){
-            isHoldingTower = true;
-        }
 
         Image tower = new Image("app-icon.png");
         ImageView towerImageView = new ImageView(tower);
@@ -67,12 +64,14 @@ public class GameController implements Initializable {
         towerImageView.setFitWidth(64);
         towerImageView.setLayoutX(e.getSceneX() - 32);
         towerImageView.setLayoutY(e.getSceneY() - 32);
+
+
         rootPane.getChildren().add(towerImageView);
-        System.out.println("DING");
+
 
         DragController dragController = new DragController(towerImageView, true);
-
-
+        towerImageView.setOnMouseReleased(event -> {
+            rootPane.getChildren().remove(towerImageView);
+        });
     }
-
 }
