@@ -1,16 +1,22 @@
 package alchemydefense.Model;
 
 import alchemydefense.Model.Board.ConcreteBoard;
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Towers.RedTower;
 import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Wave.Wave;
 
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameModel {
     Board concreteBoard;
+
+    private List<ConcreteFoe> foes = new ArrayList<>();
 
     public GameModel(){
         concreteBoard = new ConcreteBoard();
@@ -34,5 +40,10 @@ public class GameModel {
     private Tower createTower(){
         //TODO
         return null;
+    }
+
+    public void startNewWave(int boardHeight, PathFinder pathFinder) {
+        Wave wave = new Wave();
+        foes = wave.createFoes(boardHeight, pathFinder);
     }
 }

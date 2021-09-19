@@ -28,7 +28,7 @@ public class Wave {
     }
 
     //TODO using a preliminary model to calculate how many foes should be created each round.
-    public List<ConcreteFoe> startWave(int boardHeight, PathFinder pathFinder) {
+    public List<ConcreteFoe> createFoes(int boardHeight, PathFinder pathFinder) {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, (waveCounter-1)));
         List<ConcreteFoe> foes = new ArrayList<>();
         for(int i = 0; i <= nFoes; i++) {

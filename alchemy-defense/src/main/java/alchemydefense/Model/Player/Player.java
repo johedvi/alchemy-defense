@@ -16,13 +16,13 @@ public class Player {
     private static final int HP_STARTING_VALUE = 100;
 
     private static int gold;
-    private static int hp;
+    private static int health;
 
     private static Player player;
 
-    private Player(int gold, int hp) {
+    private Player(int gold, int health) {
         Player.gold = gold;
-        Player.hp = hp;
+        Player.health = health;
     }
 
     public static Player getPlayer() {
@@ -32,12 +32,14 @@ public class Player {
         return player;
     }
 
+    public void decreaseOneHp() { setHp(health-1); }
+
     public int getGold() { return gold; }
 
     public void setGold(int gold) { Player.gold = gold; }
 
-    public int getHp() { return hp; }
+    public int getHp() { return health; }
 
-    public void setHp(int hp) { Player.hp = hp; }
+    public void setHp(int hp) { Player.health = hp; }
 
 }
