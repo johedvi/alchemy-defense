@@ -25,19 +25,13 @@ public class RedTower extends Tower {
 
     FileInputStream inputstream = new FileInputStream("C:\\images\\image.jpg");
 
-    public RedTower(Point cellPosition) throws FileNotFoundException {
-        super(cellPosition);
+    public RedTower() throws FileNotFoundException {
+        super();
         Type = TowerType.RED;
         image = new Image(inputstream);
         this.height = RedTowerHeight;
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
-    }
-
-
-    @Override
-    public void setWorldPosition(Point cell) {
-        //TODO
     }
 }
 
