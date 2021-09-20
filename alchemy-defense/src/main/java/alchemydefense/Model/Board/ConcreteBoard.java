@@ -63,26 +63,33 @@ public class ConcreteBoard implements Board {
                 player.decreaseOneHp();
                 activeFoes.remove(foe);
             }
-            //damageControl(foe);
-            if(!foe.isAlive()) {
-                activeFoes.remove(foe);
-            }
 
+            //damageControl(foe);
+            if(!foe.isAlive())
+                activeFoes.remove(foe);
         }
         return activeFoes;
     }
 
     private void moveFoe(ConcreteFoe foe) { paths.get(foe).removeFirst(); }
 
+    //TODO get position of foe as argument to grid
     /*private void damageControl(ConcreteFoe foe) {
         int damage = potentialTowerDamage(positionalGrid.getPos(foe));
         if(damage > 0)
             foe.takeDamage(damage);
 
-    }
+    }*/
 
-    private int potentialTowerDamage(Point point) {
-        return 0;
+    //TODO get access to a list of towers
+    /*private int potentialTowerDamage(Point point) {
+        int damage = 0;
+        for(Tower tower : towers) {
+            if(tower.inRange(point)) {
+                damage = tower.getDamage();
+            }
+        }
+        return damage;
     }*/
 
     private boolean foeReachedEnd(ConcreteFoe foe) { return paths.get(foe).size() == 1; }
