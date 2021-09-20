@@ -50,33 +50,27 @@ public class ConcreteFoe implements BoardObject, Foe {
      */
 
     @Override
-    public boolean takeDamage(int damageCount) {
+    public void takeDamage(int damageCount) {
         setCurrentHP(getCurrentHP() - damageCount);
 
-        return this.currentHP > 0;
     }
 
-    @Override
     public Point getWorldPosition() {
         return worldPosition;
     }
 
-    @Override
     public Point getCellPosition() {
         return cellPosition;
     }
 
-    @Override
     public void setCellPosition(Point cell) {
         this.cellPosition = cell;
     }
 
-    @Override
     public void setWorldPosition(Point cell) {
         //TODO
     }
 
-    @Override
     public void update() {
         path = pathFinder.calculatePath(null, getCellPosition());
     }
@@ -95,6 +89,11 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public void setCurrentHP(int hp) {
         this.currentHP = hp;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return getCurrentHP() > 0;
     }
 
     @Override

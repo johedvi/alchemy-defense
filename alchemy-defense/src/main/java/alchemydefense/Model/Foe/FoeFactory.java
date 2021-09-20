@@ -10,7 +10,7 @@ public class FoeFactory {
 
     public static Foe createFoe(FoeTypes foeType, PathFinder pathFinder, int boardHeight, int id) {
         if (foeType == FoeTypes.CONCRETE_FOE) {
-            return new ConcreteFoe(boardHeight, pathFinder, id);
+            return new ConcreteFoe(boardHeight, pathFinder);
         }
         else
             throw new IllegalArgumentException();

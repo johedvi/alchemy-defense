@@ -32,7 +32,7 @@ public class Wave {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, (waveCounter-1)));
         List<ConcreteFoe> foes = new ArrayList<>();
         for(int i = 0; i <= nFoes; i++) {
-            foes.add(new ConcreteFoe(boardHeight, pathFinder, i));
+            foes.add(new ConcreteFoe(boardHeight, pathFinder));
         }
         return foes;
     }

@@ -21,7 +21,7 @@ public class FoeTest {
     @BeforeAll
     public static void beforeTestMethod() {
         boardHeight = 200;
-        foe = new ConcreteFoe(boardHeight, new DumbPathfinder(new Point(0,0)), 10);
+        foe = new ConcreteFoe(boardHeight, new DumbPathfinder(new Point(0,0)));
     }
 
 
