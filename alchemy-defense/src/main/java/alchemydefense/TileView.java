@@ -6,10 +6,10 @@ import javafx.scene.shape.Rectangle;
 
 public class TileView extends Rectangle {
     final int tileSize = 64;
-    final String imageFilePath = "app-icon.png";
+    final String imageFilePath = "available-path.png";
 
-    public TileView(int x, int y){
-        super(x,y);
+    public TileView(int x, int y, int xx, int yy){
+        super(x,y, xx, yy);
         setWidth(tileSize);
         setHeight(tileSize);
         Image img = new Image(imageFilePath);
