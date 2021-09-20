@@ -16,6 +16,14 @@ import java.util.LinkedList;
  *
  * ----- Modified -----
  * Date: 09-19, By Willem; Removed @Override for methods originally from BoardObject
+ *
+ * Added attribute int ID.
+ * Valdemar Stenhammar
+ * Date: 2021-09-17
+ *
+ * Changed method takeDamage to void and added method boolean isAlive instead.
+ * Valdemar Stenhammar
+ * Date: 2021-09-20
  */
 
 public class ConcreteFoe implements BoardObject, Foe {
@@ -48,22 +56,27 @@ public class ConcreteFoe implements BoardObject, Foe {
         return this.currentHP > 0;
     }
 
+    @Override
     public Point getWorldPosition() {
         return worldPosition;
     }
 
+    @Override
     public Point getCellPosition() {
         return cellPosition;
     }
 
+    @Override
     public void setCellPosition(Point cell) {
         this.cellPosition = cell;
     }
 
+    @Override
     public void setWorldPosition(Point cell) {
         //TODO
     }
 
+    @Override
     public void update() {
         path = pathFinder.calculatePath(null, getCellPosition());
     }

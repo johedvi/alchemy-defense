@@ -1,14 +1,19 @@
 package alchemydefense.Model;
 
 import alchemydefense.Model.Board.ConcreteBoard;
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Wave.Wave;
 import java.io.FileNotFoundException;
 
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -21,6 +26,8 @@ import java.awt.*;
  */
 public class GameModel {
     Board concreteBoard;
+
+    private List<ConcreteFoe> activeFoes = new ArrayList<>();
 
     public GameModel(){
         concreteBoard = new ConcreteBoard();
@@ -49,4 +56,11 @@ public class GameModel {
     private Tower createTower(Tower.TowerType towerType, Point point) throws IllegalArgumentException, FileNotFoundException {
         return TowerFactory.createTower(towerType);
     }
+
+    public void startNewWave(int boardHeight, PathFinder pathFinder) {
+        Wave wave = new Wave();
+        activeFoes = wave.createFoes(boardHeight, pathFinder);
+    }
+
+    private boolean isWaveOver() { return activeFoes.isEmpty(); }
 }
