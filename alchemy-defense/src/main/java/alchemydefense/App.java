@@ -128,6 +128,11 @@ public class App extends Application {
                                 boardPane.getChildren().add(tileView);
                         }
                 }
+
+                String image = "tmp-background.png";
+                boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
+                        "-fx-background-position: center center; " +
+                        "-fx-background-repeat: stretch;");
                 return boardPane;
         }
 

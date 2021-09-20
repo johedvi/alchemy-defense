@@ -1,6 +1,7 @@
 package alchemydefense;
 
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
 
@@ -12,8 +13,9 @@ public class TileView extends Rectangle {
         super(x,y, xx, yy);
         setWidth(tileSize);
         setHeight(tileSize);
-        Image img = new Image(imageFilePath);
-        this.setFill(new ImagePattern(img));
+        this.setFill(Color.TRANSPARENT);
+        //Image img = new Image(imageFilePath);
+        //this.setFill(new ImagePattern(img));
     }
 
     public void setImage(String filePath) {
