@@ -15,4 +15,9 @@ public class TileView extends Rectangle {
         Image img = new Image(imageFilePath);
         this.setFill(new ImagePattern(img));
     }
+
+    public void setImage(String filePath) {
+        Image img = new Image(filePath);
+        this.setFill(new ImagePattern(img));
+    }
 }

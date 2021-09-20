@@ -18,7 +18,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-        //private static Scene scene;
+        private static Scene scene;
         private static final int SCENE_WIDTH = 768;
         private static final int SCENE_HEIGHT = 448;
         private static final int UNIT_IN_PIXELS = 64;
@@ -29,7 +29,7 @@ public class App extends Application {
         private ImageView testTower;
         private boolean isHoldingTower = false;
 
-
+        Pane boardPane;
 
         @Override
         public void start(Stage stage) throws IOException {
@@ -44,7 +44,7 @@ public class App extends Application {
                 root.getChildren().add(testTower);
                 testTower.setVisible(false);
 
-                Pane boardPane = setupBoardPane();
+                boardPane = setupBoardPane();
                 Pane userInterfacePane = setupUserInterfacePane();
                 setupMouseEventHandling(root);
 
@@ -82,6 +82,7 @@ public class App extends Application {
                                 if(x<12 && y <5){
                                         System.out.println("Mouse clicked on cell: (" + x + ", " + y + ").");
                                         if(isHoldingTower){
+                                                updateTile(x,y);
                                                 System.out.println("Tried to place tower at cell.");
                                         }
                                 }
@@ -109,6 +110,7 @@ public class App extends Application {
                 button.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
                 button.setOnMouseClicked(e -> {
                         isHoldingTower = true;
+
                 });
                 userInterfacePane.getChildren().add(button);
 
@@ -133,12 +135,16 @@ public class App extends Application {
                 timer = new AnimationTimer() {
                         @Override
                         public void handle(long l) {
-                                // inputProcessing
+                                // input
                                 // pull model
                                 // update view
                         }
                 };
                 timer.start();
+        }
+        private void updateTile(int x, int y) {
+                TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
+                tile.setImage("blue-crystal.png");
         }
 
         public static void main(String[] args) {
