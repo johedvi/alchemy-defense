@@ -14,10 +14,15 @@ import java.util.LinkedList;
  *
  * Date: 2021-09-14
  *
- * --- Modofied ---
+ * --- Modified ---
  * Added attribute int ID.
+ * Valdemar Stenhammar
  * Date: 2021-09-17
  *
+ * --- Modified ---
+ * Changed method takeDamage to void and added method boolean isAlive instead.
+ * Valdemar Stenhammar
+ * Date: 2021-09-20
  */
 
 public class ConcreteFoe implements BoardObject, Foe {
@@ -41,16 +46,16 @@ public class ConcreteFoe implements BoardObject, Foe {
 
     /**
      * Calculates damage taken
-     * @param damageCount Represents how much damage that shall be taken
-     * @return True if the foe survives, false otherwise
+     * @param damageCount Represents how much damage that shall be taken.
      */
 
     @Override
-    public boolean takeDamage(int damageCount) {
+    public void takeDamage(int damageCount) {
         setCurrentHP(getCurrentHP() - damageCount);
-
-        return this.currentHP > 0;
     }
+
+    @Override
+    public boolean isAlive() { return this.currentHP > 0; }
 
     @Override
     public Point getWorldPosition() {

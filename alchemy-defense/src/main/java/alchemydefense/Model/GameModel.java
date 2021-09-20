@@ -16,7 +16,7 @@ import java.util.List;
 public class GameModel {
     Board concreteBoard;
 
-    private List<ConcreteFoe> foes = new ArrayList<>();
+    private List<ConcreteFoe> activeFoes = new ArrayList<>();
 
     public GameModel(){
         concreteBoard = new ConcreteBoard();
@@ -44,6 +44,8 @@ public class GameModel {
 
     public void startNewWave(int boardHeight, PathFinder pathFinder) {
         Wave wave = new Wave();
-        foes = wave.createFoes(boardHeight, pathFinder);
+        activeFoes = wave.createFoes(boardHeight, pathFinder);
     }
+
+    private boolean isWaveOver() { return activeFoes.isEmpty(); }
 }

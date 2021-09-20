@@ -40,9 +40,12 @@ public class FoeTest {
         Assertions.assertEquals(foe.getMaxHP(), maxHP);
 
         int damageCount = 78;
-        Assertions.assertTrue(foe.takeDamage(damageCount));
+        foe.takeDamage(damageCount);
+        Assertions.assertTrue(foe.isAlive());
 
         Assertions.assertEquals(foe.getCurrentHP(), maxHP - damageCount);
-        Assertions.assertFalse(foe.takeDamage(23));
+
+        foe.takeDamage(23);
+        Assertions.assertFalse(foe.isAlive());
     }
 }

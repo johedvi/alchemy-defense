@@ -3,12 +3,13 @@ package alchemydefense.Model.Board;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Player.Player;
+import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -18,6 +19,8 @@ public class ConcreteBoard implements Board {
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(10, 10));
 
     private final HashMap<ConcreteFoe, LinkedList<Point>> paths = new HashMap<>();
+
+    private final static Player player = Player.getPlayer();
 
     PositionalGrid positionalGrid;
     final int width = 10;
@@ -42,16 +45,45 @@ public class ConcreteBoard implements Board {
 
     public void calculatePath(ConcreteFoe foe) {
         //LinkedList<Point> path = pathfinder.calculatePath(null, positionalGrid.getPos(foe));
-        //paths.put(foe, path;
+        //paths.put(foe, path);
     }
 
-    public void moveFoes(List<ConcreteFoe> foes) {
+    /**
+     * Updates position and status of each foe.
+     * @param foes is the list of current active foes.
+     * @return updated list where foes that reached the end are removed.
+     */
+    public List<ConcreteFoe> updateFoes(List<ConcreteFoe> foes) {
+
+        List<ConcreteFoe> activeFoes = new ArrayList<>(foes);
         for(ConcreteFoe foe : foes) {
-            if(paths.get(foe).size() == 1) {
+            moveFoe(foe);
+            if(foeReachedEnd(foe)) {
                 paths.remove(foe);
-                //Remove foe from list of active foes.
-                Player.getPlayer().decreaseOneHp();
+                player.decreaseOneHp();
+                activeFoes.remove(foe);
             }
+            //damageControl(foe);
+            if(!foe.isAlive()) {
+                activeFoes.remove(foe);
+            }
+
         }
+        return activeFoes;
     }
+
+    private void moveFoe(ConcreteFoe foe) { paths.get(foe).removeFirst(); }
+
+    /*private void damageControl(ConcreteFoe foe) {
+        int damage = potentialTowerDamage(positionalGrid.getPos(foe));
+        if(damage > 0)
+            foe.takeDamage(damage);
+
+    }
+
+    private int potentialTowerDamage(Point point) {
+        return 0;
+    }*/
+
+    private boolean foeReachedEnd(ConcreteFoe foe) { return paths.get(foe).size() == 1; }
 }
