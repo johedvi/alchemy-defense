@@ -18,9 +18,33 @@ public class PositionalGrid {
     }
 
     public void add(BoardObject boardObject, Point cell){
-        if (!positionalCells[cell.x][cell.y].isOccupied()){
+        if (!positionalCells[cell.x][cell.y].isOccupied() && areColRowFree(cell)){
             positionalCells[cell.x][cell.y].insert(boardObject);
         }
+    }
+
+    public boolean areColRowFree(Point cell) {
+        return isColFree(cell) && isRowFree(cell);
+    }
+
+    private boolean isColFree(Point cell) {
+        boolean isFree = false;
+
+        for (int i = 0; i < positionalCells[1].length; i++) {
+            isFree = isFree || positionalCells[cell.x][i].isOccupied();
+        }
+
+        return isFree;
+    }
+
+    private boolean isRowFree(Point cell) {
+        boolean isFree = false;
+
+        for (int i = 0; i < positionalCells[0].length; i++) {
+            isFree = isFree || positionalCells[i][cell.y].isOccupied();
+        }
+
+        return isFree;
     }
 
     public void remove(Point cell){
