@@ -14,6 +14,5 @@ module alchemydefense {
     exports alchemydefense.Utility;
     exports alchemydefense.Model.Foe;
     exports alchemydefense.Model.Board;
-
-
+    exports alchemydefense.Controller;
 }

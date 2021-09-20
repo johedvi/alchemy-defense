@@ -1,6 +1,9 @@
 import alchemydefense.Model.Board.Grid.PositionalGrid;
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Towers.RedTower;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.PixelRatios;
 import org.junit.jupiter.api.Assertions;
@@ -36,13 +39,25 @@ public class GridTest {
     }
 
     @Test
+    public void testFullRow() {
+        PositionalGrid grid = new PositionalGrid(10,5);
+
+        for (int i = 0; i < 5; i++) {
+            grid.add(new ConcreteFoe(3, new DumbPathfinder(new Point(1,1))), new Point(1,i));
+        }
+        Assertions.assertFalse(grid.areColRowFree(new Point(1,3)));
+    }
+
+    //TODO: Update test
+    /*
+    @Test
     public void testTowerSyncWithCellPosition(){
         testPoint = new Point(2,2);
         gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
         BoardObject tower = gameModel.getBoardObjectInCell(testPoint);
         Assertions.assertEquals(testPoint, tower.getCellPosition());
     }
-
+    */
     //TODO: Fix with tower code
 
     /*

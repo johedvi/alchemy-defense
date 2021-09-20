@@ -14,6 +14,8 @@ import java.util.LinkedList;
  *
  * Date: 2021-09-14
  *
+ * ----- Modified -----
+ * Date: 09-19, By Willem; Removed @Override for methods originally from BoardObject
  */
 
 public class ConcreteFoe implements BoardObject, Foe {
@@ -46,27 +48,22 @@ public class ConcreteFoe implements BoardObject, Foe {
         return this.currentHP > 0;
     }
 
-    @Override
     public Point getWorldPosition() {
         return worldPosition;
     }
 
-    @Override
     public Point getCellPosition() {
         return cellPosition;
     }
 
-    @Override
     public void setCellPosition(Point cell) {
         this.cellPosition = cell;
     }
 
-    @Override
     public void setWorldPosition(Point cell) {
         //TODO
     }
 
-    @Override
     public void update() {
         path = pathFinder.calculatePath(null, getCellPosition());
     }
