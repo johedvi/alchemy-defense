@@ -23,23 +23,19 @@ public class Wave {
 
     private static int waveCounter = 0;
 
-    private Map<Integer, ConcreteFoe> aliveFoes = new HashMap<>();
-
-    public Wave(int boardHeight, PathFinder pathFinder) {
-        spawnFoes(boardHeight, pathFinder);
+    public Wave() {
+        waveCounter++;
     }
 
-    public void startWave() { waveCounter++; }
-
-    //Using a preliminary model to calculate how many foes should be created each round.
-    public void spawnFoes(int boardHeight, PathFinder pathFinder) {
-        int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter));
+    //TODO using a preliminary model to calculate how many foes should be created each round.
+    public List<ConcreteFoe> startWave(int boardHeight, PathFinder pathFinder) {
+        int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, (waveCounter-1)));
+        List<ConcreteFoe> foes = new ArrayList<>();
         for(int i = 0; i <= nFoes; i++) {
-            aliveFoes.put(i, new ConcreteFoe(boardHeight, pathFinder, i));
+            foes.add(new ConcreteFoe(boardHeight, pathFinder, i));
         }
+        return foes;
     }
-
-    public boolean isWaveOver() { return aliveFoes.isEmpty(); }
 
     public int getWaveCounter() { return waveCounter; }
 
