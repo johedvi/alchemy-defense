@@ -8,9 +8,9 @@ public class FoeFactory {
         CONCRETE_FOE
     }
 
-    public static Foe createFoe(FoeTypes foeType, PathFinder pathFinder, int boardHeight) {
+    public static Foe createFoe(FoeTypes foeType, PathFinder pathFinder, int boardHeight, int id) {
         if (foeType == FoeTypes.CONCRETE_FOE) {
-            return new ConcreteFoe(boardHeight, pathFinder);
+            return new ConcreteFoe(boardHeight, pathFinder, id);
         }
         else
             throw new IllegalArgumentException();

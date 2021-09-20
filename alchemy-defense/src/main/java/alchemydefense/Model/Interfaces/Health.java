@@ -8,11 +8,13 @@ package alchemydefense.Model.Interfaces;
  */
 
 public interface Health {
-    boolean takeDamage(int damageCount);
+    void takeDamage(int damageCount);
 
     int getMaxHP();
 
     int getCurrentHP();
 
     void setCurrentHP(int hp);
+
+    boolean isAlive();
 }
