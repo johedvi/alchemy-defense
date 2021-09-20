@@ -29,6 +29,8 @@ public class App extends Application {
         private ImageView testTower;
         private boolean isHoldingTower = false;
 
+        Pane boardPane;
+
         @Override
         public void start(Stage stage) throws IOException {
                 Group root = new Group();
@@ -42,7 +44,7 @@ public class App extends Application {
                 root.getChildren().add(testTower);
                 testTower.setVisible(false);
 
-                Pane boardPane = setupBoardPane();
+                boardPane = setupBoardPane();
                 Pane userInterfacePane = setupUserInterfacePane();
                 setupMouseEventHandling(root);
 
@@ -80,6 +82,7 @@ public class App extends Application {
                                 if(x<12 && y <5){
                                         System.out.println("Mouse clicked on cell: (" + x + ", " + y + ").");
                                         if(isHoldingTower){
+                                                updateTile(x,y);
                                                 System.out.println("Tried to place tower at cell.");
                                         }
                                 }
@@ -138,6 +141,10 @@ public class App extends Application {
                         }
                 };
                 timer.start();
+        }
+        private void updateTile(int x, int y) {
+                TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
+                tile.setImage("blue-crystal.png");
         }
 
         public static void main(String[] args) {
