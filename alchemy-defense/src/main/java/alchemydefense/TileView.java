@@ -1,0 +1,18 @@
+package alchemydefense;
+
+import javafx.scene.image.Image;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
+
+public class TileView extends Rectangle {
+    final int tileSize = 64;
+    final String imageFilePath = "available-path.png";
+
+    public TileView(int x, int y, int xx, int yy){
+        super(x,y, xx, yy);
+        setWidth(tileSize);
+        setHeight(tileSize);
+        Image img = new Image(imageFilePath);
+        this.setFill(new ImagePattern(img));
+    }
+}
