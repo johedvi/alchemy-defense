@@ -13,5 +13,4 @@ import java.awt.*;
 //TODO: Separate this interface to smaller parts
 
 public interface BoardObject {
-    public void update();
 }

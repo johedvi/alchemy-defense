@@ -64,7 +64,6 @@ public class ConcreteFoe implements BoardObject, Foe {
         //TODO
     }
 
-    @Override
     public void update() {
         path = pathFinder.calculatePath(null, getCellPosition());
     }
