@@ -21,8 +21,6 @@ public class GameModel {
         concreteBoard.placeBoardObject(tower, point);
     }
 
-
-
     public BoardObject getBoardObjectInCell(Point point){
         return concreteBoard.getBoardObject(point);
     }

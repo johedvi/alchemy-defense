@@ -71,7 +71,6 @@ public class ConcreteFoe implements BoardObject, Foe {
         path = pathFinder.calculatePath(null, getCellPosition());
     }
 
-
     @Override
     public int getMaxHP() {
         return this.MAX_HP;

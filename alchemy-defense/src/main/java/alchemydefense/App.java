@@ -18,7 +18,7 @@ import java.io.IOException;
  * JavaFX App
  */
 public class App extends Application {
-        private static Scene scene;
+        //private static Scene scene;
         private static final int SCENE_WIDTH = 768;
         private static final int SCENE_HEIGHT = 448;
         private static final int UNIT_IN_PIXELS = 64;
@@ -28,6 +28,8 @@ public class App extends Application {
         //TODO: Better solution
         private ImageView testTower;
         private boolean isHoldingTower = false;
+
+
 
         @Override
         public void start(Stage stage) throws IOException {
@@ -107,7 +109,6 @@ public class App extends Application {
                 button.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
                 button.setOnMouseClicked(e -> {
                         isHoldingTower = true;
-
                 });
                 userInterfacePane.getChildren().add(button);
 
@@ -132,7 +133,7 @@ public class App extends Application {
                 timer = new AnimationTimer() {
                         @Override
                         public void handle(long l) {
-                                // input
+                                // inputProcessing
                                 // pull model
                                 // update view
                         }
