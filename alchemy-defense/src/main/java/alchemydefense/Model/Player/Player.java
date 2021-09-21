@@ -38,11 +38,21 @@ public class Player {
 
     public void decreaseOneHp() { setHp(health-1); }
 
+    public boolean pay(int amount) {
+        if(canAfford(amount)) {
+            setGold(gold-amount);
+            return true;
+        }
+        return false;
+    }
+
+    private boolean canAfford(int amount) { return gold > amount; }
+
     public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
 
     public int getGold() { return gold; }
 
-    public void setGold(int gold) {
+    private void setGold(int gold) {
         Player.gold = gold;
         for(PlayerEventListener pel : listeners) {
             pel.goldAmountChanged(gold);
@@ -51,7 +61,7 @@ public class Player {
 
     public int getHp() { return health; }
 
-    public void setHp(int hp) {
+    private void setHp(int hp) {
         Player.health = hp;
         for(PlayerEventListener pel : listeners) {
             pel.heathAmountChanged(hp);
