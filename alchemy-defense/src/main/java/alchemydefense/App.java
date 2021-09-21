@@ -21,6 +21,7 @@ import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.LinkedList;
+import java.util.concurrent.TimeUnit;
 
 /**
  * JavaFX App
@@ -187,15 +188,21 @@ public class App extends Application {
 
                 timer = new AnimationTimer() {
 
-
-                    private long lastUpdate = 0 ;
                     @Override
                     public void handle(long now) {
-                        if (now - lastUpdate >= 1000000000L) {
+
+
+
                             updateTileFoe();
-                            lastUpdate = now ;
+                        try {
+                            Thread.sleep(100); //Scuffed
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
                         }
+
+
                     }
+
                 };
                 timer.start();
         }
@@ -203,28 +210,24 @@ public class App extends Application {
         private void updateTile(int x, int y) {
                 TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
                 tile.setImage("blue-crystal.png");
+
         }
 
-        private void updateTileFoe() {
+        private void updateTileFoe()  {
 
 
-            while (!TestFoe.getCellPosition().equals(new Point(11, 2))) {
-                System.out.println(TestFoe.getCellPosition().x);
-                System.out.println(TestFoe.getCellPosition().y);
 
-              //  TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
-              //  tile2.setImage("available-path.png");
+
+               TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
+               tile2.ClearImage();
+
                 TestFoe.update(); // Redundant
                 TestFoe.move();
 
-
-
-                System.out.println(TestFoe.getCellPosition().x);
-
-                System.out.println(TestFoe.getCellPosition().y);
                 TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
                 tile.setImage("foe.png");
-            }
+
+
         }
 
         public static void main(String[] args) {

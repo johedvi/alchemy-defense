@@ -23,6 +23,10 @@ public class TileView extends Rectangle {
         this.setFill(new ImagePattern(img));
     }
 
+    public void ClearImage() {
+        this.setFill(Color.TRANSPARENT);
+    }
+
     public String getImageFilePath() {
         return imageFilePath;
     }
