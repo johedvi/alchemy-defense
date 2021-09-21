@@ -23,7 +23,7 @@ public class RedTower extends Tower {
     private static int RedTowerWidth = 100;
     private static int RedTowerRange = 100;
 
-    FileInputStream inputstream = new FileInputStream("C:\\images\\image.jpg");
+    FileInputStream inputstream = new FileInputStream("C:\\images\\image.jpg"); //Ta bort från modellen? Knyter ju an till JavaFX -- Felix
 
     public RedTower() throws FileNotFoundException {
         super();
