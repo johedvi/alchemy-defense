@@ -1,10 +1,7 @@
 package alchemydefense;
 
 import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.FoeFactory;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Towers.Tower;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -18,10 +15,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.awt.*;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.LinkedList;
-import java.util.concurrent.TimeUnit;
+
 
 /**
  * JavaFX App
@@ -188,21 +183,14 @@ public class App extends Application {
 
                 timer = new AnimationTimer() {
 
+                    private long lastUpdate = 0 ;
                     @Override
                     public void handle(long now) {
-
-
-
+                        if (now - lastUpdate >= 100_000_0000) {
                             updateTileFoe();
-                        try {
-                            Thread.sleep(100); //Scuffed
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
+                            lastUpdate = now ;
                         }
-
-
                     }
-
                 };
                 timer.start();
         }
@@ -215,13 +203,10 @@ public class App extends Application {
 
         private void updateTileFoe()  {
 
-
-
-
                TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
                tile2.ClearImage();
 
-                TestFoe.update(); // Redundant
+                TestFoe.update(); // Prob unnecessary
                 TestFoe.move();
 
                 TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
