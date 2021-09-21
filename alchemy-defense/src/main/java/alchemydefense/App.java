@@ -1,5 +1,8 @@
 package alchemydefense;
 
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.FoeFactory;
+import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -12,6 +15,8 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.awt.*;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -30,6 +35,8 @@ public class App extends Application {
         private boolean isHoldingTower = false;
 
         Pane boardPane;
+        private ConcreteFoe TestFoe;
+
 
         @Override
         public void start(Stage stage) throws IOException {
@@ -44,6 +51,8 @@ public class App extends Application {
                 root.getChildren().add(testTower);
                 testTower.setVisible(false);
 
+
+
                 boardPane = setupBoardPane();
                 Pane userInterfacePane = setupUserInterfacePane();
                 setupMouseEventHandling(root);
@@ -55,6 +64,7 @@ public class App extends Application {
 
                 gameUpdate();
         }
+
 
         private void setupAppWindow(Stage stage, Scene scene) {
                 Image appIcon = new Image("/app-icon.png");
@@ -97,6 +107,7 @@ public class App extends Application {
                 });
         }
 
+
         private Pane setupUserInterfacePane() {
                 Pane userInterfacePane = new Pane();
                 userInterfacePane.setPrefSize(SCENE_WIDTH, UNIT_IN_PIXELS * 2);
@@ -118,10 +129,25 @@ public class App extends Application {
                 button2.setMaxSize(100, 200);
                 button2.setLayoutX(SCENE_WIDTH / 2 + 50);
                 button2.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
+                button2.setOnAction(actionEvent ->  {
+                        try {
+                                createFoe();
+                        } catch (FileNotFoundException e) {
+                                e.printStackTrace();
+                        }
+                });
 
                 userInterfacePane.getChildren().add(button2);
 
                 return userInterfacePane;
+        }
+
+        private void createFoe() throws FileNotFoundException {
+                System.out.println("hej");
+                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(3,3)), 1);
+
+
+
         }
 
         private Pane setupBoardPane() {

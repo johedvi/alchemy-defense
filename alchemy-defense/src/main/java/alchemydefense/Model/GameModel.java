@@ -10,6 +10,7 @@ import alchemydefense.Model.Wave.Wave;
 
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +41,7 @@ public class GameModel {
         return null;
     }
 
-    public void startNewWave(int boardHeight, PathFinder pathFinder) {
+    public void startNewWave(int boardHeight, PathFinder pathFinder) throws FileNotFoundException {
         Wave wave = new Wave();
         activeFoes = wave.createFoes(boardHeight, pathFinder);
     }

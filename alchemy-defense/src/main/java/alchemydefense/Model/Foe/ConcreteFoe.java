@@ -3,8 +3,11 @@ package alchemydefense.Model.Foe;
 import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Interfaces.Foe;
+import javafx.scene.image.Image;
 
 import java.awt.*;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.LinkedList;
 
 /**
@@ -33,8 +36,10 @@ public class ConcreteFoe implements BoardObject, Foe {
     private final PathFinder pathFinder;
     private LinkedList<Point> path;
     private final int ID;
+    Image image;
+    FileInputStream inputstream = new FileInputStream("C:\\Users\\Johan\\Desktop\\Skolan\\Läsår 2\\TDA367\\alchemy-defense\\alchemy-defense\\src\\main\\resources\\images\\foe.png");
 
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id) {
+    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id) throws FileNotFoundException {
         int randomHeight = (int) (Math.random() * boardHeight);
         setCellPosition(new Point(0, randomHeight));
 
@@ -42,6 +47,7 @@ public class ConcreteFoe implements BoardObject, Foe {
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
         this.ID = id;
+        image = new Image(inputstream);
     }
 
     /**

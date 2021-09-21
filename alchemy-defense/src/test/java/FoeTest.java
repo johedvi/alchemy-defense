@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 
 /**
  * @author Willem Brahmstaedt
@@ -19,7 +20,7 @@ public class FoeTest {
     static final int maxHP = 100;
 
     @BeforeAll
-    public static void beforeTestMethod() {
+    public static void beforeTestMethod() throws FileNotFoundException {
         boardHeight = 200;
         foe = new ConcreteFoe(boardHeight, new DumbPathfinder(new Point(0,0)), 10);
     }
