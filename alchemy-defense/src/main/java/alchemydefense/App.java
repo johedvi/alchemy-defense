@@ -1,10 +1,12 @@
 package alchemydefense;
 
+import alchemydefense.Model.Player.Player;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
@@ -110,6 +112,7 @@ public class App extends Application {
 
                 });
                 userInterfacePane.getChildren().add(button);
+                userInterfacePane.getChildren().add(new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS));
 
                 return userInterfacePane;
         }
