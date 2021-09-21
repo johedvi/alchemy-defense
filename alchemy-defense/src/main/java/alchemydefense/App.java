@@ -3,6 +3,8 @@ package alchemydefense;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.FoeFactory;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
+import alchemydefense.Model.Foe.Pathfinding.PathFinder;
+import alchemydefense.Model.Towers.Tower;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -18,6 +20,7 @@ import javafx.stage.Stage;
 import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.util.LinkedList;
 
 /**
  * JavaFX App
@@ -38,7 +41,8 @@ public class App extends Application {
         private ConcreteFoe TestFoe;
 
 
-        @Override
+
+    @Override
         public void start(Stage stage) throws IOException {
                 Group root = new Group();
                 Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
@@ -53,6 +57,7 @@ public class App extends Application {
 
 
                 TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)), 1);
+
 
                 boardPane = setupBoardPane();
                 Pane userInterfacePane = setupUserInterfacePane();
@@ -149,13 +154,14 @@ public class App extends Application {
         private void createFoe() {
 
                 if (!createdFoe) {
-                        TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x);
+                        TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x+TestFoe.getCellPosition().y);
                         tile.setImage("foe.png");
                         createdFoe = true;
+                        System.out.println(TestFoe.getCellPosition().x);
+                    System.out.println(TestFoe.getCellPosition().y);
                 }
 
         }
-
 
 
         private Pane setupBoardPane() {
@@ -181,18 +187,15 @@ public class App extends Application {
 
                 timer = new AnimationTimer() {
 
-                        @Override
-                        public void handle(long l) {
 
+                    private long lastUpdate = 0 ;
+                    @Override
+                    public void handle(long now) {
+                        if (now - lastUpdate >= 1000000000L) {
                             updateTileFoe();
-
-
-
-
-                                // input
-                                // pull model
-                                // update view
+                            lastUpdate = now ;
                         }
+                    }
                 };
                 timer.start();
         }
@@ -203,11 +206,21 @@ public class App extends Application {
         }
 
         private void updateTileFoe() {
+
+
             while (!TestFoe.getCellPosition().equals(new Point(11, 2))) {
-                TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x * 5 + TestFoe.getCellPosition().y);
+                System.out.println(TestFoe.getCellPosition().x);
+                System.out.println(TestFoe.getCellPosition().y);
+                TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
                 tile2.setImage("available-path.png");
+                TestFoe.update();
                 TestFoe.move();
-                TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x * 5 + TestFoe.getCellPosition().y);
+
+
+                System.out.println(TestFoe.getCellPosition().x);
+
+                System.out.println(TestFoe.getCellPosition().y);
+                TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
                 tile.setImage("foe.png");
             }
         }
