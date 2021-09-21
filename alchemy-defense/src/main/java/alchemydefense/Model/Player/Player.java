@@ -1,6 +1,8 @@
 package alchemydefense.Model.Player;
 
 
+import java.util.ArrayList;
+
 /**
  * @author Valdemar Stenhammar
  *
@@ -11,6 +13,8 @@ package alchemydefense.Model.Player;
  */
 
 public class Player {
+
+    private final ArrayList<PlayerEventListener> listeners = new ArrayList<>();
 
     private static final int GOLD_STARTING_VALUE = 100;
     private static final int HP_STARTING_VALUE = 100;
@@ -34,12 +38,24 @@ public class Player {
 
     public void decreaseOneHp() { setHp(health-1); }
 
+    public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
+
     public int getGold() { return gold; }
 
-    public void setGold(int gold) { Player.gold = gold; }
+    public void setGold(int gold) {
+        Player.gold = gold;
+        for(PlayerEventListener pel : listeners) {
+            pel.goldAmountChanged(gold);
+        }
+    }
 
     public int getHp() { return health; }
 
-    public void setHp(int hp) { Player.health = hp; }
+    public void setHp(int hp) {
+        Player.health = hp;
+        for(PlayerEventListener pel : listeners) {
+            pel.heathAmountChanged(hp);
+        }
+    }
 
 }

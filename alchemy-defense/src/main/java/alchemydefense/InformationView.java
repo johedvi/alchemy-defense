@@ -1,10 +1,11 @@
 package alchemydefense;
 
 import alchemydefense.Model.Player.Player;
+import alchemydefense.Model.Player.PlayerEventListener;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
-public class InformationView extends Pane {
+public class InformationView extends Pane implements PlayerEventListener {
 
     private final Label goldAmount;
 
@@ -22,7 +23,14 @@ public class InformationView extends Pane {
 
         this.getChildren().add(goldAmount);
 
+        Player.getPlayer().addPlayerEventListener(this);
     }
 
-    public void updateGold(int newValue) { goldAmount.setText("Gold: " + newValue); }
+    @Override
+    public void goldAmountChanged(int newValue) { goldAmount.setText("Gold: " + newValue); }
+
+    @Override
+    public void heathAmountChanged(int newValue) {
+
+    }
 }
