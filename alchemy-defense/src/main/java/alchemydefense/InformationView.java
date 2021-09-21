@@ -8,6 +8,7 @@ import javafx.scene.layout.Pane;
 public class InformationView extends Pane implements PlayerEventListener {
 
     private final Label goldAmount;
+    private final Label healthAmount;
 
     public InformationView(int SCENE_WIDTH, int UNIT_IN_PIXELS) {
 
@@ -20,8 +21,13 @@ public class InformationView extends Pane implements PlayerEventListener {
         this.goldAmount.setText("Gold: " + Player.getPlayer().getGold());
         this.goldAmount.setLayoutX(10);
         this.goldAmount.setLayoutY(10);
-
         this.getChildren().add(goldAmount);
+
+        this.healthAmount = new Label();
+        this.healthAmount.setText("Health: " + Player.getPlayer().getHp());
+        this.healthAmount.setLayoutX(10);
+        this.healthAmount.setLayoutY(30);
+        this.getChildren().add(healthAmount);
 
         Player.getPlayer().addPlayerEventListener(this);
     }
@@ -30,7 +36,5 @@ public class InformationView extends Pane implements PlayerEventListener {
     public void goldAmountChanged(int newValue) { goldAmount.setText("Gold: " + newValue); }
 
     @Override
-    public void heathAmountChanged(int newValue) {
-
-    }
+    public void heathAmountChanged(int newValue) { healthAmount.setText("Health: " + newValue);}
 }

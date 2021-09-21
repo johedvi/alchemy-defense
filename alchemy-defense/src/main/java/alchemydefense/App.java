@@ -112,6 +112,27 @@ public class App extends Application {
 
                 });
                 userInterfacePane.getChildren().add(button);
+
+                Button damageButton = new Button("Take damage");
+                damageButton.setMaxSize(100, 200);
+                damageButton.setLayoutX(SCENE_WIDTH / 2 - 50);
+                damageButton.setLayoutY(75);
+                damageButton.setOnMouseClicked(e -> {
+                        Player.getPlayer().decreaseOneHp();
+
+                });
+                userInterfacePane.getChildren().add(damageButton);
+
+                Button payButton = new Button("Pay");
+                payButton.setMaxSize(100, 200);
+                payButton.setLayoutX(425);
+                payButton.setLayoutY(75);
+                payButton.setOnMouseClicked(e -> {
+                        Player.getPlayer().pay(2);
+
+                });
+                userInterfacePane.getChildren().add(payButton);
+
                 userInterfacePane.getChildren().add(new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS));
 
                 return userInterfacePane;
