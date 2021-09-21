@@ -114,6 +114,13 @@ public class App extends Application {
                 });
                 userInterfacePane.getChildren().add(button);
 
+                Button button2 = new Button("Play Button");
+                button2.setMaxSize(100, 200);
+                button2.setLayoutX(SCENE_WIDTH / 2 + 50);
+                button2.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
+
+                userInterfacePane.getChildren().add(button2);
+
                 return userInterfacePane;
         }
 
