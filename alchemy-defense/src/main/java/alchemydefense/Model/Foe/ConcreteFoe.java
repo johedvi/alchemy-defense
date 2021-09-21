@@ -36,18 +36,17 @@ public class ConcreteFoe implements BoardObject, Foe {
     private final PathFinder pathFinder;
     private LinkedList<Point> path;
     private final int ID;
-    Image image;
-    FileInputStream inputstream = new FileInputStream("C:\\Users\\Johan\\Desktop\\Skolan\\Läsår 2\\TDA367\\alchemy-defense\\alchemy-defense\\src\\main\\resources\\images\\foe.png");
 
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id) throws FileNotFoundException {
-        int randomHeight = (int) (Math.random() * boardHeight);
-        setCellPosition(new Point(0, randomHeight));
+    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id){
+       // int randomHeight = (int) (Math.random() * boardHeight);
+        int randomHeight = (int)(Math.random() * 5);
+        setCellPosition(new Point(randomHeight, 0));
 
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
         this.ID = id;
-        image = new Image(inputstream);
+
     }
 
     /**

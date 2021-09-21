@@ -130,10 +130,10 @@ public class App extends Application {
                 button2.setLayoutX(SCENE_WIDTH / 2 + 50);
                 button2.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
                 button2.setOnAction(actionEvent ->  {
-                        try {
+
                                 createFoe();
-                        } catch (FileNotFoundException e) {
-                                e.printStackTrace();
+                         {
+
                         }
                 });
 
@@ -142,12 +142,17 @@ public class App extends Application {
                 return userInterfacePane;
         }
 
-        private void createFoe() throws FileNotFoundException {
-                System.out.println("hej");
-                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(3,3)), 1);
 
+        private void createFoe() {
+                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)), 1);
+                TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x);
+                tile.setImage("foe.png");
 
+        }
 
+        private void MoveTestFoe() {
+                TileView tile = (TileView) boardPane.getChildren().get(8);
+                tile.setImage("foe.png");
         }
 
         private Pane setupBoardPane() {
@@ -170,9 +175,15 @@ public class App extends Application {
         }
 
         private void gameUpdate() {
+
                 timer = new AnimationTimer() {
                         @Override
                         public void handle(long l) {
+                                //MoveTestFoe();
+
+
+
+
                                 // input
                                 // pull model
                                 // update view
@@ -182,6 +193,11 @@ public class App extends Application {
         }
         private void updateTile(int x, int y) {
                 TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
+                tile.setImage("blue-crystal.png");
+        }
+
+        private void updateTile2(Point point) {
+                TileView tile = (TileView) boardPane.getChildren().get(point.x * 5 + point.y);
                 tile.setImage("blue-crystal.png");
         }
 
