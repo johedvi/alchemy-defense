@@ -40,7 +40,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id){
        // int randomHeight = (int) (Math.random() * boardHeight);
         int randomHeight = (int)(Math.random() * 5);
-        setCellPosition(new Point(randomHeight, 0));
+        setCellPosition(new Point(0, randomHeight));
 
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());

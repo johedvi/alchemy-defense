@@ -211,10 +211,12 @@ public class App extends Application {
             while (!TestFoe.getCellPosition().equals(new Point(11, 2))) {
                 System.out.println(TestFoe.getCellPosition().x);
                 System.out.println(TestFoe.getCellPosition().y);
-                TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
-                tile2.setImage("available-path.png");
-                TestFoe.update();
+
+              //  TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
+              //  tile2.setImage("available-path.png");
+                TestFoe.update(); // Redundant
                 TestFoe.move();
+
 
 
                 System.out.println(TestFoe.getCellPosition().x);
