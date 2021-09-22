@@ -19,6 +19,8 @@ public class GameModel {
 
     private List<ConcreteFoe> activeFoes = new ArrayList<>();
 
+    //TODO: write update method. Moves all foes and makes them take damage, call on placeObjects() in the end
+
     public GameModel(){
         concreteBoard = new ConcreteBoard();
     }
