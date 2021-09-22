@@ -153,8 +153,6 @@ public class App extends Application {
                         TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x+TestFoe.getCellPosition().y);
                         tile.setImage("foe.png");
                         createdFoe = true;
-                        System.out.println(TestFoe.getCellPosition().x);
-                    System.out.println(TestFoe.getCellPosition().y);
                 }
 
         }
@@ -186,7 +184,7 @@ public class App extends Application {
                     private long lastUpdate = 0 ;
                     @Override
                     public void handle(long now) {
-                        if (now - lastUpdate >= 100_000_0000) {
+                        if (now - lastUpdate >= 100_000_000) {
                             updateTileFoe();
                             lastUpdate = now ;
                         }
