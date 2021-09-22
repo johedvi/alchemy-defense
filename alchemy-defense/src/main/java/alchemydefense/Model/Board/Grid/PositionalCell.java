@@ -16,6 +16,7 @@ public class PositionalCell {
     private BoardObject boardObject;
     private Tower tower;
 
+
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
         worldPosition = convertCellPositionToWorld(cellCoordinate);
@@ -31,16 +32,16 @@ public class PositionalCell {
         this.boardObject = boardObject;
     }
 
+    public Point getCellCoordinate(){
+        return cellCoordinate;
+    }
+
     public BoardObject getBoardObject(){
         return boardObject;
     }
 
     public Tower getTower(){
         return tower;
-    }
-
-    public Point getCellWorldPosition(){
-        return worldPosition;
     }
 
     public void insertTower(Tower tower){
@@ -68,8 +69,8 @@ public class PositionalCell {
         return new Point(cellWorldWidth * cellCoordinate.x, cellWorldHeight * cellCoordinate.y);
     }
 
-    public List<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
-        List<PositionalCell> cellsInRange = new ArrayList<>();
+    public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
+        ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;

@@ -21,12 +21,28 @@ public class ConcreteBoard implements Board {
 
     private final HashMap<ConcreteFoe, LinkedList<Point>> paths = new HashMap<>();
 
+    private ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
+
     private final static Player player = Player.getPlayer();
 
     PositionalGrid positionalGrid;
     public final int width = 10;
     public final int height = 5;
 
+    public void damageMethod(){
+        Point closestEnemy = new Point(99999,99999);
+        for(PositionalCell cell : cellsWithTowers){
+            ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
+            for(PositionalCell cellInRange : cellsInRange){
+                /*
+                if(){         //BEHÖVER EGEN VEKTOR GREJ
+
+                }
+
+                 */
+            }
+        }
+    }
 
     public ConcreteBoard(){
         positionalGrid = new PositionalGrid(width, height);
@@ -102,5 +118,6 @@ public class ConcreteBoard implements Board {
 
     public void placeTower(Tower tower, Point towerPosition) {
         positionalGrid.addTower(tower, towerPosition);
+        cellsWithTowers.add(positionalGrid.getCell(towerPosition));
     }
 }
