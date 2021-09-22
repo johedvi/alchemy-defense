@@ -16,6 +16,7 @@ import java.awt.*;
 
 public abstract class Tower implements BoardObject {
 
+    protected String filePath;
 
     Point worldPosition;
     Point cellPosition;
@@ -54,6 +55,11 @@ public abstract class Tower implements BoardObject {
 
     public void update() {
         //TODO
+    }
+
+    @Override
+    public String getImageFilePath() {
+        return filePath;
     }
 
 }
