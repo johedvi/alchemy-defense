@@ -45,8 +45,6 @@ public class ConcreteFoe implements BoardObject, Foe {
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
-
-
     }
 
     /**
