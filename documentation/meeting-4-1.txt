@@ -1,0 +1,26 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 20/09/2021
+	Chair: Valdemar Stenhammar
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Merge everything together and resolve any possible conflicts.
+  - We need to connect Travis.
+
+3. Reports.
+	- Valdemar has created an information view to the gui that displays the player status and added temporary buttons to update the player status.
+  - Willem has reformatted towers and created a better structure and made it possible to place a tower on the board.
+  - Johan has made it possible to spawn a foe and move it across the board.
+  - Felix has fixed some issues with the rendering and also started working on a solution on how the towers should deal damage.
+
+4. Discussion items.
+	- Structure of Model View Controller
+  - How should the model and view be connected.
+
+5. Outcomes and assignments.
+  - The model should be updated via listeners of the model according to the observer pattern.
+  - We now have a runnable version that can spawn a foe, place tower and update the player status.
+
+6. Wrap up.
+	- Some JUnit tests now fail after merging.
