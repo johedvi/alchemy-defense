@@ -8,5 +8,5 @@ public interface Board {
     public void removeBoardObject(Point cellCoordinate);
     int getBoardWidth();
     int getBoardHeight();
-
+    void updateFoes();
 }

@@ -53,6 +53,11 @@ public class ConcreteBoard implements Board {
         return height;
     }
 
+    @Override
+    public void updateFoes() {
+        //TODO: Make foes move and then take damage
+    }
+
     public void calculatePath(ConcreteFoe foe) {
         //LinkedList<Point> path = pathfinder.calculatePath(null, positionalGrid.getPos(foe));
         //paths.put(foe, path);
