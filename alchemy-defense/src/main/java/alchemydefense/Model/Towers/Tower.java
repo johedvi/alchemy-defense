@@ -10,15 +10,12 @@ import java.awt.*;
  * A class for an abstract tower. Concrete towers extends this class. Handles
  * all the shared logic of towers. Implements BoardObject.
  *
- *
+ *----- Modified ------
+ * Date 09-19, By Willem; Removed position attributes and methods associated with them
  *
  */
 
 public abstract class Tower implements BoardObject {
-
-
-    Point worldPosition;
-    Point cellPosition;
 
     int width;
     int height;
@@ -32,25 +29,10 @@ public abstract class Tower implements BoardObject {
     }
 
 
-    public Tower(Point cellPosition) {
-        this.cellPosition = cellPosition;
+    public Tower() {
     }
 
 
-    @Override
-    public Point getWorldPosition() {
-        return worldPosition;
-    }
-
-    @Override
-    public Point getCellPosition() {
-        return cellPosition;
-    }
-
-    @Override
-    public void setCellPosition(Point cell) {
-        cellPosition = cell;
-    }
 
     public void update() {
         //TODO

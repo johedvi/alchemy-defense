@@ -18,8 +18,6 @@ public class PositionalCell {
     public void insert(BoardObject boardObject) {
         isOccupied = true;
         this.boardObject = boardObject;
-        this.boardObject.setCellPosition(cellCoordinate);
-        this.boardObject.setWorldPosition(worldPosition);
     }
 
     public BoardObject getBoardObject(){

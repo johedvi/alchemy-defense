@@ -5,14 +5,25 @@ import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Model.Wave.Wave;
+import java.io.FileNotFoundException;
 
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ *
+ *
+ *
+ *----- Modified -----
+ * Date 09-19, By: Willem; Changed tower creation methods. Now towers no longer know their position.
+ *
+ */
 public class GameModel {
     Board concreteBoard;
 
@@ -23,8 +34,13 @@ public class GameModel {
     }
 
     public void placeTowerInCell(Tower.TowerType towerType, Point point) {
-        Tower tower = createTower();
-        concreteBoard.placeBoardObject(tower, point);
+        try {
+            Tower tower = createTower(towerType, point);
+            concreteBoard.placeBoardObject(tower, point);
+        }
+        catch (Exception e){
+            System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
+        }
     }
 
     public BoardObject getBoardObjectInCell(Point point){
@@ -35,9 +51,8 @@ public class GameModel {
         concreteBoard.removeBoardObject(point);
     }
 
-    private Tower createTower(){
-        //TODO
-        return null;
+    private Tower createTower(Tower.TowerType towerType, Point point) throws IllegalArgumentException, FileNotFoundException {
+        return TowerFactory.createTower(towerType);
     }
 
     public void startNewWave(int boardHeight, PathFinder pathFinder) {

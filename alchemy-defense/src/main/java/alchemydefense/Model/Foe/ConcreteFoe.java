@@ -14,12 +14,13 @@ import java.util.LinkedList;
  *
  * Date: 2021-09-14
  *
- * --- Modified ---
+ * ----- Modified -----
+ * Date: 09-19, By Willem; Removed @Override for methods originally from BoardObject
+ *
  * Added attribute int ID.
  * Valdemar Stenhammar
  * Date: 2021-09-17
  *
- * --- Modified ---
  * Changed method takeDamage to void and added method boolean isAlive instead.
  * Valdemar Stenhammar
  * Date: 2021-09-20
@@ -32,52 +33,44 @@ public class ConcreteFoe implements BoardObject, Foe {
     private Point cellPosition;
     private final PathFinder pathFinder;
     private LinkedList<Point> path;
-    private final int ID;
 
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id) {
+    public ConcreteFoe(int boardHeight, PathFinder pathFinder) {
         int randomHeight = (int) (Math.random() * boardHeight);
         setCellPosition(new Point(0, randomHeight));
 
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
-        this.ID = id;
     }
 
     /**
      * Calculates damage taken
-     * @param damageCount Represents how much damage that shall be taken.
+     * @param damageCount Represents how much damage that shall be taken
+     * @return True if the foe survives, false otherwise
      */
 
     @Override
     public void takeDamage(int damageCount) {
         setCurrentHP(getCurrentHP() - damageCount);
+
     }
 
-    @Override
-    public boolean isAlive() { return this.currentHP > 0; }
-
-    @Override
     public Point getWorldPosition() {
         return worldPosition;
     }
 
-    @Override
     public Point getCellPosition() {
         return cellPosition;
     }
 
-    @Override
     public void setCellPosition(Point cell) {
         this.cellPosition = cell;
     }
 
-    @Override
     public void setWorldPosition(Point cell) {
         //TODO
     }
 
-    @Override
     public void update() {
         path = pathFinder.calculatePath(null, getCellPosition());
     }
@@ -98,9 +91,12 @@ public class ConcreteFoe implements BoardObject, Foe {
     }
 
     @Override
+    public boolean isAlive() {
+        return getCurrentHP() > 0;
+    }
+
+    @Override
     public void move() {
         setCellPosition(path.removeFirst());
     }
-
-    public int getID() { return this.ID; }
 }
