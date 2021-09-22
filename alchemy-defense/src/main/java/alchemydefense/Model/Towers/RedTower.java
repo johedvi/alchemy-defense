@@ -17,7 +17,6 @@ import java.io.FileNotFoundException;
 public class RedTower extends Tower {
 
     TowerType Type;
-    Image image;
 
     private static int RedTowerHeight = 100;
     private static int RedTowerWidth = 100;
@@ -26,7 +25,6 @@ public class RedTower extends Tower {
         public RedTower(Point cellPosition) throws FileNotFoundException {
         super(cellPosition);
         Type = TowerType.RED;
-        image = new Image(inputstream);
         this.height = RedTowerHeight;
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
