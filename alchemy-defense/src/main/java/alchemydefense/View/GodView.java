@@ -1,5 +1,6 @@
 package alchemydefense.View;
 
+import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Interfaces.Board;
@@ -33,8 +34,12 @@ public class GodView extends AnchorPane implements BoardListener {
     Pane boardPane;
     private ConcreteFoe TestFoe;
 
+    private final TowerController towerController;
 
-    public GodView(Group root) {
+
+    public GodView(Group root, TowerController towerController) {
+        this.towerController = towerController;
+
         //TEMPORARY CODE
         testTower = new ImageView(new Image("/blue-crystal.png"));
         testTower.setFitHeight(UNIT_IN_PIXELS);
@@ -76,7 +81,7 @@ public class GodView extends AnchorPane implements BoardListener {
                 if(x<12 && y <5){
                     System.out.println("Mouse clicked on cell: (" + x + ", " + y + ").");
                     if(isHoldingTower){
-                        //TODO: call on controller to place tower
+                        towerController.createTower(x,y);
                         System.out.println("Tried to place tower at cell.");
                     }
                 }
@@ -105,7 +110,7 @@ public class GodView extends AnchorPane implements BoardListener {
         button.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
         button.setOnMouseClicked(e -> {
             isHoldingTower = true;
-            //TODO: call on controller to update selected tower
+            towerController.setRedTowerActive();
         });
         userInterfacePane.getChildren().add(button);
 
