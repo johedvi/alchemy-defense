@@ -1,0 +1,32 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 17/9/2021
+	Chair: Johan Linden
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Switch fron libGDX to javaFX since we are more familiar with javaFX.
+
+	- Switch from Gradle back to Maven for the same reason. 
+
+	- Assign each member a code responsibility over the weekend.
+
+
+3. Reports.
+	- Since last meeting took place we have created a domain-model and a class-model in the form of uml-diagrams.
+	- Created all the basic classes we need to have in our program, eg tower, foe, grid, board..
+	- Issues with rendering in libGDX.
+	
+
+4. Discussion items.
+	- Decide wether we want to continue with libGDX or switch to javaFX.
+        - Create a runnable version with one tower and one foe.
+
+5. Outcomes and assignments.
+	- The meeting was mostly about creating a new repo and getting everything to work with maven and javaFX.
+	- Over the weekend Valdemar was tasked with adding new buttons to the UI, Willem was tasked with refactoring towers, 
+          Johan and Felix were tasked with fixing the rendering in javaFX.
+        - 
+
+6. Wrap up.
+	Merge everything together on monday and create a runnable version. 
