@@ -23,15 +23,14 @@ public class RedTower extends Tower {
     private static int RedTowerWidth = 100;
     private static int RedTowerRange = 100;
 
-    FileInputStream inputstream = new FileInputStream("C:\\images\\image.jpg");
-
-    public RedTower(Point cellPosition) throws FileNotFoundException {
+        public RedTower(Point cellPosition) throws FileNotFoundException {
         super(cellPosition);
         Type = TowerType.RED;
         image = new Image(inputstream);
         this.height = RedTowerHeight;
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
+        this.filePath = "images/red-crystal.png";
     }
 
 
