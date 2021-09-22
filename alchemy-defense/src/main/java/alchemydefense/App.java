@@ -1,7 +1,9 @@
 package alchemydefense;
 
+import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
+import alchemydefense.Model.GameModel;
 import alchemydefense.View.GodView;
 import alchemydefense.View.TileView;
 import javafx.animation.AnimationTimer;
@@ -48,8 +50,8 @@ public class App extends Application {
                 setupAppWindow(stage, scene);
 
 
-
-                view = new GodView(root);
+                GameModel model = new GameModel();
+                view = new GodView(root, new TowerController(model));
 
 
                 stage.show();
