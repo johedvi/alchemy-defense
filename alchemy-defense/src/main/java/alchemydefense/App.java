@@ -1,5 +1,7 @@
 package alchemydefense;
 
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Player.Player;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -14,13 +16,15 @@ import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
+import java.awt.*;
 import java.io.IOException;
+
 
 /**
  * JavaFX App
  */
 public class App extends Application {
-        //private static Scene scene;
+        private static Scene scene;
         private static final int SCENE_WIDTH = 768;
         private static final int SCENE_HEIGHT = 448;
         private static final int UNIT_IN_PIXELS = 64;
@@ -31,9 +35,12 @@ public class App extends Application {
         private ImageView testTower;
         private boolean isHoldingTower = false;
 
+        Pane boardPane;
+        private ConcreteFoe TestFoe;
 
 
-        @Override
+
+    @Override
         public void start(Stage stage) throws IOException {
                 Group root = new Group();
                 Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
@@ -46,17 +53,23 @@ public class App extends Application {
                 root.getChildren().add(testTower);
                 testTower.setVisible(false);
 
-                Pane boardPane = setupBoardPane();
+
+                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)), 1);
+
+
+                boardPane = setupBoardPane();
                 Pane userInterfacePane = setupUserInterfacePane();
                 setupMouseEventHandling(root);
 
                 root.getChildren().add(userInterfacePane);
                 root.getChildren().add(boardPane);
 
+                createFoe();
+
                 stage.show();
 
-                gameUpdate();
         }
+
 
         private void setupAppWindow(Stage stage, Scene scene) {
                 Image appIcon = new Image("/app-icon.png");
@@ -84,6 +97,7 @@ public class App extends Application {
                                 if(x<12 && y <5){
                                         System.out.println("Mouse clicked on cell: (" + x + ", " + y + ").");
                                         if(isHoldingTower){
+                                                updateTile(x,y);
                                                 System.out.println("Tried to place tower at cell.");
                                         }
                                 }
@@ -98,6 +112,7 @@ public class App extends Application {
                 });
         }
 
+
         private Pane setupUserInterfacePane() {
                 Pane userInterfacePane = new Pane();
                 userInterfacePane.setPrefSize(SCENE_WIDTH, UNIT_IN_PIXELS * 2);
@@ -111,8 +126,23 @@ public class App extends Application {
                 button.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
                 button.setOnMouseClicked(e -> {
                         isHoldingTower = true;
+
                 });
                 userInterfacePane.getChildren().add(button);
+
+                Button button2 = new Button("Play Button");
+                button2.setMaxSize(100, 200);
+                button2.setLayoutX(SCENE_WIDTH / 2 + 50);
+                button2.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
+                button2.setOnAction(actionEvent ->  {
+
+                                gameUpdate();
+                         {
+
+                        }
+                });
+
+                userInterfacePane.getChildren().add(button2);
 
                 Button damageButton = new Button("Take damage");
                 damageButton.setMaxSize(100, 200);
@@ -139,6 +169,19 @@ public class App extends Application {
                 return userInterfacePane;
         }
 
+        boolean createdFoe = false;
+
+        private void createFoe() {
+
+                if (!createdFoe) {
+                        TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x+TestFoe.getCellPosition().y);
+                        tile.setImage("foe.png");
+                        createdFoe = true;
+                }
+
+        }
+
+
         private Pane setupBoardPane() {
                 Pane boardPane = new Pane();
                 boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
@@ -150,19 +193,48 @@ public class App extends Application {
                                 boardPane.getChildren().add(tileView);
                         }
                 }
+
+                String image = "tmp-background.png";
+                boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
+                        "-fx-background-position: center center; " +
+                        "-fx-background-repeat: stretch;");
                 return boardPane;
         }
 
         private void gameUpdate() {
+
                 timer = new AnimationTimer() {
-                        @Override
-                        public void handle(long l) {
-                                // inputProcessing
-                                // pull model
-                                // update view
+
+                    private long lastUpdate = 0 ;
+                    @Override
+                    public void handle(long now) {
+                        if (now - lastUpdate >= 100_000_000) {
+                            updateTileFoe();
+                            lastUpdate = now ;
                         }
+                    }
                 };
                 timer.start();
+        }
+
+        private void updateTile(int x, int y) {
+                TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
+                tile.setImage("blue-crystal.png");
+
+        }
+
+        private void updateTileFoe()  {
+
+               TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
+               tile2.ClearImage();
+
+                TestFoe.update(); // Prob unnecessary
+                TestFoe.move();
+
+                TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
+                tile.setImage("foe.png");
+
+
         }
 
         public static void main(String[] args) {
