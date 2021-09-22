@@ -2,6 +2,7 @@ package alchemydefense.Model.Board.Grid;
 
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Interfaces.Foe;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.Point;
@@ -15,11 +16,20 @@ public class PositionalCell {
     private boolean isOccupied = false;
     private BoardObject boardObject;
     private Tower tower;
+    private Foe foe;
 
 
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
         worldPosition = convertCellPositionToWorld(cellCoordinate);
+    }
+
+    public boolean hasFoe(){
+        return (foe != null);
+    }
+
+    public Foe getFoe(){
+        return foe;
     }
 
     public PositionalCell(Point point){

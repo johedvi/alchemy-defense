@@ -32,19 +32,7 @@ public class DamageTest {
     }
 
     @Test
-    public void returnAllCellsWithinRangeTest(){
-        Point towerPosition = new Point(4,2); //Middle
-        Point foePosition = new Point(4,3);
-        //board.placeBoardObject(foe, foePosition);
-        board.placeTower(tower, towerPosition);
-        PositionalCell testCell = board.getCell(towerPosition);
-        System.out.println(testCell.getTower());
-        for(PositionalCell t : testCell.getPositionalCellsWithinRange(board)){
-            String s = t.toString();
-            System.out.println(s);
-        }
-
-
+    public void testDamage(){
     }
 
 }

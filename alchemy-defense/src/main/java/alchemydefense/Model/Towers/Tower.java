@@ -20,9 +20,14 @@ public abstract class Tower implements BoardObject {
     int width;
     int height;
     int range;
+    int damage;
 
     public int getRange(){
         return range;
+    }
+
+    public int getDamage() {
+        return damage;
     }
 
     public enum TowerType {

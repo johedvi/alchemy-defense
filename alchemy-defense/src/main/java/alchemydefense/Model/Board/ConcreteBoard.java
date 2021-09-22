@@ -6,6 +6,7 @@ import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Interfaces.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.Tower;
 
@@ -30,16 +31,13 @@ public class ConcreteBoard implements Board {
     public final int height = 5;
 
     public void damageMethod(){
-        Point closestEnemy = new Point(99999,99999);
         for(PositionalCell cell : cellsWithTowers){
+            int damage = cell.getTower().getDamage();
             ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
             for(PositionalCell cellInRange : cellsInRange){
-                /*
-                if(){         //BEHÖVER EGEN VEKTOR GREJ
-
+                if(cellInRange.hasFoe()){
+                    cellInRange.getFoe().takeDamage(damage);
                 }
-
-                 */
             }
         }
     }
