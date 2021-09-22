@@ -12,4 +12,5 @@ public interface BoardObject {
     public void setCellPosition(Point cell);
     public void setWorldPosition(Point cell);
     public void update();
+    String getImageFilePath();
 }
