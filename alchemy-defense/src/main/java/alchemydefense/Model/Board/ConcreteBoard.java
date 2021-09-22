@@ -1,5 +1,6 @@
 package alchemydefense.Model.Board;
 
+import alchemydefense.Model.Board.Grid.PositionalCell;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
@@ -23,15 +24,20 @@ public class ConcreteBoard implements Board {
     private final static Player player = Player.getPlayer();
 
     PositionalGrid positionalGrid;
-    final int width = 10;
-    final int height = 5;
+    public final int width = 10;
+    public final int height = 5;
+
 
     public ConcreteBoard(){
         positionalGrid = new PositionalGrid(width, height);
     }
 
     public BoardObject getBoardObject(Point point){
-        return positionalGrid.get(point);
+        return positionalGrid.getBoardObject(point);
+    }
+
+    public PositionalCell getCell(Point point){
+        return positionalGrid.getCell(point);
     }
 
     @Override
@@ -93,4 +99,8 @@ public class ConcreteBoard implements Board {
     }*/
 
     private boolean foeReachedEnd(ConcreteFoe foe) { return paths.get(foe).size() == 1; }
+
+    public void placeTower(Tower tower, Point towerPosition) {
+        positionalGrid.addTower(tower, towerPosition);
+    }
 }

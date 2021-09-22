@@ -1,6 +1,7 @@
 package alchemydefense.Model.Board.Grid;
 
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
 
@@ -18,8 +19,14 @@ public class PositionalGrid {
     }
 
     public void add(BoardObject boardObject, Point cell){
-        if (!positionalCells[cell.x][cell.y].isOccupied() && areColRowFree(cell)){
+        if (!positionalCells[cell.x][cell.y].isOccupied()){
             positionalCells[cell.x][cell.y].insert(boardObject);
+        }
+    }
+
+    public void addTower(Tower tower, Point cell){
+        if (!positionalCells[cell.x][cell.y].isOccupied()){
+            positionalCells[cell.x][cell.y].insertTower(tower);
         }
     }
 
@@ -54,7 +61,11 @@ public class PositionalGrid {
         }
     }
 
-    public BoardObject get(Point cell){
+    public PositionalCell getCell(Point cell){
+        return positionalCells[cell.x][cell.y];
+    }
+
+    public BoardObject getBoardObject(Point cell){
         return positionalCells[cell.x][cell.y].getBoardObject();
     }
 }
