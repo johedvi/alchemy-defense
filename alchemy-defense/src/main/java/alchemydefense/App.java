@@ -54,7 +54,7 @@ public class App extends Application {
                 testTower.setVisible(false);
 
 
-                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)), 1);
+                TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)));
 
 
                 boardPane = setupBoardPane();

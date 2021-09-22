@@ -37,7 +37,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     private final PathFinder pathFinder;
     private LinkedList<Point> path;
 
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder, int id){
+    public ConcreteFoe(int boardHeight, PathFinder pathFinder){
        // int randomHeight = (int) (Math.random() * boardHeight);
         int randomHeight = (int)(Math.random() * 5);
         setCellPosition(new Point(0, randomHeight));
@@ -45,7 +45,7 @@ public class ConcreteFoe implements BoardObject, Foe {
         this.pathFinder = pathFinder;
         this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
-        this.ID = id;
+
 
     }
 
