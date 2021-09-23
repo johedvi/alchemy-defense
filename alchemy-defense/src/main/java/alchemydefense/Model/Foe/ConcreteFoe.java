@@ -34,8 +34,12 @@ public class ConcreteFoe implements BoardObject, Foe {
     private int currentHP;
     private Point worldPosition;
     private Point cellPosition;
-    private final PathFinder pathFinder;
+    private PathFinder pathFinder;
     private LinkedList<Point> path;
+
+    public ConcreteFoe(){
+
+    }
 
     public ConcreteFoe(int boardHeight, PathFinder pathFinder){
        // int randomHeight = (int) (Math.random() * boardHeight);

@@ -134,6 +134,10 @@ public class ConcreteBoard implements Board {
         cellsWithTowers.add(positionalGrid.getCell(towerPosition));
     }
 
+    public void addFoe(Point p){
+        positionalGrid.addFoe(new ConcreteFoe(), p);
+    }
+
     public void moveFoes(){
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
@@ -143,11 +147,11 @@ public class ConcreteBoard implements Board {
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
+                    System.out.println("nextCellInPoint: " + nextCellPoint);
+                    System.out.println("");
+
                 }
-
-
             }
-            System.out.println("");
         }
     }
 }

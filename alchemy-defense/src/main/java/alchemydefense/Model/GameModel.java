@@ -29,7 +29,7 @@ import java.util.Set;
  *
  */
 public class GameModel {
-    Board concreteBoard;
+    ConcreteBoard concreteBoard;
 
     private List<ConcreteFoe> activeFoes = new ArrayList<>();
     private final Set<BoardListener> boardListeners = new HashSet<BoardListener>();
@@ -37,7 +37,10 @@ public class GameModel {
     //TODO: write update method. Moves all foes and makes them take damage, call on placeObjects() in the end
 
     public GameModel(){
+
         concreteBoard = new ConcreteBoard();
+        //REMOVE, only here to test foe rendering
+        concreteBoard.addFoe(new Point(0,0));
     }
 
     public void modelUpdate() {
