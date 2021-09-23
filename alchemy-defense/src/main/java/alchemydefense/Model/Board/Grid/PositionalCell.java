@@ -17,11 +17,15 @@ public class PositionalCell {
     private BoardObject boardObject;
     private Tower tower;
     private Foe foe;
-
+    public boolean hasBeenUpdated = false;
 
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
         worldPosition = convertCellPositionToWorld(cellCoordinate);
+    }
+
+    public void setHasBeenUpdated(boolean b){
+        hasBeenUpdated = b;
     }
 
     public boolean hasFoe(){
@@ -65,6 +69,7 @@ public class PositionalCell {
 
     public void clear(){
         boardObject = null;
+        foe = null;
         isOccupied = false;
     }
 
@@ -115,7 +120,9 @@ public class PositionalCell {
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;
+            insert(foe);
         }
+
 
     }
 

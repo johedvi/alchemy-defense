@@ -47,7 +47,7 @@ public class GameModel {
         //TODO: Fix foes update
 
         //concreteBoard.updateFoes();
-
+        concreteBoard.moveFoes();
         updateBoardListeners();
     }
 

@@ -49,7 +49,7 @@ public class GodView extends AnchorPane implements BoardListener {
         testTower.setVisible(false);
 
 
-        TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)));
+
 
 
         boardPane = setupBoardPane();
@@ -60,7 +60,7 @@ public class GodView extends AnchorPane implements BoardListener {
         root.getChildren().add(boardPane);
 
 
-        createFoe();
+
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -151,20 +151,6 @@ public class GodView extends AnchorPane implements BoardListener {
         return userInterfacePane;
     }
 
-    boolean createdFoe = false;
-
-    private void createFoe() {
-
-        if (!createdFoe) {
-            TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x+TestFoe.getCellPosition().y);
-            tile.setImage("foe.png");
-            createdFoe = true;
-            System.out.println(TestFoe.getCellPosition().x);
-            System.out.println(TestFoe.getCellPosition().y);
-        }
-
-    }
-
 
     private Pane setupBoardPane() {
         Pane boardPane = new Pane();
@@ -192,18 +178,9 @@ public class GodView extends AnchorPane implements BoardListener {
 
     }
 
-    public void updateTileFoe()  {
-
-        TileView tile2 = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
-        tile2.ClearImage();
-
-        TestFoe.update(); // Prob unnecessary
-        TestFoe.move();
-
-        TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x*5 + TestFoe.getCellPosition().y);
-        tile.setImage("foe.png");
-
-
+    private void clearTile(int x, int y){
+        TileView tile = (TileView) boardPane.getChildren().get(x * 5 + y);
+        tile.ClearImage();
     }
 
     @Override
@@ -213,6 +190,8 @@ public class GodView extends AnchorPane implements BoardListener {
                 BoardObject object = board.getBoardObject(new Point(j,i));
                 if (object != null)
                     updateTileTower(j,i, object.getImageFilePath());
+                else
+                    clearTile(j,i);
             }
         }
     }

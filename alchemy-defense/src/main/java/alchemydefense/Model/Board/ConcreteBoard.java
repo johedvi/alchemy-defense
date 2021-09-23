@@ -18,7 +18,7 @@ import java.util.List;
 
 public class ConcreteBoard implements Board {
 
-    private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(10, 10));
+    private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
 
     private final HashMap<ConcreteFoe, LinkedList<Point>> paths = new HashMap<>();
 
@@ -142,15 +142,19 @@ public class ConcreteBoard implements Board {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
             for(int j=0; j< cellGrid[i].length; j++) {
-                System.out.print(cellGrid[i][j] + "\t");
-                if(cellGrid[i][j].hasFoe()){
+                //System.out.print(cellGrid[i][j] + "\t");
+                if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].hasBeenUpdated){
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
+                    cellGrid[nextCellPoint.x][nextCellPoint.y].setHasBeenUpdated(true);
                     System.out.println("nextCellInPoint: " + nextCellPoint);
-                    System.out.println("");
-
                 }
+            }
+        }
+        for(int i=0; i< cellGrid.length; i++) {
+            for(int j=0; j< cellGrid[i].length; j++){
+                cellGrid[i][j].setHasBeenUpdated(false);
             }
         }
     }

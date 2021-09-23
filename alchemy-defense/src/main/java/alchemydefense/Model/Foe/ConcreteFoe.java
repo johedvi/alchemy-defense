@@ -36,6 +36,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     private Point cellPosition;
     private PathFinder pathFinder;
     private LinkedList<Point> path;
+    private String imageFilePath = "/foe.png";
 
     public ConcreteFoe(){
 
@@ -85,7 +86,7 @@ public class ConcreteFoe implements BoardObject, Foe {
 
     @Override
     public String getImageFilePath() {
-        return null;
+        return imageFilePath;
     }
 
     @Override

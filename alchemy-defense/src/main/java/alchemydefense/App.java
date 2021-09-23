@@ -78,10 +78,11 @@ public class App extends Application {
                     @Override
                     public void handle(long now) {
                         if (now - lastUpdate >= 100_000_0000) {
-                            view.updateTileFoe();
+
                             lastUpdate = now ;
+                            model.modelUpdate();
                         }
-                        model.modelUpdate();
+
                     }
 
                 };
