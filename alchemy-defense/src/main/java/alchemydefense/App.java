@@ -5,6 +5,7 @@ import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.GameModel;
 import alchemydefense.View.GodView;
+import alchemydefense.View.InformationView;
 import alchemydefense.View.TileView;
 import alchemydefense.Model.Player.Player;
 import javafx.animation.AnimationTimer;
@@ -54,9 +55,10 @@ public class App extends Application {
                 setupAppWindow(stage, scene);
 
 
-
-                view = new GodView(root, new TowerController(model));
+                InformationView informationView = new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS);
+                view = new GodView(root, new TowerController(model), informationView);
                 model.addBoardListener(view);
+                model.addPlayerEventListener(informationView);
 
                 stage.show();
                 gameUpdate();
