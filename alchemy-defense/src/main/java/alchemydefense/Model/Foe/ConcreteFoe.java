@@ -32,23 +32,9 @@ import java.util.LinkedList;
 public class ConcreteFoe implements BoardObject, Foe {
     private final int MAX_HP = 100;
     private int currentHP;
-    private Point worldPosition;
-    private Point cellPosition;
-    private PathFinder pathFinder;
-    private LinkedList<Point> path;
     private String imageFilePath = "/foe.png";
 
     public ConcreteFoe(){
-
-    }
-
-    public ConcreteFoe(int boardHeight, PathFinder pathFinder){
-       // int randomHeight = (int) (Math.random() * boardHeight);
-        int randomHeight = (int)(Math.random() * 5);
-        setCellPosition(new Point(0, randomHeight));
-
-        this.pathFinder = pathFinder;
-        this.path = pathFinder.calculatePath(null, getCellPosition());
         this.currentHP = MAX_HP;
     }
 
@@ -64,25 +50,6 @@ public class ConcreteFoe implements BoardObject, Foe {
 
     }
 
-    public Point getWorldPosition() {
-        return worldPosition;
-    }
-
-    public Point getCellPosition() {
-        return cellPosition;
-    }
-
-    public void setCellPosition(Point cell) {
-        this.cellPosition = cell;
-    }
-
-    public void setWorldPosition(Point cell) {
-        //TODO
-    }
-
-    public void update() {
-        path = pathFinder.calculatePath(null, getCellPosition());
-    }
 
     @Override
     public String getImageFilePath() {
@@ -107,10 +74,5 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public boolean isAlive() {
         return getCurrentHP() > 0;
-    }
-
-    @Override
-    public void move() {
-        setCellPosition(path.removeFirst());
     }
 }
