@@ -7,6 +7,7 @@ import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardListener;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Model.Wave.Wave;
@@ -87,4 +88,6 @@ public class GameModel {
     public void addBoardListener(BoardListener listener) {
         boardListeners.add(listener);
     }
+
+    public void addPlayerEventListener(PlayerEventListener listener) { concreteBoard.addPlayerEventListener(listener);}
 }
