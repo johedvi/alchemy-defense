@@ -37,8 +37,10 @@ public class GodView extends AnchorPane implements BoardListener {
 
     private final TowerController towerController;
 
+    InformationView informationView;
 
-    public GodView(Group root, TowerController towerController) {
+
+    public GodView(Group root, TowerController towerController, InformationView informationView) {
         this.towerController = towerController;
 
         //TEMPORARY CODE
@@ -47,6 +49,8 @@ public class GodView extends AnchorPane implements BoardListener {
         testTower.setFitWidth(UNIT_IN_PIXELS);
         root.getChildren().add(testTower);
         testTower.setVisible(false);
+
+        this.informationView = informationView;
 
 
 
@@ -144,7 +148,7 @@ public class GodView extends AnchorPane implements BoardListener {
         });
         userInterfacePane.getChildren().add(payButton);
 
-        userInterfacePane.getChildren().add(new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS));
+        userInterfacePane.getChildren().add(informationView);
 
         userInterfacePane.getChildren().add(button2);
 
