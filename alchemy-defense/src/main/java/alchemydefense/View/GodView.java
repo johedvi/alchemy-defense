@@ -6,6 +6,7 @@ import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardListener;
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Player.Player;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;
 import javafx.scene.control.Button;
@@ -48,7 +49,7 @@ public class GodView extends AnchorPane implements BoardListener {
         testTower.setVisible(false);
 
 
-        TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)), 1);
+        TestFoe = new ConcreteFoe(448, new DumbPathfinder(new Point(11,2)));
 
 
         boardPane = setupBoardPane();
@@ -123,6 +124,28 @@ public class GodView extends AnchorPane implements BoardListener {
 
         });
 
+        Button damageButton = new Button("Take damage");
+        damageButton.setMaxSize(100, 200);
+        damageButton.setLayoutX(SCENE_WIDTH / 2 - 50);
+        damageButton.setLayoutY(75);
+        damageButton.setOnMouseClicked(e -> {
+            Player.getPlayer().decreaseOneHp();
+
+        });
+        userInterfacePane.getChildren().add(damageButton);
+
+        Button payButton = new Button("Pay");
+        payButton.setMaxSize(100, 200);
+        payButton.setLayoutX(425);
+        payButton.setLayoutY(75);
+        payButton.setOnMouseClicked(e -> {
+            Player.getPlayer().pay(2);
+
+        });
+        userInterfacePane.getChildren().add(payButton);
+
+        userInterfacePane.getChildren().add(new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS));
+
         userInterfacePane.getChildren().add(button2);
 
         return userInterfacePane;
@@ -187,9 +210,9 @@ public class GodView extends AnchorPane implements BoardListener {
     public void placeObjects(Board board) {
         for (int i = 0; i < board.getBoardHeight(); i++){
             for (int j = 0; j < board.getBoardWidth(); j++) {
-                BoardObject object = board.getBoardObject(new Point(i,j));
+                BoardObject object = board.getBoardObject(new Point(j,i));
                 if (object != null)
-                    updateTileTower(i, j, object.getImageFilePath());
+                    updateTileTower(j,i, object.getImageFilePath());
             }
         }
     }

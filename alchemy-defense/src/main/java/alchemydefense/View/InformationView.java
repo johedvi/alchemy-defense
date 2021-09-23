@@ -1,4 +1,4 @@
-package alchemydefense;
+package alchemydefense.View;
 
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;

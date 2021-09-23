@@ -22,13 +22,18 @@ public class RedTower extends Tower {
     private static int RedTowerWidth = 100;
     private static int RedTowerRange = 100;
 
-        public RedTower(Point cellPosition) throws FileNotFoundException {
-        super(cellPosition);
+        public RedTower() throws FileNotFoundException {
+        super();
         Type = TowerType.RED;
         this.height = RedTowerHeight;
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
-        this.filePath = "images/red-crystal.png";
+        this.filePath = "blue-crystal.png";
+    }
+
+    @Override
+    public String getImageFilePath() {
+        return filePath;
     }
 }
 

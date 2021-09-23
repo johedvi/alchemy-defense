@@ -33,4 +33,9 @@ public class TestFoe implements Foe, BoardObject {
     public boolean isAlive() {
         return false;
     }
+
+    @Override
+    public String getImageFilePath() {
+        return null;
+    }
 }

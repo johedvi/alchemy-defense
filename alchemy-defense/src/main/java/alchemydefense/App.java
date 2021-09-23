@@ -1,5 +1,6 @@
 package alchemydefense;
 
+import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.GameModel;
@@ -43,6 +44,8 @@ public class App extends Application {
 
         GodView view;
 
+        GameModel model =  new GameModel();
+
 
     @Override
         public void start(Stage stage) throws IOException {
@@ -51,11 +54,12 @@ public class App extends Application {
                 setupAppWindow(stage, scene);
 
 
-                GameModel model = new GameModel();
-                view = new GodView(root, new TowerController(model));
 
+                view = new GodView(root, new TowerController(model));
+                model.addBoardListener(view);
 
                 stage.show();
+                gameUpdate();
 
         }
 
@@ -79,7 +83,9 @@ public class App extends Application {
                             view.updateTileFoe();
                             lastUpdate = now ;
                         }
+                        model.modelUpdate();
                     }
+
                 };
                 timer.start();
         }

@@ -27,7 +27,7 @@ public class ConcreteBoard implements Board {
     private final static Player player = Player.getPlayer();
 
     PositionalGrid positionalGrid;
-    public final int width = 10;
+    public final int width = 12;
     public final int height = 5;
 
     public void damageMethod(){

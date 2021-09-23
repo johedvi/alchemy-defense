@@ -81,4 +81,8 @@ public class GameModel {
         for (BoardListener listener : boardListeners)
             listener.placeObjects(concreteBoard);
     }
+
+    public void addBoardListener(BoardListener listener) {
+        boardListeners.add(listener);
+    }
 }

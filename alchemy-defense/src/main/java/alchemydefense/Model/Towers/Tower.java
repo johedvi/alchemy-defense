@@ -22,6 +22,8 @@ public abstract class Tower implements BoardObject {
     int range;
     int damage;
 
+    protected String filePath;
+
     public int getRange(){
         return range;
     }
