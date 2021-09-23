@@ -17,21 +17,18 @@ import java.io.FileNotFoundException;
 public class RedTower extends Tower {
 
     TowerType Type;
-    Image image;
 
     private static int RedTowerHeight = 100;
     private static int RedTowerWidth = 100;
     private static int RedTowerRange = 100;
 
-    FileInputStream inputstream = new FileInputStream("C:\\images\\image.jpg"); //Ta bort från modellen? Knyter ju an till JavaFX -- Felix
-
-    public RedTower() throws FileNotFoundException {
-        super();
+        public RedTower(Point cellPosition) throws FileNotFoundException {
+        super(cellPosition);
         Type = TowerType.RED;
-        image = new Image(inputstream);
         this.height = RedTowerHeight;
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
+        this.filePath = "images/red-crystal.png";
     }
 }
 

@@ -80,6 +80,11 @@ public class ConcreteFoe implements BoardObject, Foe {
     }
 
     @Override
+    public String getImageFilePath() {
+        return null;
+    }
+
+    @Override
     public int getMaxHP() {
         return this.MAX_HP;
     }

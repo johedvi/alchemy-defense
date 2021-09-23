@@ -63,6 +63,21 @@ public class ConcreteBoard implements Board {
         positionalGrid.remove(point);
     }
 
+    @Override
+    public int getBoardWidth() {
+        return width;
+    }
+
+    @Override
+    public int getBoardHeight() {
+        return height;
+    }
+
+    @Override
+    public void updateFoes() {
+        //TODO: Make foes move and then take damage
+    }
+
     public void calculatePath(ConcreteFoe foe) {
         //LinkedList<Point> path = pathfinder.calculatePath(null, positionalGrid.getPos(foe));
         //paths.put(foe, path);
