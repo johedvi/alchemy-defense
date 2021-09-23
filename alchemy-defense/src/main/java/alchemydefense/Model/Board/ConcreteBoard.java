@@ -134,8 +134,9 @@ public class ConcreteBoard implements Board {
         cellsWithTowers.add(positionalGrid.getCell(towerPosition));
     }
 
-    public void addFoe(Point p){
-        positionalGrid.addFoe(new ConcreteFoe(), p);
+    public void addFoe(Foe foe){
+        Point startPos = new Point(0, (int) (getBoardHeight() * Math.random()));
+        positionalGrid.addFoe(foe, startPos);
     }
 
     public void moveFoes(){
