@@ -50,6 +50,13 @@ public class Player {
 
     public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
 
+    public void updatePlayerEventListener() {
+        for (PlayerEventListener playerEventListener : listeners) {
+            playerEventListener.goldAmountChanged(getGold());
+            playerEventListener.healthAmountChanged(getHp());
+        }
+    }
+
     public int getGold() { return gold; }
 
     private void setGold(int gold) {
@@ -64,7 +71,7 @@ public class Player {
     private void setHp(int hp) {
         Player.health = hp;
         for(PlayerEventListener pel : listeners) {
-            pel.heathAmountChanged(hp);
+            pel.healthAmountChanged(hp);
         }
     }
 
