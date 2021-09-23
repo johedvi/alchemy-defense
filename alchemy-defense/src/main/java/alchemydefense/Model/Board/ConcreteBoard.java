@@ -8,6 +8,7 @@ import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardObject;
 import alchemydefense.Model.Interfaces.Foe;
 import alchemydefense.Model.Player.Player;
+import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
@@ -158,5 +159,9 @@ public class ConcreteBoard implements Board {
                 cellGrid[i][j].setHasBeenUpdated(false);
             }
         }
+    }
+
+    public void addPlayerEventListener(PlayerEventListener listener) {
+        player.addPlayerEventListener(listener);
     }
 }
