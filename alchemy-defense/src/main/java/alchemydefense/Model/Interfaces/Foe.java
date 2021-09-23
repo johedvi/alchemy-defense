@@ -9,5 +9,4 @@ package alchemydefense.Model.Interfaces;
  */
 
 public interface Foe extends Health, BoardObject {
-    void move();
 }
