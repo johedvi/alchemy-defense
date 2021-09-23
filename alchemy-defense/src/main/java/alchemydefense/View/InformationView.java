@@ -45,5 +45,5 @@ public class InformationView extends Pane implements PlayerEventListener {
     public void goldAmountChanged(int newValue) { goldAmount.setText("Gold: " + newValue); }
 
     @Override
-    public void heathAmountChanged(int newValue) { healthAmount.setText("Health: " + newValue);}
+    public void healthAmountChanged(int newValue) { healthAmount.setText("Health: " + newValue);}
 }
