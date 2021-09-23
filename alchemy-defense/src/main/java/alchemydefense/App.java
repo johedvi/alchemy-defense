@@ -72,6 +72,77 @@ public class App extends Application {
         }
 
 
+<<<<<<< Updated upstream
+=======
+                Button button2 = new Button("Play Button");
+                button2.setMaxSize(100, 200);
+                button2.setLayoutX(SCENE_WIDTH / 2 + 50);
+                button2.setLayoutY(UNIT_IN_PIXELS - UNIT_IN_PIXELS/2);
+                button2.setOnAction(actionEvent ->  {
+                                gameUpdate();
+                         {
+                        }
+                });
+
+                userInterfacePane.getChildren().add(button2);
+
+                Button damageButton = new Button("Take damage");
+                damageButton.setMaxSize(100, 200);
+                damageButton.setLayoutX(SCENE_WIDTH / 2 - 50);
+                damageButton.setLayoutY(75);
+                damageButton.setOnMouseClicked(e -> {
+                        Player.getPlayer().decreaseOneHp();
+
+                });
+                userInterfacePane.getChildren().add(damageButton);
+
+                Button payButton = new Button("Pay");
+                payButton.setMaxSize(100, 200);
+                payButton.setLayoutX(425);
+                payButton.setLayoutY(75);
+                payButton.setOnMouseClicked(e -> {
+                        Player.getPlayer().pay(2);
+
+                });
+                userInterfacePane.getChildren().add(payButton);
+
+                userInterfacePane.getChildren().add(new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS));
+
+                return userInterfacePane;
+        }
+
+        boolean createdFoe = false;
+
+        private void createFoe() {
+
+                if (!createdFoe) {
+                        TileView tile = (TileView) boardPane.getChildren().get(TestFoe.getCellPosition().x+TestFoe.getCellPosition().y);
+                        tile.setImage("foe.png");
+                        createdFoe = true;
+                }
+
+        }
+
+
+        private Pane setupBoardPane() {
+                Pane boardPane = new Pane();
+                boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
+                for (int i = 0 ; i < 12 ; i++) {
+                        for (int j = 0; j < 5; j++) {
+                                Rectangle tileView = new TileView(i*64,j*64, 64,64);
+                                tileView.setStroke(javafx.scene.paint.Color.BLACK);
+                                tileView.setStrokeWidth(1);
+                                boardPane.getChildren().add(tileView);
+                        }
+                }
+
+                String image = "tmp-background.png";
+                boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
+                        "-fx-background-position: center center; " +
+                        "-fx-background-repeat: stretch;");
+                return boardPane;
+        }
+>>>>>>> Stashed changes
 
         private void gameUpdate() {
                 timer = new AnimationTimer() {

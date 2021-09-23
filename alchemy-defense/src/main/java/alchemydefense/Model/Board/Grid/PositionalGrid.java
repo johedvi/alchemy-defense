@@ -1,12 +1,18 @@
 package alchemydefense.Model.Board.Grid;
 
 import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Interfaces.Foe;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
 
 public class PositionalGrid {
     PositionalCell[][] positionalCells;
+
+    public PositionalCell[][] getGrid(){
+        return positionalCells;
+    }
+
 
     public PositionalGrid(int rows, int columns){
         positionalCells = new PositionalCell[rows][columns];
@@ -28,6 +34,10 @@ public class PositionalGrid {
         if (!positionalCells[cell.x][cell.y].isOccupied()){
             positionalCells[cell.x][cell.y].insertTower(tower);
         }
+    }
+
+    public void addFoe(Foe foe, Point cell){
+        positionalCells[cell.x][cell.y].addFoe(foe);
     }
 
     public boolean areColRowFree(Point cell) {

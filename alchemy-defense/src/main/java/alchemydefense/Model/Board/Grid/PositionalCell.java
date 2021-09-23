@@ -106,6 +106,19 @@ public class PositionalCell {
         return cellsInRange;
     }
 
+    public Foe removeFoe(){
+        Foe foe = this.foe;
+        clear();
+        return foe;
+    }
+
+    public void addFoe(Foe foe){
+        if(!hasFoe()){
+            this.foe = foe;
+        }
+
+    }
+
     @Override
     public String toString(){
         return "(" + cellCoordinate.x + ", " + cellCoordinate.y + ")";
