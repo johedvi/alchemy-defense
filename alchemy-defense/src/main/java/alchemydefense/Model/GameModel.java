@@ -51,7 +51,6 @@ public class GameModel {
 =======
         //concreteBoard.updateFoes();
         concreteBoard.damageMethod();
->>>>>>> Stashed changes
         concreteBoard.moveFoes();
         updateBoardListeners();
     }
