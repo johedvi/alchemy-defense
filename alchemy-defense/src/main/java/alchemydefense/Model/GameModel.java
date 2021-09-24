@@ -43,10 +43,15 @@ public class GameModel {
 
     public void modelUpdate() {
 
+<<<<<<< Updated upstream
         if (isWaveOver())
             startNewWave();
         else
             concreteBoard.addFoe(activeFoes.removeFirst());
+=======
+        //concreteBoard.updateFoes();
+        concreteBoard.damageMethod();
+>>>>>>> Stashed changes
         concreteBoard.moveFoes();
         updateBoardListeners();
     }
@@ -54,7 +59,8 @@ public class GameModel {
     public void placeTowerInCell(Tower.TowerType towerType, Point point) {
         try {
             Tower tower = createTower(towerType, point);
-            concreteBoard.placeBoardObject(tower, point);
+            concreteBoard.placeBoardObject(tower, point); // tar bort för tillfället
+            //concreteBoard.placeTower(tower,point);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());

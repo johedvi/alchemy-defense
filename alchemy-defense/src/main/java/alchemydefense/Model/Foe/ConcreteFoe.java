@@ -54,6 +54,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public String getImageFilePath() {
         return imageFilePath;
+
     }
 
     @Override
@@ -74,5 +75,15 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public boolean isAlive() {
         return getCurrentHP() > 0;
+    }
+
+    @Override
+    public void move() {
+        setCellPosition(path.removeFirst());
+    }
+
+    @Override
+    public String toString(){
+        return "ConcreteEnemy";
     }
 }

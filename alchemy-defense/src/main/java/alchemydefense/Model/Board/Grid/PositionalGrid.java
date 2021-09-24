@@ -28,6 +28,7 @@ public class PositionalGrid {
         if (!positionalCells[cell.x][cell.y].isOccupied()){
             positionalCells[cell.x][cell.y].insert(boardObject);
         }
+
     }
 
     public void addTower(Tower tower, Point cell){

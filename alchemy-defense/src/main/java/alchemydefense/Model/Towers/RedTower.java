@@ -20,7 +20,7 @@ public class RedTower extends Tower {
 
     private static int RedTowerHeight = 100;
     private static int RedTowerWidth = 100;
-    private static int RedTowerRange = 100;
+    private static int RedTowerRange = 3;
 
         public RedTower() throws FileNotFoundException {
         super();
@@ -29,7 +29,14 @@ public class RedTower extends Tower {
         this.width = RedTowerWidth;
         this.range = RedTowerRange;
         this.filePath = "blue-crystal.png";
+        this.damage = 10;
     }
+
+    @Override
+    public String toString(){
+            return "Red Tower";
+    }
+
 
     @Override
     public String getImageFilePath() {

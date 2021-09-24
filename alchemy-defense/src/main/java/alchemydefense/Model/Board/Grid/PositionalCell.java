@@ -44,6 +44,9 @@ public class PositionalCell {
     public void insert(BoardObject boardObject) {
         isOccupied = true;
         this.boardObject = boardObject;
+        if(boardObject instanceof Tower){
+            insertTower((Tower) boardObject);
+        }
     }
 
     public Point getCellCoordinate(){
