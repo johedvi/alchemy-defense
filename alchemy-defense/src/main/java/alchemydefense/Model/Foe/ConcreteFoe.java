@@ -78,11 +78,6 @@ public class ConcreteFoe implements BoardObject, Foe {
     }
 
     @Override
-    public void move() {
-        setCellPosition(path.removeFirst());
-    }
-
-    @Override
     public String toString(){
         return "ConcreteEnemy";
     }

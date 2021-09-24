@@ -43,15 +43,12 @@ public class GameModel {
 
     public void modelUpdate() {
 
-<<<<<<< Updated upstream
         if (isWaveOver())
             startNewWave();
         else
             concreteBoard.addFoe(activeFoes.removeFirst());
-=======
         //concreteBoard.updateFoes();
         concreteBoard.damageMethod();
->>>>>>> Stashed changes
         concreteBoard.moveFoes();
         updateBoardListeners();
     }
