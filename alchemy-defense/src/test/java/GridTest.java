@@ -38,6 +38,7 @@ public class GridTest {
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
     }
 
+    /*
     @Test
     public void testFullRow() {
         PositionalGrid grid = new PositionalGrid(10,5);
@@ -47,6 +48,8 @@ public class GridTest {
         }
         Assertions.assertFalse(grid.areColRowFree(new Point(1,3)));
     }
+
+     */
 
     //TODO: Update test
     /*
