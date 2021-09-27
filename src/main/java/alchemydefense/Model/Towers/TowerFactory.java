@@ -2,18 +2,17 @@ package alchemydefense.Model.Towers;
 
 
 import java.lang.IllegalArgumentException;
-import java.io.FileNotFoundException;
 
 public class TowerFactory {
 
+    public static Tower createTower(Tower.TowerType towerType) throws IllegalArgumentException {
 
-    public static Tower createTower(Tower.TowerType towerType) throws IllegalArgumentException, FileNotFoundException {
-        if (towerType == Tower.TowerType.RED) {
-            return new RedTower();
+        //TODO Add more tower types
+        switch (towerType) {
+            case RED: return new RedTower();
+            default: throw new IllegalArgumentException();
         }
-        else {
-            throw new IllegalArgumentException();
-        }
+
     }
 }
 
