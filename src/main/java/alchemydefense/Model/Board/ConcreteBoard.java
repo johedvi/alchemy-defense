@@ -31,6 +31,9 @@ public class ConcreteBoard implements Board {
             for(PositionalCell cellInRange : cellsInRange){
                 if(cellInRange.hasFoe()){
                     cellInRange.getFoe().takeDamage(damage);
+                    if(!cellInRange.getFoe().isAlive()) {
+                        cellInRange.removeFoe();
+                    }
                 }
             }
         }
