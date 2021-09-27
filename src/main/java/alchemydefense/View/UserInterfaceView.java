@@ -10,14 +10,41 @@ public class UserInterfaceView extends Pane {
         this.setLayoutY(scene_height - 2 * unit_in_pixel);
         this.setStyle("-fx-background-color: blue");
 
-        javafx.scene.control.Button towerButton = new javafx.scene.control.Button("Tower Button");
-        towerButton.setMaxSize(100, 200);
-        towerButton.setLayoutX(scene_width / 2 - 50);
-        towerButton.setLayoutY(unit_in_pixel - unit_in_pixel / 2);
-        towerButton.setOnMouseClicked(e -> {
+        javafx.scene.control.Button redTowerButton = new javafx.scene.control.Button("Red Tower");
+        redTowerButton.setMaxSize(100, 200);
+        redTowerButton.setLayoutX(scene_width / 2 - 50);
+        redTowerButton.setLayoutY(unit_in_pixel - unit_in_pixel / 2);
+        redTowerButton.setOnMouseClicked(e -> {
             towerController.setRedTowerActive();
         });
-        this.getChildren().add(towerButton);
+        this.getChildren().add(redTowerButton);
+
+        javafx.scene.control.Button blueTowerButton = new javafx.scene.control.Button("Blue Tower");
+        blueTowerButton.setMaxSize(100, 200);
+        blueTowerButton.setLayoutX(scene_width / 2 - 150);
+        blueTowerButton.setLayoutY(unit_in_pixel - unit_in_pixel / 2);
+        blueTowerButton.setOnMouseClicked(e -> {
+            towerController.setBlueTowerActive();
+        });
+        this.getChildren().add(blueTowerButton);
+
+        javafx.scene.control.Button purpleTowerButton = new javafx.scene.control.Button("Purple Tower");
+        purpleTowerButton.setMaxSize(100, 200);
+        purpleTowerButton.setLayoutX(scene_width / 2 - 50);
+        purpleTowerButton.setLayoutY(unit_in_pixel);
+        purpleTowerButton.setOnMouseClicked(e -> {
+            towerController.setPurpleTowerActive();
+        });
+        this.getChildren().add(purpleTowerButton);
+
+        javafx.scene.control.Button greenTowerButton = new javafx.scene.control.Button("Green Tower");
+        greenTowerButton.setMaxSize(100, 200);
+        greenTowerButton.setLayoutX(scene_width / 2 - 150);
+        greenTowerButton.setLayoutY(unit_in_pixel);
+        greenTowerButton.setOnMouseClicked(e -> {
+            towerController.setGreenTowerActive();
+        });
+        this.getChildren().add(greenTowerButton);
 
         this.getChildren().add(informationView);
     }

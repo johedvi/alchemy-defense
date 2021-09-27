@@ -2,7 +2,7 @@ package alchemydefense.Model.Towers;
 
 public class PurpleTower extends Tower {
 
-    private static final String imageFilePath = "blue-crystal.png";
+    private static final String imageFilePath = "/purple-crystal.png";
     private static final int purpleTowerHeight = 100;
     private static final int purpleTowerWidth = 100;
     private static final int purpleTowerRange = 3;
