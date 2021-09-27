@@ -1,12 +1,10 @@
 package alchemydefense.Model;
 
+import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Board.BoardListener;
+import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
-import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.Board;
-import alchemydefense.Model.Interfaces.BoardListener;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
@@ -15,9 +13,7 @@ import java.io.FileNotFoundException;
 
 
 import java.awt.*;
-import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.List;
 
 /**
  *
