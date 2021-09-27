@@ -31,7 +31,7 @@ public class ConcreteBoard implements Board {
     public final int width = 12;
     public final int height = 5;
 
-    public void damageMethod(){
+    public void damageFoes(){
         System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
             int damage = cell.getTower().getDamage();
