@@ -61,18 +61,14 @@ public class Player {
 
     private void setGold(int gold) {
         Player.gold = gold;
-        for(PlayerEventListener pel : listeners) {
-            pel.goldAmountChanged(gold);
-        }
+        updatePlayerEventListener();
     }
 
     public int getHp() { return health; }
 
     private void setHp(int hp) {
         Player.health = hp;
-        for(PlayerEventListener pel : listeners) {
-            pel.healthAmountChanged(hp);
-        }
+        updatePlayerEventListener();
     }
 
 }
