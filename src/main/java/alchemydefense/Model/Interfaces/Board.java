@@ -1,5 +1,7 @@
 package alchemydefense.Model.Interfaces;
 
+import alchemydefense.Model.Player.PlayerEventListener;
+
 import java.awt.*;
 
 public interface Board {
@@ -9,4 +11,8 @@ public interface Board {
     int getBoardWidth();
     int getBoardHeight();
     void updateFoes();
+    void addFoe(Foe foe);
+    void damageFoes();
+    void moveFoes();
+    void addPlayerEventListener(PlayerEventListener listener);
 }
