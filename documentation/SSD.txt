@@ -1,0 +1,31 @@
+1.0 Introduction
+
+1.1
+Alchemy Defense is a tower defense game implemented written in java. The application is structured according to the MVC pattern and makes use of the JavaFX framework to present the graphical user interface. The backend of the application aims to be as modular as possible, enabling seamless exchange of frontend implementation. Further more, the application strives to enable easy extension of future functionality and possible domain objects such as additional enemies and towers, or even new type of objects that can function within the game. 
+
+1.2
+Tower: Placed by the player upon the map to hinder the foes from reaching a set end position, where upon reaching the foe will inflict damage to the players hit points.
+Board: The main stage of the game. Uses a underlying 2D-grid which can contain and update both enemies and towers.
+
+2.0 System Architecture
+The system architecture is structured according to the MVC pattern and can be divided into three separate parts with distinct responsibility. 
+
+2.1 Model
+The model contains all game logic and tracks each "living" game object and their state. All computations such as calculating tower range and allocating damage to enemies are done within the model using the standard Java library to minimise external dependencies. Within the application, the model has no external dependencies other than itself. 
+
+2.2 Controller
+The controller is the entrance class of the application and should be set up with a launcher. It sets up both the model and the view which it acts as a mediator in between. When the user submits input to the view, the controller parses these and triggers various game events within the model. Vice versa, when the model is updated the controller acknowledges this and translates the current game state to view that renders the appropriate images for the user to communicate the game state. 
+
+2.3 View
+The view only connects to the controller. Its responsibility are restricted to injected images from the controller and send out user input events for the controller to parse. No logic should be contained here. 
+
+2.4 Basic flow of the application
+
+3.0 System design 
+TODO: 
+- Import UML package diagram of top level components
+- Import UML detailed class diagram
+- Import UML use case diagram
+
+
+
