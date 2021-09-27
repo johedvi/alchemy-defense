@@ -29,4 +29,20 @@ public class VectorTest {
         Assert.assertEquals(distance1, distance2);
         Assert.assertEquals(2, distance1);
     }
+
+    @Test
+    public void testEquals() {
+        vectorCenter = new Vector2Int(2,2);
+        vector2 = new Vector2Int(2,2);
+        Assert.assertTrue(vectorCenter.equals(vector2));
+    }
+
+    @Test
+    public void testSetLocation(){
+        vectorCenter = new Vector2Int(2,2);
+        vectorCenter.setVector(3,4);
+        Assert.assertTrue(vectorCenter.getX() == 3 && vectorCenter.getY() == 4);
+        vectorCenter.setVector(new Vector2Int(2,2));
+        Assert.assertTrue(vectorCenter.getX() == 2 && vectorCenter.getY() == 2);
+    }
 }
