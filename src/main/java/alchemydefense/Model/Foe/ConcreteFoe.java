@@ -1,14 +1,6 @@
 package alchemydefense.Model.Foe;
 
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
-import javafx.scene.image.Image;
-
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import alchemydefense.Model.Board.BoardObject;
 
 /**
  * @author Willem Brahmstaedt
@@ -18,21 +10,16 @@ import java.util.LinkedList;
  * Date: 2021-09-14
  *
  * ----- Modified -----
- * Date: 09-19, By Willem; Removed @Override for methods originally from BoardObject
+ * Date: 2021-09-19, By Willem; Removed @Override for methods originally from BoardObject
  *
- * Added attribute int ID.
- * Valdemar Stenhammar
- * Date: 2021-09-17
+ * Date: 2021-09-20, By Valdemar; Changed method takeDamage to void and added method boolean isAlive instead.
  *
- * Changed method takeDamage to void and added method boolean isAlive instead.
- * Valdemar Stenhammar
- * Date: 2021-09-20
  */
 
 public class ConcreteFoe implements BoardObject, Foe {
     private final int MAX_HP = 100;
     private int currentHP;
-    private String imageFilePath = "/foe.png";
+    private final String imageFilePath = "/foe.png";
 
     public ConcreteFoe(){
         this.currentHP = MAX_HP;
@@ -45,17 +32,10 @@ public class ConcreteFoe implements BoardObject, Foe {
      */
 
     @Override
-    public void takeDamage(int damageCount) {
-        setCurrentHP(getCurrentHP() - damageCount);
-
-    }
-
+    public void takeDamage(int damageCount) { setCurrentHP(getCurrentHP() - damageCount); }
 
     @Override
-    public String getImageFilePath() {
-        return imageFilePath;
-
-    }
+    public String getImageFilePath() { return imageFilePath; }
 
     @Override
     public int getMaxHP() {
@@ -79,6 +59,6 @@ public class ConcreteFoe implements BoardObject, Foe {
 
     @Override
     public String toString(){
-        return "ConcreteEnemy";
+        return "ConcreteFoe";
     }
 }

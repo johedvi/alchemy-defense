@@ -2,28 +2,20 @@ package alchemydefense.Model.Board;
 
 import alchemydefense.Model.Board.Grid.PositionalCell;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
-import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import alchemydefense.Model.Interfaces.Board;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 
 public class ConcreteBoard implements Board {
 
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
 
-    private final HashMap<ConcreteFoe, LinkedList<Point>> paths = new HashMap<>();
-
-    private ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
+    private final ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
 
     private final static Player player = Player.getPlayer();
 
@@ -31,7 +23,8 @@ public class ConcreteBoard implements Board {
     public final int width = 12;
     public final int height = 5;
 
-    public void damageMethod(){
+    public void damageFoes(){
+        System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
             int damage = cell.getTower().getDamage();
             ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
@@ -80,62 +73,6 @@ public class ConcreteBoard implements Board {
     @Override
     public void updateFoes() {
         //TODO: Make foes move and then take damage
-    }
-
-    public void calculatePath(ConcreteFoe foe) {
-        //LinkedList<Point> path = pathfinder.calculatePath(null, positionalGrid.getPos(foe));
-        //paths.put(foe, path);
-    }
-
-    /**
-     * Updates position and status of each foe.
-     * @param foes is the list of current active foes.
-     * @return updated list where foes that reached the end are removed.
-     */
-    public List<ConcreteFoe> updateFoes(List<ConcreteFoe> foes) {
-
-        List<ConcreteFoe> activeFoes = new ArrayList<>(foes);
-        for(ConcreteFoe foe : foes) {
-            moveFoe(foe);
-            if(foeReachedEnd(foe)) {
-                paths.remove(foe);
-                player.decreaseOneHp();
-                activeFoes.remove(foe);
-            }
-
-            //damageControl(foe);
-            if(!foe.isAlive())
-                activeFoes.remove(foe);
-        }
-        return activeFoes;
-    }
-
-    private void moveFoe(ConcreteFoe foe) { paths.get(foe).removeFirst(); }
-
-    //TODO get position of foe as argument to grid
-    /*private void damageControl(ConcreteFoe foe) {
-        int damage = potentialTowerDamage(positionalGrid.getPos(foe));
-        if(damage > 0)
-            foe.takeDamage(damage);
-
-    }*/
-
-    //TODO get access to a list of towers
-    /*private int potentialTowerDamage(Point point) {
-        int damage = 0;
-        for(Tower tower : towers) {
-            if(tower.inRange(point)) {
-                damage = tower.getDamage();
-            }
-        }
-        return damage;
-    }*/
-
-    private boolean foeReachedEnd(ConcreteFoe foe) { return paths.get(foe).size() == 1; }
-
-    public void placeTower(Tower tower, Point towerPosition) {
-        positionalGrid.addTower(tower, towerPosition);
-        cellsWithTowers.add(positionalGrid.getCell(towerPosition));
     }
 
     public void addFoe(Foe foe){

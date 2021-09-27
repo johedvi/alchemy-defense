@@ -1,6 +1,5 @@
 package alchemydefense.Model.Foe.Pathfinding;
 
-
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;
@@ -52,9 +51,6 @@ public class DumbPathfinder implements PathFinder {
             Point intPoint = new Point(currentPos.x, i);                    // xd
             path.add(intPoint);
         }
-
-
-
         // The very last step to the goal
         path.add(goal);
 

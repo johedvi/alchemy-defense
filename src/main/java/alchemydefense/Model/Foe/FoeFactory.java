@@ -1,10 +1,5 @@
 package alchemydefense.Model.Foe;
 
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.Foe;
-
-import java.io.FileNotFoundException;
-
 public class FoeFactory {
     public enum FoeTypes{
         CONCRETE_FOE

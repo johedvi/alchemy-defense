@@ -1,12 +1,10 @@
 package alchemydefense.Model;
 
+import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Board.BoardListener;
+import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
-import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.Board;
-import alchemydefense.Model.Interfaces.BoardListener;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
@@ -15,9 +13,7 @@ import java.io.FileNotFoundException;
 
 
 import java.awt.*;
-import java.io.FileNotFoundException;
 import java.util.*;
-import java.util.List;
 
 /**
  *
@@ -29,16 +25,14 @@ import java.util.List;
  *
  */
 public class GameModel {
-    ConcreteBoard concreteBoard;
+    Board board;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
-    private final Set<BoardListener> boardListeners = new HashSet<BoardListener>();
-
-    //TODO: write update method. Moves all foes and makes them take damage, call on placeObjects() in the end
+    private final Set<BoardListener> boardListeners = new HashSet<>();
 
     public GameModel(){
         startNewWave();
-        concreteBoard = new ConcreteBoard();
+        board = new ConcreteBoard();
     }
 
     public void modelUpdate() {
@@ -46,36 +40,38 @@ public class GameModel {
         if (isWaveOver())
             startNewWave();
         else
-            concreteBoard.addFoe(activeFoes.removeFirst());
-        //concreteBoard.updateFoes();
-        concreteBoard.damageMethod();
-        concreteBoard.moveFoes();
+            board.addFoe(activeFoes.removeFirst());
+
+        board.damageFoes();
+        board.moveFoes();
         updateBoardListeners();
     }
 
+    // ------- Create and place tower -------
     public void placeTowerInCell(Tower.TowerType towerType, Point point) {
         try {
-            Tower tower = createTower(towerType, point);
-            concreteBoard.placeBoardObject(tower, point); // tar bort för tillfället
-            //concreteBoard.placeTower(tower,point);
+            Tower tower = createTower(towerType);
+            board.placeBoardObject(tower, point);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
 
-    public BoardObject getBoardObjectInCell(Point point){
-        return concreteBoard.getBoardObject(point);
-    }
-
-    public void removeBoardObjectInCell(Point point){
-        concreteBoard.removeBoardObject(point);
-    }
-
-    private Tower createTower(Tower.TowerType towerType, Point point) throws IllegalArgumentException, FileNotFoundException {
+    private Tower createTower(Tower.TowerType towerType) throws IllegalArgumentException, FileNotFoundException {
         return TowerFactory.createTower(towerType);
     }
 
+    // ------- Handling of BoardObjects -------
+    public BoardObject getBoardObjectInCell(Point point){
+        return board.getBoardObject(point);
+    }
+
+    public void removeBoardObjectInCell(Point point){
+        board.removeBoardObject(point);
+    }
+
+    // ------- Wave methods -------
     public void startNewWave() {
         Wave wave = new Wave();
         activeFoes = wave.createFoes();
@@ -83,14 +79,16 @@ public class GameModel {
 
     private boolean isWaveOver() { return activeFoes.isEmpty(); }
 
-    private void updateBoardListeners() {
-        for (BoardListener listener : boardListeners)
-            listener.placeObjects(concreteBoard);
-    }
+    // ------- PlayerEventListener -------
+    public void addPlayerEventListener(PlayerEventListener listener) { board.addPlayerEventListener(listener);}
 
+    // ------- BoardListener -------
     public void addBoardListener(BoardListener listener) {
         boardListeners.add(listener);
     }
 
-    public void addPlayerEventListener(PlayerEventListener listener) { concreteBoard.addPlayerEventListener(listener);}
+    private void updateBoardListeners() {
+        for (BoardListener listener : boardListeners)
+            listener.placeObjects(board);
+    }
 }
