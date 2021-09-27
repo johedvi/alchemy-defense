@@ -2,7 +2,7 @@ package alchemydefense;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
-import alchemydefense.View.GodView;
+import alchemydefense.View.BoardView;
 import alchemydefense.View.InformationView;
 import alchemydefense.View.UserInterfaceView;
 import javafx.animation.AnimationTimer;
@@ -34,7 +34,7 @@ public class App extends Application {
                 TowerController towerController = new TowerController(model);
                 UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS, informationView, towerController);
 
-                GodView view = new GodView(root, towerController, userInterfaceView);
+                BoardView view = new BoardView(root, towerController, userInterfaceView);
                 model.addBoardListener(view);
                 model.addPlayerEventListener(informationView);
 

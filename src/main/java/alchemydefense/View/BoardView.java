@@ -14,16 +14,14 @@ import javafx.scene.shape.Rectangle;
 
 import java.awt.*;
 
-//TODO: Break up into smaller views
 
-public class GodView extends AnchorPane implements BoardListener {
+public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 768;
     private static final int SCENE_HEIGHT = 448;
     private static final int UNIT_IN_PIXELS = 64;
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
 
-    //TODO: Better solution
     private ImageView towerImage;
 
     Pane boardPane;
@@ -31,7 +29,7 @@ public class GodView extends AnchorPane implements BoardListener {
     private final TowerController towerController;
 
 
-    public GodView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
+    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
         this.towerController = towerController;
 
         towerImage = new ImageView(new Image("/blue-crystal.png"));
