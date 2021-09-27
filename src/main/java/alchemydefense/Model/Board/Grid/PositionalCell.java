@@ -1,13 +1,12 @@
 package alchemydefense.Model.Board.Grid;
 
 import alchemydefense.Model.Board.ConcreteBoard;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Board.BoardObject;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.Point;
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class PositionalCell {

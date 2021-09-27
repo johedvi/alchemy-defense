@@ -1,14 +1,6 @@
 package alchemydefense.Model.Foe;
 
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
-import javafx.scene.image.Image;
-
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import alchemydefense.Model.Board.BoardObject;
 
 /**
  * @author Willem Brahmstaedt

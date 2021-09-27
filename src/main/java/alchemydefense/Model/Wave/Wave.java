@@ -1,11 +1,8 @@
 package alchemydefense.Model.Wave;
 
-import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.FoeFactory;
-import alchemydefense.Model.Foe.Pathfinding.PathFinder;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Foe.Foe;
 
-import java.io.FileNotFoundException;
 import java.util.*;
 
 /**

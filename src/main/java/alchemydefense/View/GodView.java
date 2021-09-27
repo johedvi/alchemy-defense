@@ -2,10 +2,9 @@ package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import alchemydefense.Model.Interfaces.Board;
-import alchemydefense.Model.Interfaces.BoardListener;
-import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Board.BoardListener;
+import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Player.Player;
 import javafx.animation.AnimationTimer;
 import javafx.scene.Group;

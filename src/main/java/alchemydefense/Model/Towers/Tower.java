@@ -1,6 +1,5 @@
 package alchemydefense.Model.Towers;
-import alchemydefense.Model.Interfaces.BoardObject;
-import java.awt.*;
+import alchemydefense.Model.Board.BoardObject;
 
 
 /**

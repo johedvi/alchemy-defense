@@ -1,7 +1,7 @@
 package alchemydefense.Model.Board.Grid;
 
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Interfaces.Foe;
+import alchemydefense.Model.Board.BoardObject;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.Tower;
 
 import java.awt.*;

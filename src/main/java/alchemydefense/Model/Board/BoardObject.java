@@ -1,8 +1,4 @@
-package alchemydefense.Model.Interfaces;
-
-import java.awt.*;
-
-
+package alchemydefense.Model.Board;
 
 //TODO: Separate this interface to smaller parts
 

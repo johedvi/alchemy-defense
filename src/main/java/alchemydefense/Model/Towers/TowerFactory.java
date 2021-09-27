@@ -1,7 +1,6 @@
 package alchemydefense.Model.Towers;
 
 
-import java.awt.*;
 import java.lang.IllegalArgumentException;
 import java.io.FileNotFoundException;
 

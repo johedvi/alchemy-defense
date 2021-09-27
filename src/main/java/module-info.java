@@ -9,7 +9,6 @@ module alchemydefense {
     exports alchemydefense.Model;
     exports alchemydefense.Model.Board.Grid;
     exports alchemydefense.Model.Foe.Pathfinding;
-    exports alchemydefense.Model.Interfaces;
     exports alchemydefense.Model.Towers;
     exports alchemydefense.Utility;
     exports alchemydefense.Model.Foe;

@@ -1,9 +1,4 @@
-import alchemydefense.Model.Board.Grid.PositionalGrid;
-import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Interfaces.BoardObject;
-import alchemydefense.Model.Towers.RedTower;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.PixelRatios;
 import org.junit.jupiter.api.Assertions;
