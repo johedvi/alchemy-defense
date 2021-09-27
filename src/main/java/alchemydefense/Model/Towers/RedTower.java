@@ -1,8 +1,4 @@
 package alchemydefense.Model.Towers;
-import javafx.scene.image.Image;
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 
 
 /**
@@ -16,20 +12,14 @@ import java.io.FileNotFoundException;
 
 public class RedTower extends Tower {
 
-    TowerType Type;
+    private static final String imageFilePath = "app-icon.png";
+    private static final int redTowerHeight = 100;
+    private static final int redTowerWidth = 100;
+    private static final int redTowerRange = 3;
+    private static final int redTowerDamage = 10;
 
-    private static int RedTowerHeight = 100;
-    private static int RedTowerWidth = 100;
-    private static int RedTowerRange = 3;
-
-        public RedTower() throws FileNotFoundException {
-        super();
-        Type = TowerType.RED;
-        this.height = RedTowerHeight;
-        this.width = RedTowerWidth;
-        this.range = RedTowerRange;
-        this.filePath = "blue-crystal.png";
-        this.damage = 10;
+    public RedTower() {
+        super(TowerType.RED, imageFilePath, redTowerWidth, redTowerHeight, redTowerRange, redTowerDamage);
     }
 
     @Override
@@ -37,10 +27,5 @@ public class RedTower extends Tower {
             return "Red Tower";
     }
 
-
-    @Override
-    public String getImageFilePath() {
-        return filePath;
-    }
 }
 

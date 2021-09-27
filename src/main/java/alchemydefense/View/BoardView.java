@@ -1,9 +1,9 @@
 package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
-import alchemydefense.Model.Interfaces.Board;
-import alchemydefense.Model.Interfaces.BoardListener;
-import alchemydefense.Model.Interfaces.BoardObject;
+import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Board.BoardListener;
+import alchemydefense.Model.Board.BoardObject;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

@@ -1,4 +1,6 @@
-package alchemydefense.Model.Interfaces;
+package alchemydefense.Model.Foe;
+
+import alchemydefense.Model.Board.BoardObject;
 
 /**
  * @author Willem Brahmstaedt

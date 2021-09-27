@@ -1,6 +1,8 @@
 package alchemydefense.Model;
 
 import alchemydefense.Model.Board.ConcreteBoard;
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Pathfinding.PathFinder;
 import alchemydefense.Model.Interfaces.Board;
 import alchemydefense.Model.Interfaces.BoardListener;
 import alchemydefense.Model.Interfaces.BoardObject;
@@ -13,7 +15,9 @@ import java.io.FileNotFoundException;
 
 
 import java.awt.*;
+import java.io.FileNotFoundException;
 import java.util.*;
+import java.util.List;
 
 /**
  *

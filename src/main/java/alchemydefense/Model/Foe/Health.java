@@ -1,4 +1,4 @@
-package alchemydefense.Model.Interfaces;
+package alchemydefense.Model.Foe;
 
 /**
  * @author Willem Brahmstaedt
