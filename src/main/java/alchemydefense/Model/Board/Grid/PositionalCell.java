@@ -124,8 +124,6 @@ public class PositionalCell {
             this.foe = foe;
             insert(foe);
         }
-
-
     }
 
     @Override
