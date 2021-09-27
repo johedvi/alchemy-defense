@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class TowerController {
     private final GameModel model;
-    private Tower.TowerType activeTower;
+    private Tower.TowerType activeTower = null;
 
     public TowerController(GameModel model) {
         this.model = model;
@@ -29,5 +29,12 @@ public class TowerController {
     }
     public void setPurpleTowerActive() {
         this.activeTower = Tower.TowerType.PURPLE;
+    }
+
+    public boolean isHoldingTower() {
+        return activeTower != null;
+    }
+    public void setHoldingTowerFalse() {
+        activeTower = null;
     }
 }
