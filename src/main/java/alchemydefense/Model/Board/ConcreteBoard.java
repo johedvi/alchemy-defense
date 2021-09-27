@@ -32,15 +32,12 @@ public class ConcreteBoard implements Board {
     public final int height = 5;
 
     public void damageMethod(){
-        System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
             int damage = cell.getTower().getDamage();
-            System.out.println("Tower and damage: " + cell.getTower() + " " + damage);
             ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
             for(PositionalCell cellInRange : cellsInRange){
                 if(cellInRange.hasFoe()){
                     cellInRange.getFoe().takeDamage(damage);
-                    System.out.println("Targeted enemy and currentHP: " + cellInRange.getFoe() + cellInRange.getFoe().getCurrentHP());
                 }
             }
         }
