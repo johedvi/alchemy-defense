@@ -10,6 +10,9 @@ public class TowerFactory {
         //TODO Add more tower types
         switch (towerType) {
             case RED: return new RedTower();
+            case BLUE: return new BlueTower();
+            case GREEN: return new GreenTower();
+            case PURPLE: return new PurpleTower();
             default: throw new IllegalArgumentException();
         }
 
