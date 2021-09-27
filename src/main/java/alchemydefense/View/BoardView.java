@@ -4,6 +4,7 @@ import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
+import alchemydefense.Model.Towers.Tower;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -22,7 +23,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
 
-    private ImageView towerImage;
+    private final ImageView towerImage = new ImageView();
 
     Pane boardPane;
 
@@ -32,7 +33,6 @@ public class BoardView extends AnchorPane implements BoardListener {
     public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
         this.towerController = towerController;
 
-        towerImage = new ImageView(new Image("/blue-crystal.png"));
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
         root.getChildren().add(towerImage);
@@ -50,6 +50,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     private void setupMouseEventHandling(Group root) {
         root.setOnMouseMoved(mouseEvent -> {
             if (towerController.isHoldingTower()){
+                setTowerImage(towerController.getActiveTower());
                 towerImage.setVisible(true);
                 towerImage.toFront();
                 towerImage.setLayoutX(mouseEvent.getX() - UNIT_IN_PIXELS / 2);
@@ -107,6 +108,15 @@ public class BoardView extends AnchorPane implements BoardListener {
     private void clearTile(int x, int y){
         TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
         tile.ClearImage();
+    }
+
+    private void setTowerImage(Tower.TowerType towerType) {
+        switch (towerType) {
+            case RED: towerImage.setImage(new Image("red-crystal.png")); break;
+            case BLUE: towerImage.setImage(new Image("blue-crystal.png")); break;
+            case PURPLE: towerImage.setImage(new Image("purple-crystal.png")); break;
+            case GREEN: towerImage.setImage(new Image("green-crystal.png")); break;
+        }
     }
 
     @Override
