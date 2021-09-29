@@ -57,15 +57,17 @@ public class Player {
 
     public int getGold() { return gold; }
 
-    private void setGold(int gold) {
-        Player.gold = gold;
+    public void increaseGold(int amount) { setGold(gold + amount); }
+
+    private void setGold(int amount) {
+        gold = amount;
         updatePlayerEventListener();
     }
 
     public int getHp() { return health; }
 
     private void setHp(int hp) {
-        Player.health = hp;
+        health = hp;
         updatePlayerEventListener();
     }
 
