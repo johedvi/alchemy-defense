@@ -4,6 +4,7 @@ import alchemydefense.Model.Board.Grid.PositionalCell;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Foe.Foe;
+import alchemydefense.Model.Foe.Pathfinding.SlightlyLessDumbPathFinder;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.Tower;
@@ -14,6 +15,8 @@ import java.util.ArrayList;
 public class ConcreteBoard implements Board {
 
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
+
+    private final SlightlyLessDumbPathFinder pf = new SlightlyLessDumbPathFinder(new Point(11, 2));
 
     private final ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
 
@@ -91,6 +94,7 @@ public class ConcreteBoard implements Board {
                 if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].hasBeenUpdated){
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
+                    //Point nextCellPoint = pf.calculatePath(cellsWithTowers, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
                     cellGrid[nextCellPoint.x][nextCellPoint.y].setHasBeenUpdated(true);
                 }
