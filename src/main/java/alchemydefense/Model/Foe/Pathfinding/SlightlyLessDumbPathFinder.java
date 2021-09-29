@@ -19,6 +19,8 @@ public class SlightlyLessDumbPathFinder {
         Point currentPos = new Point(startingPos.x, startingPos.y);
         ArrayList<Point> pointsWithTowers = new ArrayList<>();
 
+        ArrayList<Point> visitedPoints = new ArrayList<>();
+
         //Gets coordinates from each cell occupied by a tower
         for(PositionalCell cell : cellsWithTowers) {
             pointsWithTowers.add(cell.getCellCoordinate());
@@ -26,27 +28,29 @@ public class SlightlyLessDumbPathFinder {
 
         while(!isGoalReached(currentPos)) {
 
-            if(canGoTo(pointsWithTowers, new Point(currentPos.x+1, currentPos.y)))
+            if(canGoTo(visitedPoints, pointsWithTowers, new Point(currentPos.x+1, currentPos.y)))
                 currentPos.x++;
 
-            else if(currentPos.y < goal.y) {
+            else if(currentPos.y <= goal.y) {
 
-                if(canGoTo(pointsWithTowers, new Point(currentPos.x, currentPos.y+1)))
+                if(canGoTo(visitedPoints, pointsWithTowers, new Point(currentPos.x, currentPos.y+1)))
                     currentPos.y++;
 
-                else if(canGoTo(pointsWithTowers, new Point(currentPos.x, currentPos.y-1)))
+                else if(canGoTo(visitedPoints, pointsWithTowers, new Point(currentPos.x, currentPos.y-1)))
                     currentPos.y--;
             }
             else {
-                if(canGoTo(pointsWithTowers, new Point(currentPos.x, currentPos.y-1)))
+                if(canGoTo(visitedPoints, pointsWithTowers, new Point(currentPos.x, currentPos.y-1)))
                     currentPos.y--;
 
-                else if(canGoTo(pointsWithTowers, new Point(currentPos.x, currentPos.y+1)))
+                else if(canGoTo(visitedPoints, pointsWithTowers, new Point(currentPos.x, currentPos.y+1)))
                     currentPos.y++;
 
             }
             Point intPoint = new Point(currentPos.x, currentPos.y);
             path.add(intPoint);
+
+            visitedPoints.add(intPoint);
 
             //currentPos = goal;
             System.out.println("currentPos x: " + currentPos.x);
@@ -54,13 +58,13 @@ public class SlightlyLessDumbPathFinder {
         }
 
         // The very last step to the goal
-        path.add(goal);
+        //path.add(goal);
 
         return path;
     }
 
-    private boolean canGoTo(ArrayList<Point> pointsWithTowers, Point targetPoint) {
-        return isFreePosition(pointsWithTowers, targetPoint) && inRange(targetPoint);
+    private boolean canGoTo(ArrayList<Point> visited, ArrayList<Point> pointsWithTowers, Point targetPoint) {
+        return isFreePosition(pointsWithTowers, targetPoint) && inRange(targetPoint) && !hasVisited(visited, targetPoint);
     }
 
     private boolean isFreePosition(ArrayList<Point> pointsWithTowers, Point testPoint) {
@@ -75,5 +79,13 @@ public class SlightlyLessDumbPathFinder {
 
     private boolean inRange(Point testPoint) {
         return (testPoint.x <= goal.x) && (testPoint.y >= 0) && (testPoint.y < 5);
+    }
+
+    private boolean hasVisited(ArrayList<Point> visitedPoints, Point testPoint) {
+        for(Point visited : visitedPoints) {
+            if(visited.x == testPoint.x && visited.y == testPoint.y)
+                return true;
+        }
+        return false;
     }
 }
