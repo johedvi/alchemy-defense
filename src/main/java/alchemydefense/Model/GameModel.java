@@ -61,11 +61,12 @@ public class GameModel {
         }
     }
 
+    //TODO Should GameModel really have a player or is it enough that ConcreteBoard has one?
     private Tower buyTower(Tower.TowerType towerType) throws Exception {
-        int price = TowerPurchase.getPrice(towerType);
+        int price = TowerTransaction.getBuyPrice(towerType);
         if(player.canAfford(price)) {
             player.pay(price);
-            return new TowerPurchase(towerType).getTower();
+            return new TowerTransaction().buyTower(towerType);
         }
         throw new Exception("Not enough gold.");
     }
