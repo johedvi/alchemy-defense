@@ -1,5 +1,5 @@
 package alchemydefense.Model.Board;
 
 public interface BoardListener {
-    void placeObjects(Board board);
+    void renderObjects(Board board);
 }

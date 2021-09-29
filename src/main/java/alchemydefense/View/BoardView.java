@@ -11,7 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.StackPane;
 
 import java.awt.*;
 
@@ -84,9 +84,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                Rectangle tileView = new TileView(i*64,j*64, 64,64);
-                tileView.setStroke(javafx.scene.paint.Color.BLACK);
-                tileView.setStrokeWidth(1);
+                StackPane tileView = new TileView(i*64,j*64, 64,64);
                 boardPane.getChildren().add(tileView);
             }
         }
@@ -99,15 +97,15 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
 
-    private void updateTileTower(int x, int y, String imageFilePath) {
+    private void updateTileImage(int x, int y, String imageFilePath) {
         TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
-        tile.setImage(imageFilePath);
+        tile.addImage(imageFilePath);
 
     }
 
     private void clearTile(int x, int y){
         TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
-        tile.ClearImage();
+        tile.clearImage();
     }
 
     private void setTowerImage(Tower.TowerType towerType) {
@@ -120,12 +118,12 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
     @Override
-    public void placeObjects(Board board) {
+    public void renderObjects(Board board) {
         for (int i = 0; i < board.getBoardHeight(); i++){
             for (int j = 0; j < board.getBoardWidth(); j++) {
                 BoardObject object = board.getBoardObject(new Point(j,i));
                 if (object != null)
-                    updateTileTower(j,i, object.getImageFilePath());
+                    updateTileImage(j,i, object.getImageFilePath());
                 else
                     clearTile(j,i);
             }
