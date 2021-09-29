@@ -61,7 +61,8 @@ public class ConcreteBoard implements Board {
         }
     }
 
-    public void removeBoardObject(Point point){
+    public void removeBoardObject(Point point) {
+        cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
     }
 

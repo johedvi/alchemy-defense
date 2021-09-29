@@ -12,11 +12,8 @@ public class TowerTransaction {
     private static final int greenTowerSellPrice = 40;
     private static final int purpleTowerSellPrice = 80;
 
-
-    //private final Tower tower;
-
     public TowerTransaction() {
-        //this.tower = TowerFactory.createTower(towerType);
+
     }
 
     public Tower buyTower(Tower.TowerType towerType) {
@@ -44,6 +41,4 @@ public class TowerTransaction {
         }
         return price;
     }
-
-    //public Tower getTower() { return this.tower; }
 }
