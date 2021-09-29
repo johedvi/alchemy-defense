@@ -89,6 +89,6 @@ public class GameModel {
 
     private void updateBoardListeners() {
         for (BoardListener listener : boardListeners)
-            listener.placeObjects(board);
+            listener.renderObjects(board);
     }
 }
