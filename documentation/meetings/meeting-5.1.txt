@@ -1,0 +1,55 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 29/09/2021
+	Chair: Willem Brahmstaedt
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+
+    - Continue with refining user stories
+
+    - Assign new tasks to team members
+
+3. Reports.
+
+    - Valdemar has begun refining each user story and sorted them. Implemented the removal of foes
+    that no longer are alive. Refactored code. Started implementing a new pathfinding.
+
+    - Johan added UML, user stories and introduction to RAD
+
+    - Felix has refined the SSD, added new a UML-project diagram and a updated our class diagram
+
+    - Willem has refactored code and written tests more tests that also check the 'connection' between objects
+
+4. Discussion items.
+
+    - Discussed how we shall document our code
+
+    - Are the user stories in Trello in the correct section? I.e. are many of them really completed?
+
+5. Outcomes and assignments.
+
+    - We will no longer write in the Java docs how authored what class, and then who modified what. Instead we will
+    only explain our code and let the accountability rest on git commits.
+
+    - Moved the user stories from completed to tested, since they do not yet fulfill our definition of done.
+
+    - Ask our supervisor if tests are needed for view classes and if the application is expected to be able to adapt
+    to different screen sizes.
+
+    - Valdemar implements functionality for gold usage.
+
+    - Felix updates TileView so it can hold multiple images and changes the way PositionalCell handles Towers and Foes.
+
+    - Johan adds functionality so that the player takes damage when a foe reaches goal.
+
+    - Willem writes Java doc for the classes from user stories which are in the testing column, so that they can be moved to
+    the completed column. Continue writing tests.
+
+6. Wrap up.
+
+	- Multiple foes should be able to be on the same cell. Atm only the last foe to a cell remains, the rest disappear.
+
+	- If one wants to add a tower on a cell where there already is a foe one gets a plethora of error messages.
+
+	- Next meeting: Friday 01-10-2021 at 9:30.
