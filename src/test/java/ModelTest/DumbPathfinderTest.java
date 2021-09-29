@@ -1,3 +1,5 @@
+package ModelTest;
+
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 
 import alchemydefense.Model.Towers.Tower;
@@ -25,6 +27,17 @@ public class DumbPathfinderTest {
         LinkedList<Point> list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
 
         Point previousPoint = new Point(start.x, start.y);
+        for (Point p : list) {
+            Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
+            previousPoint = new Point(p.x, p.y);
+        }
+
+        Assertions.assertEquals(list.get(list.size() - 1), goal);
+
+        start = new Point(0,10);
+        list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
+        previousPoint = new Point(start.x, start.y);
+
         for (Point p : list) {
             Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
             previousPoint = new Point(p.x, p.y);

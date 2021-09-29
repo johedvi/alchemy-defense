@@ -1,3 +1,5 @@
+package ModelTest;
+
 import alchemydefense.Utility.Vector2Int;
 import org.junit.Assert;
 import org.junit.jupiter.api.Test;
