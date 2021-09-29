@@ -1,4 +1,7 @@
+package ModelTest;
+
 import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Towers.RedTower;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.PixelRatios;
 import org.junit.jupiter.api.Assertions;
@@ -21,14 +24,14 @@ public class GridTest {
     public void testPlaceTowerInCell(){
         testPoint = new Point(1,1);
         gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), Tower.class);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Point(3,3);
         gameModel.placeTowerInCell(Tower.TowerType.RED, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), Tower.class);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
     }

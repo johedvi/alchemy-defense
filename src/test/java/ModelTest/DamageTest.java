@@ -1,3 +1,5 @@
+package ModelTest;
+
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Towers.Tower;
 import org.junit.jupiter.api.BeforeEach;
