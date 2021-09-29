@@ -18,8 +18,11 @@ public class RedTower extends Tower {
     private static final int redTowerRange = 3;
     private static final int redTowerDamage = 10;
 
+    private static final int buyPrice = 50;
+    private static final int sellPrice = 10;
+
     public RedTower() {
-        super(TowerType.RED, imageFilePath, redTowerWidth, redTowerHeight, redTowerRange, redTowerDamage);
+        super(TowerType.RED, imageFilePath, redTowerWidth, redTowerHeight, redTowerRange, redTowerDamage, buyPrice, sellPrice);
     }
 
     @Override

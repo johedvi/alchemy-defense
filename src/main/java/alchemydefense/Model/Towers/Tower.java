@@ -26,13 +26,18 @@ public abstract class Tower implements BoardObject {
     private final int range;
     private final int damage;
 
-    public Tower(TowerType towerType, String filePath, int width, int height, int range, int damage) {
+    private final int buyPrice;
+    private final int sellPrice;
+
+    public Tower(TowerType towerType, String filePath, int width, int height, int range, int damage, int buyPrice, int sellPrice) {
         this.towerType = towerType;
         this.filePath = filePath;
         this.width = width;
         this.height = height;
         this.range = range;
         this.damage = damage;
+        this.buyPrice = buyPrice;
+        this.sellPrice = sellPrice;
     }
 
     public enum TowerType {
@@ -54,5 +59,9 @@ public abstract class Tower implements BoardObject {
     public int getRange() { return this.range; }
 
     public int getDamage() { return this.damage; }
+
+    public int getBuyPrice() { return this.buyPrice; }
+
+    public int getSellPrice() { return  this.sellPrice; }
 
 }
