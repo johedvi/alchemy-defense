@@ -1,0 +1,30 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 24/09/2021
+	Chair: Johan Linden
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Implement Foe's move method and correctly render foes on the screen. 
+	- Refactor code, loads of imports not being used, certain classes with unnecessary attributes and methods etc..
+	- Implement Towers range finder method. 
+	- Create a new pathfinder that accounts for towers. 
+	- Connect the wave class and fender on screen. 
+
+3. Reports.
+	- All of us created and implemented the foe's move method together so everything works. 
+ 	- Valdemar and Willem connected the wave class to the board. 	
+	- Johan started to look at a better pathfinder. (Djikstra)
+	- Felix started to implement the towers range finder. 
+4. Discussion items.
+	- Vectorclass for towers targeting method. How to solve tower targeting diagonally? 
+	- Pathfinder that uses Nodes instead of points. 
+	- Game is "lagging", the reason is unknown. 
+	- Fix junit tests, some are still failing.
+
+5. Outcomes and assignments.
+  - Meeting took place on a friday, no assigments over the weekend. 
+
+6. Wrap up.
+	- Start working on the SSD and RAD on monday.
+	- Next meeting is scheduled for monday 13:15.
