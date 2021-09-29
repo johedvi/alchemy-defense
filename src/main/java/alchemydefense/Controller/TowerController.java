@@ -37,4 +37,6 @@ public class TowerController {
     public void setHoldingTowerFalse() {
         activeTower = null;
     }
+
+    public Tower.TowerType getActiveTower() { return activeTower;  }
 }
