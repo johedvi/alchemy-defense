@@ -15,7 +15,7 @@ public class TowerControllerTest {
     static TowerController towerController;
 
     @BeforeAll
-    static void beforeAll() {
+    public static void beforeAll() {
         model = new GameModel();
         towerController = new TowerController(model);
     }

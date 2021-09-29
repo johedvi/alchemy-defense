@@ -16,7 +16,7 @@ public class GridTest {
     PixelRatios pixelRatios;
 
     @BeforeAll
-    static void setGameModel(){
+    public static void setGameModel(){
         gameModel = new GameModel();
     }
 
