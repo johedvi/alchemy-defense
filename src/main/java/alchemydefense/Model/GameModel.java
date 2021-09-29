@@ -71,6 +71,11 @@ public class GameModel {
         throw new Exception("Not enough gold.");
     }
 
+    public void sellTower(Point point, Tower.TowerType towerType) {
+        board.removeBoardObject(point);
+        player.increaseGold(TowerTransaction.getSellPrice(towerType));
+    }
+
     // ------- Handling of BoardObjects -------
     public BoardObject getBoardObjectInCell(Point point){
         return board.getBoardObject(point);

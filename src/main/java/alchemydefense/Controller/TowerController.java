@@ -39,4 +39,8 @@ public class TowerController {
     }
 
     public Tower.TowerType getActiveTower() { return this.activeTower; }
+
+    public void sellTower() {
+        model.sellTower(new Point(11, 4), Tower.TowerType.RED);
+    }
 }
