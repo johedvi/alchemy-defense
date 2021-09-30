@@ -24,7 +24,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
-    private final ImageView EndImage = new ImageView();
+
 
 
 
@@ -48,10 +48,11 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane = setupBoardPane();
 
         setupMouseEventHandling(root);
-        CreateEndGoal();
+
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
+        CreateEndGoal();
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -131,8 +132,10 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
     private void clearTile(int x, int y){
-        TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
-        tile.clearImage();
+
+            TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
+            tile.clearImage();
+
     }
 
     private void setTowerImage(Tower.TowerType towerType) {

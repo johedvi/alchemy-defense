@@ -25,6 +25,8 @@ public class ConcreteBoard implements Board {
     PositionalGrid positionalGrid;
     public final int width = 12;
     public final int height = 5;
+    public final int endgoalX = 11;
+    public final int endgoalY = 2;
 
     public void damageFoes(){
         System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
@@ -84,6 +86,15 @@ public class ConcreteBoard implements Board {
     public void addFoe(Foe foe){
         Point startPos = new Point(0, (int) (getBoardHeight() * Math.random()));
         positionalGrid.addFoe(foe, startPos);
+    }
+
+    public void FoeReachedEnd () {
+        PositionalCell[][] cellGrid = positionalGrid.getGrid();
+        if(cellGrid[endgoalX][endgoalY].hasFoe()) {
+           cellGrid[endgoalX][endgoalY].removeFoe();
+            player.decreaseOneHp();
+        }
+
     }
 
     public void moveFoes(){
