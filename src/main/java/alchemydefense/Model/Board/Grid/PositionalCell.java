@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class PositionalCell {
     final Point cellCoordinate;
     private boolean isOccupied = false;
-    private BoardObject boardObject;
     private Tower tower;
     private Foe foe;
     public boolean hasBeenUpdated = false;
@@ -37,12 +36,10 @@ public class PositionalCell {
         cellCoordinate = point;
     }
 
-    public void insert(BoardObject boardObject) {
+    public void addTower(Tower tower) {
+        if(isOccupied) return;
         isOccupied = true;
-        this.boardObject = boardObject;
-        if(boardObject instanceof Tower){
-            insertTower((Tower) boardObject);
-        }
+        this.tower = tower;
     }
 
     public Point getCellCoordinate(){
@@ -50,7 +47,13 @@ public class PositionalCell {
     }
 
     public BoardObject getBoardObject(){
-        return boardObject;
+        if(tower != null){
+            return tower;
+        }
+        else if(foe != null){
+            return foe;
+        }
+        return null;
     }
 
     public Tower getTower(){
@@ -119,7 +122,7 @@ public class PositionalCell {
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;
-            insert(foe);
+            boardObject = foe;
         }
     }
 

@@ -66,7 +66,6 @@ public class BoardView extends AnchorPane implements BoardListener {
                 int y = (int) mouseEvent.getY() / UNIT_IN_PIXELS;
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
                     if(towerController.isHoldingTower()){
-                        System.out.println("TJo");
                         towerController.createTower(x,y);
                     }
                 }
