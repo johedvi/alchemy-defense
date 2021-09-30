@@ -1,5 +1,6 @@
 package alchemydefense.View;
 
+import alchemydefense.Controller.TowerController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
@@ -7,7 +8,7 @@ public class SelectedTowerView extends Pane {
 
     private final Label sellPriceLabel;
 
-    public SelectedTowerView(int scene_width, int unit_in_pixel) {
+    public SelectedTowerView(TowerController towerController, int scene_width, int unit_in_pixel) {
         this.setPrefSize(150, 100);
         this.setLayoutX(25);
         this.setLayoutY(15);
@@ -24,7 +25,7 @@ public class SelectedTowerView extends Pane {
         sellTowerButton.setLayoutX(25);
         sellTowerButton.setLayoutY(50);
         sellTowerButton.setOnMouseClicked(e -> {
-
+            towerController.sellTower();
         });
         this.getChildren().add(sellTowerButton);
     }
