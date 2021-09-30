@@ -7,7 +7,7 @@ import java.awt.*;
 
 public class TowerController {
 
-    private boolean pressedTower = false;
+    private boolean towerPressed = false;
 
     private final GameModel model;
     private Tower.TowerType activeTower = null;
@@ -49,13 +49,13 @@ public class TowerController {
 
     public void cellPressed(int x, int y) {
         if(model.getBoardObjectInCell(new Point(x, y)) instanceof Tower) {
-            pressedTower = true;
+            towerPressed = true;
             System.out.println("Tower pressed");
         }
         else {
-            pressedTower = false;
+            towerPressed = false;
         }
     }
 
-    public boolean isTowerPressed() { return this.pressedTower; }
+    public boolean isTowerPressed() { return this.towerPressed; }
 }
