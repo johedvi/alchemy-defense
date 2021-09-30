@@ -20,10 +20,15 @@ public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 448;
     private static final int UNIT_IN_PIXELS = 64;
-    private static final int GRID_WIDTH = 12;
+    private static final int GRID_WIDTH = 13;
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
+    private final ImageView EndImage = new ImageView();
+
+
+
+
 
     Pane boardPane;
 
@@ -35,6 +40,7 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
+
         root.getChildren().add(towerImage);
         towerImage.setVisible(false);
 
@@ -42,6 +48,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane = setupBoardPane();
 
         setupMouseEventHandling(root);
+        CreateEndGoal();
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
@@ -79,6 +86,10 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
 
+
+
+
+
     private Pane setupBoardPane() {
         Pane boardPane = new Pane();
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
@@ -86,14 +97,30 @@ public class BoardView extends AnchorPane implements BoardListener {
             for (int j = 0; j < GRID_HEIGHT; j++) {
                 StackPane tileView = new TileView(i*64,j*64, 64,64);
                 boardPane.getChildren().add(tileView);
+
             }
         }
+
+
+
 
         String image = "tmp-background.png";
         boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
                 "-fx-background-position: center center; " +
                 "-fx-background-repeat: stretch;");
         return boardPane;
+    }
+
+    private void CreateEndGoal() {
+
+        for (int i = 0 ; i < GRID_HEIGHT ; i++) {
+            TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*12+i);
+            tile.addImage("wall.png");
+        }
+        TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*12+2);
+        tile.addImage("beer.png");
+
+
     }
 
 
