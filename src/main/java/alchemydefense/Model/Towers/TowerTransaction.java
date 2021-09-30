@@ -1,6 +1,10 @@
 package alchemydefense.Model.Towers;
 
+import alchemydefense.Model.Player.Player;
+
 public class TowerTransaction {
+
+    Player player = Player.getPlayer();
 
     private static final int redTowerBuyPrice = 50;
     private static final int blueTowerBuyPrice = 100;
@@ -16,11 +20,16 @@ public class TowerTransaction {
 
     }
 
-    public Tower buyTower(Tower.TowerType towerType) {
-        return TowerFactory.createTower(towerType);
+    public Tower buyTower(Tower.TowerType towerType) throws Exception {
+        int price = getBuyPrice(towerType);
+        if(player.canAfford(price)) {
+            player.pay(price);
+            return TowerFactory.createTower(towerType);
+        }
+        throw new Exception("Not enough gold.");
     }
 
-    public static int getBuyPrice(Tower.TowerType towerType) {
+    private int getBuyPrice(Tower.TowerType towerType) {
         int price = 0;
         switch (towerType) {
             case RED : price = redTowerBuyPrice; break;
