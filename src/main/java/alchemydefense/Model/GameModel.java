@@ -68,7 +68,7 @@ public class GameModel {
 
     public void sellTower(Point point, Tower.TowerType towerType) {
         board.removeBoardObject(point);
-        player.increaseGold(TowerTransaction.getSellPrice(towerType));
+        new TowerTransaction().sellTower(towerType);
     }
 
     // ------- Handling of BoardObjects -------

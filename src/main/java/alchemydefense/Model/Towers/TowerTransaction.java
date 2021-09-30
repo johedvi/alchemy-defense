@@ -29,6 +29,10 @@ public class TowerTransaction {
         throw new Exception("Not enough gold.");
     }
 
+    public void sellTower(Tower.TowerType towerType) {
+        player.increaseGold(getSellPrice(towerType));
+    }
+
     private int getBuyPrice(Tower.TowerType towerType) {
         int price = 0;
         switch (towerType) {
