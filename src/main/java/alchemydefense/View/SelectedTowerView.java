@@ -33,4 +33,8 @@ public class SelectedTowerView extends Pane {
 
     public void setVis(boolean visible) { this.setVisible(visible);}
 
+    //TODO Make view be updated dynamically on clicked tower
+    public void updateSellPrice(int price) {
+        this.sellPriceLabel.setText("Sell for: " + price);
+    }
 }

@@ -1,5 +1,7 @@
 package alchemydefense.Model.Towers;
 
+
+//TODO Should class really be singleton or should methods getBuyPrice and getSellPrice just be static?
 public class TowerPrices {
 
     private static TowerPrices instance = null;
