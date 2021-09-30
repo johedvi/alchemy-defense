@@ -8,7 +8,7 @@ public class SelectedTowerView extends Pane {
 
     private final Label sellPriceLabel;
 
-    public SelectedTowerView(TowerController towerController, int scene_width, int unit_in_pixel) {
+    public SelectedTowerView(TowerController towerController) {
         this.setPrefSize(150, 100);
         this.setLayoutX(25);
         this.setLayoutY(15);
@@ -28,8 +28,9 @@ public class SelectedTowerView extends Pane {
             towerController.sellTower();
         });
         this.getChildren().add(sellTowerButton);
+        this.setVisible(false);
     }
 
-
+    public void setVis(boolean visible) { this.setVisible(visible);}
 
 }

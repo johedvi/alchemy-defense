@@ -29,8 +29,14 @@ public class BoardView extends AnchorPane implements BoardListener {
 
     private final TowerController towerController;
 
+    private final UserInterfaceView userInterfaceView;
+
 
     public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
+
+        this.userInterfaceView = userInterfaceView;
+
+
         this.towerController = towerController;
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
@@ -65,12 +71,12 @@ public class BoardView extends AnchorPane implements BoardListener {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
                 int y = (int) mouseEvent.getY() / UNIT_IN_PIXELS;
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
+                    towerController.cellPressed(x, y);
                     if(towerController.isHoldingTower()){
                         towerController.createTower(x,y);
                     }
-                    /*else {
-                        towerController.cellPressed(x, y);
-                    }*/
+                    else
+                        userInterfaceView.getSelectedTowerView().setVis(towerController.isTowerPressed());
                 }
             } else if (mouseEvent.getButton() == MouseButton.SECONDARY)
             {
