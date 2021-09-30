@@ -17,10 +17,10 @@ import java.awt.*;
 
 
 public class BoardView extends AnchorPane implements BoardListener {
-    private static final int SCENE_WIDTH = 768;
+    private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 448;
     private static final int UNIT_IN_PIXELS = 64;
-    private static final int GRID_WIDTH = 12;
+    private static final int GRID_WIDTH = 13;
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
