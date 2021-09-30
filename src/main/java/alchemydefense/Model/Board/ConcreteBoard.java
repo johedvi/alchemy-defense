@@ -50,9 +50,6 @@ public class ConcreteBoard implements Board {
         return positionalGrid.getBoardObject(point);
     }
 
-    //Temporary
-    //public Tower getTower(Point point) { return positionalGrid.getTower(point); }
-
     public PositionalCell getCell(Point point){
         return positionalGrid.getCell(point);
     }

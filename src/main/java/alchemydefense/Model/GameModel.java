@@ -85,9 +85,6 @@ public class GameModel {
         board.removeBoardObject(point);
     }
 
-    //Temporary
-    //public Tower getTowerInCell(Point point) { return board.getTower(point); }
-
     // ------- Wave methods -------
     public void startNewWave() {
         Wave wave = new Wave();
