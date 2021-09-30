@@ -53,14 +53,6 @@ public class UserInterfaceView extends Pane {
         });
         this.getChildren().add(greenTowerButton);
 
-        javafx.scene.control.Button sellTowerButton = new javafx.scene.control.Button("Sell tower");
-        sellTowerButton.setMaxSize(100, 200);
-        sellTowerButton.setLayoutX(scene_width / 2 - 300);
-        sellTowerButton.setLayoutY(unit_in_pixel);
-        sellTowerButton.setOnMouseClicked(e -> {
-            towerController.sellTower();
-        });
-        this.getChildren().add(sellTowerButton);
         this.getChildren().add(informationView);
         this.getChildren().add(selectedTowerView);
     }
