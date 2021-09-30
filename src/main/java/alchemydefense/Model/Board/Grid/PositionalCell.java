@@ -11,7 +11,6 @@ import java.util.ArrayList;
 
 public class PositionalCell {
     final Point cellCoordinate;
-    final Point worldPosition;
     private boolean isOccupied = false;
     private BoardObject boardObject;
     private Tower tower;
@@ -20,7 +19,6 @@ public class PositionalCell {
 
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
-        worldPosition = convertCellPositionToWorld(cellCoordinate);
     }
 
     public void setHasBeenUpdated(boolean b){
@@ -37,7 +35,6 @@ public class PositionalCell {
 
     public PositionalCell(Point point){
         cellCoordinate = point;
-        worldPosition = convertCellPositionToWorld(cellCoordinate);
     }
 
     public void insert(BoardObject boardObject) {
