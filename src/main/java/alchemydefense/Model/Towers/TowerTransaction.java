@@ -4,7 +4,8 @@ import alchemydefense.Model.Player.Player;
 
 public class TowerTransaction {
 
-    Player player = Player.getPlayer();
+    private static final Player player = Player.getPlayer();
+    private static final TowerPrices towerPrices = TowerPrices.getInstance();
 
     private static final int redTowerBuyPrice = 50;
     private static final int blueTowerBuyPrice = 100;
@@ -21,7 +22,7 @@ public class TowerTransaction {
     }
 
     public Tower buyTower(Tower.TowerType towerType) throws Exception {
-        int price = getBuyPrice(towerType);
+        int price = towerPrices.getBuyPrice(towerType);
         if(player.canAfford(price)) {
             player.pay(price);
             return TowerFactory.createTower(towerType);
@@ -30,28 +31,7 @@ public class TowerTransaction {
     }
 
     public void sellTower(Tower.TowerType towerType) {
-        player.increaseGold(getSellPrice(towerType));
+        player.increaseGold(towerPrices.getSellPrice(towerType));
     }
 
-    private int getBuyPrice(Tower.TowerType towerType) {
-        int price = 0;
-        switch (towerType) {
-            case RED : price = redTowerBuyPrice; break;
-            case BLUE: price = blueTowerBuyPrice; break;
-            case GREEN: price = greenTowerBuyPrice; break;
-            case PURPLE: price = purpleTowerBuyPrice; break;
-        }
-        return price;
-    }
-
-    private int getSellPrice(Tower.TowerType towerType) {
-        int price = 0;
-        switch (towerType) {
-            case RED : price = redTowerSellPrice; break;
-            case BLUE: price = blueTowerSellPrice; break;
-            case GREEN: price = greenTowerSellPrice; break;
-            case PURPLE: price = purpleTowerSellPrice; break;
-        }
-        return price;
-    }
 }
