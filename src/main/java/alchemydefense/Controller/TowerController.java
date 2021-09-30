@@ -1,5 +1,6 @@
 package alchemydefense.Controller;
 
+import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.Tower;
 
@@ -8,6 +9,8 @@ import java.awt.*;
 public class TowerController {
     private final GameModel model;
     private Tower.TowerType activeTower = null;
+
+    private Tower pressedTower = null;
 
     public TowerController(GameModel model) {
         this.model = model;
@@ -43,4 +46,12 @@ public class TowerController {
     public void sellTower() {
         model.sellTower(new Point(11, 4), Tower.TowerType.RED);
     }
+
+    /*public void cellPressed(int x, int y) {
+        BoardObject boardObject = model.getBoardObjectInCell(new Point(x, y));
+        if(boardObject instanceof Tower) {
+            pressedTower = model.getTowerInCell(new Point(x, y));
+            System.out.println("Tower pressed");
+        }
+    }*/
 }

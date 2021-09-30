@@ -17,4 +17,6 @@ public interface Board {
     void moveFoes();
     void damageFoes();
     void addPlayerEventListener(PlayerEventListener listener);
+
+    //Tower getTower(Point point);
 }

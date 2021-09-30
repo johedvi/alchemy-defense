@@ -68,6 +68,9 @@ public class BoardView extends AnchorPane implements BoardListener {
                     if(towerController.isHoldingTower()){
                         towerController.createTower(x,y);
                     }
+                    /*else {
+                        towerController.cellPressed(x, y);
+                    }*/
                 }
             } else if (mouseEvent.getButton() == MouseButton.SECONDARY)
             {

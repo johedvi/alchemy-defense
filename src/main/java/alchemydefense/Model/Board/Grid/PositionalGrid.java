@@ -81,4 +81,7 @@ public class PositionalGrid {
     public BoardObject getBoardObject(Point cell){
         return positionalCells[cell.x][cell.y].getBoardObject();
     }
+
+    //Temporary
+    //public Tower getTower(Point cell) { return positionalCells[cell.x][cell.y].getTower(); }
 }
