@@ -4,7 +4,9 @@ import alchemydefense.Controller.TowerController;
 import javafx.scene.layout.Pane;
 
 public class UserInterfaceView extends Pane {
-    public UserInterfaceView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView, TowerController towerController) {
+    public UserInterfaceView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView,
+                             TowerController towerController, SelectedTowerView selectedTowerView) {
+
         this.setPrefSize(scene_width, unit_in_pixel * 2);
         this.setLayoutX(0);
         this.setLayoutY(scene_height - 2 * unit_in_pixel);
@@ -54,7 +56,7 @@ public class UserInterfaceView extends Pane {
             towerController.sellTower();
         });
         this.getChildren().add(sellTowerButton);
-
         this.getChildren().add(informationView);
+        this.getChildren().add(selectedTowerView);
     }
 }

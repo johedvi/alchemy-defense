@@ -4,6 +4,7 @@ import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.View.BoardView;
 import alchemydefense.View.InformationView;
+import alchemydefense.View.SelectedTowerView;
 import alchemydefense.View.UserInterfaceView;
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
@@ -32,7 +33,9 @@ public class App extends Application {
 
                 InformationView informationView = new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS);
                 TowerController towerController = new TowerController(model);
-                UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS, informationView, towerController);
+                SelectedTowerView selectedTowerView = new SelectedTowerView(SCENE_WIDTH, UNIT_IN_PIXELS);
+                UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS,
+                        informationView, towerController, selectedTowerView);
 
                 BoardView view = new BoardView(root, towerController, userInterfaceView);
                 model.addBoardListener(view);
