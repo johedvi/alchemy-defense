@@ -10,7 +10,9 @@ import java.util.ArrayList;
 
 
 public class PositionalCell {
-    final Point cellCoordinate;
+
+
+    private final Point cellCoordinate;
     private boolean isOccupied = false;
     private Tower tower;
     private Foe foe;
@@ -26,20 +28,6 @@ public class PositionalCell {
 
     public boolean hasFoe(){
         return (foe != null);
-    }
-
-    public Foe getFoe(){
-        return foe;
-    }
-
-    public PositionalCell(Point point){
-        cellCoordinate = point;
-    }
-
-    public void addTower(Tower tower) {
-        if(isOccupied) return;
-        isOccupied = true;
-        this.tower = tower;
     }
 
     public Point getCellCoordinate(){
@@ -60,30 +48,31 @@ public class PositionalCell {
         return tower;
     }
 
-    public void insertTower(Tower tower){
-        this.tower  = tower;
+    public Foe getFoe(){
+        return foe;
     }
 
+    public PositionalCell(Point point){
+        cellCoordinate = point;
+    }
+
+    public void addTower(Tower tower) {
+        if(isOccupied) return;
+        isOccupied = true;
+        this.tower = tower;
+    }
 
     public boolean isOccupied() {
         return isOccupied;
     }
 
     public void clear(){
-        boardObject = null;
         foe = null;
         isOccupied = false;
     }
 
     public void setOccupied(boolean isOccupied) {
         this.isOccupied = isOccupied;
-    }
-
-    private Point convertCellPositionToWorld(Point cellPosition){
-        int cellWorldWidth = 64;                                    //<<<<<<<< NEEDS REFACTORING
-        int cellWorldHeight = 64;
-
-        return new Point(cellWorldWidth * cellCoordinate.x, cellWorldHeight * cellCoordinate.y);
     }
 
     public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
@@ -122,7 +111,6 @@ public class PositionalCell {
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;
-            boardObject = foe;
         }
     }
 

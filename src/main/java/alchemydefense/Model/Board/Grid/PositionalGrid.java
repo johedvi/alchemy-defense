@@ -33,7 +33,7 @@ public class PositionalGrid {
 
     public void addTower(Tower tower, Point cell){
         if (!positionalCells[cell.x][cell.y].isOccupied() && areColRowFree(cell)){
-            positionalCells[cell.x][cell.y].insertTower(tower);
+            positionalCells[cell.x][cell.y].addTower(tower);
         }
     }
 
