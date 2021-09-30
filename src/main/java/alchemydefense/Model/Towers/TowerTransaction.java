@@ -44,7 +44,7 @@ public class TowerTransaction {
         return price;
     }
 
-    public static int getSellPrice(Tower.TowerType towerType) {
+    private int getSellPrice(Tower.TowerType towerType) {
         int price = 0;
         switch (towerType) {
             case RED : price = redTowerSellPrice; break;
