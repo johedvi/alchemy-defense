@@ -7,7 +7,7 @@ import alchemydefense.Model.Towers.Tower;
 import java.awt.*;
 
 public interface Board {
-    void placeBoardObject(Tower boardObject, Point cellCoordinate);
+    void placeTower(Tower boardObject, Point cellCoordinate);
     BoardObject getBoardObject(Point cellCoordinate); // SHOULD RETURN A READ ONLY OBJECT PERHAPS?
     void removeBoardObject(Point cellCoordinate);
     int getBoardWidth();

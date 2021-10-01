@@ -10,10 +10,8 @@ import java.util.ArrayList;
 
 
 public class PositionalCell {
-
-
     private final Point cellCoordinate;
-    private boolean isOccupied = false;
+    private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
     public boolean hasBeenUpdated = false;
@@ -22,12 +20,20 @@ public class PositionalCell {
         cellCoordinate = new Point(x,y);
     }
 
+    public void setOccupied(boolean isOccupied) {
+        this.isOccupiedByTower = isOccupied;
+    }
+
     public void setHasBeenUpdated(boolean b){
         hasBeenUpdated = b;
     }
 
     public boolean hasFoe(){
         return (foe != null);
+    }
+
+    public boolean isOccupiedByTower() {
+        return isOccupiedByTower;
     }
 
     public Point getCellCoordinate(){
@@ -57,22 +63,15 @@ public class PositionalCell {
     }
 
     public void addTower(Tower tower) {
-        if(isOccupied) return;
-        isOccupied = true;
+        if(isOccupiedByTower) return;
+        isOccupiedByTower = true;
         this.tower = tower;
-    }
-
-    public boolean isOccupied() {
-        return isOccupied;
     }
 
     public void clear(){
         foe = null;
-        isOccupied = false;
-    }
-
-    public void setOccupied(boolean isOccupied) {
-        this.isOccupied = isOccupied;
+        tower = null;
+        isOccupiedByTower = false;
     }
 
     public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
@@ -108,6 +107,7 @@ public class PositionalCell {
         return foe;
     }
 
+    //Allow multiple foes? Possible solution = store foes as a list.
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;

@@ -55,9 +55,8 @@ public class ConcreteBoard implements Board {
     }
 
     @Override
-    public void placeBoardObject(Tower boardObject, Point worldPosition) {
-        positionalGrid.add(boardObject, worldPosition);
-        if(boardObject instanceof Tower){
+    public void placeTower(Tower boardObject, Point worldPosition) {
+        if(positionalGrid.addTower(boardObject, worldPosition)){
             cellsWithTowers.add(positionalGrid.getCell(worldPosition));
         }
     }

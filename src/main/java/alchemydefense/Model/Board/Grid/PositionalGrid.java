@@ -25,16 +25,18 @@ public class PositionalGrid {
     }
 
     public void add(Tower boardObject, Point cell){
-        if (!positionalCells[cell.x][cell.y].isOccupied()){
+        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){
             positionalCells[cell.x][cell.y].addTower(boardObject);
         }
-
     }
 
-    public void addTower(Tower tower, Point cell){
-        if (!positionalCells[cell.x][cell.y].isOccupied() && areColRowFree(cell)){
+
+    public boolean addTower(Tower tower, Point cell){
+        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){  //  removed "&& areColRowFree(cell)" //Felix J, could not add towers with this condition, will fix later
             positionalCells[cell.x][cell.y].addTower(tower);
+            return true;
         }
+        return false;
     }
 
     public void addFoe(Foe foe, Point cell){
@@ -49,7 +51,7 @@ public class PositionalGrid {
         boolean isFree = false;
 
         for (int i = 0; i < positionalCells[1].length; i++) {
-            isFree = isFree || positionalCells[cell.x][i].isOccupied();
+            isFree = isFree || positionalCells[cell.x][i].isOccupiedByTower();
         }
 
         return isFree;
@@ -59,14 +61,14 @@ public class PositionalGrid {
         boolean isFree = false;
 
         for (int i = 0; i < positionalCells[0].length; i++) {
-            isFree = isFree || positionalCells[i][cell.y].isOccupied();
+            isFree = isFree || positionalCells[i][cell.y].isOccupiedByTower();
         }
 
         return isFree;
     }
 
     public void remove(Point cell){
-        if(positionalCells[cell.x][cell.y].isOccupied()){
+        if(positionalCells[cell.x][cell.y].isOccupiedByTower()){
             positionalCells[cell.x][cell.y].setOccupied(false);
             positionalCells[cell.x][cell.y].clear();
         }
