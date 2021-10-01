@@ -1,0 +1,65 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 01/10/2021
+	Chair: Johan Linden
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+
+    
+
+    - Continue and finish javadocs documentation. 
+
+    - Continue with priority two user stories.
+
+    - Assign new taks to team members. 
+
+3. Reports.
+
+    - Valdemar has added the possiblity to sell and buy towers, has also refactored how you buy towers in the code. Added tower view
+ 	to make it possible to sell "ingame".
+
+    - Felix has updated positionalCell so that you only can add one tower in every cell, has also started to refactor point to our
+	class.
+
+    - Willem has continued to write javadocs. 
+
+    - Johan has implemented an endgoal for the game that works with foes so that for every foe that reaches the endgoal the player
+	loses health. 
+
+4. Discussion items.
+
+    - How we can select a tower from the grid and get that specific object to use in code?
+
+    - Rewrite definition of done?
+	
+    - Create two different updates loops for the rendering and the model?	 
+
+    - Might have to write who authored what class after reading through SSD document. 
+
+    - Adjust the code so that the game can scale and adapt to different screen sizes. 
+
+
+5. Outcomes and assignments.
+
+    - We will now write who authored what class but not when it was modified. 
+
+    - Fix the definition of done in trello so that it is the same as in our RAD, the correct version.
+
+    - Create an animation loop specifically for the view and one for the model so we can update in different frequency.
+
+    - This meeting is on friday and no assigments were given over the weekend. 
+
+
+
+6. Wrap up.
+
+    - Multiple foes should be able to be on the same cell. Atm only the last foe to a cell remains, the rest disappear. (Same as last meeting, not fixed yet)
+
+    - Create tests for endgoal and buy/sell towers.
+
+    - Have a nice weekend.
+
+	- 
+
+	- Next meeting: Monday 04-10-2021 at 13:15.
