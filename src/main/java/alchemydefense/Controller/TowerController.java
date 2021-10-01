@@ -12,6 +12,8 @@ public class TowerController {
     private final GameModel model;
     private Tower.TowerType activeTower = null;
 
+    private Point towerCell = null;
+
     public TowerController(GameModel model) {
         this.model = model;
     }
@@ -43,12 +45,11 @@ public class TowerController {
 
     public Tower.TowerType getActiveTower() { return this.activeTower; }
 
-    public void sellTower() {
-        model.sellTower(new Point(11, 4), Tower.TowerType.RED);
-    }
+    public void sellTower() { model.sellTower(this.towerCell, Tower.TowerType.RED); }
 
-    public void cellPressed(int x, int y) {
-        if(model.getBoardObjectInCell(new Point(x, y)) instanceof Tower) {
+    public void cellPressed(Point cell) {
+        if(model.getBoardObjectInCell(cell) instanceof Tower) {
+            towerCell = cell;
             towerPressed = true;
             System.out.println("Tower pressed");
         }
