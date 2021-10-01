@@ -45,7 +45,7 @@ public class GameModel {
         board.damageFoes();
         board.moveFoes();
         board.FoeReachedEnd();
-        updateBoardListeners();
+       // updateBoardListeners();
     }
 
     // ------- Create and place tower -------
