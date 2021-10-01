@@ -51,7 +51,7 @@ public class GameModel {
     public void placeTowerInCell(Tower.TowerType towerType, Point point) {
         try {
             Tower tower = createTower(towerType);
-            board.placeBoardObject(tower, point);
+            board.placeTower(tower, point);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());

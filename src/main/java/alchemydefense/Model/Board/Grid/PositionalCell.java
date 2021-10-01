@@ -10,17 +10,18 @@ import java.util.ArrayList;
 
 
 public class PositionalCell {
-    final Point cellCoordinate;
-    final Point worldPosition;
-    private boolean isOccupied = false;
-    private BoardObject boardObject;
+    private final Point cellCoordinate;
+    private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
     public boolean hasBeenUpdated = false;
 
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
-        worldPosition = convertCellPositionToWorld(cellCoordinate);
+    }
+
+    public void setOccupied(boolean isOccupied) {
+        this.isOccupiedByTower = isOccupied;
     }
 
     public void setHasBeenUpdated(boolean b){
@@ -31,21 +32,8 @@ public class PositionalCell {
         return (foe != null);
     }
 
-    public Foe getFoe(){
-        return foe;
-    }
-
-    public PositionalCell(Point point){
-        cellCoordinate = point;
-        worldPosition = convertCellPositionToWorld(cellCoordinate);
-    }
-
-    public void insert(BoardObject boardObject) {
-        isOccupied = true;
-        this.boardObject = boardObject;
-        if(boardObject instanceof Tower){
-            insertTower((Tower) boardObject);
-        }
+    public boolean isOccupiedByTower() {
+        return isOccupiedByTower;
     }
 
     public Point getCellCoordinate(){
@@ -53,37 +41,37 @@ public class PositionalCell {
     }
 
     public BoardObject getBoardObject(){
-        return boardObject;
+        if(tower != null){
+            return tower;
+        }
+        else if(foe != null){
+            return foe;
+        }
+        return null;
     }
 
     public Tower getTower(){
         return tower;
     }
 
-    public void insertTower(Tower tower){
-        this.tower  = tower;
+    public Foe getFoe(){
+        return foe;
     }
 
+    public PositionalCell(Point point){
+        cellCoordinate = point;
+    }
 
-    public boolean isOccupied() {
-        return isOccupied;
+    public void addTower(Tower tower) {
+        if(isOccupiedByTower) return;
+        isOccupiedByTower = true;
+        this.tower = tower;
     }
 
     public void clear(){
-        boardObject = null;
         foe = null;
-        isOccupied = false;
-    }
-
-    public void setOccupied(boolean isOccupied) {
-        this.isOccupied = isOccupied;
-    }
-
-    private Point convertCellPositionToWorld(Point cellPosition){
-        int cellWorldWidth = 64;                                    //<<<<<<<< NEEDS REFACTORING
-        int cellWorldHeight = 64;
-
-        return new Point(cellWorldWidth * cellCoordinate.x, cellWorldHeight * cellCoordinate.y);
+        tower = null;
+        isOccupiedByTower = false;
     }
 
     public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
@@ -119,10 +107,10 @@ public class PositionalCell {
         return foe;
     }
 
+    //Allow multiple foes? Possible solution = store foes as a list.
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;
-            insert(foe);
         }
     }
 
