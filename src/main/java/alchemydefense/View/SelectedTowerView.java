@@ -26,7 +26,7 @@ public class SelectedTowerView extends Pane {
         sellTowerButton.setLayoutY(50);
         sellTowerButton.setOnMouseClicked(e -> {
             towerController.sellTower();
-            setVis(false);
+            this.setVisible(false);
         });
         this.getChildren().add(sellTowerButton);
         this.setVisible(false);
