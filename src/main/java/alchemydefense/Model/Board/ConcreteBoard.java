@@ -36,6 +36,7 @@ public class ConcreteBoard implements Board {
                     cellInRange.getFoe().takeDamage(damage);
                     if(!cellInRange.getFoe().isAlive()) {
                         cellInRange.removeFoe();
+                        player.increaseGold(5);
                     }
                 }
             }
