@@ -52,7 +52,7 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
-        CreateEndGoal();
+
 
     }
 
@@ -97,12 +97,14 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i*64,j*64, 64,64);
+                StackPane tileView = new TileView(i * 64, j * 64, 64, 64);
                 boardPane.getChildren().add(tileView);
-
-
             }
         }
+       
+            TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*11+2);
+            tile.addImage("beer.png");
+
 
 
         String image = "tmp-background.png";
@@ -112,14 +114,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         return boardPane;
     }
 
-    private void CreateEndGoal() {
 
-
-        TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*11+2);
-        tile.addImage("beer.png");
-
-
-    }
 
 
 
