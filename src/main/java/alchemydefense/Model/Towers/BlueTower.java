@@ -8,11 +8,10 @@ public class BlueTower extends Tower {
     private static final int blueTowerRange = 3;
     private static final int blueTowerDamage = 10;
 
-    private static final int buyPrice = 100;
     private static final int sellPrice = 20;
 
     public BlueTower() {
-        super(Tower.TowerType.BLUE, imageFilePath, blueTowerWidth, blueTowerHeight, blueTowerRange, blueTowerDamage, buyPrice, sellPrice);
+        super(Tower.TowerType.BLUE, imageFilePath, blueTowerWidth, blueTowerHeight, blueTowerRange, blueTowerDamage, sellPrice);
     }
 
     @Override

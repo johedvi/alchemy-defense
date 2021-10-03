@@ -5,6 +5,7 @@ import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.Foe;
+import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
@@ -25,6 +26,8 @@ import java.util.*;
  *
  */
 public class GameModel {
+
+    private final Player player = Player.getPlayer();
     Board board;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
@@ -50,7 +53,7 @@ public class GameModel {
     // ------- Create and place tower -------
     public void placeTowerInCell(Tower.TowerType towerType, Point point) {
         try {
-            Tower tower = createTower(towerType);
+            Tower tower = buyTower(towerType);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -58,8 +61,13 @@ public class GameModel {
         }
     }
 
-    private Tower createTower(Tower.TowerType towerType) throws IllegalArgumentException, FileNotFoundException {
-        return TowerFactory.createTower(towerType);
+    private Tower buyTower(Tower.TowerType towerType) throws Exception {
+        int price = TowerPurchase.getPrice(towerType);
+        if(player.canAfford(price)) {
+            player.pay(price);
+            return new TowerPurchase(towerType).getTower();
+        }
+        throw new Exception("Not enough gold.");
     }
 
     // ------- Handling of BoardObjects -------
