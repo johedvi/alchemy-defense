@@ -1,7 +1,7 @@
 package alchemydefense.Controller;
 
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 import java.awt.*;
 

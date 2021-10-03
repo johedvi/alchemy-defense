@@ -1,7 +1,7 @@
 package alchemydefense.Model.Foe.Pathfinding;
 
 
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 import java.awt.*;
 import java.util.LinkedList;

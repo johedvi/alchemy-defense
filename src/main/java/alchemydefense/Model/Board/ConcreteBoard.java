@@ -7,7 +7,7 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Foe.Pathfinding.SlightlyLessDumbPathFinder;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 import java.awt.*;
 import java.util.ArrayList;

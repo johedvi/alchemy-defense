@@ -1,7 +1,7 @@
 package ModelTest;
 
 import alchemydefense.Model.Board.ConcreteBoard;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

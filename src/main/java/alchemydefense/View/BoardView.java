@@ -4,7 +4,7 @@ import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

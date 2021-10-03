@@ -1,4 +1,4 @@
-package alchemydefense.Model.Towers;
+package alchemydefense.Model.Towers.TowerHierarchy;
 
 public class PurpleTower extends Tower {
 

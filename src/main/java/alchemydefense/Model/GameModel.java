@@ -8,7 +8,7 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
 
 import java.awt.*;

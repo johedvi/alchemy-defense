@@ -2,7 +2,7 @@ package alchemydefense.Model.Board;
 
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 import java.awt.*;
 

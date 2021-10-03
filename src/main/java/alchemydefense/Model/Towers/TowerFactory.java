@@ -1,6 +1,8 @@
 package alchemydefense.Model.Towers;
 
 
+import alchemydefense.Model.Towers.TowerHierarchy.*;
+
 import java.lang.IllegalArgumentException;
 
 public class TowerFactory {

@@ -2,8 +2,8 @@ package ControllerTest;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.RedTower;
-import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
