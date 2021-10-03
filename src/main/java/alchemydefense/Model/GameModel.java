@@ -10,8 +10,6 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Model.Wave.Wave;
-import java.io.FileNotFoundException;
-
 
 import java.awt.*;
 import java.util.*;
@@ -26,9 +24,9 @@ import java.util.*;
  *
  */
 public class GameModel {
+    Board board;
 
     private final Player player = Player.getPlayer();
-    Board board;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final Set<BoardListener> boardListeners = new HashSet<>();
@@ -61,7 +59,6 @@ public class GameModel {
         }
     }
 
-    //TODO Should GameModel really have a player or is it enough that ConcreteBoard has one?
     private Tower buyTower(Tower.TowerType towerType) throws Exception {
         return new TowerTransaction().buyTower(towerType);
     }
