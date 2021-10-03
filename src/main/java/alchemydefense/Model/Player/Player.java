@@ -38,12 +38,10 @@ public class Player {
 
     public void decreaseOneHp() { setHp(health-1); }
 
-    public boolean pay(int amount) {
+    public void pay(int amount) {
         if(canAfford(amount)) {
             setGold(gold-amount);
-            return true;
         }
-        return false;
     }
 
     public boolean canAfford(int amount) { return gold > amount; }
