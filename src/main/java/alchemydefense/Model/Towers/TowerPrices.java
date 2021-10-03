@@ -27,7 +27,7 @@ public class TowerPrices {
         return instance;
     }
 
-    public int getBuyPrice(Tower.TowerType towerType) {
+    public int getBuyPrice(TowerType towerType) {
         int price = 0;
         switch (towerType) {
             case RED : price = redTowerBuyPrice; break;
@@ -38,7 +38,7 @@ public class TowerPrices {
         return price;
     }
 
-    public int getSellPrice(Tower.TowerType towerType) {
+    public int getSellPrice(TowerType towerType) {
         int price = 0;
         switch (towerType) {
             case RED : price = redTowerSellPrice; break;

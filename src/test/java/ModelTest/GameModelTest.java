@@ -1,7 +1,7 @@
 package ModelTest;
 
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -17,6 +17,6 @@ public class GameModelTest {
 
     @Test
     public void testTowerCreationFail() {
-        model.placeTowerInCell(Tower.TowerType.BLUE, new Point(2,2));
+        model.placeTowerInCell(TowerType.BLUE, new Point(2,2));
     }
 }

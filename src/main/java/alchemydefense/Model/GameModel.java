@@ -49,7 +49,7 @@ public class GameModel {
     }
 
     // ------- Create and place tower -------
-    public void placeTowerInCell(Tower.TowerType towerType, Point point) {
+    public void placeTowerInCell(TowerType towerType, Point point) {
         try {
             Tower tower = buyTower(towerType);
             board.placeTower(tower, point);
@@ -59,11 +59,11 @@ public class GameModel {
         }
     }
 
-    private Tower buyTower(Tower.TowerType towerType) throws Exception {
+    private Tower buyTower(TowerType towerType) throws Exception {
         return new TowerTransaction().buyTower(towerType);
     }
 
-    public void sellTower(Point point, Tower.TowerType towerType) {
+    public void sellTower(Point point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
     }

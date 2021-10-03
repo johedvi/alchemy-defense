@@ -12,7 +12,7 @@ public class TowerTransaction {
 
     }
 
-    public Tower buyTower(Tower.TowerType towerType) throws Exception {
+    public Tower buyTower(TowerType towerType) throws Exception {
         int price = towerPrices.getBuyPrice(towerType);
         if(player.canAfford(price)) {
             player.pay(price);
@@ -21,7 +21,7 @@ public class TowerTransaction {
         throw new Exception("Not enough gold.");
     }
 
-    public void sellTower(Tower.TowerType towerType) {
+    public void sellTower(TowerType towerType) {
         player.increaseGold(towerPrices.getSellPrice(towerType));
     }
 

@@ -5,6 +5,7 @@ import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerType;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -116,7 +117,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         tile.clearImage();
     }
 
-    private void setTowerImage(Tower.TowerType towerType) {
+    private void setTowerImage(TowerType towerType) {
         switch (towerType) {
             case RED: towerImage.setImage(new Image("red-crystal.png")); break;
             case BLUE: towerImage.setImage(new Image("blue-crystal.png")); break;

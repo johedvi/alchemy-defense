@@ -1,5 +1,6 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 import alchemydefense.Model.Board.BoardObject;
+import alchemydefense.Model.Towers.TowerType;
 
 
 /**
@@ -36,10 +37,6 @@ public abstract class Tower implements BoardObject {
         this.range = range;
         this.damage = damage;
         this.sellPrice = sellPrice;
-    }
-
-    public enum TowerType {
-        RED, BLUE, GREEN, PURPLE
     }
 
     public void update() {

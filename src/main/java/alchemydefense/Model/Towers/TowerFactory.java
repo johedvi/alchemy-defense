@@ -7,7 +7,7 @@ import java.lang.IllegalArgumentException;
 
 public class TowerFactory {
 
-    public static Tower createTower(Tower.TowerType towerType) throws IllegalArgumentException {
+    public static Tower createTower(TowerType towerType) throws IllegalArgumentException {
 
         //TODO Add more tower types
         switch (towerType) {

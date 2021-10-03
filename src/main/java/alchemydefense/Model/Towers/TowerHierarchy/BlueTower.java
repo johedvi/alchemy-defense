@@ -1,5 +1,7 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 
+import alchemydefense.Model.Towers.TowerType;
+
 public class BlueTower extends Tower {
 
     private static final String imageFilePath = "blue-crystal.png";
@@ -11,7 +13,7 @@ public class BlueTower extends Tower {
     private static final int sellPrice = 20;
 
     public BlueTower() {
-        super(Tower.TowerType.BLUE, imageFilePath, blueTowerWidth, blueTowerHeight, blueTowerRange, blueTowerDamage, sellPrice);
+        super(TowerType.BLUE, imageFilePath, blueTowerWidth, blueTowerHeight, blueTowerRange, blueTowerDamage, sellPrice);
     }
 
     @Override

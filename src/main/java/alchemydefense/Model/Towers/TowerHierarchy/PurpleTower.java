@@ -1,5 +1,7 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 
+import alchemydefense.Model.Towers.TowerType;
+
 public class PurpleTower extends Tower {
 
     private static final String imageFilePath = "/purple-crystal.png";

@@ -1,6 +1,8 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 
 
+import alchemydefense.Model.Towers.TowerType;
+
 /**
  * @author Johan Lindén
  *
