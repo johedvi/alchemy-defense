@@ -44,7 +44,7 @@ public class Player {
         }
     }
 
-    public boolean canAfford(int amount) { return gold > amount; }
+    public boolean canAfford(int amount) { return gold >= amount; }
 
     public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
 
