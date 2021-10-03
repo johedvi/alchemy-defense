@@ -39,10 +39,6 @@ public abstract class Tower implements BoardObject {
         this.sellPrice = sellPrice;
     }
 
-    public void update() {
-        //TODO
-    }
-
     public TowerType getTowerType() { return this.towerType; }
 
     @Override public String getImageFilePath() { return this.filePath; }
