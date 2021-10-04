@@ -73,10 +73,16 @@ public class GameModel {
         return new TowerTransaction().buyTower(towerType);
     }
 
-    public void sellTower(Point point, TowerType towerType) {
-        board.removeBoardObject(point);
+    /**
+     * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
+     * @param coordinate tile position of the tower.
+     * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
+     */
+    public void sellTower(Point coordinate, TowerType towerType) {
+        board.removeBoardObject(coordinate);
         new TowerTransaction().sellTower(towerType);
     }
+
 
     // ------- Handling of BoardObjects -------
     public BoardObject getBoardObjectInCell(Point point){
@@ -86,6 +92,7 @@ public class GameModel {
     public void removeBoardObjectInCell(Point point){
         board.removeBoardObject(point);
     }
+
 
     // ------- Wave methods -------
     public void startNewWave() {
