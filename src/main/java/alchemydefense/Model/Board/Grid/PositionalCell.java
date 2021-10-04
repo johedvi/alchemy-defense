@@ -31,7 +31,7 @@ public class PositionalCell {
     }
 
     public boolean hasFoe(){
-        return (foe != null);
+        return foe != null;
     }
     public boolean isOccupiedByTower() {
         return isOccupiedByTower;

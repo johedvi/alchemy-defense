@@ -88,7 +88,7 @@ public class ConcreteBoard implements Board {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
             for(int j=0; j< cellGrid[i].length; j++) {
-                if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].isUpdated()){
+                if(cellGrid[i][j].hasFoe() && !(i==11 && j==2) && !cellGrid[i][j].isUpdated()){
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
