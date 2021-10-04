@@ -91,6 +91,10 @@ public class ConcreteBoard implements Board {
         //TODO: Make foes move and then take damage
     }
 
+    /**
+     * Adds the given foe to a random tile in the first column of the game. Foes should enter from the leftmost column.
+     * @param foe
+     */
     public void addFoe(Foe foe){
         Point startPos = new Point(0, (int) (getBoardHeight() * Math.random()));
         positionalGrid.addFoe(foe, startPos);
