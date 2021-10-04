@@ -19,11 +19,13 @@ public class PositionalCell {
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
     }
+    public PositionalCell(Point point){
+        cellCoordinate = point;
+    }
 
     public void setOccupied(boolean isOccupied) {
         this.isOccupiedByTower = isOccupied;
     }
-
     public void setHasBeenUpdated(boolean b){
         hasBeenUpdated = b;
     }
@@ -31,7 +33,6 @@ public class PositionalCell {
     public boolean hasFoe(){
         return (foe != null);
     }
-
     public boolean isOccupiedByTower() {
         return isOccupiedByTower;
     }
@@ -53,13 +54,8 @@ public class PositionalCell {
     public Tower getTower(){
         return tower;
     }
-
     public Foe getFoe(){
         return foe;
-    }
-
-    public PositionalCell(Point point){
-        cellCoordinate = point;
     }
 
     public void addTower(Tower tower) {
