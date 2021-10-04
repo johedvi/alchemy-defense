@@ -37,6 +37,11 @@ public class Vector2Int{
             return false;
     }
 
+    @Override
+    public int hashCode() {
+        return 1000 * x + y;
+    }
+
     public int getX() { return x; }
 
     public int getY() {
