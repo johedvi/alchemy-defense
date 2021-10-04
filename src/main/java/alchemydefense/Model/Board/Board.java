@@ -18,5 +18,5 @@ public interface Board {
     void damageFoes();
     void addPlayerEventListener(PlayerEventListener listener);
 
-    void FoeReachedEnd();
+    void foeReachedEnd();
 }

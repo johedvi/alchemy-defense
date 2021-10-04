@@ -88,7 +88,7 @@ public class ConcreteBoard implements Board {
         positionalGrid.addFoe(foe, startPos);
     }
 
-    public void FoeReachedEnd () {
+    public void foeReachedEnd() {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         if(cellGrid[endgoalX][endgoalY].hasFoe()) {
            cellGrid[endgoalX][endgoalY].removeFoe();
@@ -103,6 +103,7 @@ public class ConcreteBoard implements Board {
             for(int j=0; j< cellGrid[i].length; j++) {
                 //System.out.print(cellGrid[i][j] + "\t");
                 if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].hasBeenUpdated){
+
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     //Point nextCellPoint = pf.calculatePath(cellsWithTowers, cellGrid[i][j].getCellCoordinate()).getFirst();
