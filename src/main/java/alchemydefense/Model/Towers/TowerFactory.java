@@ -5,7 +5,24 @@ import alchemydefense.Model.Towers.TowerHierarchy.*;
 
 import java.lang.IllegalArgumentException;
 
+/**
+ * @author Johan LInden
+ *
+ * Factory class that creates Tower objects without exposing the creation logic to the client.
+ *
+ * Date: 2021-9-20
+ */
+
+
+
 public class TowerFactory {
+
+    /**
+     * Creates specific Tower
+     * @param towerType
+     * @return specific concrete Tower.
+     * @throws IllegalArgumentException
+     * */
 
     public static Tower createTower(TowerType towerType) throws IllegalArgumentException {
 
