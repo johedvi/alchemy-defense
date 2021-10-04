@@ -35,7 +35,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     private final TowerController towerController;
 
 
-    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
+    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView, BackGroundView backGroundView) {
         this.towerController = towerController;
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);

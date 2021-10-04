@@ -4,13 +4,16 @@ package alchemydefense.View;
 import javafx.scene.layout.Pane;
 
 public class BackGroundView extends Pane {
-    public BackGroundView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView) {
-        this.setPrefSize(scene_width, unit_in_pixel * 2);
-        this.setLayoutX(0);
-        this.setLayoutY(scene_height - 2 * unit_in_pixel);
-        this.setStyle("-fx-background-color: blue");
 
+
+    public BackGroundView(int SCENE_WIDTH, int UNIT_IN_PIXELS) {
+
+        this.setPrefSize(150, 100);
+        this.setLayoutX(SCENE_WIDTH - 175);
+        this.setLayoutY(15);
+        this.setStyle("-fx-background-color: white");
 
 
     }
+
 }

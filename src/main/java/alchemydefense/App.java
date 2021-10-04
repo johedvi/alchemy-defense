@@ -2,6 +2,7 @@ package alchemydefense;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
+import alchemydefense.View.BackGroundView;
 import alchemydefense.View.BoardView;
 import alchemydefense.View.InformationView;
 import alchemydefense.View.UserInterfaceView;
@@ -33,8 +34,9 @@ public class App extends Application {
                 InformationView informationView = new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS);
                 TowerController towerController = new TowerController(model);
                 UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS, informationView, towerController);
+                BackGroundView backGroundView = new BackGroundView(SCENE_WIDTH,UNIT_IN_PIXELS);
 
-                BoardView view = new BoardView(root, towerController, userInterfaceView);
+                BoardView view = new BoardView(root, towerController, userInterfaceView, backGroundView);
                 model.addBoardListener(view);
                 model.addPlayerEventListener(informationView);
 
