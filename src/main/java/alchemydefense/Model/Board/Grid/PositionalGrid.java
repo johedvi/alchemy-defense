@@ -4,7 +4,7 @@ import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
-import java.awt.*;
+import java.awt.Point;
 
 public class PositionalGrid {
     PositionalCell[][] positionalCells;
@@ -32,7 +32,7 @@ public class PositionalGrid {
 
 
     public boolean addTower(Tower tower, Point cell){
-        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){  //  removed "&& areColRowFree(cell)" //Felix J, could not add towers with this condition, will fix later
+        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){
             positionalCells[cell.x][cell.y].addTower(tower);
             return true;
         }
@@ -41,30 +41,6 @@ public class PositionalGrid {
 
     public void addFoe(Foe foe, Point cell){
         positionalCells[cell.x][cell.y].addFoe(foe);
-    }
-
-    public boolean areColRowFree(Point cell) {
-        return isColFree(cell) && isRowFree(cell);
-    }
-
-    private boolean isColFree(Point cell) {
-        boolean isFree = false;
-
-        for (int i = 0; i < positionalCells[1].length; i++) {
-            isFree = isFree || positionalCells[cell.x][i].isOccupiedByTower();
-        }
-
-        return isFree;
-    }
-
-    private boolean isRowFree(Point cell) {
-        boolean isFree = false;
-
-        for (int i = 0; i < positionalCells[0].length; i++) {
-            isFree = isFree || positionalCells[i][cell.y].isOccupiedByTower();
-        }
-
-        return isFree;
     }
 
     public void remove(Point cell){
