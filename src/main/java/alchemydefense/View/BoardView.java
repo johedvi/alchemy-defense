@@ -52,7 +52,7 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
-        CreateEndGoal();
+        createEndGoal();
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -112,7 +112,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         return boardPane;
     }
 
-    private void CreateEndGoal() {
+    private void createEndGoal() {
 
         for (int i = 0 ; i < GRID_HEIGHT ; i++) {
             TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*12+i);

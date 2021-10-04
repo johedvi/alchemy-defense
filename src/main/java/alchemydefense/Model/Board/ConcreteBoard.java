@@ -93,6 +93,7 @@ public class ConcreteBoard implements Board {
         if(cellGrid[endgoalX][endgoalY].hasFoe()) {
            cellGrid[endgoalX][endgoalY].removeFoe();
             player.decreaseOneHp();
+
         }
 
     }
