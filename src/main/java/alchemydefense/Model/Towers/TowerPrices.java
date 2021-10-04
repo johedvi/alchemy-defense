@@ -8,7 +8,7 @@ public class TowerPrices {
 
     private static TowerPrices instance = null;
 
-    private static final int redTowerBuyPrice = 50;
+    private static final int redTowerBuyPrice = 0;
     private static final int blueTowerBuyPrice = 100;
     private static final int greenTowerBuyPrice = 200;
     private static final int purpleTowerBuyPrice = 400;
