@@ -27,15 +27,13 @@ public class BoardView extends AnchorPane implements BoardListener {
 
 
 
-
-
-
     Pane boardPane;
+    Pane BoardPaneTest;
 
     private final TowerController towerController;
 
 
-    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView, BackGroundView backGroundView) {
+    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
         this.towerController = towerController;
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
@@ -46,13 +44,32 @@ public class BoardView extends AnchorPane implements BoardListener {
 
 
         boardPane = setupBoardPane();
-
+        BoardPaneTest = BackGroundView();
         setupMouseEventHandling(root);
+
 
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
+        root.getChildren().add(BoardPaneTest);
+
         createEndGoal();
+    }
+
+    private Pane BackGroundView() {
+
+        Pane BoardPaneTest = new Pane();
+        BoardPaneTest.setPrefSize(SCENE_WIDTH,50);
+        BoardPaneTest.setLayoutX(SCENE_WIDTH-400);
+        BoardPaneTest.setLayoutY(300);
+        BoardPaneTest.setStyle("-fx-background-color: green");
+        String image = "tmp-background.png";
+        BoardPaneTest.setStyle("-fx-background-image: url('" + image + "'); " +
+                "-fx-background-position: center center; " +
+                "-fx-background-repeat: stretch;");
+
+        return BoardPaneTest;
+
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -74,7 +91,7 @@ public class BoardView extends AnchorPane implements BoardListener {
                 int y = (int) mouseEvent.getY() / UNIT_IN_PIXELS;
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
                     if(towerController.isHoldingTower()){
-                        System.out.println("TJo");
+
                         towerController.createTower(x,y);
                     }
                 }
@@ -102,13 +119,6 @@ public class BoardView extends AnchorPane implements BoardListener {
             }
         }
 
-
-
-
-        String image = "tmp-background.png";
-        boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
-                "-fx-background-position: center center; " +
-                "-fx-background-repeat: stretch;");
         return boardPane;
     }
 
