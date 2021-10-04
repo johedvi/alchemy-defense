@@ -14,24 +14,25 @@ public class PositionalCell {
     private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
-    public boolean hasBeenUpdated = false;
+    private boolean updated = false;
 
     public PositionalCell(int x, int y){
         cellCoordinate = new Point(x,y);
+    }
+    public PositionalCell(Point point){
+        cellCoordinate = point;
     }
 
     public void setOccupied(boolean isOccupied) {
         this.isOccupiedByTower = isOccupied;
     }
-
-    public void setHasBeenUpdated(boolean b){
-        hasBeenUpdated = b;
+    public void setUpdated(boolean b){
+        updated = b;
     }
 
     public boolean hasFoe(){
         return (foe != null);
     }
-
     public boolean isOccupiedByTower() {
         return isOccupiedByTower;
     }
@@ -39,6 +40,7 @@ public class PositionalCell {
     public Point getCellCoordinate(){
         return cellCoordinate;
     }
+    public boolean isUpdated() { return updated; }
 
     public BoardObject getBoardObject(){
         if(tower != null){
@@ -53,13 +55,8 @@ public class PositionalCell {
     public Tower getTower(){
         return tower;
     }
-
     public Foe getFoe(){
         return foe;
-    }
-
-    public PositionalCell(Point point){
-        cellCoordinate = point;
     }
 
     public void addTower(Tower tower) {

@@ -4,7 +4,6 @@ import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Towers.TowerType;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
@@ -14,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-import java.awt.*;
+import java.awt.Point;
 
 
 public class BoardView extends AnchorPane implements BoardListener {
@@ -26,25 +25,20 @@ public class BoardView extends AnchorPane implements BoardListener {
 
     private final ImageView towerImage = new ImageView();
 
-    Pane boardPane;
+    private final Pane boardPane;
 
     private final TowerController towerController;
-
     private final UserInterfaceView userInterfaceView;
 
 
     public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
-
         this.userInterfaceView = userInterfaceView;
-
-
         this.towerController = towerController;
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
         root.getChildren().add(towerImage);
         towerImage.setVisible(false);
-
 
         boardPane = setupBoardPane();
 

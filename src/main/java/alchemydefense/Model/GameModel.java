@@ -5,14 +5,14 @@ import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
 
-import java.awt.*;
-import java.util.*;
+import java.awt.Point;
+import java.util.LinkedList;
+import java.util.HashSet;
 
 /**
  *
@@ -24,12 +24,10 @@ import java.util.*;
  *
  */
 public class GameModel {
-    Board board;
-
-    private final Player player = Player.getPlayer();
+    private final Board board;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
-    private final Set<BoardListener> boardListeners = new HashSet<>();
+    private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
     public GameModel(){
         startNewWave();
@@ -43,8 +41,7 @@ public class GameModel {
         else
             board.addFoe(activeFoes.removeFirst());
 
-        board.damageFoes();
-        board.moveFoes();
+        board.updateFoes();
         updateBoardListeners();
     }
 

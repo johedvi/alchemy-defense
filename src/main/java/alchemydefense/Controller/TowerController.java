@@ -4,7 +4,7 @@ import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Towers.TowerType;
 
-import java.awt.*;
+import java.awt.Point;
 
 public class TowerController {
 
@@ -26,7 +26,6 @@ public class TowerController {
     public void setRedTowerActive() {
         this.activeTower = TowerType.RED;
     }
-
     public void setBlueTowerActive() {
         this.activeTower = TowerType.BLUE;
     }
@@ -36,6 +35,7 @@ public class TowerController {
     public void setPurpleTowerActive() {
         this.activeTower = TowerType.PURPLE;
     }
+    public TowerType getActiveTower() { return this.activeTower; }
 
     public boolean isHoldingTower() {
         return activeTower != null;
@@ -44,15 +44,12 @@ public class TowerController {
         activeTower = null;
     }
 
-    public TowerType getActiveTower() { return this.activeTower; }
-
     public void sellTower() { model.sellTower(this.towerCell, TowerType.RED); }
 
     public void cellPressed(Point cell) {
         if(model.getBoardObjectInCell(cell) instanceof Tower) {
             towerCell = cell;
             towerPressed = true;
-            System.out.println("Tower pressed");
         }
         else {
             towerPressed = false;

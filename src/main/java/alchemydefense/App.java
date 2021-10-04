@@ -31,7 +31,7 @@ public class App extends Application {
         Scene scene = new Scene(root, SCENE_WIDTH, SCENE_HEIGHT);
         setupAppWindow(stage, scene);
 
-        InformationView informationView = new InformationView(SCENE_WIDTH, UNIT_IN_PIXELS);
+        InformationView informationView = new InformationView(SCENE_WIDTH);
         TowerController towerController = new TowerController(model);
 
         UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS,

@@ -9,11 +9,6 @@ import alchemydefense.Model.Board.BoardObject;
  *
  * Date: 2021-09-14
  *
- * ----- Modified -----
- * Date: 2021-09-19, By Willem; Removed @Override for methods originally from BoardObject
- *
- * Date: 2021-09-20, By Valdemar; Changed method takeDamage to void and added method boolean isAlive instead.
- *
  */
 
 public class ConcreteFoe implements BoardObject, Foe {

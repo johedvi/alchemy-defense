@@ -3,7 +3,7 @@ package alchemydefense.Model.Wave;
 import alchemydefense.Model.Foe.FoeFactory;
 import alchemydefense.Model.Foe.Foe;
 
-import java.util.*;
+import java.util.LinkedList;
 
 /**
  * @author Valdemar Stenhammar
@@ -24,7 +24,6 @@ public class Wave {
         waveCounter++;
     }
 
-    //TODO using a preliminary model to calculate how many foes should be created each round.
     public LinkedList<Foe> createFoes() {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, (waveCounter-1)));
         LinkedList<Foe> foes = new LinkedList<>();

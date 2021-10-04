@@ -3,14 +3,9 @@ package ModelTest;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Foe.FoeFactory;
-import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
-
-import java.awt.*;
-import java.io.FileNotFoundException;
 
 /**
  * @author Willem Brahmstaedt

@@ -36,8 +36,6 @@ public class Player {
         return player;
     }
 
-    public void decreaseOneHp() { setHp(health-1); }
-
     public void pay(int amount) {
         if(canAfford(amount)) {
             setGold(gold-amount);
@@ -65,10 +63,4 @@ public class Player {
     }
 
     public int getHp() { return health; }
-
-    private void setHp(int hp) {
-        health = hp;
-        updatePlayerEventListener();
-    }
-
 }

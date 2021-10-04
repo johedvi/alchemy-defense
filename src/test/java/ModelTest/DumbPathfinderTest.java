@@ -6,7 +6,7 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.LinkedList;
 
 /**

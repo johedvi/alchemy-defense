@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TileView extends StackPane {
-    final int tileSize = 64;
-    final String defaultBackground = "available-path.png";
-    List<ImageView> temporaryImages = new ArrayList<>();
-    //List<ImageView> fixedImages = new ArrayList<>();
+    private final String defaultBackground = "available-path.png";
+    private final List<ImageView> temporaryImages = new ArrayList<>();
 
     public TileView(int startX, int startY, int width, int height) {
         setPrefSize(width, height);

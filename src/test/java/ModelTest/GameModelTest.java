@@ -5,7 +5,7 @@ import alchemydefense.Model.Towers.TowerType;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
+import java.awt.Point;
 
 public class GameModelTest {
     static GameModel model;

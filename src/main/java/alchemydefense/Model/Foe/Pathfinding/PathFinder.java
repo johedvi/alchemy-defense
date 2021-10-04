@@ -3,7 +3,7 @@ package alchemydefense.Model.Foe.Pathfinding;
 
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
