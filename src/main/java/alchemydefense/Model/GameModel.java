@@ -43,8 +43,7 @@ public class GameModel {
         else
             board.addFoe(activeFoes.removeFirst());
 
-        board.damageFoes();
-        board.moveFoes();
+        board.updateFoes();
         updateBoardListeners();
     }
 
