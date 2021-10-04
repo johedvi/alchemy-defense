@@ -48,7 +48,7 @@ public class DumbPathfinder implements PathFinder {
         // Path in negative y direction
         for (int i = currentPos.y - 1; i >= this.goal.y; i--) {
             currentPos.y = i;
-            Point intPoint = new Point(currentPos.x, i);                    // xd
+            Point intPoint = new Point(currentPos.x, i);
             path.add(intPoint);
         }
         // The very last step to the goal

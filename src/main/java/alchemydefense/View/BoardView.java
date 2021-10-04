@@ -17,10 +17,10 @@ import java.awt.*;
 
 
 public class BoardView extends AnchorPane implements BoardListener {
-    private static final int SCENE_WIDTH = 768;
+    private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 448;
     private static final int UNIT_IN_PIXELS = 64;
-    private static final int GRID_WIDTH = 12;
+    private static final int GRID_WIDTH = 13;
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
@@ -52,8 +52,7 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
-
-
+        createEndGoal();
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -97,13 +96,12 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i * 64, j * 64, 64, 64);
+                StackPane tileView = new TileView(i*64,j*64, 64,64);
                 boardPane.getChildren().add(tileView);
+
             }
         }
-       
-            TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*11+2);
-            tile.addImage("beer.png");
+
 
 
 
@@ -114,8 +112,17 @@ public class BoardView extends AnchorPane implements BoardListener {
         return boardPane;
     }
 
+    private void createEndGoal() {
+
+        for (int i = 0 ; i < GRID_HEIGHT ; i++) {
+            TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*12+i);
+            tile.addImage("wall.png");
+        }
+        TileView tile = (TileView) boardPane.getChildren().get(GRID_HEIGHT*12+2);
+        tile.addImage("beer.png");
 
 
+    }
 
 
     private void updateTileImage(int x, int y, String imageFilePath) {

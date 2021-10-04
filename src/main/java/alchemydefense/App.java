@@ -56,7 +56,7 @@ public class App extends Application {
 
                 @Override
                 public void handle(long now) {
-                    if (now - lastUpdate >= 100_000_0000) {
+                    if (now - lastUpdate >= 100_000_000) {
 
                         lastUpdate = now;
                         model.modelUpdate();
