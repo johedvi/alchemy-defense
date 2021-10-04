@@ -6,7 +6,7 @@ import alchemydefense.Model.Towers.TowerType;
 /**
  * @author Johan Lindén
  *
- * Class representing a concrete tower. Extends Tower.
+ * Class representing a concrete Redtower. Extends Tower.
  *
  * Date: 2021-09-14
  *
