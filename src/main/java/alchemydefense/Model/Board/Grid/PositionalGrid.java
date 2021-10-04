@@ -7,7 +7,7 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import java.awt.Point;
 
 public class PositionalGrid {
-    PositionalCell[][] positionalCells;
+    private final PositionalCell[][] positionalCells;
 
     public PositionalCell[][] getGrid(){
         return positionalCells;
