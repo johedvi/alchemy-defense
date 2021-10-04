@@ -79,7 +79,7 @@ public class GameModel {
      * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
      */
     public void sellTower(Point coordinate, TowerType towerType) {
-        board.removeBoardObject(coordinate);
+        board.removeTower(coordinate);
         new TowerTransaction().sellTower(towerType);
     }
 
@@ -90,7 +90,7 @@ public class GameModel {
     }
 
     public void removeBoardObjectInCell(Point point){
-        board.removeBoardObject(point);
+        board.removeTower(point);
     }
 
 

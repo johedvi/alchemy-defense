@@ -64,14 +64,22 @@ public class ConcreteBoard implements Board {
         return positionalGrid.getCell(point);
     }
 
+    /**
+     * Place a tower in the specified tile if the tile is empty.
+     * @param tower tower to place.
+     * @param tilePosition the tile to place the tower in.
+     * @return return true if the placement was successful, false if not. 
+     */
     @Override
-    public void placeTower(Tower boardObject, Point worldPosition) {
-        if(positionalGrid.addTower(boardObject, worldPosition)){
-            cellsWithTowers.add(positionalGrid.getCell(worldPosition));
+    public boolean placeTower(Tower tower, Point tilePosition) {
+        if(positionalGrid.addTower(tower, tilePosition)){
+            cellsWithTowers.add(positionalGrid.getCell(tilePosition));
+            return true;
         }
+        return false;
     }
 
-    public void removeBoardObject(Point point) {
+    public void removeTower(Point point) {
         cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
     }
