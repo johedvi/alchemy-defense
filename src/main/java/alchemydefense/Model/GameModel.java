@@ -43,6 +43,7 @@ public class GameModel {
 
         board.updateFoes();
         updateBoardListeners();
+        board.foeReachedEnd();
     }
 
     // ------- Create and place tower -------

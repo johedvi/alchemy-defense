@@ -17,13 +17,15 @@ import java.awt.Point;
 
 
 public class BoardView extends AnchorPane implements BoardListener {
-    private static final int SCENE_WIDTH = 768;
+    private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 448;
     private static final int UNIT_IN_PIXELS = 64;
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
+    private final ImageView endGoalImage = new ImageView();
+    private final ImageView borderImage = new ImageView();
 
     private final Pane boardPane;
 
@@ -37,6 +39,7 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
+
         root.getChildren().add(towerImage);
         towerImage.setVisible(false);
 
@@ -44,8 +47,28 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         setupMouseEventHandling(root);
 
+        BackGroundView();
+
         root.getChildren().add(userInterfaceView);
         root.getChildren().add(boardPane);
+        root.getChildren().add(borderImage);
+        root.getChildren().add(endGoalImage);
+
+
+    }
+
+    private void BackGroundView() {
+
+        endGoalImage.setImage(new Image("endGoal.png"));
+        endGoalImage.setX(768);
+        endGoalImage.setY(64);
+
+        borderImage.setImage(new Image("rocks_complete.png"));
+        borderImage.setY(10);
+        borderImage.setFitHeight(64);
+        borderImage.setFitWidth(SCENE_WIDTH);
+
+
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -82,22 +105,23 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
 
+
+
+
     private Pane setupBoardPane() {
         Pane boardPane = new Pane();
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i*64,j*64, 64,64);
+                StackPane tileView = new TileView(i*64,(j+1)*64, 64,64);
                 boardPane.getChildren().add(tileView);
+
             }
         }
 
-        String image = "tmp-background.png";
-        boardPane.setStyle("-fx-background-image: url('" + image + "'); " +
-                "-fx-background-position: center center; " +
-                "-fx-background-repeat: stretch;");
         return boardPane;
     }
+
 
 
     private void updateTileImage(int x, int y, String imageFilePath) {
@@ -107,8 +131,10 @@ public class BoardView extends AnchorPane implements BoardListener {
     }
 
     private void clearTile(int x, int y){
-        TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
-        tile.clearImage();
+
+            TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
+            tile.clearImage();
+
     }
 
     private void setTowerImage(TowerType towerType) {

@@ -14,7 +14,10 @@ public interface Board {
     int getBoardHeight();
     void updateFoes();
     void addFoe(Foe foe);
+
     void moveFoes();
     void damageFoes();
     void addPlayerEventListener(PlayerEventListener listener);
+
+    void foeReachedEnd();
 }

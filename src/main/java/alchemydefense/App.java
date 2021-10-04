@@ -18,9 +18,9 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-    private static final int SCENE_WIDTH = 768;
-    private static final int SCENE_HEIGHT = 448;
-    private static final int UNIT_IN_PIXELS = 64;
+        private static final int SCENE_WIDTH = 832;
+        private static final int SCENE_HEIGHT = 512;
+        private static final int UNIT_IN_PIXELS = 64;
 
     private final GameModel model =  new GameModel();
 
