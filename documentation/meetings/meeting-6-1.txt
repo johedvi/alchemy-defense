@@ -1,0 +1,41 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 10/04/2021
+	Chair: Valdemar Stenhammar
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	The main objective of this meeting is to write a "Todo"-list of things to accomplish by Wednesdays peer review hand in.
+    
+3. Reports.
+  - Felix has started implementing a first prototype of a new pathfinder.
+  
+  - Valdemar has refactored the Tower package and refined the logic for buying and selling towers.
+
+4. Discussion items.
+	- What needs to be done before handing in the code on Wednesday
+
+5. Outcomes and assignments.
+
+  Todo:
+    - Write JavaDoc for all current code.
+    - Get PDM/PMD reports from Maven and put these in hand in.
+    - Clean up the code from obvious errors.
+    - Fix STAN.
+    - Fix and tidy up RAD and SDD document.
+    - Change from JAVA-class Points to our own Vector2Int.
+    - Add respective diagram to RAD or SDD.
+    - Make towers be placed immedialtely and not only when foes are updated.
+    
+  - Willem will make towers be placeable immediately.
+  
+  - Johan will incorporate STAN.
+  
+  - Valdemar will tidy up RAD and SDD documents and add the respective diagrams.
+  
+  - Felix writes JavaDoc.
+  
+  - Change from Points to Vector2Int is prioritized lowest and will be completed if time allows.
+
+6. Wrap up.
+	- Next meeting scheduled for Wednesday the 6:th.

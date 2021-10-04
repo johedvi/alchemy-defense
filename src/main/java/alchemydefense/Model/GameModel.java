@@ -15,13 +15,10 @@ import java.awt.*;
 import java.util.*;
 
 /**
+ * Acts as a facade for the model domain. Supplies necessary functionality
+ * to set up and modify the game. Contains all the logic.
  *
- *
- *
- *
- *----- Modified -----
- * Date 09-19, By: Willem; Changed tower creation methods. Now towers no longer know their position.
- *
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
     Board board;
@@ -36,23 +33,36 @@ public class GameModel {
         board = new ConcreteBoard();
     }
 
+
+    /**
+     * TODO
+     *
+     *
+     */
     public void modelUpdate() {
-
-        if (isWaveOver())
-            startNewWave();
-        else
-            board.addFoe(activeFoes.removeFirst());
-
+        updateWave();
         board.damageFoes();
         board.moveFoes();
         updateBoardListeners();
     }
 
-    // ------- Create and place tower -------
-    public void placeTowerInCell(TowerType towerType, Point point) {
+    private void updateWave() {
+        if (isWaveOver())
+            startNewWave();
+        else
+            board.addFoe(activeFoes.removeFirst());
+    }
+
+    /**
+     * Creates a new tower from if the player has sufficient gold.
+     * Will throw an exception if tower the construction failed.
+     * @param towerType tower type to construct.
+     * @param coordinate tile coordinate to place the tower in.
+     */
+    public void placeTowerInCell(TowerType towerType, Point coordinate) {
         try {
             Tower tower = buyTower(towerType);
-            board.placeTower(tower, point);
+            board.placeTower(tower, coordinate);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
@@ -63,10 +73,16 @@ public class GameModel {
         return new TowerTransaction().buyTower(towerType);
     }
 
-    public void sellTower(Point point, TowerType towerType) {
-        board.removeBoardObject(point);
+    /**
+     * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
+     * @param coordinate tile position of the tower.
+     * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
+     */
+    public void sellTower(Point coordinate, TowerType towerType) {
+        board.removeBoardObject(coordinate);
         new TowerTransaction().sellTower(towerType);
     }
+
 
     // ------- Handling of BoardObjects -------
     public BoardObject getBoardObjectInCell(Point point){
@@ -76,6 +92,7 @@ public class GameModel {
     public void removeBoardObjectInCell(Point point){
         board.removeBoardObject(point);
     }
+
 
     // ------- Wave methods -------
     public void startNewWave() {
@@ -93,7 +110,7 @@ public class GameModel {
         boardListeners.add(listener);
     }
 
-    private void updateBoardListeners() {
+    public void updateBoardListeners() {
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
     }
