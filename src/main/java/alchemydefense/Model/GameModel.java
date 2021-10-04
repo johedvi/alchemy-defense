@@ -93,7 +93,7 @@ public class GameModel {
         boardListeners.add(listener);
     }
 
-    private void updateBoardListeners() {
+    public void updateBoardListeners() {
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
     }

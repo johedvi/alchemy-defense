@@ -56,6 +56,7 @@ public class App extends Application {
     private void gameUpdate() {
         AnimationTimer timer = new AnimationTimer() {
             private long lastUpdate = 0;
+            private long lastViewUpdate = 0;
 
             @Override
             public void handle(long now) {
@@ -63,6 +64,10 @@ public class App extends Application {
 
                     lastUpdate = now;
                     model.modelUpdate();
+                }
+                if (now - lastViewUpdate >= 1_000_000) {
+                    lastViewUpdate = now;
+                    model.updateBoardListeners();
                 }
             }
         };
