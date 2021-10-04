@@ -12,6 +12,11 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import java.awt.*;
 import java.util.ArrayList;
 
+/**
+ * A board that manages a two-dimensional grid where towers and enemies can placed.
+ *
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
+ */
 public class ConcreteBoard implements Board {
 
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
@@ -26,6 +31,10 @@ public class ConcreteBoard implements Board {
     public final int width = 12;
     public final int height = 5;
 
+    /**
+     * Iterates through every active tower on the board and distributes damage to enemies within the towers range.
+     *
+     */
     public void damageFoes(){
         System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
@@ -87,6 +96,11 @@ public class ConcreteBoard implements Board {
         positionalGrid.addFoe(foe, startPos);
     }
 
+    /**
+     * Find each cell with an enemy in it and moves it
+     * forward one step with the designated pathfinding method for the board.
+     *
+     */
     public void moveFoes(){
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
