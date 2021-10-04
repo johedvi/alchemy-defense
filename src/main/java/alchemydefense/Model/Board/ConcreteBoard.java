@@ -4,19 +4,16 @@ import alchemydefense.Model.Board.Grid.PositionalCell;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Foe.Pathfinding.SlightlyLessDumbPathFinder;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.ArrayList;
 
 public class ConcreteBoard implements Board {
 
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
-
-    private final SlightlyLessDumbPathFinder pf = new SlightlyLessDumbPathFinder(new Point(11, 2));
 
     private final ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
 
@@ -27,12 +24,11 @@ public class ConcreteBoard implements Board {
     public final int height = 5;
 
     public void damageFoes(){
-        System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
-            int damage = cell.getTower().getDamage();
             ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
             for(PositionalCell cellInRange : cellsInRange){
                 if(cellInRange.hasFoe()){
+                    int damage = cell.getTower().getDamage();
                     cellInRange.getFoe().takeDamage(damage);
                     if(!cellInRange.getFoe().isAlive()) {
                         cellInRange.removeFoe();
@@ -79,7 +75,8 @@ public class ConcreteBoard implements Board {
 
     @Override
     public void updateFoes() {
-        //TODO: Make foes move and then take damage
+        damageFoes();
+        moveFoes();
     }
 
     public void addFoe(Foe foe){
@@ -91,19 +88,17 @@ public class ConcreteBoard implements Board {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
             for(int j=0; j< cellGrid[i].length; j++) {
-                //System.out.print(cellGrid[i][j] + "\t");
                 if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].hasBeenUpdated){
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
-                    //Point nextCellPoint = pf.calculatePath(cellsWithTowers, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
                     cellGrid[nextCellPoint.x][nextCellPoint.y].setHasBeenUpdated(true);
                 }
             }
         }
-        for(int i=0; i< cellGrid.length; i++) {
-            for(int j=0; j< cellGrid[i].length; j++){
-                cellGrid[i][j].setHasBeenUpdated(false);
+        for (PositionalCell[] positionalCells : cellGrid) {
+            for (PositionalCell positionalCell : positionalCells) {
+                positionalCell.setHasBeenUpdated(false);
             }
         }
     }
