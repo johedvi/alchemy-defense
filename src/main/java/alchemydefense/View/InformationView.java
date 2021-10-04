@@ -19,7 +19,7 @@ public class InformationView extends Pane implements PlayerEventListener {
     private final Label goldAmount;
     private final Label healthAmount;
 
-    public InformationView(int SCENE_WIDTH, int UNIT_IN_PIXELS) {
+    public InformationView(int SCENE_WIDTH) {
 
         this.setPrefSize(150, 100);
         this.setLayoutX(SCENE_WIDTH-175);
