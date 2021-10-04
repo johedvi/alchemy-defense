@@ -15,7 +15,9 @@ import javafx.stage.Stage;
 
 
 /**
- * JavaFX App
+ * JavaFX launcher class.
+ * WIP
+ * @Author:
  */
 public class App extends Application {
     private static final int SCENE_WIDTH = 768;
@@ -53,6 +55,9 @@ public class App extends Application {
         stage.setScene(scene);
     }
 
+    /**
+     * Game loop. Handles user input and update of the game model.
+     */
     private void gameUpdate() {
         AnimationTimer timer = new AnimationTimer() {
             private long lastUpdate = 0;
