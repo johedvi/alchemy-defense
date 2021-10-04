@@ -22,35 +22,21 @@ public abstract class Tower implements BoardObject {
     private final TowerType towerType;
     private final String filePath;
 
-    private final int width;
-    private final int height;
     private final int range;
     private final int damage;
 
-    private final int sellPrice;
-
-    public Tower(TowerType towerType, String filePath, int width, int height, int range, int damage, int sellPrice) {
+    public Tower(TowerType towerType, String filePath, int range, int damage) {
         this.towerType = towerType;
         this.filePath = filePath;
-        this.width = width;
-        this.height = height;
         this.range = range;
         this.damage = damage;
-        this.sellPrice = sellPrice;
     }
 
     public TowerType getTowerType() { return this.towerType; }
 
     @Override public String getImageFilePath() { return this.filePath; }
 
-    public int getWidth() { return this.width; }
-
-    public int getHeight() { return this.height; }
-
     public int getRange() { return this.range; }
 
     public int getDamage() { return this.damage; }
-
-    public int getSellPrice() { return  this.sellPrice; }
-
 }
