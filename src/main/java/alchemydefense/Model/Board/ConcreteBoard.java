@@ -19,7 +19,7 @@ public class ConcreteBoard implements Board {
 
     private final static Player player = Player.getPlayer();
 
-    PositionalGrid positionalGrid;
+    private final PositionalGrid positionalGrid;
     public final int width = 12;
     public final int height = 5;
 
@@ -88,17 +88,17 @@ public class ConcreteBoard implements Board {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
             for(int j=0; j< cellGrid[i].length; j++) {
-                if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].hasBeenUpdated){
+                if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].isUpdated()){
                     Foe foe = cellGrid[i][j].removeFoe();
                     Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
-                    cellGrid[nextCellPoint.x][nextCellPoint.y].setHasBeenUpdated(true);
+                    cellGrid[nextCellPoint.x][nextCellPoint.y].setUpdated(true);
                 }
             }
         }
         for (PositionalCell[] positionalCells : cellGrid) {
             for (PositionalCell positionalCell : positionalCells) {
-                positionalCell.setHasBeenUpdated(false);
+                positionalCell.setUpdated(false);
             }
         }
     }
