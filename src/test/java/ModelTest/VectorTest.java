@@ -22,7 +22,6 @@ public class VectorTest {
 
     @Test
     public void testDistanceRange2(){
-        //Could merge this method with above in some way
         vectorCenter = new Vector2Int(2,2);
         vector2 = new Vector2Int(4,0);
         vector3 = new Vector2Int(4,2);
