@@ -21,10 +21,8 @@ import java.util.*;
  * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
-    Board board;
-
+    private Board board;
     private final Player player = Player.getPlayer();
-
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final Set<BoardListener> boardListeners = new HashSet<>();
 
@@ -32,7 +30,6 @@ public class GameModel {
         startNewWave();
         board = new ConcreteBoard();
     }
-
 
     /**
      * TODO
@@ -51,6 +48,11 @@ public class GameModel {
             startNewWave();
         else
             board.addFoe(activeFoes.removeFirst());
+    }
+
+    public void updateBoardListeners() {
+        for (BoardListener listener : boardListeners)
+            listener.renderObjects(board);
     }
 
     /**
@@ -83,7 +85,6 @@ public class GameModel {
         new TowerTransaction().sellTower(towerType);
     }
 
-
     // ------- Handling of BoardObjects -------
     public BoardObject getBoardObjectInCell(Point point){
         return board.getBoardObject(point);
@@ -92,7 +93,6 @@ public class GameModel {
     public void removeBoardObjectInCell(Point point){
         board.removeTower(point);
     }
-
 
     // ------- Wave methods -------
     public void startNewWave() {
@@ -110,8 +110,4 @@ public class GameModel {
         boardListeners.add(listener);
     }
 
-    public void updateBoardListeners() {
-        for (BoardListener listener : boardListeners)
-            listener.renderObjects(board);
-    }
 }

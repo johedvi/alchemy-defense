@@ -12,7 +12,6 @@ public interface Board {
     void removeTower(Point cellCoordinate);
     int getBoardWidth();
     int getBoardHeight();
-    void updateFoes();
     void addFoe(Foe foe);
     void moveFoes();
     void damageFoes();

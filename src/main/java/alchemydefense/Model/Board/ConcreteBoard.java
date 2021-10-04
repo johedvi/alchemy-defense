@@ -18,42 +18,23 @@ import java.util.ArrayList;
  * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class ConcreteBoard implements Board {
-
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
-
     private final SlightlyLessDumbPathFinder pf = new SlightlyLessDumbPathFinder(new Point(11, 2));
-
     private final ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
-
     private final static Player player = Player.getPlayer();
+    private PositionalGrid positionalGrid;
 
-    PositionalGrid positionalGrid;
     public final int width = 12;
     public final int height = 5;
 
-    /**
-     * Iterates through every active tower on the board and distributes damage to enemies within the towers range.
-     *
-     */
-    public void damageFoes(){
-        System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
-        for(PositionalCell cell : cellsWithTowers){
-            int damage = cell.getTower().getDamage();
-            ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
-            for(PositionalCell cellInRange : cellsInRange){
-                if(cellInRange.hasFoe()){
-                    cellInRange.getFoe().takeDamage(damage);
-                    if(!cellInRange.getFoe().isAlive()) {
-                        cellInRange.removeFoe();
-                        player.increaseGold(5);
-                    }
-                }
-            }
-        }
+    @Override
+    public int getBoardWidth() {
+        return width;
     }
 
-    public ConcreteBoard(){
-        positionalGrid = new PositionalGrid(width, height);
+    @Override
+    public int getBoardHeight() {
+        return height;
     }
 
     public BoardObject getBoardObject(Point point){
@@ -64,11 +45,15 @@ public class ConcreteBoard implements Board {
         return positionalGrid.getCell(point);
     }
 
+    public ConcreteBoard(){
+        positionalGrid = new PositionalGrid(width, height);
+    }
+
     /**
      * Place a tower in the specified tile if the tile is empty.
      * @param tower tower to place.
      * @param tilePosition the tile to place the tower in.
-     * @return return true if the placement was successful, false if not. 
+     * @return return true if the placement was successful, false if not.
      */
     @Override
     public boolean placeTower(Tower tower, Point tilePosition) {
@@ -82,21 +67,6 @@ public class ConcreteBoard implements Board {
     public void removeTower(Point point) {
         cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
-    }
-
-    @Override
-    public int getBoardWidth() {
-        return width;
-    }
-
-    @Override
-    public int getBoardHeight() {
-        return height;
-    }
-
-    @Override
-    public void updateFoes() {
-        //TODO: Make foes move and then take damage
     }
 
     /**
@@ -130,6 +100,27 @@ public class ConcreteBoard implements Board {
         for(int i=0; i< cellGrid.length; i++) {
             for(int j=0; j< cellGrid[i].length; j++){
                 cellGrid[i][j].setHasBeenUpdated(false);
+            }
+        }
+    }
+
+    /**
+     * Iterates through every active tower on the board and distributes damage to enemies within the towers range.
+     *
+     */
+    public void damageFoes(){
+        System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
+        for(PositionalCell cell : cellsWithTowers){
+            int damage = cell.getTower().getDamage();
+            ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
+            for(PositionalCell cellInRange : cellsInRange){
+                if(cellInRange.hasFoe()){
+                    cellInRange.getFoe().takeDamage(damage);
+                    if(!cellInRange.getFoe().isAlive()) {
+                        cellInRange.removeFoe();
+                        player.increaseGold(5);
+                    }
+                }
             }
         }
     }
