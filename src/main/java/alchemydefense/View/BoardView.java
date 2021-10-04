@@ -96,7 +96,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i*64,j*64, 64,64);
+                StackPane tileView = new TileView(i*64,(j+1)*64, 64,64);
                 boardPane.getChildren().add(tileView);
 
             }

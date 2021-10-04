@@ -17,8 +17,8 @@ import javafx.stage.Stage;
  * JavaFX App
  */
 public class App extends Application {
-        private static final int SCENE_WIDTH = 768;
-        private static final int SCENE_HEIGHT = 448;
+        private static final int SCENE_WIDTH = 832;
+        private static final int SCENE_HEIGHT = 512;
         private static final int UNIT_IN_PIXELS = 64;
 
         private final GameModel model =  new GameModel();
@@ -56,7 +56,7 @@ public class App extends Application {
 
                 @Override
                 public void handle(long now) {
-                    if (now - lastUpdate >= 100_000_000) {
+                    if (now - lastUpdate >= 100_000_0000) {
 
                         lastUpdate = now;
                         model.modelUpdate();
