@@ -15,9 +15,9 @@ import javafx.stage.Stage;
 
 
 /**
- * JavaFX launcher class.
+ * JavaFX launcher class. Acts as the entry point for the application.
  * WIP
- * @Author:
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class App extends Application {
     private static final int SCENE_WIDTH = 768;
