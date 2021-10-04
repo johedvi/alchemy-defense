@@ -42,8 +42,8 @@ public class GameModel {
             board.addFoe(activeFoes.removeFirst());
 
         board.updateFoes();
-        updateBoardListeners();
-        board.foeReachedEnd();
+
+
     }
 
     // ------- Create and place tower -------
@@ -56,6 +56,7 @@ public class GameModel {
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
+
 
     private Tower buyTower(TowerType towerType) throws Exception {
         return new TowerTransaction().buyTower(towerType);
@@ -81,6 +82,7 @@ public class GameModel {
         activeFoes = wave.createFoes();
     }
 
+
     private boolean isWaveOver() { return activeFoes.isEmpty(); }
 
     // ------- PlayerEventListener -------
@@ -92,7 +94,11 @@ public class GameModel {
     }
 
     public void updateBoardListeners() {
+
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
+
+        //TODO: Scuffed fix, have to fix how foes render at the end point.
+        board.foeReachedEnd();
     }
 }

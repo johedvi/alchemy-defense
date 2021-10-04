@@ -68,7 +68,9 @@ public class App extends Application {
                 if (now - lastViewUpdate >= 1_000_000) {
                     lastViewUpdate = now;
                     model.updateBoardListeners();
+
                 }
+
             }
         };
         timer.start();

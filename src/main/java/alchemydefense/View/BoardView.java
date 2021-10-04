@@ -18,7 +18,7 @@ import java.awt.Point;
 
 public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 832;
-    private static final int SCENE_HEIGHT = 448;
+    private static final int SCENE_HEIGHT = 512;
     private static final int UNIT_IN_PIXELS = 64;
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
@@ -87,7 +87,7 @@ public class BoardView extends AnchorPane implements BoardListener {
             if (mouseEvent.getButton() == MouseButton.PRIMARY)
             {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
-                int y = (int) mouseEvent.getY() / UNIT_IN_PIXELS;
+                int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS))-1);
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
                     towerController.cellPressed(new Point(x, y));
                     if(towerController.isHoldingTower()){

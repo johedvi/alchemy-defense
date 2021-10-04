@@ -62,5 +62,12 @@ public class Player {
         updatePlayerEventListener();
     }
 
+    private void setHp(int hp) {
+        health = hp;
+        updatePlayerEventListener();
+    }
+
+    public void decreaseOneHp() { setHp(health-1); }
+
     public int getHp() { return health; }
 }
