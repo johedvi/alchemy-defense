@@ -5,7 +5,6 @@ import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
-import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
