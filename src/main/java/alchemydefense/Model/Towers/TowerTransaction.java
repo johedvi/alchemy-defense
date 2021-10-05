@@ -25,7 +25,7 @@ public class TowerTransaction {
      * Buys the specific tower type and decreases players gold.
      * @param towerType
      * @return specific towerType created from TowerFactory.
-     * @exception String
+     * @throws Exception "Not enough gold"
      * */
 
     public Tower buyTower(TowerType towerType) throws Exception {

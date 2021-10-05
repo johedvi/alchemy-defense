@@ -2,6 +2,15 @@ package alchemydefense.Model.Towers.TowerHierarchy;
 
 import alchemydefense.Model.Towers.TowerType;
 
+/**
+ * @author Valdemar Stenhammar
+ *
+ * Class representing a concrete Redtower. Extends Tower.
+ *
+ * Date: 2021-09-22
+ *
+ */
+
 public class PurpleTower extends Tower {
 
     private static final String imageFilePath = "/purple-crystal.png";
