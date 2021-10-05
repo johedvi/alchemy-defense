@@ -17,6 +17,15 @@ import javafx.scene.layout.StackPane;
 import java.awt.*;
 
 
+/**
+ * A view that displays the Board.
+ *
+ * @author Felix Jönsson
+ *
+ * Date: 2021-09-26
+ */
+
+
 public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 768;
     private static final int SCENE_HEIGHT = 448;

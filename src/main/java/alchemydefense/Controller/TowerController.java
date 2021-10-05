@@ -6,6 +6,15 @@ import alchemydefense.Model.Towers.TowerType;
 
 import java.awt.*;
 
+
+/**
+ * A controller that handles user interaction with the Userinterface.
+ *
+ * @author Valdemar Stenhammar
+ *
+ * Date: 2021-09-26
+ */
+
 public class TowerController {
 
     private boolean towerPressed = false;
