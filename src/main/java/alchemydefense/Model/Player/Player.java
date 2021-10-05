@@ -12,6 +12,8 @@ import java.util.ArrayList;
  *
  */
 
+
+
 public class Player {
 
     private final ArrayList<PlayerEventListener> listeners = new ArrayList<>();
@@ -24,10 +26,19 @@ public class Player {
 
     private static Player player;
 
+    /**
+     * Constructor for player. Sets starting amount of health and gold when created.
+     * */
+
     private Player(int gold, int health) {
         Player.gold = gold;
         Player.health = health;
     }
+
+    /**
+     * Singleton class, creates a player if it does not already exist.
+     * @return Returns an object of type player.
+     * */
 
     public static Player getPlayer() {
         if(player == null) {
@@ -36,7 +47,12 @@ public class Player {
         return player;
     }
 
+
     public void decreaseOneHp() { setHp(health-1); }
+
+    /**
+     * Decreases the players gold if it buys a tower and has enough gold.
+     * */
 
     public void pay(int amount) {
         if(canAfford(amount)) {
@@ -47,6 +63,12 @@ public class Player {
     public boolean canAfford(int amount) { return gold >= amount; }
 
     public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
+
+    /**
+     * Updates the gold and health in the view.
+     * @see alchemydefense.View.InformationView
+     *
+     * */
 
     public void updatePlayerEventListener() {
         for (PlayerEventListener playerEventListener : listeners) {

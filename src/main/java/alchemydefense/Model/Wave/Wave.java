@@ -20,9 +20,19 @@ public class Wave {
 
     private static int waveCounter = 0;
 
+    /**
+     * Constructor for wave, increments waveCounter when a wave is created.
+     * */
+
     public Wave() {
         waveCounter++;
     }
+
+
+    /**
+     * Creates foes and adds to a linkedlist depending on what level you are on.
+     * @return Linkedlist of foes.
+     * */
 
     //TODO using a preliminary model to calculate how many foes should be created each round.
     public LinkedList<Foe> createFoes() {
