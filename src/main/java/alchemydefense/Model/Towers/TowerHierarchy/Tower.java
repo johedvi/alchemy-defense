@@ -29,6 +29,15 @@ public abstract class Tower implements BoardObject {
 
     private final int sellPrice;
 
+    /**
+     * Another constructor for class Tower
+     * @param towerType specific towerType of enum TowerType.
+     * @param filePath Location for the image that resembles the Tower.
+     * @param range range value for the specific tower.
+     * @param damage damage value for the specific tower.
+     * @param sellPrice sell value for the specific tower.
+     */
+
     public Tower(TowerType towerType, String filePath, int width, int height, int range, int damage, int sellPrice) {
         this.towerType = towerType;
         this.filePath = filePath;
@@ -38,6 +47,7 @@ public abstract class Tower implements BoardObject {
         this.damage = damage;
         this.sellPrice = sellPrice;
     }
+
 
     public TowerType getTowerType() { return this.towerType; }
 

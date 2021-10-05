@@ -28,8 +28,13 @@ public class TowerPrices {
     private static final int greenTowerSellPrice = 40;
     private static final int purpleTowerSellPrice = 80;
 
+
     private TowerPrices() {}
 
+    /**
+     * Returns an instance of TowerPrices if it exists, otherwise creates a new one.
+     * @return Instance of Towerprices.
+     */
     public static TowerPrices getInstance() {
         if(instance == null) {
             instance = new TowerPrices();
@@ -37,6 +42,11 @@ public class TowerPrices {
         return instance;
     }
 
+    /**
+     * Gets the specific buy value of a certain towerType.
+     * @param towerType
+     * @return returns an int of the buy value for a specific tower
+     */
     public int getBuyPrice(TowerType towerType) {
         int price = 0;
         switch (towerType) {
@@ -47,6 +57,12 @@ public class TowerPrices {
         }
         return price;
     }
+
+    /**
+     * Gets the specific price sell value of a certain towerType.
+     * @param towerType
+     * @return returns an int of the sell value for a specific tower.
+     */
 
     public int getSellPrice(TowerType towerType) {
         int price = 0;

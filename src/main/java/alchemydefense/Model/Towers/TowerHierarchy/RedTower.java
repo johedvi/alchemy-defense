@@ -22,6 +22,11 @@ public class RedTower extends Tower {
 
     private static final int sellPrice = 10;
 
+    /**
+     * Constructor for RedTower.
+     * @see Tower for call to super.
+     */
+
     public RedTower() {
         super(TowerType.RED, imageFilePath, redTowerWidth, redTowerHeight, redTowerRange, redTowerDamage, sellPrice);
     }

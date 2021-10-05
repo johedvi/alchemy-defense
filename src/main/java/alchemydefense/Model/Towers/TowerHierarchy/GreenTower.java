@@ -21,6 +21,11 @@ public class GreenTower extends Tower {
 
     private static final int sellPrice = 40;
 
+    /**
+     * Constructor for GreenTower.
+     * @see Tower for call to super.
+     */
+
     public GreenTower() {
         super(TowerType.GREEN, imageFilePath, greenTowerWidth, greenTowerHeight, greenTowerRange, greenTowerDamage, sellPrice);
     }

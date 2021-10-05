@@ -22,6 +22,11 @@ public class BlueTower extends Tower {
 
     private static final int sellPrice = 20;
 
+    /**
+     * Constructor for BlueTower.
+     * @see Tower for call to super.
+     */
+
     public BlueTower() {
         super(TowerType.BLUE, imageFilePath, blueTowerWidth, blueTowerHeight, blueTowerRange, blueTowerDamage, sellPrice);
     }
