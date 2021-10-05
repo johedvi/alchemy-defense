@@ -6,14 +6,19 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 import java.awt.*;
 
+/**
+ * Class representing a two-dimensional grid of cells.
+ *
+ * @author Felix Jönsson
+ */
 public class PositionalGrid {
-    PositionalCell[][] positionalCells;
+    private final PositionalCell[][] positionalCells;
 
-    public PositionalCell[][] getGrid(){
-        return positionalCells;
-    }
-
-
+    /**
+     * Constructor that instantiates a grid of PositionalCells
+     * @param rows the number of rows in the grid.
+     * @param columns the number of columns in the grid.
+     */
     public PositionalGrid(int rows, int columns){
         positionalCells = new PositionalCell[rows][columns];
         for (int x = 0; x < rows; x++) {
@@ -24,13 +29,23 @@ public class PositionalGrid {
         }
     }
 
+    /**
+     * Adds a BoardObject to a specific cell in the grid.
+     * @param boardObject the BoardObject that should be placed on the grid
+     * @param cell the cell the BoardObject should be placed on.
+     */
     public void add(Tower boardObject, Point cell){
         if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){
             positionalCells[cell.x][cell.y].addTower(boardObject);
         }
     }
 
-
+    /**
+     * Adds a Tower to a specific cell in the grid.
+     * @param tower the Tower that should be placed on the grid.
+     * @param cell the cell the Tower should be placed on.
+     * @return true if Tower is successfully placed on given cell. Otherwise false.
+     */
     public boolean addTower(Tower tower, Point cell){
         if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){  //  removed "&& areColRowFree(cell)" //Felix J, could not add towers with this condition, will fix later
             positionalCells[cell.x][cell.y].addTower(tower);
@@ -39,10 +54,20 @@ public class PositionalGrid {
         return false;
     }
 
+    /**
+     * Adds a Tower to a specific cell in the grid.
+     * @param foe the foe that should be placed on the grid.
+     * @param cell cell the cell the Tower should be placed on.
+     */
     public void addFoe(Foe foe, Point cell){
         positionalCells[cell.x][cell.y].addFoe(foe);
     }
 
+    /**
+     * Checks if the whole row and column are free from towers from a given cell.
+     * @param cell the cell that should be tested.
+     * @return true if column and row are free from towers. Otherwise false.
+     */
     public boolean areColRowFree(Point cell) {
         return isColFree(cell) && isRowFree(cell);
     }
@@ -67,11 +92,19 @@ public class PositionalGrid {
         return isFree;
     }
 
+    /**
+     * Removes tower from given cell.
+     * @param cell the cell that should remove its tower.
+     */
     public void remove(Point cell){
         if(positionalCells[cell.x][cell.y].isOccupiedByTower()){
             positionalCells[cell.x][cell.y].setOccupied(false);
             positionalCells[cell.x][cell.y].clear();
         }
+    }
+
+    public PositionalCell[][] getGrid(){
+        return positionalCells;
     }
 
     public PositionalCell getCell(Point cell){
