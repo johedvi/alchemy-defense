@@ -1,8 +1,9 @@
 package alchemydefense.Model.Foe;
 
 /**
- * @author Willem Brahmstaedt
  * Interface for representing health.
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-14
  */

@@ -4,9 +4,9 @@ package alchemydefense.Model.Player;
 import java.util.ArrayList;
 
 /**
- * @author Valdemar Stenhammar
- *
  * Singleton class representing a Player.
+ *
+ * @author Valdemar Stenhammar
  *
  * Date: 2021-09-16
  *

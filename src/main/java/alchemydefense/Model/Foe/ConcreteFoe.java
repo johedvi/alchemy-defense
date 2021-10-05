@@ -3,11 +3,12 @@ package alchemydefense.Model.Foe;
 import alchemydefense.Model.Board.BoardObject;
 
 /**
- * @author Willem Brahmstaedt
  *
  * Class representing a concrete foe. Implements Foe, BoardObject and Health.
  *
  * Date: 2021-09-14
+ *
+ * @author Willem Brahmstaedt
  *
  * ----- Modified -----
  * Date: 2021-09-19, By Willem; Removed @Override for methods originally from BoardObject

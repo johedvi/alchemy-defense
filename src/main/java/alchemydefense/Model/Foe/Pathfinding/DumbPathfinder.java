@@ -7,8 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * @author Willem Brahmstaedt
  * Pathfinder that returns a stupid path
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-15
  */

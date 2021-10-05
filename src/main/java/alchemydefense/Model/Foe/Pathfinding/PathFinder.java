@@ -9,8 +9,9 @@ import java.util.List;
 
 
 /**
- * @author Willem Brahmstaedt
  * Interface for pathfinding classes. Part of implementation of strategy pattern.
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-15
  */

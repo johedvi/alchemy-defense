@@ -1,8 +1,9 @@
 package alchemydefense.Model.Board;
 
 /**
- * @author Willem Brahmstaedt
  * Interface for the board to render objects.
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-14
  */

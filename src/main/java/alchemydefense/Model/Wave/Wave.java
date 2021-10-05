@@ -6,9 +6,9 @@ import alchemydefense.Model.Foe.Foe;
 import java.util.*;
 
 /**
- * @author Valdemar Stenhammar
- *
  * Class representing a wave that spawns foes.
+ *
+ * @author Valdemar Stenhammar
  *
  * Date: 2021-09-16
  */

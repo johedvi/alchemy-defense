@@ -7,8 +7,9 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import java.awt.*;
 
 /**
- * @author Willem Brahmstaedt
  * Interface for the board.
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-14
  */

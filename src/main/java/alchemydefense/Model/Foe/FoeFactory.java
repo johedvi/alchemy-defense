@@ -1,10 +1,10 @@
 package alchemydefense.Model.Foe;
 
 /**
+ * Factory class that creates Foe objects without exposing the creation logic to the client.
+ *
  * @author Willem Brahmstaedt
  * Date: 2021-09-14
- *
- * Factory class that creates Foe objects without exposing the creation logic to the client.
  *
  */
 
