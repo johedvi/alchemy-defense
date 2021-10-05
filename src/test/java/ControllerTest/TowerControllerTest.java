@@ -47,4 +47,23 @@ public class TowerControllerTest {
         towerController.createTower(2,2);
         Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
     }
+
+    @Test
+    public void testTowerPressed() {
+        model.placeTowerInCell(TowerType.RED, new Point(2,2));
+        Assertions.assertFalse(towerController.isTowerPressed());
+        towerController.cellPressed(new Point(2,2));
+        Assertions.assertTrue(towerController.isTowerPressed());
+        towerController.cellPressed(new Point(1,1));
+        Assertions.assertFalse(towerController.isTowerPressed());
+    }
+
+    @Test
+    public void testSellTower() {
+        model.placeTowerInCell(TowerType.RED, new Point(2,2));
+        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Point(2,2)).getClass());
+        towerController.cellPressed(new Point(2,2));
+        towerController.sellTower();
+        Assertions.assertNull(model.getBoardObjectInCell(new Point(2,2)));
+    }
 }
