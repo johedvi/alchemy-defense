@@ -12,8 +12,6 @@ import java.util.ArrayList;
  *
  */
 
-
-
 public class Player {
 
     private final ArrayList<PlayerEventListener> listeners = new ArrayList<>();
@@ -27,19 +25,18 @@ public class Player {
     private static Player player;
 
     /**
-     * Constructor for player. Sets starting amount of health and gold when created.
-     * */
-
-    private Player(int gold, int health) {
-        Player.gold = gold;
-        Player.health = health;
+     * Private constructor as class is singleton and should only be instantiated once.
+     * @param goldStartingValue how much gold the player starts with.
+     * @param healthStartingValue how much health the player starts with.
+     */
+    private Player(int goldStartingValue, int healthStartingValue) {
+        Player.gold = goldStartingValue;
+        Player.health = healthStartingValue;
     }
 
     /**
-     * Singleton class, creates a player if it does not already exist.
-     * @return Returns an object of type player.
-     * */
-
+     * @return only instance of this class.
+     */
     public static Player getPlayer() {
         if(player == null) {
             return player = new Player(GOLD_STARTING_VALUE, HP_STARTING_VALUE);
@@ -47,12 +44,10 @@ public class Player {
         return player;
     }
 
-
-    public void decreaseOneHp() { setHp(health-1); }
-
     /**
-     * Decreases the players gold if it buys a tower and has enough gold.
-     * */
+     * Decreases players health value by one.
+     */
+    public void decreaseOneHp() { setHp(health-1); }
 
     public void pay(int amount) {
         if(canAfford(amount)) {
@@ -60,17 +55,16 @@ public class Player {
         }
     }
 
+    /**
+     * Checks if the amount is less than the players current gold value.
+     * @param amount the amount to compare against the players gold.
+     * @return true if gold is bigger that or equal to amount, else false.
+     */
     public boolean canAfford(int amount) { return gold >= amount; }
 
     public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
 
-    /**
-     * Updates the gold and health in the view.
-     * @see alchemydefense.View.InformationView
-     *
-     * */
-
-    public void updatePlayerEventListener() {
+    private void updatePlayerEventListener() {
         for (PlayerEventListener playerEventListener : listeners) {
             playerEventListener.goldAmountChanged(getGold());
             playerEventListener.healthAmountChanged(getHp());
@@ -79,6 +73,10 @@ public class Player {
 
     public int getGold() { return gold; }
 
+    /**
+     * Increases the players gold value.
+     * @param amount the amount to increase the players gold value with.
+     */
     public void increaseGold(int amount) { setGold(gold + amount); }
 
     private void setGold(int amount) {
