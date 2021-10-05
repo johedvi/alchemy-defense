@@ -4,9 +4,9 @@ package alchemydefense.Model.Towers;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 /**
- * @author Valdemar Stenhammar
- *
  * Class that stores the values for different towers.
+ *
+ * @author Valdemar Stenhammar
  *
  * Date: 2021-09-28
  *

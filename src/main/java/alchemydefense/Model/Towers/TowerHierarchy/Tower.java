@@ -4,11 +4,12 @@ import alchemydefense.Model.Towers.TowerType;
 
 
 /**
- * @author Johan Lindén
- * Date: 2021-09-14
- *
+
  * A class for an abstract tower. Concrete towers extends this class. Handles
  * all the shared logic of towers. Implements BoardObject.
+ *
+ * @author Johan Lindén
+ * Date: 2021-09-14
  *
  *----- Modified ------
  * Date 09-19, By Willem; Removed position attributes and methods associated with them

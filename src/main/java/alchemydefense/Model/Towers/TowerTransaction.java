@@ -5,9 +5,10 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 
 
 /**
- * @author Valdemar Stenhammar
  *
  * Class representing the logic behind buying and selling a specific tower.
+ *
+ * @author Valdemar Stenhammar
  *
  * Date: 2021-10-2
  */

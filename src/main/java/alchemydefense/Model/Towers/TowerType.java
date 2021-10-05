@@ -1,10 +1,10 @@
 package alchemydefense.Model.Towers;
 
 /**
- * @author Johan Linden
- *
  *
  * Enum representing different tower types.
+ *
+ * @author Johan Linden
  *
  * Date: 2021-09-11
  *
