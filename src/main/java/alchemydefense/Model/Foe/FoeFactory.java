@@ -10,6 +10,17 @@ package alchemydefense.Model.Foe;
 
 
 public class FoeFactory {
+
+    /**
+     *
+     * Enum representing different foe types.
+     *
+     * @author Willem Brahmstaedt
+     *
+     * Date: 2021-09-11
+     *
+     */
+
     public enum FoeTypes{
         CONCRETE_FOE
     }
