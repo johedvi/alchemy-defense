@@ -5,6 +5,15 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Towers.TowerType;
 import alchemydefense.Utility.Vector2Int;
 
+
+/**
+ * A controller that handles user interaction with the Userinterface.
+ *
+ * @author Valdemar Stenhammar
+ *
+ * Date: 2021-09-26
+ */
+
 public class TowerController {
 
     private boolean towerPressed = false;

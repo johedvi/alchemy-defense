@@ -15,26 +15,36 @@ import java.util.LinkedList;
 import java.util.HashSet;
 
 /**
+ * Acts as a facade for the model domain. Supplies necessary functionality
+ * to set up and modify the game. Contains all the logic.
  *
- *
- *
- *
- *----- Modified -----
- * Date 09-19, By: Willem; Changed tower creation methods. Now towers no longer know their position.
- *
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
-    private final Board board;
-
+    private Board board;
+    private final Player player = Player.getPlayer();
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
+    /**
+     * Constructor that instantiates a new board and starts the first wave.
+     */
     public GameModel(){
         startNewWave();
         board = new ConcreteBoard();
     }
 
+    /**
+     * Updates the whole model.
+     */
     public void modelUpdate() {
+        updateWave();
+        board.damageFoes();
+        board.moveFoes();
+        updateBoardListeners();
+    }
+
+    private void updateWave() {
         if (isWaveOver())
             startNewWave();
         else
@@ -44,22 +54,33 @@ public class GameModel {
         board.updateFoes();
     }
 
-    // ------- Create and place tower -------
-    public void placeTowerInCell(TowerType towerType, Vector2Int point) {
+    /**
+     * Creates a new tower from if the player has sufficient gold.
+     * Will throw an exception if tower the construction failed.
+     * @param towerType tower type to construct.
+     * @param coordinate tile coordinate to place the tower in.
+     */
+    public void placeTowerInCell(TowerType towerType, Point coordinate) {
         try {
             Tower tower = buyTower(towerType);
-            board.placeTower(tower, point);
+            board.placeTower(tower, coordinate);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
 
-
     private Tower buyTower(TowerType towerType) throws Exception {
         return new TowerTransaction().buyTower(towerType);
     }
 
+    /**
+     * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
+     * @param coordinate tile position of the tower.
+     * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
+     */
+    public void sellTower(Point coordinate, TowerType towerType) {
+        board.removeTower(coordinate);
     public void sellTower(Vector2Int point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
@@ -80,7 +101,6 @@ public class GameModel {
         activeFoes = wave.createFoes();
     }
 
-
     private boolean isWaveOver() { return activeFoes.isEmpty(); }
 
     // ------- PlayerEventListener -------
@@ -91,9 +111,4 @@ public class GameModel {
         boardListeners.add(listener);
     }
 
-    public void updateBoardListeners() {
-
-        for (BoardListener listener : boardListeners)
-            listener.renderObjects(board);
-    }
 }

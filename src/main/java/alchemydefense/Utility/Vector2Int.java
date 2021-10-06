@@ -1,5 +1,14 @@
 package alchemydefense.Utility;
 
+/**
+ * Class representing a two-dimensional vector.
+ *
+ * @author Felix Jönsson
+ */
+
+public class Vector2Int {
+    private int x;
+    private int y;
 public class Vector2Int{
     public int x;
     public int y;
@@ -23,6 +32,22 @@ public class Vector2Int{
         return new Vector2Int(-1,0);
     }
 
+    /**
+     * Constructor that assigns the object an X- and Y-value.
+     * @param x the x value.
+     * @param y the y value.
+     */
+    public Vector2Int(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
+    /**
+     * Calculates the distance between two vectors.
+     * @param vector1 the first vector.
+     * @param vector2 the second vector.
+     * @return the distance between vector1 and vector2.
+     */
     /**
      * Convenience method.
      * @return new Vector(0,1)
@@ -96,7 +121,7 @@ public class Vector2Int{
         else
             return false;
     }
-    
+
     @Override
     public int hashCode() {
         return 1000 * x + y;

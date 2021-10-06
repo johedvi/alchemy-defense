@@ -6,9 +6,9 @@ import alchemydefense.Model.Foe.Foe;
 import java.util.LinkedList;
 
 /**
- * @author Valdemar Stenhammar
- *
  * Class representing a wave that spawns foes.
+ *
+ * @author Valdemar Stenhammar
  *
  * Date: 2021-09-16
  */
@@ -20,10 +20,18 @@ public class Wave {
 
     private static int waveCounter = 0;
 
+    /**
+     * Constructor for wave, increments waveCounter when a wave is created.
+     */
     public Wave() {
         waveCounter++;
     }
 
+
+    /**
+     * Creates foes and adds to a linkedlist depending on what level you are on.
+     * @return Linkedlist of foes.
+     */
     public LinkedList<Foe> createFoes() {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter - 1));
         LinkedList<Foe> foes = new LinkedList<>();
