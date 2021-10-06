@@ -23,7 +23,9 @@ public class TowerPrices {
     private static final int greenTowerSellPrice = 40;
     private static final int purpleTowerSellPrice = 80;
 
-
+    /**
+     * Private constructor to prevent instantiation of multiple objects.
+     */
     private TowerPrices() {}
 
     /**
