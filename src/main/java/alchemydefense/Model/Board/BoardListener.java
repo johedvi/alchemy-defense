@@ -9,5 +9,10 @@ package alchemydefense.Model.Board;
  */
 
 public interface BoardListener {
+
+    /**
+     * Tells all BoardListeners to render the board.
+     * @param board the board that should be rendered.
+     */
     void renderObjects(Board board);
 }
