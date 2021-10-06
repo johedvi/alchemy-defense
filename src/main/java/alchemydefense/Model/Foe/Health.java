@@ -9,6 +9,11 @@ package alchemydefense.Model.Foe;
  */
 
 public interface Health {
+
+    /**
+     * Deals damage equal to damageCount.
+     * @param damageCount the damage that should be taken.
+     */
     void takeDamage(int damageCount);
 
     int getMaxHP();
