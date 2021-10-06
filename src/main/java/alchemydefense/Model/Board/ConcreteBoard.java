@@ -11,6 +11,11 @@ import alchemydefense.Utility.Vector2Int;
 
 import java.util.ArrayList;
 
+/**
+ * A board that manages a two-dimensional grid where towers and enemies can placed.
+ *
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
+ */
 public class ConcreteBoard implements Board {
 
     private final DumbPathfinder pathfinder = new DumbPathfinder(new Vector2Int(11, 2));
@@ -24,6 +29,13 @@ public class ConcreteBoard implements Board {
     public final int height = 5;
     public final int endgoalX = 11;
     public final int endgoalY = 2;
+
+    /**
+     * Constructor that instantiates a new PositionalGrid.
+     */
+    public ConcreteBoard(){
+        positionalGrid = new PositionalGrid(width, height);
+    }
 
     public void damageFoes(){
         for(PositionalCell cell : cellsWithTowers){
@@ -41,10 +53,6 @@ public class ConcreteBoard implements Board {
         }
     }
 
-    public ConcreteBoard(){
-        positionalGrid = new PositionalGrid(width, height);
-    }
-
     public BoardObject getBoardObject(Vector2Int point){
         return positionalGrid.getBoardObject(point);
     }
@@ -54,8 +62,8 @@ public class ConcreteBoard implements Board {
     }
 
     @Override
-    public void placeTower(Tower boardObject, Vector2Int worldPosition) {
-        if(positionalGrid.addTower(boardObject, worldPosition)){
+    public void placeTower(Tower tower, Vector2Int worldPosition) {
+        if(positionalGrid.addTower(tower, worldPosition)){
             cellsWithTowers.add(positionalGrid.getCell(worldPosition));
         }
     }
