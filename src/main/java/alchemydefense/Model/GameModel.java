@@ -35,15 +35,13 @@ public class GameModel {
     }
 
     public void modelUpdate() {
-
         if (isWaveOver())
             startNewWave();
         else
             board.addFoe(activeFoes.removeFirst());
 
+        board.foeReachedEnd();
         board.updateFoes();
-
-
     }
 
     // ------- Create and place tower -------
@@ -97,8 +95,5 @@ public class GameModel {
 
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
-
-        //TODO: Scuffed fix, have to fix how foes render at the end point.
-        board.foeReachedEnd();
     }
 }
