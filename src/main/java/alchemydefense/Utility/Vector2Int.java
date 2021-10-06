@@ -1,9 +1,13 @@
 package alchemydefense.Utility;
 
+/**
+ * Class representing a two-dimensional vector.
+ *
+ * @author Felix Jönsson
+ */
 public class Vector2Int{
     public int x;
     public int y;
-
 
     // Static convenience vectors for logic involving direction
 
