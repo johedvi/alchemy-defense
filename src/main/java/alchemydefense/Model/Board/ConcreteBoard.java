@@ -27,62 +27,40 @@ public class ConcreteBoard implements Board {
     public final int width = 12;
     public final int height = 5;
 
-    @Override
-    public int getBoardWidth() {
-        return width;
-    }
-
-    @Override
-    public int getBoardHeight() {
-        return height;
-    }
-
-    public BoardObject getBoardObject(Point point){
-        return positionalGrid.getBoardObject(point);
-    }
-
-    public PositionalCell getCell(Point point){
-        return positionalGrid.getCell(point);
-    }
-
+    /**
+     * Constructor that instantiates a new PositionalGrid.
+     */
     public ConcreteBoard(){
         positionalGrid = new PositionalGrid(width, height);
     }
 
-    /**
-     * Place a tower in the specified tile if the tile is empty.
-     * @param tower tower to place.
-     * @param tilePosition the tile to place the tower in.
-     * @return return true if the placement was successful, false if not.
-     */
     @Override
-    public boolean placeTower(Tower tower, Point tilePosition) {
-        if(positionalGrid.addTower(tower, tilePosition)){
-            cellsWithTowers.add(positionalGrid.getCell(tilePosition));
+    public BoardObject getBoardObject(Point point){
+        return positionalGrid.getBoardObject(point);
+    }
+
+    @Override
+    public boolean placeTower(Tower tower, Point cellCoordinate) {
+        if(positionalGrid.addTower(tower, cellCoordinate)){
+            cellsWithTowers.add(positionalGrid.getCell(cellCoordinate));
             return true;
         }
         return false;
     }
 
+    @Override
     public void removeTower(Point point) {
         cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
     }
 
-    /**
-     * Adds the given foe to a random tile in the first column of the game. Foes should enter from the leftmost column.
-     * @param foe
-     */
+    @Override
     public void addFoe(Foe foe){
         Point startPos = new Point(0, (int) (getBoardHeight() * Math.random()));
         positionalGrid.addFoe(foe, startPos);
     }
 
-    /**
-     * Find each cell with an enemy in it and moves it
-     * forward one step with the designated pathfinding method for the board.
-     *
-     */
+    @Override
     public void moveFoes(){
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         for(int i=0; i< cellGrid.length; i++) {
@@ -104,10 +82,7 @@ public class ConcreteBoard implements Board {
         }
     }
 
-    /**
-     * Iterates through every active tower on the board and distributes damage to enemies within the towers range.
-     *
-     */
+    @Override
     public void damageFoes(){
         System.out.println("Current active cells with towers: " + cellsWithTowers.toString());
         for(PositionalCell cell : cellsWithTowers){
@@ -125,7 +100,16 @@ public class ConcreteBoard implements Board {
         }
     }
 
+    @Override
     public void addPlayerEventListener(PlayerEventListener listener) {
         player.addPlayerEventListener(listener);
     }
+
+    @Override
+    public int getBoardWidth() { return width; }
+
+    @Override
+    public int getBoardHeight() { return height; }
+
+    public PositionalCell getCell(Point point){ return positionalGrid.getCell(point); }
 }
