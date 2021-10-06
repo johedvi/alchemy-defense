@@ -30,15 +30,22 @@ public class ConcreteBoard implements Board {
             ArrayList<PositionalCell> cellsInRange = cell.getPositionalCellsWithinRange(this);
             for(PositionalCell cellInRange : cellsInRange){
                 if(cellInRange.hasFoe()){
-                    int damage = cell.getTower().getDamage();
-                    cellInRange.getFoe().takeDamage(damage);
-                    if(!cellInRange.getFoe().isAlive()) {
-                        cellInRange.removeFoe();
-                        player.increaseGold(5);
-                    }
+                    damageFoe(cell, cellInRange);
+                    if(!cellInRange.getFoe().isAlive())
+                        removeFoe(cellInRange);
                 }
             }
         }
+    }
+
+    private void damageFoe(PositionalCell cellTower, PositionalCell cellFoe) {
+        int damage = cellTower.getTower().getDamage();
+        cellFoe.getFoe().takeDamage(damage);
+    }
+
+    private void removeFoe(PositionalCell cell) {
+        cell.removeFoe();
+        player.increaseGold(5);
     }
 
     public ConcreteBoard(){
