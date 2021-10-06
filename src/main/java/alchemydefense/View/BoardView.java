@@ -15,7 +15,13 @@ import javafx.scene.layout.StackPane;
 
 import alchemydefense.Utility.Vector2Int;
 
-
+/**
+ * A view that displays the Board.
+ *
+ * @author Felix Jönsson
+ *
+ * Date: 2021-09-26
+ */
 public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 512;

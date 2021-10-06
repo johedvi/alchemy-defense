@@ -6,14 +6,13 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
 /**
- * @author Valdemar Stenhammar
- *
  * A view that displays how much gold and hp the current player has.
  * Extends Pane and implements PlayerEventListener.
  *
+ * @author Valdemar Stenhammar
+ *
  * Date: 2021-09-21
  */
-
 public class InformationView extends Pane implements PlayerEventListener {
 
     private final Label goldAmount;

@@ -3,6 +3,13 @@ package alchemydefense.View;
 import alchemydefense.Controller.TowerController;
 import javafx.scene.layout.Pane;
 
+/**
+ * A view that displays the Userinterface.
+ *
+ * @author Valdemar Stenhammar
+ *
+ * Date: 2021-09-26
+ */
 public class UserInterfaceView extends Pane {
 
     private final SelectedTowerView selectedTowerView;
