@@ -1,10 +1,7 @@
 package alchemydefense.Model.Towers;
 
-
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-
 /**
- * Class that stores the values for different towers.
+ * Singleton class that stores the values for different towers.
  *
  * @author Valdemar Stenhammar
  *
@@ -12,8 +9,6 @@ import alchemydefense.Model.Towers.TowerHierarchy.Tower;
  *
  */
 
-
-//TODO Should class really be singleton or should methods getBuyPrice and getSellPrice just be static?
 public class TowerPrices {
 
     private static TowerPrices instance = null;
@@ -44,7 +39,7 @@ public class TowerPrices {
 
     /**
      * Gets the specific buy value of a certain towerType.
-     * @param towerType
+     * @param towerType the tower type of which value is requested.
      * @return returns an int of the buy value for a specific tower
      */
     public int getBuyPrice(TowerType towerType) {
@@ -60,7 +55,7 @@ public class TowerPrices {
 
     /**
      * Gets the specific price sell value of a certain towerType.
-     * @param towerType
+     * @param towerType the tower type of which value is requested.
      * @return returns an int of the sell value for a specific tower.
      */
 

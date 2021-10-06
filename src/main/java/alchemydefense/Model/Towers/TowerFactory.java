@@ -21,7 +21,7 @@ public class TowerFactory {
      * Creates a specific Tower of a certain TowerType.
      * @param towerType Type of enum TowerType.
      * @return specific concrete Tower of that type.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException if towerType doesn't exist.
      * */
 
     public static Tower createTower(TowerType towerType) throws IllegalArgumentException {
