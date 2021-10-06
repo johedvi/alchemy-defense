@@ -8,7 +8,11 @@ import alchemydefense.Utility.Vector2Int;
 
 import java.util.ArrayList;
 
-
+/**
+ * Class representing a cell in a grid.
+ *
+ * @author Felix Jönsson
+ */
 public class PositionalCell {
     private final Vector2Int cellCoordinate;
     private boolean isOccupiedByTower = false;
@@ -16,9 +20,19 @@ public class PositionalCell {
     private Foe foe;
     private boolean updated = false;
 
+    /**
+     * Overloaded constructor that instantiates a cell with given coordinates.
+     * @param x the x-coordinate of the cell.
+     * @param y the y-coordinate of the cell.
+     */
     public PositionalCell(int x, int y){
         cellCoordinate = new Vector2Int(x,y);
     }
+
+    /**
+     * Overloaded constructor that instantiates a cell with a given point.
+     * @param point the point that represents the coordinates of the cell.
+     */
     public PositionalCell(Vector2Int point){
         cellCoordinate = point;
     }
@@ -59,18 +73,30 @@ public class PositionalCell {
         return foe;
     }
 
+    /**
+     * Places a tower on the cell.
+     * @param tower the tower that is placed on the cell.
+     */
     public void addTower(Tower tower) {
         if(isOccupiedByTower) return;
         isOccupiedByTower = true;
         this.tower = tower;
     }
 
+    /**
+     * Clears a cell from all objects on it.
+     */
     public void clear(){
         foe = null;
         tower = null;
         isOccupiedByTower = false;
     }
 
+    /**
+     * If the cell contains a tower it checks which other cells is within range from the tower.
+     * @param board the board that holds the grid of cells.
+     * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
+     */
     public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
         ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
 
