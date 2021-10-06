@@ -26,15 +26,16 @@ public class GameModel {
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final Set<BoardListener> boardListeners = new HashSet<>();
 
+    /**
+     * Constructor that instantiates a new board and starts the first wave.
+     */
     public GameModel(){
         startNewWave();
         board = new ConcreteBoard();
     }
 
     /**
-     * TODO
-     *
-     *
+     * Updates the whole model.
      */
     public void modelUpdate() {
         updateWave();
