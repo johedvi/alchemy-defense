@@ -9,8 +9,8 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
+import alchemydefense.Utility.Vector2Int;
 
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.HashSet;
 
@@ -47,7 +47,7 @@ public class GameModel {
     }
 
     // ------- Create and place tower -------
-    public void placeTowerInCell(TowerType towerType, Point point) {
+    public void placeTowerInCell(TowerType towerType, Vector2Int point) {
         try {
             Tower tower = buyTower(towerType);
             board.placeTower(tower, point);
@@ -62,17 +62,17 @@ public class GameModel {
         return new TowerTransaction().buyTower(towerType);
     }
 
-    public void sellTower(Point point, TowerType towerType) {
+    public void sellTower(Vector2Int point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
     }
 
     // ------- Handling of BoardObjects -------
-    public BoardObject getBoardObjectInCell(Point point){
+    public BoardObject getBoardObjectInCell(Vector2Int point){
         return board.getBoardObject(point);
     }
 
-    public void removeBoardObjectInCell(Point point){
+    public void removeBoardObjectInCell(Vector2Int point){
         board.removeBoardObject(point);
     }
 

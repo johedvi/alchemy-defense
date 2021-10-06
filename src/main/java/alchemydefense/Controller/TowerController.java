@@ -3,8 +3,7 @@ package alchemydefense.Controller;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Towers.TowerType;
-
-import java.awt.Point;
+import alchemydefense.Utility.Vector2Int;
 
 public class TowerController {
 
@@ -13,14 +12,14 @@ public class TowerController {
     private final GameModel model;
     private TowerType activeTower = null;
 
-    private Point towerCell = null;
+    private Vector2Int towerCell = null;
 
     public TowerController(GameModel model) {
         this.model = model;
     }
 
     public void createTower(int row, int col) {
-        model.placeTowerInCell(activeTower, new Point(row,col));
+        model.placeTowerInCell(activeTower, new Vector2Int(row,col));
     }
 
     public void setRedTowerActive() {
@@ -46,7 +45,7 @@ public class TowerController {
 
     public void sellTower() { model.sellTower(this.towerCell, TowerType.RED); }
 
-    public void cellPressed(Point cell) {
+    public void cellPressed(Vector2Int cell) {
         if(model.getBoardObjectInCell(cell) instanceof Tower) {
             towerCell = cell;
             towerPressed = true;
