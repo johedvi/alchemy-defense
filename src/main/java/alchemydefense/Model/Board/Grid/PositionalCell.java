@@ -1,6 +1,6 @@
 package alchemydefense.Model.Board.Grid;
 
-import alchemydefense.Model.Board.ConcreteBoard;
+import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
@@ -71,13 +71,19 @@ public class PositionalCell {
         isOccupiedByTower = false;
     }
 
-    public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
+    public ArrayList<PositionalCell> getPositionalCellsWithinRange(Board board){
         ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;
         }
 
+        addCellsWithinRange(cellsInRange, board);
+
+        return cellsInRange;
+    }
+
+    private void addCellsWithinRange(ArrayList<PositionalCell> cellsInRange, Board board) {
         int range = tower.getRange();
 
         for (int y = -range; y <= range; y++) {
@@ -88,14 +94,17 @@ public class PositionalCell {
                 if(Math.abs(x) + Math.abs(y) > range){
                     continue;
                 }
-                Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
-                if(currentCellPosition.x >= 0 && currentCellPosition.x < board.width &&
-                currentCellPosition.y >= 0 && currentCellPosition.y < board.height){
-                    cellsInRange.add(board.getCell(currentCellPosition));
-                }
+                addCell(cellsInRange, board, x, y);
             }
         }
-        return cellsInRange;
+    }
+
+    private void addCell(ArrayList<PositionalCell> cellsInRange, Board board, int x, int y) {
+        Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
+        if(currentCellPosition.x >= 0 && currentCellPosition.x < board.getBoardWidth() &&
+                currentCellPosition.y >= 0 && currentCellPosition.y < board.getBoardHeight()){
+            cellsInRange.add(board.getCell(currentCellPosition));
+        }
     }
 
     public Foe removeFoe(){
