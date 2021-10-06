@@ -4,6 +4,24 @@ public class Vector2Int{
     public int x;
     public int y;
 
+
+    // Static convenience vectors for logic involving direction
+    public static Vector2Int right(){
+        return new Vector2Int(1,0);
+    }
+
+    public static Vector2Int left(){
+        return new Vector2Int(-1,0);
+    }
+
+    public static Vector2Int up(){
+        return new Vector2Int(0,1);
+    }
+
+    public static Vector2Int down(){
+        return new Vector2Int(0,-1);
+    }
+
     public static int distanceBetweenVectorPoints(Vector2Int vector1, Vector2Int vector2){
         double distanceX = Math.pow(vector1.x - vector2.x, 2);
         double distanceY = Math.pow(vector1.y - vector2.y, 2);
