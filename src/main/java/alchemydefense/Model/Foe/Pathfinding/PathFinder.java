@@ -9,12 +9,12 @@ import java.util.List;
 
 
 /**
- * @author Willem Brahmstaedt
  * Interface for pathfinding classes. Part of implementation of strategy pattern.
+ *
+ * @author Willem Brahmstaedt
  *
  * Date: 2021-09-15
  */
-
 public interface PathFinder {
     LinkedList<Vector2Int> calculatePath(List<Tower> towers, Vector2Int currentPos);
 }
