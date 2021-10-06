@@ -9,10 +9,6 @@ package alchemydefense.Utility;
 public class Vector2Int {
     private int x;
     private int y;
-public class Vector2Int{
-    public int x;
-    public int y;
-
 
     // Static convenience vectors for logic involving direction
 
@@ -43,12 +39,6 @@ public class Vector2Int{
     }
 
     /**
-     * Calculates the distance between two vectors.
-     * @param vector1 the first vector.
-     * @param vector2 the second vector.
-     * @return the distance between vector1 and vector2.
-     */
-    /**
      * Convenience method.
      * @return new Vector(0,1)
      */
@@ -76,15 +66,6 @@ public class Vector2Int{
         return (int)Math.sqrt(distanceX + distanceY);
     }
 
-    /**
-     * Creates a new vector with integer values.
-     * @param x x-value
-     * @param y y-value
-     */
-    public Vector2Int(int x, int y){
-        this.x = x;
-        this.y = y;
-    }
 
     public String toString(){
         return "(" + x +", " + y + ")";
@@ -132,4 +113,8 @@ public class Vector2Int{
     public int getY() {
         return y;
     }
+
+    public void setX(int x) { this.x = x; }
+
+    public void setY(int y) { this.y = y; }
 }

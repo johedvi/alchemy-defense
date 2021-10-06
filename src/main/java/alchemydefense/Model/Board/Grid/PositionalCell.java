@@ -32,14 +32,6 @@ public class PositionalCell {
         cellCoordinate = point;
     }
 
-    /**
-     * Overloaded constructor that instantiates a cell with a given point.
-     * @param point the point that represents the coordinates of the cell.
-     */
-    public PositionalCell(Point point){
-        cellCoordinate = point;
-    }
-
     public void setOccupied(boolean isOccupied) {
         this.isOccupiedByTower = isOccupied;
     }
@@ -117,9 +109,9 @@ public class PositionalCell {
                 if(Math.abs(x) + Math.abs(y) > range){
                     continue;
                 }
-                Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
-                if(currentCellPosition.x >= 0 && currentCellPosition.x < board.width &&
-                currentCellPosition.y >= 0 && currentCellPosition.y < board.height){
+                Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.getX() + x, cellCoordinate.getY() + y);
+                if(currentCellPosition.getX() >= 0 && currentCellPosition.getX() < board.width &&
+                currentCellPosition.getY() >= 0 && currentCellPosition.getY() < board.height){
                     cellsInRange.add(board.getCell(currentCellPosition));
                 }
             }
@@ -142,6 +134,6 @@ public class PositionalCell {
 
     @Override
     public String toString(){
-        return "(" + cellCoordinate.x + ", " + cellCoordinate.y + ")";
+        return "(" + cellCoordinate.getX() + ", " + cellCoordinate.getY() + ")";
     }
 }

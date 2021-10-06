@@ -4,13 +4,11 @@ import alchemydefense.Model.Board.Grid.PositionalCell;
 import alchemydefense.Model.Board.Grid.PositionalGrid;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Foe.Pathfinding.SlightlyLessDumbPathFinder;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Utility.Vector2Int;
 
-import java.awt.*;
 import java.util.ArrayList;
 
 /**
@@ -38,6 +36,7 @@ public class ConcreteBoard implements Board {
         positionalGrid = new PositionalGrid(width, height);
     }
 
+    @Override
     public BoardObject getBoardObject(Vector2Int point){
         return positionalGrid.getBoardObject(point);
     }
@@ -53,6 +52,7 @@ public class ConcreteBoard implements Board {
         }
     }
 
+    @Override
     public void removeBoardObject(Vector2Int point) {
         cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
@@ -74,11 +74,13 @@ public class ConcreteBoard implements Board {
         moveFoes();
     }
 
+    @Override
     public void addFoe(Foe foe){
         Vector2Int startPos = new Vector2Int(0, (int) (getBoardHeight() * Math.random()));
         positionalGrid.addFoe(foe, startPos);
     }
 
+    @Override
     public void foeReachedEnd() {
         PositionalCell[][] cellGrid = positionalGrid.getGrid();
         if(cellGrid[endgoalX][endgoalY].hasFoe()) {
@@ -98,7 +100,7 @@ public class ConcreteBoard implements Board {
                     Foe foe = cellGrid[i][j].removeFoe();
                     Vector2Int nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
-                    cellGrid[nextCellPoint.x][nextCellPoint.y].setUpdated(true);
+                    cellGrid[nextCellPoint.getX()][nextCellPoint.getY()].setUpdated(true);
                 }
             }
         }

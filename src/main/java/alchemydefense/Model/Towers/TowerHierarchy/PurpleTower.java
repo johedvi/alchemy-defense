@@ -16,13 +16,11 @@ public class PurpleTower extends Tower {
     private static final int purpleTowerRange = 3;
     private static final int purpleTowerDamage = 10;
 
-    private static final int sellPrice = 80;
 
     /**
      * Constructor for PurpleTower.
      * @see Tower for call to super.
      */
-
     public PurpleTower() {
         super(TowerType.PURPLE, imageFilePath, purpleTowerRange, purpleTowerDamage);
     }

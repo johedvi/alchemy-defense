@@ -26,21 +26,21 @@ public class DumbPathfinderTest {
         DumbPathfinder dumbPathfinder = new DumbPathfinder(goal);
         LinkedList<Vector2Int> list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
 
-        Vector2Int previousPoint = new Vector2Int(start.x, start.y);
+        Vector2Int previousPoint = new Vector2Int(start.getX(), start.getY());
         for (Vector2Int p : list) {
-            Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
-            previousPoint = new Vector2Int(p.x, p.y);
+            Assertions.assertTrue((Math.abs(p.getX() - previousPoint.getX()) == 1) ^ (Math.abs(p.getY() - previousPoint.getY()) == 1));
+            previousPoint = new Vector2Int(p.getX(), p.getY());
         }
 
         Assertions.assertEquals(list.get(list.size() - 1), goal);
 
         start = new Vector2Int(0,10);
         list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
-        previousPoint = new Vector2Int(start.x, start.y);
+        previousPoint = new Vector2Int(start.getX(), start.getY());
 
         for (Vector2Int p : list) {
-            Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
-            previousPoint = new Vector2Int(p.x, p.y);
+            Assertions.assertTrue((Math.abs(p.getX() - previousPoint.getX()) == 1) ^ (Math.abs(p.getY() - previousPoint.getY()) == 1));
+            previousPoint = new Vector2Int(p.getX(), p.getY());
         }
 
         Assertions.assertEquals(list.get(list.size() - 1), goal);

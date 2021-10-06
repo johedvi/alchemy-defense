@@ -21,8 +21,7 @@ import java.util.HashSet;
  * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
-    private Board board;
-    private final Player player = Player.getPlayer();
+    private final Board board;
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
@@ -60,7 +59,7 @@ public class GameModel {
      * @param towerType tower type to construct.
      * @param coordinate tile coordinate to place the tower in.
      */
-    public void placeTowerInCell(TowerType towerType, Point coordinate) {
+    public void placeTowerInCell(TowerType towerType, Vector2Int coordinate) {
         try {
             Tower tower = buyTower(towerType);
             board.placeTower(tower, coordinate);
@@ -76,11 +75,10 @@ public class GameModel {
 
     /**
      * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
-     * @param coordinate tile position of the tower.
+     * @param point tile position of the tower.
      * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
      */
-    public void sellTower(Point coordinate, TowerType towerType) {
-        board.removeTower(coordinate);
+
     public void sellTower(Vector2Int point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
@@ -109,6 +107,12 @@ public class GameModel {
     // ------- BoardListener -------
     public void addBoardListener(BoardListener listener) {
         boardListeners.add(listener);
+    }
+
+    public void updateBoardListeners() {
+        for (BoardListener boardListener : this.boardListeners) {
+            boardListener.renderObjects(this.board);
+        }
     }
 
 }

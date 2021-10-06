@@ -19,27 +19,24 @@ public interface Board {
      * Place a tower in the specified tile if the tile is empty.
      * @param tower the tower that should be placed on the board.
      * @param cellCoordinate the cell tha tower should be placed in.
-     * @return true if the placement was successful, otherwise false.
      */
-    boolean placeTower(Tower tower, Point cellCoordinate);
+    void placeTower(Tower tower, Vector2Int cellCoordinate);
 
     /**
-     * Removes tower from a given cell.
+     * Removes BoardObject from a given cell.
      * @param cellCoordinate the cell that should remove its tower.
      */
-    void removeTower(Point cellCoordinate);
+    void removeBoardObject(Vector2Int cellCoordinate);
 
     /**
      * Adds the given foe to a random tile in the first column of the game. Foes should enter from the leftmost column.
      * @param foe the foe that should be added on the board.
      */
-    void placeTower(Tower boardObject, Vector2Int cellCoordinate);
-    BoardObject getBoardObject(Vector2Int cellCoordinate);
-    void removeBoardObject(Vector2Int cellCoordinate);
-    int getBoardWidth();
-    int getBoardHeight();
-    void updateFoes();
     void addFoe(Foe foe);
+
+    BoardObject getBoardObject(Vector2Int cellCoordinate);
+
+    void updateFoes();
 
     /**
      * Moves all foes one step on the board.
@@ -51,7 +48,6 @@ public interface Board {
      */
     void damageFoes();
 
-    BoardObject getBoardObject(Point cellCoordinate);
 
     int getBoardWidth();
 
