@@ -15,13 +15,10 @@ import java.util.LinkedList;
 import java.util.HashSet;
 
 /**
+ * Acts as a facade for the model domain. Supplies necessary functionality
+ * to set up and modify the game. Contains all the logic.
  *
- *
- *
- *
- *----- Modified -----
- * Date 09-19, By: Willem; Changed tower creation methods. Now towers no longer know their position.
- *
+ * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
     private final Board board;
@@ -29,11 +26,17 @@ public class GameModel {
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
+    /**
+     * Constructor that instantiates a new board and starts the first wave.
+     */
     public GameModel(){
         startNewWave();
         board = new ConcreteBoard();
     }
 
+    /**
+     * Updates the whole model.
+     */
     public void modelUpdate() {
         if (isWaveOver())
             startNewWave();
@@ -45,6 +48,13 @@ public class GameModel {
     }
 
     // ------- Create and place tower -------
+
+    /**
+     * Creates a new tower from if the player has sufficient gold.
+     * Will throw an exception if tower the construction failed.
+     * @param towerType tower type to construct.
+     * @param point tile coordinate to place the tower in.
+     */
     public void placeTowerInCell(TowerType towerType, Vector2Int point) {
         try {
             Tower tower = buyTower(towerType);
@@ -60,6 +70,11 @@ public class GameModel {
         return new TowerTransaction().buyTower(towerType);
     }
 
+    /**
+     * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
+     * @param point tile position of the tower.
+     * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
+     */
     public void sellTower(Vector2Int point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
