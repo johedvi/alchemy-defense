@@ -1,8 +1,8 @@
 package alchemydefense.Model.Foe.Pathfinding;
 
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.Vector2Int;
 
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -14,9 +14,9 @@ import java.util.List;
  */
 
 public class DumbPathfinder implements PathFinder {
-    private final Point goal;
+    private final Vector2Int goal;
 
-    public DumbPathfinder(Point goal) {
+    public DumbPathfinder(Vector2Int goal) {
         this.goal = goal;
     }
 
@@ -27,28 +27,28 @@ public class DumbPathfinder implements PathFinder {
      * @return A list of points leading to the goal
      */
     @Override
-    public LinkedList<Point> calculatePath(List<Tower> towers, Point startingPos) {
-        LinkedList<Point> path = new LinkedList<>();
-        Point currentPos = new Point(startingPos.x, startingPos.y);
+    public LinkedList<Vector2Int> calculatePath(List<Tower> towers, Vector2Int startingPos) {
+        LinkedList<Vector2Int> path = new LinkedList<>();
+        Vector2Int currentPos = new Vector2Int(startingPos.x, startingPos.y);
 
         // Path in x direction
         for (int i = currentPos.x + 1; i < this.goal.x; i++) {
             currentPos.x = i;
-            Point intPoint = new Point(i, currentPos.y);
+            Vector2Int intPoint = new Vector2Int(i, currentPos.y);
             path.add(intPoint);
         }
 
         // Path in y direction
         for (int i = currentPos.y + 1; i <= this.goal.y; i++) {
             currentPos.y = i;
-            Point intPoint = new Point(currentPos.x, i);
+            Vector2Int intPoint = new Vector2Int(currentPos.x, i);
             path.add(intPoint);
         }
 
         // Path in negative y direction
         for (int i = currentPos.y - 1; i >= this.goal.y; i--) {
             currentPos.y = i;
-            Point intPoint = new Point(currentPos.x, i);
+            Vector2Int intPoint = new Vector2Int(currentPos.x, i);
             path.add(intPoint);
         }
         // The very last step to the goal

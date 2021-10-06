@@ -3,10 +3,10 @@ package ModelTest;
 import alchemydefense.Model.Foe.Pathfinding.DumbPathfinder;
 
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.Vector2Int;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.awt.Point;
 import java.util.LinkedList;
 
 /**
@@ -20,27 +20,27 @@ public class DumbPathfinderTest {
 
     @Test
     public void testCalculatePath() {
-        Point start = new Point(0,0);
-        Point goal  = new Point(10,5);
+        Vector2Int start = new Vector2Int(0,0);
+        Vector2Int goal  = new Vector2Int(10,5);
 
         DumbPathfinder dumbPathfinder = new DumbPathfinder(goal);
-        LinkedList<Point> list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
+        LinkedList<Vector2Int> list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
 
-        Point previousPoint = new Point(start.x, start.y);
-        for (Point p : list) {
+        Vector2Int previousPoint = new Vector2Int(start.x, start.y);
+        for (Vector2Int p : list) {
             Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
-            previousPoint = new Point(p.x, p.y);
+            previousPoint = new Vector2Int(p.x, p.y);
         }
 
         Assertions.assertEquals(list.get(list.size() - 1), goal);
 
-        start = new Point(0,10);
+        start = new Vector2Int(0,10);
         list = dumbPathfinder.calculatePath(new LinkedList<Tower>(), start);
-        previousPoint = new Point(start.x, start.y);
+        previousPoint = new Vector2Int(start.x, start.y);
 
-        for (Point p : list) {
+        for (Vector2Int p : list) {
             Assertions.assertTrue((Math.abs(p.x - previousPoint.x) == 1) ^ (Math.abs(p.y - previousPoint.y) == 1));
-            previousPoint = new Point(p.x, p.y);
+            previousPoint = new Vector2Int(p.x, p.y);
         }
 
         Assertions.assertEquals(list.get(list.size() - 1), goal);

@@ -13,7 +13,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-import java.awt.Point;
+import alchemydefense.Utility.Vector2Int;
 
 
 public class BoardView extends AnchorPane implements BoardListener {
@@ -89,7 +89,7 @@ public class BoardView extends AnchorPane implements BoardListener {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
                 int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS))-1);
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
-                    towerController.cellPressed(new Point(x, y));
+                    towerController.cellPressed(new Vector2Int(x, y));
                     if(towerController.isHoldingTower()){
                         towerController.createTower(x,y);
                     }
@@ -150,7 +150,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     public void renderObjects(Board board) {
         for (int i = 0; i < board.getBoardHeight(); i++){
             for (int j = 0; j < board.getBoardWidth(); j++) {
-                BoardObject object = board.getBoardObject(new Point(j,i));
+                BoardObject object = board.getBoardObject(new Vector2Int(j,i));
                 if (object != null)
                     updateTileImage(j,i, object.getImageFilePath());
                 else

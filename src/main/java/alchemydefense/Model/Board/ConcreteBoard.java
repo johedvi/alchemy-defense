@@ -7,13 +7,13 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.Vector2Int;
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 public class ConcreteBoard implements Board {
 
-    private final DumbPathfinder pathfinder = new DumbPathfinder(new Point(11, 2));
+    private final DumbPathfinder pathfinder = new DumbPathfinder(new Vector2Int(11, 2));
 
     private final ArrayList<PositionalCell> cellsWithTowers = new ArrayList<>();
 
@@ -45,22 +45,22 @@ public class ConcreteBoard implements Board {
         positionalGrid = new PositionalGrid(width, height);
     }
 
-    public BoardObject getBoardObject(Point point){
+    public BoardObject getBoardObject(Vector2Int point){
         return positionalGrid.getBoardObject(point);
     }
 
-    public PositionalCell getCell(Point point){
+    public PositionalCell getCell(Vector2Int point){
         return positionalGrid.getCell(point);
     }
 
     @Override
-    public void placeTower(Tower boardObject, Point worldPosition) {
+    public void placeTower(Tower boardObject, Vector2Int worldPosition) {
         if(positionalGrid.addTower(boardObject, worldPosition)){
             cellsWithTowers.add(positionalGrid.getCell(worldPosition));
         }
     }
 
-    public void removeBoardObject(Point point) {
+    public void removeBoardObject(Vector2Int point) {
         cellsWithTowers.remove(positionalGrid.getCell(point));
         positionalGrid.remove(point);
     }
@@ -82,7 +82,7 @@ public class ConcreteBoard implements Board {
     }
 
     public void addFoe(Foe foe){
-        Point startPos = new Point(0, (int) (getBoardHeight() * Math.random()));
+        Vector2Int startPos = new Vector2Int(0, (int) (getBoardHeight() * Math.random()));
         positionalGrid.addFoe(foe, startPos);
     }
 
@@ -102,7 +102,7 @@ public class ConcreteBoard implements Board {
             for(int j=0; j< cellGrid[i].length; j++) {
                 if(cellGrid[i][j].hasFoe() && !(i==11 && j==2) && !cellGrid[i][j].isUpdated()){
                     Foe foe = cellGrid[i][j].removeFoe();
-                    Point nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
+                    Vector2Int nextCellPoint = pathfinder.calculatePath(null, cellGrid[i][j].getCellCoordinate()).getFirst();
                     positionalGrid.addFoe(foe, nextCellPoint);
                     cellGrid[nextCellPoint.x][nextCellPoint.y].setUpdated(true);
                 }

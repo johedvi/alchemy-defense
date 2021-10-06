@@ -4,22 +4,22 @@ import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.Vector2Int;
 
-import java.awt.Point;
 import java.util.ArrayList;
 
 
 public class PositionalCell {
-    private final Point cellCoordinate;
+    private final Vector2Int cellCoordinate;
     private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
     private boolean updated = false;
 
     public PositionalCell(int x, int y){
-        cellCoordinate = new Point(x,y);
+        cellCoordinate = new Vector2Int(x,y);
     }
-    public PositionalCell(Point point){
+    public PositionalCell(Vector2Int point){
         cellCoordinate = point;
     }
 
@@ -37,7 +37,7 @@ public class PositionalCell {
         return isOccupiedByTower;
     }
 
-    public Point getCellCoordinate(){
+    public Vector2Int getCellCoordinate(){
         return cellCoordinate;
     }
     public boolean isUpdated() { return updated; }
@@ -88,7 +88,7 @@ public class PositionalCell {
                 if(Math.abs(x) + Math.abs(y) > range){
                     continue;
                 }
-                Point currentCellPosition = new Point(cellCoordinate.x + x, cellCoordinate.y + y);
+                Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
                 if(currentCellPosition.x >= 0 && currentCellPosition.x < board.width &&
                 currentCellPosition.y >= 0 && currentCellPosition.y < board.height){
                     cellsInRange.add(board.getCell(currentCellPosition));

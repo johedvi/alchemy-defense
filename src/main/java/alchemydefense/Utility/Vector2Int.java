@@ -1,8 +1,8 @@
 package alchemydefense.Utility;
 
 public class Vector2Int{
-    private int x;
-    private int y;
+    public int x;
+    public int y;
 
     public static int distanceBetweenVectorPoints(Vector2Int vector1, Vector2Int vector2){
         double distanceX = Math.pow(vector1.x - vector2.x, 2);

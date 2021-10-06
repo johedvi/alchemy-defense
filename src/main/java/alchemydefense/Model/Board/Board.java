@@ -3,13 +3,12 @@ package alchemydefense.Model.Board;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-
-import java.awt.Point;
+import alchemydefense.Utility.Vector2Int;
 
 public interface Board {
-    void placeTower(Tower boardObject, Point cellCoordinate);
-    BoardObject getBoardObject(Point cellCoordinate);
-    void removeBoardObject(Point cellCoordinate);
+    void placeTower(Tower boardObject, Vector2Int cellCoordinate);
+    BoardObject getBoardObject(Vector2Int cellCoordinate);
+    void removeBoardObject(Vector2Int cellCoordinate);
     int getBoardWidth();
     int getBoardHeight();
     void updateFoes();

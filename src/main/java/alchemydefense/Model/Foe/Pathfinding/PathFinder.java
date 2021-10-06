@@ -2,8 +2,8 @@ package alchemydefense.Model.Foe.Pathfinding;
 
 
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.Vector2Int;
 
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,5 +16,5 @@ import java.util.List;
  */
 
 public interface PathFinder {
-    LinkedList<Point> calculatePath(List<Tower> towers, Point currentPos);
+    LinkedList<Vector2Int> calculatePath(List<Tower> towers, Vector2Int currentPos);
 }
