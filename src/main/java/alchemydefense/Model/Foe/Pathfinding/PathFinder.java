@@ -2,7 +2,7 @@ package alchemydefense.Model.Foe.Pathfinding;
 
 
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -16,5 +16,5 @@ import java.util.List;
  * Date: 2021-09-15
  */
 public interface PathFinder {
-    LinkedList<Vector2Int> calculatePath(List<Tower> towers, Vector2Int currentPos);
+    LinkedList<Vector> calculatePath(List<Tower> towers, Vector currentPos);
 }
