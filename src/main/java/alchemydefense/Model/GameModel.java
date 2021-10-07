@@ -9,6 +9,7 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
+import alchemydefense.Utility.TowerType;
 import alchemydefense.Utility.Vector2Int;
 
 import java.util.LinkedList;

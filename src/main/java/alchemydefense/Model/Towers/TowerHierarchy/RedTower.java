@@ -1,7 +1,7 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 
 
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 
 /**
  * Class representing a concrete Redtower. Extends Tower.

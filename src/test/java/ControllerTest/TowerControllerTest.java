@@ -3,7 +3,7 @@ package ControllerTest;
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 import alchemydefense.Utility.Vector2Int;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

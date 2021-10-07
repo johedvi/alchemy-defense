@@ -1,6 +1,8 @@
 package alchemydefense.Model.Towers;
 
 
+import alchemydefense.Utility.TowerType;
+
 /**
  * Singleton class that stores the values for different towers.
  *

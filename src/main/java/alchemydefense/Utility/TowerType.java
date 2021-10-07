@@ -1,4 +1,4 @@
-package alchemydefense.Model.Towers;
+package alchemydefense.Utility;
 
 /**
  * Enum representing different tower types.

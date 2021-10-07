@@ -2,6 +2,7 @@ package alchemydefense.Model.Towers;
 
 
 import alchemydefense.Model.Towers.TowerHierarchy.*;
+import alchemydefense.Utility.TowerType;
 
 /**
  * Factory class that creates Tower objects without exposing the creation logic to the client.

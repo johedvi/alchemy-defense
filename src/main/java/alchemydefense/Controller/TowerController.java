@@ -2,7 +2,7 @@ package alchemydefense.Controller;
 
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 import alchemydefense.Utility.Vector2Int;
 
 /**

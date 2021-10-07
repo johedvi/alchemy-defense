@@ -2,6 +2,7 @@ package alchemydefense.Model.Towers;
 
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.TowerType;
 
 /**
  * Class representing the logic behind buying and selling a specific tower.

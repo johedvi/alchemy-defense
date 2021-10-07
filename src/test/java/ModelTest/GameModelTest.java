@@ -1,7 +1,7 @@
 package ModelTest;
 
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 import alchemydefense.Utility.Vector2Int;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

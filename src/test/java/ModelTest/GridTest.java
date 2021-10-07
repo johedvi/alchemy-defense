@@ -2,7 +2,7 @@ package ModelTest;
 
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
