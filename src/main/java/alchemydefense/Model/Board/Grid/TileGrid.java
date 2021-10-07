@@ -10,11 +10,11 @@ import alchemydefense.Utility.Vector;
  *
  * @author Felix Jönsson
  */
-public class PositionalGrid {
-    private final PositionalCell[][] positionalCells;
+public class TileGrid {
+    private final Tile[][] tiles;
 
-    public PositionalCell[][] getGrid(){
-        return positionalCells;
+    public Tile[][] getGrid(){
+        return tiles;
     }
 
 
@@ -23,12 +23,12 @@ public class PositionalGrid {
      * @param rows the number of rows in the grid.
      * @param columns the number of columns in the grid.
      */
-    public PositionalGrid(int rows, int columns){
-        positionalCells = new PositionalCell[rows][columns];
+    public TileGrid(int rows, int columns){
+        tiles = new Tile[rows][columns];
         for (int x = 0; x < rows; x++) {
             for (int y = 0; y < columns; y++) {
                 Vector coordinatePoint = new Vector(x,y);
-                positionalCells[x][y] = new PositionalCell(coordinatePoint);
+                tiles[x][y] = new Tile(coordinatePoint);
             }
         }
     }
@@ -39,8 +39,8 @@ public class PositionalGrid {
      * @param cell the cell the BoardObject should be placed on.
      */
     public void add(Tower boardObject, Vector cell){
-        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){
-            positionalCells[cell.x][cell.y].addTower(boardObject);
+        if (!tiles[cell.x][cell.y].isOccupiedByTower()){
+            tiles[cell.x][cell.y].addTower(boardObject);
         }
     }
 
@@ -51,8 +51,8 @@ public class PositionalGrid {
      * @return true if Tower is successfully placed on given cell. Otherwise false.
      */
     public boolean addTower(Tower tower, Vector cell){
-        if (!positionalCells[cell.x][cell.y].isOccupiedByTower()){
-            positionalCells[cell.x][cell.y].addTower(tower);
+        if (!tiles[cell.x][cell.y].isOccupiedByTower()){
+            tiles[cell.x][cell.y].addTower(tower);
             return true;
         }
         return false;
@@ -64,7 +64,7 @@ public class PositionalGrid {
      * @param cell cell the cell the Tower should be placed on.
      */
     public void addFoe(Foe foe, Vector cell){
-        positionalCells[cell.x][cell.y].addFoe(foe);
+        tiles[cell.x][cell.y].addFoe(foe);
     }
 
     /**
@@ -72,18 +72,18 @@ public class PositionalGrid {
      * @param cell the cell that should remove its tower.
      */
     public void remove(Vector cell){
-        if(positionalCells[cell.x][cell.y].isOccupiedByTower()){
-            positionalCells[cell.x][cell.y].setOccupied(false);
-            positionalCells[cell.x][cell.y].clear();
+        if(tiles[cell.x][cell.y].isOccupiedByTower()){
+            tiles[cell.x][cell.y].setOccupied(false);
+            tiles[cell.x][cell.y].clear();
         }
     }
 
-    public PositionalCell getCell(Vector cell){
-        return positionalCells[cell.x][cell.y];
+    public Tile getCell(Vector cell){
+        return tiles[cell.x][cell.y];
     }
 
     public BoardObject getBoardObject(Vector cell){
-        return positionalCells[cell.x][cell.y].getBoardObject();
+        return tiles[cell.x][cell.y].getBoardObject();
     }
 
 }

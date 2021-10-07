@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author Felix Jönsson
  */
-public class PositionalCell {
+public class Tile {
     private final Vector cellCoordinate;
     private boolean isOccupiedByTower = false;
     private Tower tower;
@@ -25,7 +25,7 @@ public class PositionalCell {
      * @param x the x-coordinate of the cell.
      * @param y the y-coordinate of the cell.
      */
-    public PositionalCell(int x, int y){
+    public Tile(int x, int y){
         cellCoordinate = new Vector(x,y);
     }
 
@@ -33,7 +33,7 @@ public class PositionalCell {
      * Overloaded constructor that instantiates a cell with a given point.
      * @param point the point that represents the coordinates of the cell.
      */
-    public PositionalCell(Vector point){
+    public Tile(Vector point){
         cellCoordinate = point;
     }
 
@@ -97,8 +97,8 @@ public class PositionalCell {
      * @param board the board that holds the grid of cells.
      * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
      */
-    public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
-        ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
+    public ArrayList<Tile> getPositionalCellsWithinRange(ConcreteBoard board){
+        ArrayList<Tile> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;
