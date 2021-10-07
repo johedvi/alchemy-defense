@@ -4,6 +4,13 @@ import alchemydefense.Controller.TowerController;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
+/**
+ * A view that displays sell / buy / uppgrade cost when you select a Tower.
+ *
+ * @author Valdemar Stenhammar
+ *
+ * Date: 2021-09-26
+ */
 public class SelectedTowerView extends Pane {
 
     private final Label sellPriceLabel;

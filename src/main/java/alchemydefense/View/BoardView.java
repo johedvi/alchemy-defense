@@ -4,7 +4,7 @@ import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 import javafx.scene.Group;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,9 +13,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
-
+/**
+ * A view that displays the Board.
+ *
+ * @author Felix Jönsson
+ *
+ * Date: 2021-09-26
+ */
 public class BoardView extends AnchorPane implements BoardListener {
     private static final int SCENE_WIDTH = 832;
     private static final int SCENE_HEIGHT = 512;
@@ -89,7 +95,7 @@ public class BoardView extends AnchorPane implements BoardListener {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
                 int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS))-1);
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
-                    towerController.cellPressed(new Vector2Int(x, y));
+                    towerController.cellPressed(new Vector(x, y));
                     if(towerController.isHoldingTower()){
                         towerController.createTower(x,y);
                     }
@@ -150,7 +156,7 @@ public class BoardView extends AnchorPane implements BoardListener {
     public void renderObjects(Board board) {
         for (int i = 0; i < board.getBoardHeight(); i++){
             for (int j = 0; j < board.getBoardWidth(); j++) {
-                BoardObject object = board.getBoardObject(new Vector2Int(j,i));
+                BoardObject object = board.getBoardObject(new Vector(j,i));
                 if (object != null)
                     updateTileImage(j,i, object.getImageFilePath());
                 else

@@ -3,8 +3,8 @@ package ControllerTest;
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-import alchemydefense.Model.Towers.TowerType;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -45,6 +45,6 @@ public class TowerControllerTest {
     public void testTowerCreation() {
         towerController.setRedTowerActive();
         towerController.createTower(2,2);
-        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector2Int(2,2)).getClass());
+        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
     }
 }

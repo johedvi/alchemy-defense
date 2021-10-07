@@ -1,22 +1,16 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Model.Towers.TowerType;
+import alchemydefense.Utility.TowerType;
 
 
 /**
- * @author Johan Lindén
- * Date: 2021-09-14
- *
  * A class for an abstract tower. Concrete towers extends this class. Handles
  * all the shared logic of towers. Implements BoardObject.
  *
- *----- Modified ------
- * Date 09-19, By Willem; Removed position attributes and methods associated with them
+ * @author Johan Lindén
  *
- * Date 2021-09-27, By Valdemar; Moved responsibility from lower class RedTower to create higher abstraction.
- *
+ * Date: 2021-09-14
  */
-
 public abstract class Tower implements BoardObject {
 
     private final TowerType towerType;
@@ -25,6 +19,13 @@ public abstract class Tower implements BoardObject {
     private final int range;
     private final int damage;
 
+    /**
+     * Another constructor for class Tower
+     * @param towerType specific towerType of enum TowerType.
+     * @param filePath Location for the image that resembles the Tower.
+     * @param range range value for the specific tower.
+     * @param damage damage value for the specific tower.
+     */
     public Tower(TowerType towerType, String filePath, int range, int damage) {
         this.towerType = towerType;
         this.filePath = filePath;

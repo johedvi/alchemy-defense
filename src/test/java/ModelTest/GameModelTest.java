@@ -1,8 +1,8 @@
 package ModelTest;
 
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerType;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
@@ -16,6 +16,6 @@ public class GameModelTest {
 
     @Test
     public void testTowerCreationFail() {
-        model.placeTowerInCell(TowerType.BLUE, new Vector2Int(2,2));
+        model.placeTowerInCell(TowerType.BLUE, new Vector(2,2));
     }
 }

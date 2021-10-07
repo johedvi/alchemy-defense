@@ -2,9 +2,16 @@ package alchemydefense.Controller;
 
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Model.Towers.TowerType;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.Vector;
 
+/**
+ * A controller that handles user interaction with the Userinterface.
+ *
+ * @author Valdemar Stenhammar
+ *
+ * Date: 2021-09-26
+ */
 public class TowerController {
 
     private boolean towerPressed = false;
@@ -12,14 +19,14 @@ public class TowerController {
     private final GameModel model;
     private TowerType activeTower = null;
 
-    private Vector2Int towerCell = null;
+    private Vector towerCell = null;
 
     public TowerController(GameModel model) {
         this.model = model;
     }
 
     public void createTower(int row, int col) {
-        model.placeTowerInCell(activeTower, new Vector2Int(row,col));
+        model.placeTowerInCell(activeTower, new Vector(row,col));
     }
 
     public void setRedTowerActive() {
@@ -45,7 +52,7 @@ public class TowerController {
 
     public void sellTower() { model.sellTower(this.towerCell, TowerType.RED); }
 
-    public void cellPressed(Vector2Int cell) {
+    public void cellPressed(Vector cell) {
         if(model.getBoardObjectInCell(cell) instanceof Tower) {
             towerCell = cell;
             towerPressed = true;

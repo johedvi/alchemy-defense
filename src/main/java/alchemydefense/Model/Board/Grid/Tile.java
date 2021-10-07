@@ -4,22 +4,36 @@ import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
 import java.util.ArrayList;
 
-
-public class PositionalCell {
-    private final Vector2Int cellCoordinate;
+/**
+ * Class representing a cell in a grid.
+ *
+ * @author Felix Jönsson
+ */
+public class Tile {
+    private final Vector cellCoordinate;
     private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
     private boolean updated = false;
 
-    public PositionalCell(int x, int y){
-        cellCoordinate = new Vector2Int(x,y);
+    /**
+     * Overloaded constructor that instantiates a cell with given coordinates.
+     * @param x the x-coordinate of the cell.
+     * @param y the y-coordinate of the cell.
+     */
+    public Tile(int x, int y){
+        cellCoordinate = new Vector(x,y);
     }
-    public PositionalCell(Vector2Int point){
+
+    /**
+     * Overloaded constructor that instantiates a cell with a given point.
+     * @param point the point that represents the coordinates of the cell.
+     */
+    public Tile(Vector point){
         cellCoordinate = point;
     }
 
@@ -37,7 +51,7 @@ public class PositionalCell {
         return isOccupiedByTower;
     }
 
-    public Vector2Int getCellCoordinate(){
+    public Vector getCellCoordinate(){
         return cellCoordinate;
     }
     public boolean isUpdated() { return updated; }
@@ -59,20 +73,35 @@ public class PositionalCell {
         return foe;
     }
 
+    /**
+     * Places a tower on the cell.
+     * @param tower the tower that is placed on the cell.
+     */
     public void addTower(Tower tower) {
         if(isOccupiedByTower) return;
         isOccupiedByTower = true;
         this.tower = tower;
     }
 
+    /**
+     * Clears a cell from all objects on it.
+     */
     public void clear(){
         foe = null;
         tower = null;
         isOccupiedByTower = false;
     }
 
-    public ArrayList<PositionalCell> getPositionalCellsWithinRange(Board board){
-        ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
+
+
+    /**
+     * If the cell contains a tower it checks which other cells is within range from the tower.
+     * @param board the board that holds the grid of cells.
+     * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
+     */
+
+    public ArrayList<Tile> getPositionalCellsWithinRange(Board board){
+        ArrayList<Tile> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;
@@ -83,7 +112,7 @@ public class PositionalCell {
         return cellsInRange;
     }
 
-    private void addCellsWithinRange(ArrayList<PositionalCell> cellsInRange, Board board) {
+    private void addCellsWithinRange(ArrayList<Tile> cellsInRange, Board board) {
         int range = tower.getRange();
 
         for (int y = -range; y <= range; y++) {
@@ -95,12 +124,13 @@ public class PositionalCell {
                     continue;
                 }
                 addCell(cellsInRange, board, x, y);
+
             }
         }
     }
 
-    private void addCell(ArrayList<PositionalCell> cellsInRange, Board board, int x, int y) {
-        Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
+    private void addCell(ArrayList<Tile> cellsInRange, Board board, int x, int y) {
+        Vector currentCellPosition = new Vector(cellCoordinate.x + x, cellCoordinate.y + y);
         if(currentCellPosition.x >= 0 && currentCellPosition.x < board.getBoardWidth() &&
                 currentCellPosition.y >= 0 && currentCellPosition.y < board.getBoardHeight()){
             cellsInRange.add(board.getCell(currentCellPosition));
