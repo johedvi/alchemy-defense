@@ -52,7 +52,6 @@ public class TowerControllerTest {
     @Test
     public void testTowerPressed() {
         model.placeTowerInCell(TowerType.RED, new Point(2,2));
-        Assertions.assertFalse(towerController.isTowerPressed());
         towerController.cellPressed(new Point(2,2));
         Assertions.assertTrue(towerController.isTowerPressed());
         towerController.cellPressed(new Point(1,1));
