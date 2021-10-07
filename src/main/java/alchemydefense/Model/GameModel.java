@@ -10,7 +10,7 @@ import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
 import alchemydefense.Utility.TowerType;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
 import java.util.LinkedList;
 import java.util.HashSet;
@@ -56,7 +56,7 @@ public class GameModel {
      * @param towerType tower type to construct.
      * @param point tile coordinate to place the tower in.
      */
-    public void placeTowerInCell(TowerType towerType, Vector2Int point) {
+    public void placeTowerInCell(TowerType towerType, Vector point) {
         try {
             Tower tower = buyTower(towerType);
             board.placeTower(tower, point);
@@ -76,17 +76,17 @@ public class GameModel {
      * @param point tile position of the tower.
      * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
      */
-    public void sellTower(Vector2Int point, TowerType towerType) {
+    public void sellTower(Vector point, TowerType towerType) {
         board.removeBoardObject(point);
         new TowerTransaction().sellTower(towerType);
     }
 
     // ------- Handling of BoardObjects -------
-    public BoardObject getBoardObjectInCell(Vector2Int point){
+    public BoardObject getBoardObjectInCell(Vector point){
         return board.getBoardObject(point);
     }
 
-    public void removeBoardObjectInCell(Vector2Int point){
+    public void removeBoardObjectInCell(Vector point){
         board.removeBoardObject(point);
     }
 
