@@ -59,4 +59,17 @@ public class ConcreteFoe implements BoardObject, Foe {
     public String toString(){
         return "ConcreteFoe";
     }
+
+
+    //TEMPORARY CODE UNTILL BETTER FIX
+    boolean updated = false;
+    @Override
+    public void setUpdateFlag(boolean b) {
+        updated = b;
+    }
+
+    @Override
+    public boolean hasBeenUpdated() {
+        return updated;
+    }
 }

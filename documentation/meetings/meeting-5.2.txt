@@ -19,7 +19,7 @@
     - Valdemar has added the possiblity to sell and buy towers, has also refactored how you buy towers in the code. Added tower view
  	to make it possible to sell "ingame".
 
-    - Felix has updated positionalCell so that you only can add one tower in every cell, has also started to refactor point to our
+    - Felix has updated tile so that you only can add one tower in every cell, has also started to refactor point to our
 	class.
 
     - Willem has continued to write javadocs. 

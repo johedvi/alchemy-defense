@@ -4,7 +4,7 @@ import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
 import java.util.ArrayList;
 
@@ -13,8 +13,8 @@ import java.util.ArrayList;
  *
  * @author Felix Jönsson
  */
-public class PositionalCell {
-    private final Vector2Int cellCoordinate;
+public class Tile {
+    private final Vector cellCoordinate;
     private boolean isOccupiedByTower = false;
     private Tower tower;
     private Foe foe;
@@ -25,15 +25,15 @@ public class PositionalCell {
      * @param x the x-coordinate of the cell.
      * @param y the y-coordinate of the cell.
      */
-    public PositionalCell(int x, int y){
-        cellCoordinate = new Vector2Int(x,y);
+    public Tile(int x, int y){
+        cellCoordinate = new Vector(x,y);
     }
 
     /**
      * Overloaded constructor that instantiates a cell with a given point.
      * @param point the point that represents the coordinates of the cell.
      */
-    public PositionalCell(Vector2Int point){
+    public Tile(Vector point){
         cellCoordinate = point;
     }
 
@@ -51,7 +51,7 @@ public class PositionalCell {
         return isOccupiedByTower;
     }
 
-    public Vector2Int getCellCoordinate(){
+    public Vector getCellCoordinate(){
         return cellCoordinate;
     }
     public boolean isUpdated() { return updated; }
@@ -97,8 +97,8 @@ public class PositionalCell {
      * @param board the board that holds the grid of cells.
      * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
      */
-    public ArrayList<PositionalCell> getPositionalCellsWithinRange(ConcreteBoard board){
-        ArrayList<PositionalCell> cellsInRange = new ArrayList<>();
+    public ArrayList<Tile> getPositionalCellsWithinRange(ConcreteBoard board){
+        ArrayList<Tile> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;
@@ -114,7 +114,7 @@ public class PositionalCell {
                 if(Math.abs(x) + Math.abs(y) > range){
                     continue;
                 }
-                Vector2Int currentCellPosition = new Vector2Int(cellCoordinate.x + x, cellCoordinate.y + y);
+                Vector currentCellPosition = new Vector(cellCoordinate.x + x, cellCoordinate.y + y);
                 if(currentCellPosition.x >= 0 && currentCellPosition.x < board.width &&
                 currentCellPosition.y >= 0 && currentCellPosition.y < board.height){
                     cellsInRange.add(board.getCell(currentCellPosition));

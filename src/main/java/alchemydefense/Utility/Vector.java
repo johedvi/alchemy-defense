@@ -5,7 +5,7 @@ package alchemydefense.Utility;
  *
  * @author Felix Jönsson
  */
-public class Vector2Int{
+public class Vector {
     public int x;
     public int y;
 
@@ -15,32 +15,32 @@ public class Vector2Int{
      * Convenience method.
      * @return new Vector(1,0)
      */
-    public static Vector2Int right(){
-        return new Vector2Int(1,0);
+    public static Vector right(){
+        return new Vector(1,0);
     }
 
     /**
      * Convenience method.
      * @return new Vector(-1,0)
      */
-    public static Vector2Int left(){
-        return new Vector2Int(-1,0);
+    public static Vector left(){
+        return new Vector(-1,0);
     }
 
     /**
      * Convenience method.
      * @return new Vector(0,1)
      */
-    public static Vector2Int up(){
-        return new Vector2Int(0,1);
+    public static Vector up(){
+        return new Vector(0,1);
     }
 
     /**
      * Convenience method.
      * @return new Vector(0,-1)
      */
-    public static Vector2Int down(){
-        return new Vector2Int(0,-1);
+    public static Vector down(){
+        return new Vector(0,-1);
     }
 
     /**
@@ -49,7 +49,7 @@ public class Vector2Int{
      * @param vector2
      * @return the absolut value of the distance trunked to the nearest integer.
      */
-    public static int distanceBetweenVectorPoints(Vector2Int vector1, Vector2Int vector2){
+    public static int distanceBetweenVectorPoints(Vector vector1, Vector vector2){
         double distanceX = Math.pow(vector1.x - vector2.x, 2);
         double distanceY = Math.pow(vector1.y - vector2.y, 2);
         return (int)Math.sqrt(distanceX + distanceY);
@@ -60,7 +60,7 @@ public class Vector2Int{
      * @param x x-value
      * @param y y-value
      */
-    public Vector2Int(int x, int y){
+    public Vector(int x, int y){
         this.x = x;
         this.y = y;
     }
@@ -80,10 +80,21 @@ public class Vector2Int{
     }
 
     /**
+     * Adds the parameter vector values with the calle's and returns a new vector with the
+     * combined values.
+     * @param inVector vector to add with the calle
+     * @return new vector with the sum of the calle's and parameters x- and y-values
+     */
+    public Vector add(Vector inVector){
+        return new Vector(x + inVector.x, inVector.y + y);
+    }
+
+
+    /**
      * Copies the values from the paramater vector to the current.
      * @param vector vector to copy values from
      */
-    public void setVector(Vector2Int vector) {
+    public void setVector(Vector vector) {
         this.x = vector.getX();
         this.y = vector.getY();
     }
@@ -95,12 +106,12 @@ public class Vector2Int{
      */
     @Override
     public boolean equals(Object obj) {
-        if (obj.getClass() == Vector2Int.class)
-            return ((Vector2Int) obj).x == this.x && ((Vector2Int) obj).y == this.y;
+        if (obj.getClass() == Vector.class)
+            return ((Vector) obj).x == this.x && ((Vector) obj).y == this.y;
         else
             return false;
     }
-    
+
     @Override
     public int hashCode() {
         return 1000 * x + y;

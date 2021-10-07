@@ -3,7 +3,7 @@ package alchemydefense.Model.Board;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Utility.Vector2Int;
+import alchemydefense.Utility.Vector;
 
 /**
  * Interface for a board.
@@ -19,13 +19,13 @@ public interface Board {
      * @param tower the tower that should be placed on the board.
      * @param cellCoordinate the cell tha tower should be placed in.
      */
-    void placeTower(Tower tower, Vector2Int cellCoordinate);
+    void placeTower(Tower tower, Vector cellCoordinate);
 
     /**
      * Removes BoardObject from a given cell.
      * @param cellCoordinate the cell that should remove its tower.
      */
-    void removeBoardObject(Vector2Int cellCoordinate);
+    void removeBoardObject(Vector cellCoordinate);
 
     /**
      * Adds the given foe to a random tile in the first column of the game. Foes should enter from the leftmost column.
@@ -43,7 +43,7 @@ public interface Board {
      */
     void damageFoes();
 
-    BoardObject getBoardObject(Vector2Int cellCoordinate);
+    BoardObject getBoardObject(Vector cellCoordinate);
 
     int getBoardWidth();
 
