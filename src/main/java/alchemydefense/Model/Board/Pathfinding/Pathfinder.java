@@ -91,7 +91,6 @@ public class Pathfinder {
             pathGraph.get(coordinates).setTraversable(false);
             List<PathNode> path = generateNewPath(new Vector(0,2), new Vector(11,2));
             pathGraph.get(coordinates).setTraversable(previousNodeState);
-            System.out.println("Blocking path: " + path.toString());
             if(path.size() <= 1){
                 return true;
             }
