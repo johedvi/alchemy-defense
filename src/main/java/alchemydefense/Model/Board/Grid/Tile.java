@@ -1,6 +1,6 @@
 package alchemydefense.Model.Board.Grid;
 
-import alchemydefense.Model.Board.ConcreteBoard;
+import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
@@ -92,18 +92,27 @@ public class Tile {
         isOccupiedByTower = false;
     }
 
+
+
     /**
      * If the cell contains a tower it checks which other cells is within range from the tower.
      * @param board the board that holds the grid of cells.
      * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
      */
-    public ArrayList<Tile> getPositionalCellsWithinRange(ConcreteBoard board){
+
+    public ArrayList<Tile> getPositionalCellsWithinRange(Board board){
         ArrayList<Tile> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
            return cellsInRange;
         }
 
+        addCellsWithinRange(cellsInRange, board);
+
+        return cellsInRange;
+    }
+
+    private void addCellsWithinRange(ArrayList<Tile> cellsInRange, Board board) {
         int range = tower.getRange();
 
         for (int y = -range; y <= range; y++) {
@@ -114,14 +123,18 @@ public class Tile {
                 if(Math.abs(x) + Math.abs(y) > range){
                     continue;
                 }
-                Vector currentCellPosition = new Vector(cellCoordinate.x + x, cellCoordinate.y + y);
-                if(currentCellPosition.x >= 0 && currentCellPosition.x < board.width &&
-                currentCellPosition.y >= 0 && currentCellPosition.y < board.height){
-                    cellsInRange.add(board.getCell(currentCellPosition));
-                }
+                addCell(cellsInRange, board, x, y);
+
             }
         }
-        return cellsInRange;
+    }
+
+    private void addCell(ArrayList<Tile> cellsInRange, Board board, int x, int y) {
+        Vector currentCellPosition = new Vector(cellCoordinate.x + x, cellCoordinate.y + y);
+        if(currentCellPosition.x >= 0 && currentCellPosition.x < board.getBoardWidth() &&
+                currentCellPosition.y >= 0 && currentCellPosition.y < board.getBoardHeight()){
+            cellsInRange.add(board.getCell(currentCellPosition));
+        }
     }
 
     public Foe removeFoe(){

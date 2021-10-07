@@ -1,5 +1,6 @@
 package alchemydefense.Model.Board;
 
+import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
@@ -13,6 +14,7 @@ import alchemydefense.Utility.Vector;
  * Date: 2021-09-14
  */
 public interface Board {
+
 
     /**
      * Place a tower in the specified tile if the tile is empty.
@@ -54,4 +56,6 @@ public interface Board {
     void addPlayerEventListener(PlayerEventListener listener);
 
     void foeReachedEnd();
+
+    Tile getCell(Vector cell);
 }
