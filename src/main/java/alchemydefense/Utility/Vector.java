@@ -80,6 +80,17 @@ public class Vector {
     }
 
     /**
+     * Adds the parameter vector values with the calle's and returns a new vector with the
+     * combined values.
+     * @param inVector vector to add with the calle
+     * @return new vector with the sum of the calle's and parameters x- and y-values
+     */
+    public Vector add(Vector inVector){
+        return new Vector(x + inVector.x, inVector.y + y);
+    }
+
+
+    /**
      * Copies the values from the paramater vector to the current.
      * @param vector vector to copy values from
      */
@@ -100,7 +111,7 @@ public class Vector {
         else
             return false;
     }
-    
+
     @Override
     public int hashCode() {
         return 1000 * x + y;

@@ -1,7 +1,7 @@
 package alchemydefense.Model.Board.Pathfinding;
 
 import java.util.*;
-
+import alchemydefense.Utility.Vector;
 // NEEDS DOCS, DONT COMMENT ON THIS IF YOU ARE REVIEWING :)))))
 public class Pathfinder {
     Vector[] directions = {Vector.right(), Vector.down(), Vector.left(), Vector.up()};
