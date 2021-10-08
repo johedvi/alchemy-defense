@@ -27,6 +27,12 @@ public class GraphManager {
         }
     }
 
+    public void unblockPathNode(Vector coordinates){
+        if(graph.containsKey(coordinates)){
+            graph.get(coordinates).setTraversable(true);
+        }
+    }
+
     /*
     public void resetPathNodes(){
         for (Map.Entry<Vector2Int, PathNode> entry : graph.entrySet()){

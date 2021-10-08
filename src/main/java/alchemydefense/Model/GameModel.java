@@ -77,7 +77,7 @@ public class GameModel {
      * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
      */
     public void sellTower(Vector point, TowerType towerType) {
-        board.removeBoardObject(point);
+        board.removeTower(point);
         new TowerTransaction().sellTower(towerType);
     }
 
@@ -87,7 +87,7 @@ public class GameModel {
     }
 
     public void removeBoardObjectInCell(Vector point){
-        board.removeBoardObject(point);
+        board.removeTower(point);
     }
 
     // ------- Wave methods -------

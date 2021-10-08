@@ -85,7 +85,7 @@ public class ConcreteBoard implements Board {
         }
     }
 
-    public void removeBoardObject(Vector point) {
+    public void removeTower(Vector point) {
         cellsWithTowers.remove(tileGrid.getCell(point));
         tileGrid.remove(point);
     }
