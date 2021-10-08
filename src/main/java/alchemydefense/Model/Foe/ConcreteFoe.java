@@ -61,7 +61,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     }
 
 
-    //TEMPORARY CODE UNTILL BETTER FIX
+    //TEMPORARY CODE UNTIL BETTER FIX
     boolean updated = false;
     @Override
     public void setUpdateFlag(boolean b) {

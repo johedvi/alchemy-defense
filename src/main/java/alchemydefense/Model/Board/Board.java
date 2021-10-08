@@ -27,7 +27,7 @@ public interface Board {
      * Removes BoardObject from a given cell.
      * @param cellCoordinate the cell that should remove its tower.
      */
-    void removeBoardObject(Vector cellCoordinate);
+    void removeTower(Vector cellCoordinate);
 
     /**
      * Adds the given foe to a random tile in the first column of the game. Foes should enter from the leftmost column.
