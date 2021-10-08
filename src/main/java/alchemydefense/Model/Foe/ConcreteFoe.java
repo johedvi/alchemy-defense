@@ -76,4 +76,7 @@ public class ConcreteFoe implements BoardObject, Foe {
     public boolean hasBeenUpdated() {
         return updated;
     }
+
+    @Override
+    public BoardObjectType getBoardObjectType() { return this.boardObjectType; }
 }
