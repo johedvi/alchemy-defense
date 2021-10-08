@@ -33,7 +33,7 @@ public abstract class Tower implements BoardObject {
         this.damage = damage;
     }
 
-    public BoardObjectType getTowerType() { return this.boardObjectType; }
+    @Override public BoardObjectType getBoardObjectType() { return this.boardObjectType; }
 
     @Override public String getImageFilePath() { return this.filePath; }
 

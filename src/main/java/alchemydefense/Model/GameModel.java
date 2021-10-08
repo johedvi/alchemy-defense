@@ -76,7 +76,7 @@ public class GameModel {
      * @param point tile position of the tower.
      */
     public void sellTower(Vector point) {
-        BoardObjectType boardObjectType = board.getTower(point).getTowerType();
+        BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
         board.removeTower(point);
         new TowerTransaction().sellTower(boardObjectType);
     }
