@@ -1,5 +1,7 @@
 package alchemydefense.Model.Board;
 
+import alchemydefense.Utility.BoardObjectType;
+
 /**
  * Interface for any object which represents a BoardObject.
  *
@@ -9,4 +11,6 @@ package alchemydefense.Model.Board;
  */
 public interface BoardObject {
     String getImageFilePath();
+
+    BoardObjectType getBoardObjectType();
 }

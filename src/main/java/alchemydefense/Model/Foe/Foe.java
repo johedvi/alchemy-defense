@@ -1,7 +1,6 @@
 package alchemydefense.Model.Foe;
 
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Utility.BoardObjectType;
 
 /**
  * Interface for any object which represents a foe. Uses Marker Interface Pattern.
@@ -15,6 +14,4 @@ public interface Foe extends Health, BoardObject {
     void setUpdateFlag(boolean b);
 
     boolean hasBeenUpdated();
-
-    BoardObjectType getBoardObjectType();
 }
