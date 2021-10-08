@@ -137,10 +137,10 @@ public class BoardView extends AnchorPane implements BoardListener {
 
     private void setTowerImage(BoardObjectType boardObjectType) {
         switch (boardObjectType) {
-            case RED: towerImage.setImage(new Image("red-crystal.png")); break;
-            case BLUE: towerImage.setImage(new Image("blue-crystal.png")); break;
-            case PURPLE: towerImage.setImage(new Image("purple-crystal.png")); break;
-            case GREEN: towerImage.setImage(new Image("green-crystal.png")); break;
+            case RED_TOWER: towerImage.setImage(new Image("red-crystal.png")); break;
+            case BLUE_TOWER: towerImage.setImage(new Image("blue-crystal.png")); break;
+            case PURPLE_TOWER: towerImage.setImage(new Image("purple-crystal.png")); break;
+            case GREEN_TOWER: towerImage.setImage(new Image("green-crystal.png")); break;
         }
     }
 

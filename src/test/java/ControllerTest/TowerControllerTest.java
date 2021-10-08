@@ -32,13 +32,13 @@ public class TowerControllerTest {
     @Test
     public void testSetActiveTower() {
         towerController.setBlueTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.BLUE);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.BLUE_TOWER);
         towerController.setGreenTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.GREEN);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.GREEN_TOWER);
         towerController.setPurpleTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.PURPLE);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.PURPLE_TOWER);
         towerController.setRedTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.RED);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.RED_TOWER);
     }
 
     @Test

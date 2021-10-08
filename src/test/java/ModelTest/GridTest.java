@@ -21,14 +21,14 @@ public class GridTest {
     @Test
     public void testPlaceTowerInCell(){
         testPoint = new Vector(1,1);
-        gameModel.placeTowerInCell(BoardObjectType.RED, testPoint);
+        gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Vector(3,3);
-        gameModel.placeTowerInCell(BoardObjectType.RED, testPoint);
+        gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));

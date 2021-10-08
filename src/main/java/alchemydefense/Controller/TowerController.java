@@ -30,16 +30,16 @@ public class TowerController {
     }
 
     public void setRedTowerActive() {
-        this.activeTower = BoardObjectType.RED;
+        this.activeTower = BoardObjectType.RED_TOWER;
     }
     public void setBlueTowerActive() {
-        this.activeTower = BoardObjectType.BLUE;
+        this.activeTower = BoardObjectType.BLUE_TOWER;
     }
     public void setGreenTowerActive() {
-        this.activeTower = BoardObjectType.GREEN;
+        this.activeTower = BoardObjectType.GREEN_TOWER;
     }
     public void setPurpleTowerActive() {
-        this.activeTower = BoardObjectType.PURPLE;
+        this.activeTower = BoardObjectType.PURPLE_TOWER;
     }
     public BoardObjectType getActiveTower() { return this.activeTower; }
 

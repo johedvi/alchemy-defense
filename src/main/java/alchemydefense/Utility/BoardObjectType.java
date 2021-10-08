@@ -8,5 +8,5 @@ package alchemydefense.Utility;
  * Date: 2021-09-11
  */
 public enum BoardObjectType {
-    RED, BLUE, GREEN, PURPLE
+    RED_TOWER, BLUE_TOWER, GREEN_TOWER, PURPLE_TOWER
 }

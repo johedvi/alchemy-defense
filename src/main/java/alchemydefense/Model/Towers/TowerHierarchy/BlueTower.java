@@ -20,7 +20,7 @@ public class BlueTower extends Tower {
      * @see Tower for call to super.
      */
     public BlueTower() {
-        super(BoardObjectType.BLUE, imageFilePath, blueTowerRange, blueTowerDamage);
+        super(BoardObjectType.BLUE_TOWER, imageFilePath, blueTowerRange, blueTowerDamage);
     }
 
     @Override

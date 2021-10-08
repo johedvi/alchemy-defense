@@ -20,7 +20,7 @@ public class GreenTower extends Tower {
      * @see Tower for call to super.
      */
     public GreenTower() {
-        super(BoardObjectType.GREEN, imageFilePath, greenTowerRange, greenTowerDamage);
+        super(BoardObjectType.GREEN_TOWER, imageFilePath, greenTowerRange, greenTowerDamage);
     }
 
     @Override

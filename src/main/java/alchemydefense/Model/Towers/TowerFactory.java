@@ -22,10 +22,10 @@ public class TowerFactory {
     public static Tower createTower(BoardObjectType boardObjectType) throws IllegalArgumentException {
 
         switch (boardObjectType) {
-            case RED: return new RedTower();
-            case BLUE: return new BlueTower();
-            case GREEN: return new GreenTower();
-            case PURPLE: return new PurpleTower();
+            case RED_TOWER: return new RedTower();
+            case BLUE_TOWER: return new BlueTower();
+            case GREEN_TOWER: return new GreenTower();
+            case PURPLE_TOWER: return new PurpleTower();
             default: throw new IllegalArgumentException();
         }
 

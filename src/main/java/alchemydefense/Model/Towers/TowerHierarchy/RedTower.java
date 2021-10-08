@@ -21,7 +21,7 @@ public class RedTower extends Tower {
      * @see Tower for call to super.
      */
     public RedTower() {
-        super(BoardObjectType.RED, imageFilePath, redTowerRange, redTowerDamage);
+        super(BoardObjectType.RED_TOWER, imageFilePath, redTowerRange, redTowerDamage);
     }
 
     @Override

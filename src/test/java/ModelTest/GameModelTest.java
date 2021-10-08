@@ -16,6 +16,6 @@ public class GameModelTest {
 
     @Test
     public void testTowerCreationFail() {
-        model.placeTowerInCell(BoardObjectType.BLUE, new Vector(2,2));
+        model.placeTowerInCell(BoardObjectType.BLUE_TOWER, new Vector(2,2));
     }
 }

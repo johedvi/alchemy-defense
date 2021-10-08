@@ -51,10 +51,10 @@ public class TowerPrices {
     public int getBuyPrice(BoardObjectType boardObjectType) {
         int price = 0;
         switch (boardObjectType) {
-            case RED : price = redTowerBuyPrice; break;
-            case BLUE: price = blueTowerBuyPrice; break;
-            case GREEN: price = greenTowerBuyPrice; break;
-            case PURPLE: price = purpleTowerBuyPrice; break;
+            case RED_TOWER: price = redTowerBuyPrice; break;
+            case BLUE_TOWER: price = blueTowerBuyPrice; break;
+            case GREEN_TOWER: price = greenTowerBuyPrice; break;
+            case PURPLE_TOWER: price = purpleTowerBuyPrice; break;
         }
         return price;
     }
@@ -67,10 +67,10 @@ public class TowerPrices {
     public int getSellPrice(BoardObjectType boardObjectType) {
         int price = 0;
         switch (boardObjectType) {
-            case RED : price = redTowerSellPrice; break;
-            case BLUE: price = blueTowerSellPrice; break;
-            case GREEN: price = greenTowerSellPrice; break;
-            case PURPLE: price = purpleTowerSellPrice; break;
+            case RED_TOWER: price = redTowerSellPrice; break;
+            case BLUE_TOWER: price = blueTowerSellPrice; break;
+            case GREEN_TOWER: price = greenTowerSellPrice; break;
+            case PURPLE_TOWER: price = purpleTowerSellPrice; break;
         }
         return price;
     }

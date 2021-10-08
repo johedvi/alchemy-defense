@@ -20,7 +20,7 @@ public class PurpleTower extends Tower {
      * @see Tower for call to super.
      */
     public PurpleTower() {
-        super(BoardObjectType.PURPLE, imageFilePath, purpleTowerRange, purpleTowerDamage);
+        super(BoardObjectType.PURPLE_TOWER, imageFilePath, purpleTowerRange, purpleTowerDamage);
     }
 
     @Override
