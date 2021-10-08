@@ -23,9 +23,6 @@ import javafx.stage.Stage;
  * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class App extends Application {
-        private static final int SCENE_WIDTH = 832;
-        private static final int SCENE_HEIGHT = 512;
-        private static final int UNIT_IN_PIXELS = 64;
 
     private final GameModel model =  new GameModel();
 
@@ -36,10 +33,13 @@ public class App extends Application {
         Scene scene = new Scene(root);
         setupAppWindow(stage, scene);
 
+        int SCENE_WIDTH = 832;
         InformationView informationView = new InformationView(SCENE_WIDTH);
         TowerController towerController = new TowerController(model);
 
-        UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT, UNIT_IN_PIXELS,
+        int UNIT_IN_PIXELS = 64;
+        int SCENE_HEIGHT = 468;
+        UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT - 6 * UNIT_IN_PIXELS, UNIT_IN_PIXELS,
                 informationView, towerController, new SelectedTowerView(towerController));
 
         BoardView view = new BoardView(root, towerController, userInterfaceView);
@@ -47,8 +47,6 @@ public class App extends Application {
         model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
-        //stage.minWidthProperty().bind(scene.heightProperty().multiply(2));
-        //stage.minHeightProperty().bind(scene.widthProperty().divide(2));
         stage.show();
         gameUpdate();
         letterbox(scene, view);
@@ -107,14 +105,14 @@ public class App extends Application {
         private final double ratio;
         private final double initHeight;
         private final double initWidth;
-        private final BoardView contentPane;
+        private final BoardView boardView;
 
-        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, BoardView contentPane) {
+        public SceneSizeChangeListener(Scene scene, double ratio, double initHeight, double initWidth, BoardView boardView) {
             this.scene = scene;
             this.ratio = ratio;
             this.initHeight = initHeight;
             this.initWidth = initWidth;
-            this.contentPane = contentPane;
+            this.boardView = boardView;
         }
 
         @Override
@@ -133,9 +131,9 @@ public class App extends Application {
                 scale.setPivotY(0);
                 scene.getRoot().getTransforms().setAll(scale);
 
-                contentPane.setSize(newWidth  / scaleFactor, newHeight / scaleFactor);
+                boardView.setSize(newWidth  / scaleFactor);
             } else {
-                contentPane.setSize(Math.max(initWidth,  newWidth), Math.max(initHeight, newHeight));
+                boardView.setSize(Math.max(initWidth,  newWidth));
             }
         }
     }
