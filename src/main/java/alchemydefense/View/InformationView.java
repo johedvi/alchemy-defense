@@ -20,7 +20,7 @@ public class InformationView extends Pane implements PlayerEventListener {
 
     public InformationView(int SCENE_WIDTH) {
 
-        this.setPrefSize(150, 100);
+        this.setPrefSize(150, 60);
         this.setLayoutX(SCENE_WIDTH-175);
         this.setLayoutY(15);
         this.setStyle("-fx-background-color: white");
