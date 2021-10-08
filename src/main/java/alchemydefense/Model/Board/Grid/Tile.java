@@ -67,8 +67,9 @@ public class Tile {
     }
 
     public Tower getTower(){
-        return tower;
+        return this.tower;
     }
+
     public Foe getFoe(){
         return foe;
     }

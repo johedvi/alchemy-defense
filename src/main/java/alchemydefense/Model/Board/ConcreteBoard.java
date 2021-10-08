@@ -66,6 +66,10 @@ public class ConcreteBoard implements Board {
         player.increaseGold(5);
     }
 
+    @Override
+    public Tower getTower(Vector point) { return tileGrid.getTower(point); }
+
+
     public BoardObject getBoardObject(Vector point){
         return tileGrid.getBoardObject(point);
     }

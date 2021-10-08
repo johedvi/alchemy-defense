@@ -58,4 +58,6 @@ public interface Board {
     void foeReachedEnd();
 
     Tile getCell(Vector cell);
+
+    Tower getTower(Vector cell);
 }
