@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import alchemydefense.Utility.Vector;
@@ -24,7 +23,6 @@ import alchemydefense.Utility.Vector;
  */
 public class BoardView extends AnchorPane implements BoardListener {
     private int SCENE_WIDTH = 832;
-    private int SCENE_HEIGHT = 512;
     private int UNIT_IN_PIXELS = 64;
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
@@ -48,9 +46,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         towerImage.setVisible(false);
 
         setupBoardPane();
-
         setupMouseEventHandling(root);
-
         BackGroundView();
 
         root.getChildren().add(userInterfaceView);
@@ -92,7 +88,7 @@ public class BoardView extends AnchorPane implements BoardListener {
             if (mouseEvent.getButton() == MouseButton.PRIMARY)
             {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
-                int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS))-1);
+                int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS)) - 1);
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
                     towerController.cellPressed(new Vector(x, y));
                     if(towerController.isHoldingTower()){
@@ -114,10 +110,10 @@ public class BoardView extends AnchorPane implements BoardListener {
 
 
     private void setupBoardPane() {
-        this.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
+        this.setPrefSize(SCENE_WIDTH, 6 * UNIT_IN_PIXELS);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i*64,(j+1)*64, 64,64);
+                StackPane tileView = new TileView(i*UNIT_IN_PIXELS,(j + 1) * UNIT_IN_PIXELS, UNIT_IN_PIXELS, UNIT_IN_PIXELS);
                 this.getChildren().add(tileView);
 
             }
@@ -161,12 +157,10 @@ public class BoardView extends AnchorPane implements BoardListener {
         }
     }
 
-    public void setSize(double width, double height) {
-        this.setPrefSize(width, height);
-
-        SCENE_HEIGHT = (int) height;
+    public void setSize(double width) {
         SCENE_WIDTH = (int) width;
         UNIT_IN_PIXELS = SCENE_WIDTH / 13;
-        //userInterfaceView.setSize(SCENE_WIDTH, UNIT_IN_PIXELS);
+
+        this.setPrefSize(width, 6 * UNIT_IN_PIXELS);
     }
 }
