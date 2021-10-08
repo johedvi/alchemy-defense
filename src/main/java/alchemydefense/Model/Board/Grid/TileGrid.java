@@ -86,4 +86,6 @@ public class TileGrid {
         return tiles[cell.x][cell.y].getBoardObject();
     }
 
+    public Tower getTower(Vector cell) { return tiles[cell.x][cell.y].getTower(); }
+
 }

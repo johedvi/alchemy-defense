@@ -146,4 +146,6 @@ public class ConcreteBoard implements Board {
     public void addPlayerEventListener(PlayerEventListener listener) {
         player.addPlayerEventListener(listener);
     }
+
+    public Tower getTower(Vector cell) { return tileGrid.getTower(cell); }
 }

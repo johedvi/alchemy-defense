@@ -74,9 +74,9 @@ public class GameModel {
     /**
      * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
      * @param point tile position of the tower.
-     * @param towerType type of tower to be sold. Each tower has a sells worth proportional to their buy price.
      */
-    public void sellTower(Vector point, TowerType towerType) {
+    public void sellTower(Vector point) {
+        TowerType towerType = board.getTower(point).getTowerType();
         board.removeTower(point);
         new TowerTransaction().sellTower(towerType);
     }

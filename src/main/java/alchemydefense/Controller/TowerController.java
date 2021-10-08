@@ -50,7 +50,7 @@ public class TowerController {
         activeTower = null;
     }
 
-    public void sellTower() { model.sellTower(this.towerCell, TowerType.RED); }
+    public void sellTower() { model.sellTower(this.towerCell); }
 
     public void cellPressed(Vector cell) {
         if(model.getBoardObjectInCell(cell) instanceof Tower) {
