@@ -1,6 +1,8 @@
 package alchemydefense.Model.Foe;
 
+import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardObject;
+import alchemydefense.Utility.BoardObjectType;
 
 /**
  *
@@ -20,9 +22,11 @@ public class ConcreteFoe implements BoardObject, Foe {
     private final int MAX_HP = 100;
     private int currentHP;
     private final String imageFilePath = "/foe.png";
+    private final BoardObjectType boardObjectType;
 
     public ConcreteFoe(){
         this.currentHP = MAX_HP;
+        boardObjectType = BoardObjectType.CONCRETE_FOE;
     }
 
     /**
