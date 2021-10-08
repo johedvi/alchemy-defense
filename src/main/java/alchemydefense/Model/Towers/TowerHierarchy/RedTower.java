@@ -1,7 +1,7 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
 
 
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 
 /**
  * Class representing a concrete Redtower. Extends Tower.
@@ -21,7 +21,7 @@ public class RedTower extends Tower {
      * @see Tower for call to super.
      */
     public RedTower() {
-        super(TowerType.RED, imageFilePath, redTowerRange, redTowerDamage);
+        super(BoardObjectType.RED, imageFilePath, redTowerRange, redTowerDamage);
     }
 
     @Override

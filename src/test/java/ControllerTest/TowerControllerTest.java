@@ -3,7 +3,7 @@ package ControllerTest;
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -32,13 +32,13 @@ public class TowerControllerTest {
     @Test
     public void testSetActiveTower() {
         towerController.setBlueTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), TowerType.BLUE);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.BLUE);
         towerController.setGreenTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), TowerType.GREEN);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.GREEN);
         towerController.setPurpleTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), TowerType.PURPLE);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.PURPLE);
         towerController.setRedTowerActive();
-        Assertions.assertEquals(towerController.getActiveTower(), TowerType.RED);
+        Assertions.assertEquals(towerController.getActiveTower(), BoardObjectType.RED);
     }
 
     @Test

@@ -7,6 +7,6 @@ package alchemydefense.Utility;
  *
  * Date: 2021-09-11
  */
-public enum TowerType {
+public enum BoardObjectType {
     RED, BLUE, GREEN, PURPLE
 }

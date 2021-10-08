@@ -2,7 +2,7 @@ package ModelTest;
 
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -21,14 +21,14 @@ public class GridTest {
     @Test
     public void testPlaceTowerInCell(){
         testPoint = new Vector(1,1);
-        gameModel.placeTowerInCell(TowerType.RED, testPoint);
+        gameModel.placeTowerInCell(BoardObjectType.RED, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Vector(3,3);
-        gameModel.placeTowerInCell(TowerType.RED, testPoint);
+        gameModel.placeTowerInCell(BoardObjectType.RED, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));

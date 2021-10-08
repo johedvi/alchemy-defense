@@ -2,7 +2,7 @@ package alchemydefense.Controller;
 
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
 /**
@@ -17,7 +17,7 @@ public class TowerController {
     private boolean towerPressed = false;
 
     private final GameModel model;
-    private TowerType activeTower = null;
+    private BoardObjectType activeTower = null;
 
     private Vector towerCell = null;
 
@@ -30,18 +30,18 @@ public class TowerController {
     }
 
     public void setRedTowerActive() {
-        this.activeTower = TowerType.RED;
+        this.activeTower = BoardObjectType.RED;
     }
     public void setBlueTowerActive() {
-        this.activeTower = TowerType.BLUE;
+        this.activeTower = BoardObjectType.BLUE;
     }
     public void setGreenTowerActive() {
-        this.activeTower = TowerType.GREEN;
+        this.activeTower = BoardObjectType.GREEN;
     }
     public void setPurpleTowerActive() {
-        this.activeTower = TowerType.PURPLE;
+        this.activeTower = BoardObjectType.PURPLE;
     }
-    public TowerType getActiveTower() { return this.activeTower; }
+    public BoardObjectType getActiveTower() { return this.activeTower; }
 
     public boolean isHoldingTower() {
         return activeTower != null;

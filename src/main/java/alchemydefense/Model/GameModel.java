@@ -9,7 +9,7 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
 import java.util.LinkedList;
@@ -53,12 +53,12 @@ public class GameModel {
     /**
      * Creates a new tower from if the player has sufficient gold.
      * Will throw an exception if tower the construction failed.
-     * @param towerType tower type to construct.
+     * @param boardObjectType tower type to construct.
      * @param point tile coordinate to place the tower in.
      */
-    public void placeTowerInCell(TowerType towerType, Vector point) {
+    public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
-            Tower tower = buyTower(towerType);
+            Tower tower = buyTower(boardObjectType);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -67,8 +67,8 @@ public class GameModel {
     }
 
 
-    private Tower buyTower(TowerType towerType) throws Exception {
-        return new TowerTransaction().buyTower(towerType);
+    private Tower buyTower(BoardObjectType boardObjectType) throws Exception {
+        return new TowerTransaction().buyTower(boardObjectType);
     }
 
     /**
@@ -76,9 +76,9 @@ public class GameModel {
      * @param point tile position of the tower.
      */
     public void sellTower(Vector point) {
-        TowerType towerType = board.getTower(point).getTowerType();
+        BoardObjectType boardObjectType = board.getTower(point).getTowerType();
         board.removeTower(point);
-        new TowerTransaction().sellTower(towerType);
+        new TowerTransaction().sellTower(boardObjectType);
     }
 
     // ------- Handling of BoardObjects -------

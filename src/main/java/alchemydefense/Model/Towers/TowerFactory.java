@@ -2,7 +2,7 @@ package alchemydefense.Model.Towers;
 
 
 import alchemydefense.Model.Towers.TowerHierarchy.*;
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 
 /**
  * Factory class that creates Tower objects without exposing the creation logic to the client.
@@ -15,13 +15,13 @@ public class TowerFactory {
 
     /**
      * Creates a specific Tower of a certain TowerType.
-     * @param towerType Type of enum TowerType.
+     * @param boardObjectType Type of enum TowerType.
      * @return specific concrete Tower of that type.
      * @throws IllegalArgumentException if towerType doesn't exist.
      */
-    public static Tower createTower(TowerType towerType) throws IllegalArgumentException {
+    public static Tower createTower(BoardObjectType boardObjectType) throws IllegalArgumentException {
 
-        switch (towerType) {
+        switch (boardObjectType) {
             case RED: return new RedTower();
             case BLUE: return new BlueTower();
             case GREEN: return new GreenTower();

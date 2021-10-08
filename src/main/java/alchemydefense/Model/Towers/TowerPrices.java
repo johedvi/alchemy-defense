@@ -1,7 +1,7 @@
 package alchemydefense.Model.Towers;
 
 
-import alchemydefense.Utility.TowerType;
+import alchemydefense.Utility.BoardObjectType;
 
 /**
  * Singleton class that stores the values for different towers.
@@ -45,12 +45,12 @@ public class TowerPrices {
 
     /**
      * Gets the specific buy value of a certain towerType.
-     * @param towerType the tower type of which value is requested.
+     * @param boardObjectType the tower type of which value is requested.
      * @return returns an int of the buy value for a specific tower
      */
-    public int getBuyPrice(TowerType towerType) {
+    public int getBuyPrice(BoardObjectType boardObjectType) {
         int price = 0;
-        switch (towerType) {
+        switch (boardObjectType) {
             case RED : price = redTowerBuyPrice; break;
             case BLUE: price = blueTowerBuyPrice; break;
             case GREEN: price = greenTowerBuyPrice; break;
@@ -61,12 +61,12 @@ public class TowerPrices {
 
     /**
      * Gets the specific price sell value of a certain towerType.
-     * @param towerType the tower type of which value is requested.
+     * @param boardObjectType the tower type of which value is requested.
      * @return returns an int of the sell value for a specific tower.
      */
-    public int getSellPrice(TowerType towerType) {
+    public int getSellPrice(BoardObjectType boardObjectType) {
         int price = 0;
-        switch (towerType) {
+        switch (boardObjectType) {
             case RED : price = redTowerSellPrice; break;
             case BLUE: price = blueTowerSellPrice; break;
             case GREEN: price = greenTowerSellPrice; break;
