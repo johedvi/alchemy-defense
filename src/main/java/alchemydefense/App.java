@@ -90,6 +90,9 @@ public class App extends Application {
                 launch();
         }
 
+    /*
+    Imported from https://stackoverflow.com/questions/16606162/javafx-fullscreen-resizing-elements-based-upon-screen-size.
+     */
     private void letterbox(final Scene scene, final BoardView contentPane) {
         final double initWidth  = scene.getWidth();
         final double initHeight = scene.getHeight();
@@ -100,6 +103,9 @@ public class App extends Application {
         scene.heightProperty().addListener(sizeListener);
     }
 
+    /*
+    Imported from https://stackoverflow.com/questions/16606162/javafx-fullscreen-resizing-elements-based-upon-screen-size
+     */
     private static class SceneSizeChangeListener implements ChangeListener<Number> {
         private final Scene scene;
         private final double ratio;
