@@ -16,7 +16,7 @@ public class SelectedTowerView extends Pane {
     private final Label sellPriceLabel;
 
     public SelectedTowerView(TowerController towerController) {
-        this.setPrefSize(150, 100);
+        this.setPrefSize(150, 60);
         this.setLayoutX(25);
         this.setLayoutY(15);
         this.setStyle("-fx-background-color: white");
@@ -30,7 +30,7 @@ public class SelectedTowerView extends Pane {
         javafx.scene.control.Button sellTowerButton = new javafx.scene.control.Button("Sell Tower");
         sellTowerButton.setMaxSize(100, 200);
         sellTowerButton.setLayoutX(25);
-        sellTowerButton.setLayoutY(50);
+        sellTowerButton.setLayoutY(30);
         sellTowerButton.setOnMouseClicked(e -> {
             towerController.sellTower();
             this.setVisible(false);

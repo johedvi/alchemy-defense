@@ -10,7 +10,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 
 import alchemydefense.Utility.Vector;
@@ -23,17 +22,14 @@ import alchemydefense.Utility.Vector;
  * Date: 2021-09-26
  */
 public class BoardView extends AnchorPane implements BoardListener {
-    private static final int SCENE_WIDTH = 832;
-    private static final int SCENE_HEIGHT = 512;
-    private static final int UNIT_IN_PIXELS = 64;
+    private int SCENE_WIDTH = 832;
+    private int UNIT_IN_PIXELS = 64;
     private static final int GRID_WIDTH = 12;
     private static final int GRID_HEIGHT = 5;
 
     private final ImageView towerImage = new ImageView();
     private final ImageView endGoalImage = new ImageView();
     private final ImageView borderImage = new ImageView();
-
-    private final Pane boardPane;
 
     private final TowerController towerController;
     private final UserInterfaceView userInterfaceView;
@@ -49,17 +45,16 @@ public class BoardView extends AnchorPane implements BoardListener {
         root.getChildren().add(towerImage);
         towerImage.setVisible(false);
 
-        boardPane = setupBoardPane();
-
+        setupBoardPane();
         setupMouseEventHandling(root);
-
         BackGroundView();
 
         root.getChildren().add(userInterfaceView);
-        root.getChildren().add(boardPane);
+        root.getChildren().add(this);
         root.getChildren().add(borderImage);
         root.getChildren().add(endGoalImage);
 
+        userInterfaceView.toFront();
 
     }
 
@@ -93,7 +88,7 @@ public class BoardView extends AnchorPane implements BoardListener {
             if (mouseEvent.getButton() == MouseButton.PRIMARY)
             {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
-                int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS))-1);
+                int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS)) - 1);
                 if(x < GRID_WIDTH && y < GRID_HEIGHT){
                     towerController.cellPressed(new Vector(x, y));
                     if(towerController.isHoldingTower()){
@@ -114,31 +109,28 @@ public class BoardView extends AnchorPane implements BoardListener {
 
 
 
-    private Pane setupBoardPane() {
-        Pane boardPane = new Pane();
-        boardPane.setPrefSize(SCENE_WIDTH, SCENE_HEIGHT - 2 * 64);
+    private void setupBoardPane() {
+        this.setPrefSize(SCENE_WIDTH, 6 * UNIT_IN_PIXELS);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
             for (int j = 0; j < GRID_HEIGHT; j++) {
-                StackPane tileView = new TileView(i*64,(j+1)*64, 64,64);
-                boardPane.getChildren().add(tileView);
+                StackPane tileView = new TileView(i*UNIT_IN_PIXELS,(j + 1) * UNIT_IN_PIXELS, UNIT_IN_PIXELS, UNIT_IN_PIXELS);
+                this.getChildren().add(tileView);
 
             }
         }
-
-        return boardPane;
     }
 
 
 
     private void updateTileImage(int x, int y, String imageFilePath) {
-        TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
+        TileView tile = (TileView) this.getChildren().get(x * GRID_HEIGHT + y);
         tile.addImage(imageFilePath);
 
     }
 
     private void clearTile(int x, int y){
 
-            TileView tile = (TileView) boardPane.getChildren().get(x * GRID_HEIGHT + y);
+            TileView tile = (TileView) this.getChildren().get(x * GRID_HEIGHT + y);
             tile.clearImage();
 
     }
@@ -163,5 +155,12 @@ public class BoardView extends AnchorPane implements BoardListener {
                     clearTile(j,i);
             }
         }
+    }
+
+    public void setSize(double width) {
+        SCENE_WIDTH = (int) width;
+        UNIT_IN_PIXELS = SCENE_WIDTH / 13;
+
+        this.setPrefSize(width, 6 * UNIT_IN_PIXELS);
     }
 }
