@@ -2,6 +2,7 @@ package alchemydefense.Model.Wave;
 
 import alchemydefense.Model.Foe.FoeFactory;
 import alchemydefense.Model.Foe.Foe;
+import alchemydefense.Utility.BoardObjectType;
 
 import java.util.LinkedList;
 
@@ -35,7 +36,7 @@ public class Wave {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter - 1));
         LinkedList<Foe> foes = new LinkedList<>();
         for(int i = 0; i <= nFoes; i++) {
-            foes.add(FoeFactory.createFoe(FoeFactory.FoeTypes.CONCRETE_FOE));
+            foes.add(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE));
         }
         return foes;
     }

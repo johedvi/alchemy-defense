@@ -3,6 +3,7 @@ package ModelTest;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Foe.FoeFactory;
+import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeAll;
@@ -23,12 +24,12 @@ public class FoeTest {
     @BeforeAll
     public static void beforeTestMethod() {
         boardHeight = 200;
-        foe = FoeFactory.createFoe(FoeFactory.FoeTypes.CONCRETE_FOE);
+        foe = FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE);
     }
 
     @Test
     public void testFoeCreation() {
-        Assertions.assertEquals(FoeFactory.createFoe(FoeFactory.FoeTypes.CONCRETE_FOE).getClass(), ConcreteFoe.class);
+        Assertions.assertEquals(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE).getClass(), ConcreteFoe.class);
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
             FoeFactory.createFoe(null).getClass();
         });
