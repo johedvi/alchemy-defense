@@ -88,6 +88,7 @@ public class ConcreteBoard implements Board {
     public void removeTower(Vector point) {
         cellsWithTowers.remove(tileGrid.getCell(point));
         tileGrid.remove(point);
+        graphManager.unblockPathNode(point);
     }
 
     @Override
