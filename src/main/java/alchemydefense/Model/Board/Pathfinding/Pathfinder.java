@@ -2,7 +2,10 @@ package alchemydefense.Model.Board.Pathfinding;
 
 import java.util.*;
 import alchemydefense.Utility.Vector;
-// NEEDS DOCS, DONT COMMENT ON THIS IF YOU ARE REVIEWING :)))))
+
+/**
+ * Repres
+ */
 public class Pathfinder {
     Vector[] directions = {Vector.right(), Vector.down(), Vector.left(), Vector.up()};
 
@@ -22,17 +25,34 @@ public class Pathfinder {
     }
 
     public List<PathNode> generateNewPath(Vector start, Vector end){
+        setup(start, end);
+        breadthFirstSearch();
+        return buildPath();
+    }
+
+    private void setup(Vector start, Vector end) {
         this.start = start;
         goal = end;
         startNode = new PathNode(this.start);
         destinationNode = new PathNode(goal);
         pathGraph.put(destinationNode.getCoordinateVector(), destinationNode);
         currentNode = startNode;
-        breadthFirstSearch();
-        return buildPath();
     }
 
-    public void exploreAdjacentNodes(){
+    public boolean blocksPath(Vector coordinates){
+        if(pathGraph.containsKey(coordinates)){
+            boolean previousNodeState = pathGraph.get(coordinates).isTraversable();
+            pathGraph.get(coordinates).setTraversable(false);
+            List<PathNode> path = generateNewPath(new Vector(0,2), new Vector(11,2));
+            pathGraph.get(coordinates).setTraversable(previousNodeState);
+            if(path.size() <= 1){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void exploreAdjacentNodes(){
         List<PathNode> neighbors = new ArrayList<>();
         for (Vector direction : directions){
             Vector neighborCoords = currentNode.getCoordinateVector().add(direction);
@@ -50,7 +70,7 @@ public class Pathfinder {
         }
     }
 
-    public void breadthFirstSearch(){
+    private void breadthFirstSearch(){
         nodeFront.clear();
         explored.clear();
 
@@ -83,18 +103,5 @@ public class Pathfinder {
         Collections.reverse(path);
 
         return path;
-    }
-
-    public boolean blocksPath(Vector coordinates){
-        if(pathGraph.containsKey(coordinates)){
-            boolean previousNodeState = pathGraph.get(coordinates).isTraversable();
-            pathGraph.get(coordinates).setTraversable(false);
-            List<PathNode> path = generateNewPath(new Vector(0,2), new Vector(11,2));
-            pathGraph.get(coordinates).setTraversable(previousNodeState);
-            if(path.size() <= 1){
-                return true;
-            }
-        }
-        return false;
     }
 }
