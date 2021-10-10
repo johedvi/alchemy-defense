@@ -2,7 +2,10 @@ package alchemydefense.Model.Board.Pathfinding;
 
 import alchemydefense.Utility.Vector;
 
-// NEEDS DOCS, DONT COMMENT ON THIS IF YOU ARE REVIEWING :)))))
+/**
+ * Data container class used for creating paths through the Pathfinder class.
+ * @author Felix Jönsson
+ */
 public class PathNode {
     private Vector coordinateVector;
     private boolean isTraversable = true;

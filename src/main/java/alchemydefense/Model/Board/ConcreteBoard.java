@@ -39,7 +39,7 @@ public class ConcreteBoard implements Board {
     public ConcreteBoard(){
         tileGrid = new TileGrid(width, height);
         graphManager = new GraphManager(width, height);
-        pathfinder = new Pathfinder(graphManager);
+        pathfinder = new Pathfinder(graphManager, new Vector(0,2), new Vector(endgoalX, endgoalY)); // Lite fult med först vektorn här?
     }
 
 
@@ -88,6 +88,7 @@ public class ConcreteBoard implements Board {
     public void removeTower(Vector point) {
         cellsWithTowers.remove(tileGrid.getCell(point));
         tileGrid.remove(point);
+        graphManager.unblockPathNode(point);
     }
 
     @Override
