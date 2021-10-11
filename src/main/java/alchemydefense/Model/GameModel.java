@@ -27,13 +27,12 @@ public class GameModel {
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
-    private static boolean gamePaused = false;
+    private static boolean gamePaused = true;
 
     /**
      * Constructor that instantiates a new board and starts the first wave.
      */
     public GameModel(){
-        startNewWave();
         board = new ConcreteBoard();
     }
 
@@ -51,7 +50,6 @@ public class GameModel {
                 }
             }
         }
-
         board.foeReachedEnd();
         board.updateFoes();
     }
@@ -73,7 +71,6 @@ public class GameModel {
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
-
 
     private Tower buyTower(BoardObjectType boardObjectType) throws Exception {
         return new TowerTransaction().buyTower(boardObjectType);
@@ -105,7 +102,6 @@ public class GameModel {
             activeFoes = new Wave().createFoes();
         }
     }
-
 
     private boolean isWaveOver() { return activeFoes.isEmpty(); }
 
