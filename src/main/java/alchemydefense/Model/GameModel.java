@@ -100,9 +100,10 @@ public class GameModel {
 
     // ------- Wave methods -------
     public void startNewWave() {
-        gamePaused = false;
-        activeFoes = new Wave().createFoes();
-        System.out.println("New wave");
+        if(isWaveOver()) {
+            gamePaused = false;
+            activeFoes = new Wave().createFoes();
+        }
     }
 
 
