@@ -27,6 +27,8 @@ public class GameModel {
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
+    private static boolean gamePaused = false;
+
     /**
      * Constructor that instantiates a new board and starts the first wave.
      */
@@ -39,10 +41,16 @@ public class GameModel {
      * Updates the whole model.
      */
     public void modelUpdate() {
-        if (isWaveOver())
-            startNewWave();
-        else
-            board.addFoe(activeFoes.removeFirst());
+        if(!isGamePaused()) {
+            if (isWaveOver())
+                startNewWave();
+            else {
+                board.addFoe(activeFoes.removeFirst());
+                if(activeFoes.isEmpty()) {
+                    gamePaused = true;
+                }
+            }
+        }
 
         board.foeReachedEnd();
         board.updateFoes();
@@ -92,8 +100,9 @@ public class GameModel {
 
     // ------- Wave methods -------
     public void startNewWave() {
-        Wave wave = new Wave();
-        activeFoes = wave.createFoes();
+        gamePaused = false;
+        activeFoes = new Wave().createFoes();
+        System.out.println("New wave");
     }
 
 
@@ -112,4 +121,6 @@ public class GameModel {
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
     }
+
+    public boolean isGamePaused() { return gamePaused; }
 }
