@@ -12,8 +12,8 @@ import alchemydefense.Utility.BoardObjectType;
  */
 public class BlueTower extends Tower {
     private static final String imageFilePath = "blue-crystal.png";
-    private static final int blueTowerRange = 3;
-    private static final int blueTowerDamage = 10;
+    private static final int blueTowerRange = 2;
+    private static final int blueTowerDamage = 20;
 
     /**
      * Constructor for BlueTower.

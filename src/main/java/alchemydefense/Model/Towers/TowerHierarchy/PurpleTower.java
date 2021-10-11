@@ -13,7 +13,7 @@ import alchemydefense.Utility.BoardObjectType;
 public class PurpleTower extends Tower {
     private static final String imageFilePath = "/purple-crystal.png";
     private static final int purpleTowerRange = 3;
-    private static final int purpleTowerDamage = 10;
+    private static final int purpleTowerDamage = 30;
 
     /**
      * Constructor for PurpleTower.

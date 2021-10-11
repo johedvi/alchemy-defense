@@ -13,7 +13,7 @@ import alchemydefense.Utility.BoardObjectType;
 public class GreenTower extends Tower {
     private static final String imageFilePath = "green-crystal.png";
     private static final int greenTowerRange = 3;
-    private static final int greenTowerDamage = 10;
+    private static final int greenTowerDamage = 20;
 
     /**
      * Constructor for GreenTower.
