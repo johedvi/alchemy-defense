@@ -1,0 +1,25 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 11/10/2021
+	Chair: Felix Jönsson
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Refactor the code further to achieve a better MVC structure. 
+	- Need more tests, this is high priority. 
+3. Reports.
+	- Everyone worked on producing a good peer review hand in this weekend so no reports.
+
+4. Discussion items.
+	- Who should write test for what classes? 
+	- How should we refactor View and Controller to divide responsibility accordingly.
+
+5. Outcomes and assignments.
+	- Johan writes test for Tower.
+	- Felix writes tests for Pathfinder and possibly make it more modular by separating the 			
+	search method from the actual pathfinder. 
+	- Valdemar will write discovering tests.
+	- Walle will write Foe tests. 
+	
+6. Wrap up.
+	
