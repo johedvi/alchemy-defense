@@ -1,0 +1,22 @@
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: -/-/2021
+	Chair: ----
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Touch up and last fixes for upcoming peer-review.
+3. Reports.
+	- Valdemar refactored BoardObject and introduced additional abstraction.
+	- Johan completed JavaDocs.
+	- Willem fixed the scaling problem and the app is now scalable on the diagonal. 
+	- Felix finished the pathfinding integration with the code.
+
+4. Discussion items.
+	- The view needs more independency from the model. How should we achieve this?
+
+5. Outcomes and assignments.
+	- We will focus this weekend on making the application and documentation as finished as 	possible before the peer review hand in. 
+
+6. Wrap up.
+	- Next meeting should focus on identifying the areas with highest need of refactoring and finding missing functionality that is deemed high priority for the final prototype. 
