@@ -62,5 +62,7 @@ public class TowerController {
         }
     }
 
+    public void startNewWave() { model.startNewWave(); }
+
     public boolean isTowerPressed() { return this.towerPressed; }
 }

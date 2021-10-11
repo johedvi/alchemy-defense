@@ -60,6 +60,15 @@ public class UserInterfaceView extends Pane {
         });
         this.getChildren().add(greenTowerButton);
 
+        javafx.scene.control.Button newWaveButton = new javafx.scene.control.Button("Start new wave");
+        newWaveButton.setMaxSize(100, 200);
+        newWaveButton.setLayoutX(scene_width / 2 - 250);
+        newWaveButton.setLayoutY(unit_in_pixel - unit_in_pixel / 4);
+        newWaveButton.setOnMouseClicked(e -> {
+            towerController.startNewWave();
+        });
+        this.getChildren().add(newWaveButton);
+
         this.getChildren().add(informationView);
         this.getChildren().add(selectedTowerView);
     }
