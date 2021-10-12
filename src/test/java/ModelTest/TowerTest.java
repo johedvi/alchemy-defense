@@ -1,0 +1,127 @@
+package ModelTest;
+
+import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Player.Player;
+import alchemydefense.Model.Towers.TowerHierarchy.*;
+import alchemydefense.Model.Towers.TowerTransaction;
+import alchemydefense.Utility.BoardObjectType;
+import alchemydefense.Utility.Vector;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import javax.sound.midi.SysexMessage;
+
+public class TowerTest {
+
+    private static GameModel gameModel;
+    private static Vector testPoint;
+    private static BlueTower blueTower;
+    private static RedTower redTower;
+    private static GreenTower greenTower;
+    private static PurpleTower purlpeTower;
+
+
+
+    @BeforeAll
+    public static void setTowers(){
+        blueTower = new BlueTower();
+        redTower = new RedTower();
+        greenTower = new GreenTower();
+        purlpeTower = new PurpleTower();
+
+    }
+
+    @BeforeAll
+    public static void setGameModel() {
+        gameModel = new GameModel();
+
+    }
+
+    @BeforeAll
+    public static void setVector() {
+        testPoint = new Vector(1, 1);
+    }
+
+
+
+    @Test
+    public void testAllTowers() {
+
+
+        Player.getPlayer().increaseGold(800);
+
+        gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
+        gameModel.removeBoardObjectInCell(testPoint);
+
+        gameModel.placeTowerInCell(BoardObjectType.BLUE_TOWER, testPoint);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), BlueTower.class);
+        gameModel.removeBoardObjectInCell(testPoint);
+
+        gameModel.placeTowerInCell(BoardObjectType.GREEN_TOWER, testPoint);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), GreenTower.class);
+        gameModel.removeBoardObjectInCell(testPoint);
+
+        gameModel.placeTowerInCell(BoardObjectType.PURPLE_TOWER, testPoint);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), PurpleTower.class);
+    }
+
+    @Test
+    public void testRemoveTowerFromCell() {
+        gameModel.removeBoardObjectInCell(testPoint);
+
+        gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
+        gameModel.removeBoardObjectInCell(testPoint);
+        Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
+    }
+
+
+    @Test
+    public void testBuyTowerFail() {
+
+        System.out.println(Player.getPlayer().getGold());
+
+            Throwable exception = Assertions.assertThrows(Exception.class, () -> {
+                new TowerTransaction().buyTower(BoardObjectType.PURPLE_TOWER);
+            });
+        Assertions.assertEquals("Not enough gold.", exception.getMessage());
+
+        }
+
+
+
+    @Test
+    public void testToStringAllTowers() {
+        Assertions.assertEquals("Blue Tower", blueTower.toString());
+        Assertions.assertEquals("Red Tower", redTower.toString());
+        Assertions.assertEquals("Green Tower", greenTower.toString());
+        Assertions.assertEquals("Purple Tower", purlpeTower.toString());
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
