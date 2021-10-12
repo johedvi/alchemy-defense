@@ -1,6 +1,5 @@
 package alchemydefense.View;
 
-import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -26,18 +25,16 @@ public class InformationView extends Pane implements PlayerEventListener {
         this.setStyle("-fx-background-color: white");
 
         this.goldAmount = new Label();
-        this.goldAmount.setText("Gold: " + Player.getPlayer().getGold());
+        this.goldAmount.setText("Gold: ");
         this.goldAmount.setLayoutX(10);
         this.goldAmount.setLayoutY(10);
         this.getChildren().add(goldAmount);
 
         this.healthAmount = new Label();
-        this.healthAmount.setText("Health: " + Player.getPlayer().getHp());
+        this.healthAmount.setText("Health: ");
         this.healthAmount.setLayoutX(10);
         this.healthAmount.setLayoutY(30);
         this.getChildren().add(healthAmount);
-
-        Player.getPlayer().addPlayerEventListener(this);
     }
 
     @Override

@@ -71,9 +71,12 @@ public class Player {
      */
     public void decreaseOneHp() { setHp(health-1); }
 
-    public void addPlayerEventListener(PlayerEventListener pel) { this.listeners.add(pel); }
+    public void addPlayerEventListener(PlayerEventListener pel) {
+        this.listeners.add(pel);
+        updatePlayerEventListener();
+    }
 
-    public void updatePlayerEventListener() {
+    private void updatePlayerEventListener() {
         for (PlayerEventListener playerEventListener : listeners) {
             playerEventListener.goldAmountChanged(getGold());
             playerEventListener.healthAmountChanged(getHp());
