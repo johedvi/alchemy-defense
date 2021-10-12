@@ -1,8 +1,11 @@
 package ModelTest;
 
 import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
+import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerHierarchy.*;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
@@ -104,7 +107,29 @@ public class TowerTest {
         Assertions.assertEquals("purple-crystal.png", purpleTower.getImageFilePath());
     }
 
+    @Test
+    public void testTowerRange() {
+        Assertions.assertEquals(3, blueTower.getRange());
+        Assertions.assertEquals(3, redTower.getRange());
+        Assertions.assertEquals(3, greenTower.getRange());
+        Assertions.assertEquals(3, purpleTower.getRange());
+    }
 
+    @Test
+    public void testTowerDamage() {
+        Assertions.assertEquals(10, blueTower.getDamage());
+        Assertions.assertEquals(10, redTower.getDamage());
+        Assertions.assertEquals(10, greenTower.getDamage());
+        Assertions.assertEquals(10, purpleTower.getDamage());
+    }
+
+    @Test
+    public void TowerFactoryTest() {
+        Assertions.assertEquals(TowerFactory.createTower(BoardObjectType.PURPLE_TOWER).getClass(), PurpleTower.class);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            TowerFactory.createTower(BoardObjectType.CONCRETE_FOE);
+        });
+    }
 
 
 
