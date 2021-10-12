@@ -9,6 +9,7 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
+import alchemydefense.Model.Wave.WaveListener;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
@@ -102,6 +103,8 @@ public class GameModel {
             activeFoes = new Wave().createFoes();
         }
     }
+
+    public void addWaveListener(WaveListener listener) { Wave.addWaveListener(listener);}
 
     private boolean isWaveOver() { return activeFoes.isEmpty(); }
 

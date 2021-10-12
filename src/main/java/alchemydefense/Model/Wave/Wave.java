@@ -4,6 +4,7 @@ import alchemydefense.Model.Foe.FoeFactory;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Utility.BoardObjectType;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 /**
@@ -15,6 +16,8 @@ import java.util.LinkedList;
  */
 
 public class Wave {
+
+    private static final ArrayList<WaveListener> listeners = new ArrayList<>();
 
     private static final int FIRST_WAVE_FOE_AMOUNT = 10;
     private static final double WAVE_DIFFICULTY_FACTOR = 1.1;
@@ -42,5 +45,13 @@ public class Wave {
     }
 
     public int getWaveCounter() { return waveCounter; }
+
+    public static void addWaveListener(WaveListener listener) { listeners.add(listener); }
+
+    private void updateWaveListeners() {
+        for(WaveListener listener : listeners) {
+            listener.waveCounterChanged(getWaveCounter());
+        }
+    }
 
 }
