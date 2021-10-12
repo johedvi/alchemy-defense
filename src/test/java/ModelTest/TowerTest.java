@@ -7,6 +7,7 @@ import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerHierarchy.*;
+import alchemydefense.Model.Towers.TowerPrices;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
@@ -108,7 +109,7 @@ public class TowerTest {
     }
 
     @Test
-    public void testTowerRange() {
+    public void testGetTowerRange() {
         Assertions.assertEquals(3, blueTower.getRange());
         Assertions.assertEquals(3, redTower.getRange());
         Assertions.assertEquals(3, greenTower.getRange());
@@ -116,11 +117,19 @@ public class TowerTest {
     }
 
     @Test
-    public void testTowerDamage() {
+    public void testGetTowerDamage() {
         Assertions.assertEquals(10, blueTower.getDamage());
         Assertions.assertEquals(10, redTower.getDamage());
         Assertions.assertEquals(10, greenTower.getDamage());
         Assertions.assertEquals(10, purpleTower.getDamage());
+    }
+
+    @Test
+    public void testGetSellPrice() {
+        Assertions.assertEquals(10, TowerPrices.getInstance().getSellPrice(BoardObjectType.RED_TOWER));
+        Assertions.assertEquals(20, TowerPrices.getInstance().getSellPrice(BoardObjectType.BLUE_TOWER));
+        Assertions.assertEquals(40, TowerPrices.getInstance().getSellPrice(BoardObjectType.GREEN_TOWER));
+        Assertions.assertEquals(80, TowerPrices.getInstance().getSellPrice(BoardObjectType.PURPLE_TOWER));
     }
 
     @Test
