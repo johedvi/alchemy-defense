@@ -29,6 +29,7 @@ public class Wave {
      */
     public Wave() {
         waveCounter++;
+        updateWaveListeners();
     }
 
     /**
@@ -44,13 +45,14 @@ public class Wave {
         return foes;
     }
 
-    public int getWaveCounter() { return waveCounter; }
+    public static void addWaveListener(WaveListener listener) {
+        listeners.add(listener);
+        updateWaveListeners();
+    }
 
-    public static void addWaveListener(WaveListener listener) { listeners.add(listener); }
-
-    private void updateWaveListeners() {
+    private static void updateWaveListeners() {
         for(WaveListener listener : listeners) {
-            listener.waveCounterChanged(getWaveCounter());
+            listener.waveCounterChanged(waveCounter);
         }
     }
 

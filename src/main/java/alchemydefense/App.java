@@ -37,6 +37,7 @@ public class App extends Application {
         TowerController towerController = new TowerController(model);
         InformationView informationView = new InformationView(SCENE_WIDTH);
         model.addPlayerEventListener(informationView);
+        model.addWaveListener(informationView);
 
         int UNIT_IN_PIXELS = 64;
         int SCENE_HEIGHT = 468;
