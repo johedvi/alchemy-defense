@@ -20,8 +20,7 @@ public class TowerTest {
     private static BlueTower blueTower;
     private static RedTower redTower;
     private static GreenTower greenTower;
-    private static PurpleTower purlpeTower;
-
+    private static PurpleTower purpleTower;
 
 
     @BeforeAll
@@ -29,7 +28,7 @@ public class TowerTest {
         blueTower = new BlueTower();
         redTower = new RedTower();
         greenTower = new GreenTower();
-        purlpeTower = new PurpleTower();
+        purpleTower = new PurpleTower();
 
     }
 
@@ -43,7 +42,6 @@ public class TowerTest {
     public static void setVector() {
         testPoint = new Vector(1, 1);
     }
-
 
 
     @Test
@@ -82,15 +80,11 @@ public class TowerTest {
     @Test
     public void testBuyTowerFail() {
 
-        System.out.println(Player.getPlayer().getGold());
-
-            Throwable exception = Assertions.assertThrows(Exception.class, () -> {
-                new TowerTransaction().buyTower(BoardObjectType.PURPLE_TOWER);
-            });
+        Throwable exception = Assertions.assertThrows(Exception.class, () -> {
+                new TowerTransaction().buyTower(BoardObjectType.PURPLE_TOWER); });
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }
-
 
 
     @Test
@@ -98,11 +92,17 @@ public class TowerTest {
         Assertions.assertEquals("Blue Tower", blueTower.toString());
         Assertions.assertEquals("Red Tower", redTower.toString());
         Assertions.assertEquals("Green Tower", greenTower.toString());
-        Assertions.assertEquals("Purple Tower", purlpeTower.toString());
+        Assertions.assertEquals("Purple Tower", purpleTower.toString());
 
     }
 
-
+    @Test
+    public void testImageFilePath() {
+        Assertions.assertEquals("blue-crystal.png", blueTower.getImageFilePath());
+        Assertions.assertEquals("red-crystal.png", redTower.getImageFilePath());
+        Assertions.assertEquals("green-crystal.png", greenTower.getImageFilePath());
+        Assertions.assertEquals("purple-crystal.png", purpleTower.getImageFilePath());
+    }
 
 
 
