@@ -36,13 +36,15 @@ public class App extends Application {
         int SCENE_WIDTH = 832;
         TowerController towerController = new TowerController(model);
         InformationView informationView = new InformationView(SCENE_WIDTH);
+        SelectedTowerView selectedTowerView = new SelectedTowerView(towerController);
         model.addPlayerEventListener(informationView);
         model.addWaveListener(informationView);
+        model.addTowerStatListener(selectedTowerView);
 
         int UNIT_IN_PIXELS = 64;
         int SCENE_HEIGHT = 468;
         UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT - 6 * UNIT_IN_PIXELS, UNIT_IN_PIXELS,
-                informationView, towerController, new SelectedTowerView(towerController));
+                informationView, towerController, selectedTowerView);
 
         BoardView view = new BoardView(root, towerController, userInterfaceView);
         model.addBoardListener(view);

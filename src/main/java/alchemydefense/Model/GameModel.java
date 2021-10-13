@@ -28,6 +28,8 @@ public class GameModel {
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
 
+    private final HashSet<TowerStatListener> towerStatListeners = new HashSet<>();
+
     private static boolean gamePaused = true;
 
     /**
@@ -120,6 +122,16 @@ public class GameModel {
 
         for (BoardListener listener : boardListeners)
             listener.renderObjects(board);
+    }
+
+    public void addTowerStatListener(TowerStatListener tsl) { this.towerStatListeners.add(tsl); }
+
+    public void updateTowerStatListeners(Vector cell) {
+        Tower tower = board.getTower(cell);
+        for(TowerStatListener listener : towerStatListeners) {
+            listener.displayTowerStats(tower.getBoardObjectType().toString(), tower.getRange(), tower.getDamage(),
+                    TowerPrices.getInstance().getSellPrice(tower.getBoardObjectType()));
+        }
     }
 
     public boolean isGamePaused() { return gamePaused; }
