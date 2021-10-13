@@ -1,6 +1,7 @@
 package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
+import alchemydefense.Model.Towers.TowerStatListener;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 
@@ -11,25 +12,42 @@ import javafx.scene.layout.Pane;
  *
  * Date: 2021-09-26
  */
-public class SelectedTowerView extends Pane {
+public class SelectedTowerView extends Pane implements TowerStatListener {
 
+    private final Label towerTypeLabel;
+    private final Label rangeLabel;
+    private final Label damageLabel;
     private final Label sellPriceLabel;
 
     public SelectedTowerView(TowerController towerController) {
-        this.setPrefSize(150, 60);
+        this.setPrefSize(150, 65);
         this.setLayoutX(25);
         this.setLayoutY(15);
         this.setStyle("-fx-background-color: white");
 
+        this.towerTypeLabel = new Label();
+        this.towerTypeLabel.setLayoutX(10);
+        this.towerTypeLabel.setLayoutY(0);
+        this.getChildren().add(towerTypeLabel);
+
+        this.rangeLabel = new Label();
+        this.rangeLabel.setLayoutX(10);
+        this.rangeLabel.setLayoutY(15);
+        this.getChildren().add(rangeLabel);
+
+        this.damageLabel = new Label();
+        this.damageLabel.setLayoutX(10);
+        this.damageLabel.setLayoutY(30);
+        this.getChildren().add(damageLabel);
+
         this.sellPriceLabel = new Label();
-        this.sellPriceLabel.setText("Sell for: ");
         this.sellPriceLabel.setLayoutX(10);
-        this.sellPriceLabel.setLayoutY(10);
+        this.sellPriceLabel.setLayoutY(45);
         this.getChildren().add(sellPriceLabel);
 
-        javafx.scene.control.Button sellTowerButton = new javafx.scene.control.Button("Sell Tower");
-        sellTowerButton.setMaxSize(100, 200);
-        sellTowerButton.setLayoutX(25);
+        javafx.scene.control.Button sellTowerButton = new javafx.scene.control.Button("Sell");
+        sellTowerButton.setMaxSize(100, 100);
+        sellTowerButton.setLayoutX(100);
         sellTowerButton.setLayoutY(30);
         sellTowerButton.setOnMouseClicked(e -> {
             towerController.sellTower();
@@ -41,8 +59,11 @@ public class SelectedTowerView extends Pane {
 
     public void setVis(boolean visible) { this.setVisible(visible);}
 
-    //TODO Make view be updated dynamically on clicked tower
-    public void updateSellPrice(int price) {
-        this.sellPriceLabel.setText("Sell for: " + price);
+    @Override
+    public void displayTowerStats(String towerType, int range, int damage, int sellPrice) {
+        towerTypeLabel.setText(towerType);
+        rangeLabel.setText("Range: " + range);
+        damageLabel.setText("Damage: " + damage);
+        sellPriceLabel.setText("Sell for: " + sellPrice);
     }
 }
