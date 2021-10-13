@@ -70,6 +70,9 @@ public class ConcreteBoard implements Board {
         return tileGrid.getBoardObject(point);
     }
 
+    @Override
+    public Tower getTower(Vector cell) { return tileGrid.getTower(cell); }
+
     public Tile getCell(Vector point){
         return tileGrid.getCell(point);
     }

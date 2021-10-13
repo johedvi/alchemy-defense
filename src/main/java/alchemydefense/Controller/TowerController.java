@@ -54,6 +54,7 @@ public class TowerController {
 
     public void cellPressed(Vector cell) {
         if(model.getBoardObjectInCell(cell) instanceof Tower) {
+            model.updateTowerStatListeners(cell);
             towerCell = cell;
             towerPressed = true;
         }
