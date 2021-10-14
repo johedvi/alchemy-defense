@@ -2,6 +2,7 @@ package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 
 /**
@@ -14,6 +15,14 @@ import javafx.scene.layout.*;
 public class UserInterfaceView extends Pane {
 
     private final SelectedTowerView selectedTowerView;
+    Image red = new Image("red-crystal.png");
+    ImageView redCrystal = new ImageView(red);
+    Image green = new Image("green-crystal.png");
+    ImageView greenCrystal = new ImageView(green);
+    Image blue = new Image("blue-crystal.png");
+    ImageView blueCrystal = new ImageView(blue);
+    Image purple = new Image("purple-crystal.png");
+    ImageView purpleCrystal = new ImageView(purple);
 
     public UserInterfaceView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView,
                              TowerController towerController, SelectedTowerView selectedTowerView) {
@@ -32,6 +41,7 @@ public class UserInterfaceView extends Pane {
         redTowerButton.setOnMouseClicked(e -> {
             towerController.setRedTowerActive();
         });
+        redTowerButton.setGraphic(redCrystal);
         this.getChildren().add(redTowerButton);
 
         javafx.scene.control.Button blueTowerButton = new javafx.scene.control.Button("Blue Tower");
@@ -41,6 +51,7 @@ public class UserInterfaceView extends Pane {
         blueTowerButton.setOnMouseClicked(e -> {
             towerController.setBlueTowerActive();
         });
+        blueTowerButton.setGraphic(blueCrystal);
         this.getChildren().add(blueTowerButton);
 
         javafx.scene.control.Button purpleTowerButton = new javafx.scene.control.Button("Purple Tower");
@@ -50,6 +61,7 @@ public class UserInterfaceView extends Pane {
         purpleTowerButton.setOnMouseClicked(e -> {
             towerController.setPurpleTowerActive();
         });
+        purpleTowerButton.setGraphic(purpleCrystal);
         this.getChildren().add(purpleTowerButton);
 
         javafx.scene.control.Button greenTowerButton = new javafx.scene.control.Button("Green Tower");
@@ -59,6 +71,7 @@ public class UserInterfaceView extends Pane {
         greenTowerButton.setOnMouseClicked(e -> {
             towerController.setGreenTowerActive();
         });
+        greenTowerButton.setGraphic(greenCrystal);
         this.getChildren().add(greenTowerButton);
 
         javafx.scene.control.Button newWaveButton = new javafx.scene.control.Button("Start new wave");
@@ -81,8 +94,7 @@ public class UserInterfaceView extends Pane {
         setBackground(new Background(backgroundImage));
     }
 
-    Image img = new Image("UIControls/logo.png");
-    ImageView view = new ImageView(img);
+
 
     public SelectedTowerView getSelectedTowerView() { return this.selectedTowerView; }
 }
