@@ -6,6 +6,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 /**
  * A view that displays how much gold and hp the current player has.
@@ -33,6 +34,8 @@ public class InformationView extends Pane implements PlayerEventListener, WaveLi
         this.setLayoutX(SCENE_WIDTH-175);
         this.setLayoutY(10);
         this.setStyle("-fx-background-color: grey");
+        this.setBorder(new Border(new BorderStroke(Color.BLACK,
+                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
 
 
