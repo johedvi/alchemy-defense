@@ -64,8 +64,8 @@ public class BoardView extends AnchorPane implements BoardListener {
         endGoalImage.setX(768);
         endGoalImage.setY(64);
 
-        borderImage.setImage(new Image("rocks_complete.png"));
-        borderImage.setY(10);
+        borderImage.setImage(new Image("topBackground.png"));
+
         borderImage.setFitHeight(64);
         borderImage.setFitWidth(SCENE_WIDTH);
 

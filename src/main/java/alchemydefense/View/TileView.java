@@ -30,7 +30,7 @@ public class TileView extends StackPane {
     }
 
     private void setDefaultBackground() {
-        String defaultBackground = "available-path.png";
+        String defaultBackground = "Tiles.png";
         BackgroundImage backgroundImage = new BackgroundImage(new Image(defaultBackground, 64, 64, false, true), BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
                 BackgroundSize.DEFAULT);
         setBackground(new Background(backgroundImage));
