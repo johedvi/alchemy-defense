@@ -1,7 +1,8 @@
 package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
-import javafx.scene.layout.Pane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.*;
 
 /**
  * A view that displays the Userinterface.
@@ -22,7 +23,7 @@ public class UserInterfaceView extends Pane {
         this.setPrefSize(scene_width, scene_height);
         this.setLayoutX(0);
         this.setLayoutY(6 * unit_in_pixel);
-        this.setStyle("-fx-background-color: blue");
+        setDefaultBackground();
 
         javafx.scene.control.Button redTowerButton = new javafx.scene.control.Button("Red Tower");
         redTowerButton.setMaxSize(100, 200);
@@ -72,6 +73,16 @@ public class UserInterfaceView extends Pane {
         this.getChildren().add(informationView);
         this.getChildren().add(selectedTowerView);
     }
+
+    private void setDefaultBackground() {
+        String defaultBackground = "userinterfaceBackground.png";
+        BackgroundImage backgroundImage = new BackgroundImage(new Image(defaultBackground, 84, 84, false, true), BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.DEFAULT,
+                BackgroundSize.DEFAULT);
+        setBackground(new Background(backgroundImage));
+    }
+
+    Image img = new Image("UIControls/logo.png");
+    ImageView view = new ImageView(img);
 
     public SelectedTowerView getSelectedTowerView() { return this.selectedTowerView; }
 }
