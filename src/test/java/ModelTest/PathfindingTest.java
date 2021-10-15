@@ -41,12 +41,20 @@ public class PathfindingTest {
     }
 
     @Test
-    public void testFaultyStartPosition(){
-        List<PathNode> pathNodes = null;
+    public void testPositionsOutOfBounds(){
+        List<PathNode> pathNodes;
         String actualMsg = "";
         String expectedMsg = "Invalid path.";
         try {
             pathNodes = pathfinder.generateNewPath(new Vector(0,6),endPosition);
+        } catch (Exception e) {
+            actualMsg = e.getMessage();
+        }
+
+        Assertions.assertTrue(expectedMsg.equals(actualMsg));
+
+        try {
+            pathNodes = pathfinder.generateNewPath(startPosition, new Vector(12,2));
         } catch (Exception e) {
             actualMsg = e.getMessage();
         }
