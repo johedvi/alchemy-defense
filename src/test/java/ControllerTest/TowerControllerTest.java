@@ -45,7 +45,7 @@ public class TowerControllerTest {
     @Test
     public void testTowerCreation() {
         towerController.setRedTowerActive();
-        towerController.createTower(2,2);
+        towerController.createTower(new Vector(2,2));
         Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
     }
 

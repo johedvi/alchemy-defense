@@ -85,20 +85,16 @@ public class BoardView extends AnchorPane implements BoardListener {
 
         root.setOnMouseClicked(mouseEvent ->
         {
-            if (mouseEvent.getButton() == MouseButton.PRIMARY)
-            {
+            if (mouseEvent.getButton() == MouseButton.PRIMARY) {
                 int x = (int) mouseEvent.getX() / UNIT_IN_PIXELS;
                 int y = (int) ((mouseEvent.getY() / (UNIT_IN_PIXELS)) - 1);
-                if(x < GRID_WIDTH && y < GRID_HEIGHT){
+                if(x < GRID_WIDTH && y < GRID_HEIGHT) {
                     towerController.cellPressed(new Vector(x, y));
-                    if(towerController.isHoldingTower()){
-                        towerController.createTower(x,y);
-                    }
-                    else
-                        userInterfaceView.getSelectedTowerView().setVis(towerController.isTowerPressed());
+                    userInterfaceView.getSelectedTowerView().setVis(towerController.isTowerPressed());
                 }
-            } else if (mouseEvent.getButton() == MouseButton.SECONDARY)
-            {
+            }
+
+            else if (mouseEvent.getButton() == MouseButton.SECONDARY) {
                 towerController.setHoldingTowerFalse();
                 towerImage.setVisible(false);
             }

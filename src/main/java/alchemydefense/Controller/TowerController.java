@@ -25,8 +25,8 @@ public class TowerController {
         this.model = model;
     }
 
-    public void createTower(int row, int col) {
-        model.placeTowerInCell(activeTower, new Vector(row,col));
+    public void createTower(Vector cell) {
+        model.placeTowerInCell(activeTower, cell);
     }
 
     public void setRedTowerActive() {
@@ -57,6 +57,9 @@ public class TowerController {
             model.updateTowerStatListeners(cell);
             towerCell = cell;
             towerPressed = true;
+        }
+        else if(isHoldingTower()) {
+            createTower(cell);
         }
         else {
             towerPressed = false;
