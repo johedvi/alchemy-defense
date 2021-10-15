@@ -46,10 +46,17 @@ public class Pathfinder {
      * @param end end position for the path to be generated
      * @return list of PathNodes. Client can parse each PathNode coordinateVector to get a valid path to use.
      */
-    public List<PathNode> generateNewPath(Vector start, Vector end){
-        setup(start, end);
-        breadthFirstSearch();
-        return buildPath();
+    public List<PathNode> generateNewPath(Vector start, Vector end) throws Exception {
+        if(isValidVector(start) && isValidVector(end)){
+            setup(start, end);
+            breadthFirstSearch();
+            return buildPath();
+        }
+        throw new Exception("Invalid path.");
+    }
+
+    private boolean isValidVector(Vector vector){
+        return pathGraph.containsKey(vector);
     }
 
     /**
@@ -62,7 +69,12 @@ public class Pathfinder {
         if(pathGraph.containsKey(coordinates)){
             boolean previousNodeState = pathGraph.get(coordinates).isTraversable();
             pathGraph.get(coordinates).setTraversable(false);
-            List<PathNode> path = generateNewPath(testStart, testGoal);
+            List<PathNode> path = null;
+            try {
+                path = generateNewPath(testStart, testGoal);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             pathGraph.get(coordinates).setTraversable(previousNodeState);
             if(path.size() <= 1){
                 return true;
