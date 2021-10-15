@@ -51,7 +51,7 @@ public class TileGrid {
      * @return true if Tower is successfully placed on given cell. Otherwise false.
      */
     public boolean addTower(Tower tower, Vector cell){
-        if (!tiles[cell.x][cell.y].isOccupiedByTower()){
+        if (!tiles[cell.x][cell.y].isOccupiedByTower() && !tiles[cell.x][cell.y].hasFoe()){
             tiles[cell.x][cell.y].addTower(tower);
             return true;
         }
