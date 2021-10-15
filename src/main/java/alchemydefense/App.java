@@ -72,18 +72,24 @@ public class App extends Application {
             private long lastUpdate = 0;
             private long lastViewUpdate = 0;
 
+
             @Override
             public void handle(long now) {
+
                 if (now - lastUpdate >= 100_000_0000) {
 
                     lastUpdate = now;
                     model.modelUpdate();
+
+
                 }
                 if (now - lastViewUpdate >= 1_000_000) {
                     lastViewUpdate = now;
                     model.updateBoardListeners();
 
+
                 }
+
 
             }
         };

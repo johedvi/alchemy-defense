@@ -31,6 +31,7 @@ public class GameModel {
     private final HashSet<TowerStatListener> towerStatListeners = new HashSet<>();
 
     private static boolean gamePaused = true;
+    private static boolean firstIteration = true;
 
     /**
      * Constructor that instantiates a new board and starts the first wave.
@@ -43,18 +44,35 @@ public class GameModel {
      * Updates the whole model.
      */
     public void modelUpdate() {
+
+          if (firstIteration) {
+             board.updateFoes();
+             board.foeReachedEnd();
+              firstIteration = false;
+
+                } else {
+                 board.foeReachedEnd();
+                 board.updateFoes();
+}
+
+
         if(!isGamePaused()) {
-            if (isWaveOver())
+
+            if (isWaveOver()) {
                 startNewWave();
-            else {
+
+            } else {
                 board.addFoe(activeFoes.removeFirst());
                 if(activeFoes.isEmpty()) {
                     gamePaused = true;
                 }
             }
         }
-        board.foeReachedEnd();
-        board.updateFoes();
+
+
+
+
+
     }
 
     // ------- Create and place tower -------
@@ -74,6 +92,8 @@ public class GameModel {
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
+
+
 
     private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
         return new TowerTransaction().buyTower(boardObjectType);
@@ -101,8 +121,10 @@ public class GameModel {
     // ------- Wave methods -------
     public void startNewWave() {
         if(isWaveOver()) {
+
             gamePaused = false;
             activeFoes = new Wave().createFoes();
+
         }
     }
 

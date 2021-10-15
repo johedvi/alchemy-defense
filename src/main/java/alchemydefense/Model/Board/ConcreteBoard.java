@@ -108,6 +108,7 @@ public class ConcreteBoard implements Board {
     public void updateFoes() {
         damageFoes();
         moveFoes();
+
     }
 
     public void addFoe(Foe foe){
