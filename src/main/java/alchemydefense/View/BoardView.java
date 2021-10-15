@@ -101,10 +101,6 @@ public class BoardView extends AnchorPane implements BoardListener {
         });
     }
 
-
-
-
-
     private void setupBoardPane() {
         this.setPrefSize(SCENE_WIDTH, 6 * UNIT_IN_PIXELS);
         for (int i = 0 ; i < GRID_WIDTH ; i++) {
@@ -115,8 +111,6 @@ public class BoardView extends AnchorPane implements BoardListener {
             }
         }
     }
-
-
 
     private void updateTileImage(int x, int y, String imageFilePath) {
         TileView tile = (TileView) this.getChildren().get(x * GRID_HEIGHT + y);
