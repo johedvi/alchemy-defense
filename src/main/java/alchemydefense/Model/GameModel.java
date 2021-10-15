@@ -7,7 +7,7 @@ import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Model.Wave.Wave;
 import alchemydefense.Model.Wave.WaveListener;
 import alchemydefense.Utility.BoardObjectType;
@@ -67,7 +67,7 @@ public class GameModel {
      */
     public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
-            Tower tower = buyTower(boardObjectType);
+            ITower tower = buyTower(boardObjectType);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -75,7 +75,7 @@ public class GameModel {
         }
     }
 
-    private Tower buyTower(BoardObjectType boardObjectType) throws Exception {
+    private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
         return new TowerTransaction().buyTower(boardObjectType);
     }
 
@@ -127,7 +127,7 @@ public class GameModel {
     public void addTowerStatListener(TowerStatListener tsl) { this.towerStatListeners.add(tsl); }
 
     public void updateTowerStatListeners(Vector cell) {
-        Tower tower = board.getTower(cell);
+        ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
             listener.displayTowerStats(tower.getBoardObjectType().toString(), tower.getRange(), tower.getDamage(),
                     TowerPrices.getInstance().getSellPrice(tower.getBoardObjectType()));

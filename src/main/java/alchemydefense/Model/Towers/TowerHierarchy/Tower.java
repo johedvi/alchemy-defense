@@ -1,5 +1,4 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
-import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Utility.BoardObjectType;
 
 
@@ -11,7 +10,7 @@ import alchemydefense.Utility.BoardObjectType;
  *
  * Date: 2021-09-14
  */
-public abstract class Tower implements BoardObject {
+public abstract class Tower implements ITower {
 
     private final BoardObjectType boardObjectType;
     private final String filePath;
@@ -37,7 +36,7 @@ public abstract class Tower implements BoardObject {
 
     @Override public String getImageFilePath() { return this.filePath; }
 
-    public int getRange() { return this.range; }
+    @Override public int getRange() { return this.range; }
 
-    public int getDamage() { return this.damage; }
+    @Override public int getDamage() { return this.damage; }
 }

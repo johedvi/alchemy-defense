@@ -3,7 +3,7 @@ package alchemydefense.Model.Board;
 import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.Vector;
 
 /**
@@ -21,7 +21,7 @@ public interface Board {
      * @param tower the tower that should be placed on the board.
      * @param cellCoordinate the cell tha tower should be placed in.
      */
-    void placeTower(Tower tower, Vector cellCoordinate);
+    void placeTower(ITower tower, Vector cellCoordinate);
 
     /**
      * Removes BoardObject from a given cell.
@@ -59,5 +59,5 @@ public interface Board {
 
     Tile getCell(Vector cell);
 
-    Tower getTower(Vector cell);
+    ITower getTower(Vector cell);
 }
