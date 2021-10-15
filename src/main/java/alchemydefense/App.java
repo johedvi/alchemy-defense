@@ -20,7 +20,7 @@ import javafx.stage.Stage;
 /**
  * JavaFX launcher class. Acts as the entry point for the application.
  * WIP
- * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
+ * @author Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class App extends Application {
 
@@ -51,6 +51,7 @@ public class App extends Application {
         model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
+        stage.setFullScreen(true);
         stage.show();
         gameUpdate();
         letterbox(scene, view);
