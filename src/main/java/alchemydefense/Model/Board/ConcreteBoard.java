@@ -134,7 +134,12 @@ public class ConcreteBoard implements Board {
                 if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].getFoe().hasBeenUpdated()){
                     Foe foe = cellGrid[i][j].removeFoe();
                     foeList.add(foe);
-                    List<PathNode> path = pathfinder.generateNewPath(new Vector(i,j), new Vector(endgoalX,endgoalY));
+                    List<PathNode> path = null;
+                    try {
+                        path = pathfinder.generateNewPath(new Vector(i,j), new Vector(endgoalX,endgoalY));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                     Vector nextVector = path.get(1).getCoordinateVector();
                     tileGrid.addFoe(foe, nextVector);
                     foe.setUpdateFlag(true);
