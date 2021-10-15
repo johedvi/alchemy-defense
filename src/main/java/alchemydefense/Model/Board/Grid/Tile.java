@@ -3,7 +3,7 @@ package alchemydefense.Model.Board.Grid;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.Vector;
 
 import java.util.ArrayList;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class Tile {
     private final Vector cellCoordinate;
     private boolean isOccupiedByTower = false;
-    private Tower tower;
+    private ITower tower;
     private Foe foe;
     private boolean updated = false;
 
@@ -66,7 +66,7 @@ public class Tile {
         return null;
     }
 
-    public Tower getTower(){
+    public ITower getTower(){
         return tower;
     }
     public Foe getFoe(){
@@ -77,7 +77,7 @@ public class Tile {
      * Places a tower on the cell.
      * @param tower the tower that is placed on the cell.
      */
-    public void addTower(Tower tower) {
+    public void addTower(ITower tower) {
         if(isOccupiedByTower) return;
         isOccupiedByTower = true;
         this.tower = tower;

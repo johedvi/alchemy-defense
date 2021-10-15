@@ -2,7 +2,7 @@ package alchemydefense.Model.Board.Grid;
 
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.Vector;
 
 /**
@@ -38,7 +38,7 @@ public class TileGrid {
      * @param boardObject the BoardObject that should be placed on the grid
      * @param cell the cell the BoardObject should be placed on.
      */
-    public void add(Tower boardObject, Vector cell){
+    public void add(ITower boardObject, Vector cell){
         if (!tiles[cell.x][cell.y].isOccupiedByTower()){
             tiles[cell.x][cell.y].addTower(boardObject);
         }
@@ -50,7 +50,7 @@ public class TileGrid {
      * @param cell the cell the Tower should be placed on.
      * @return true if Tower is successfully placed on given cell. Otherwise false.
      */
-    public boolean addTower(Tower tower, Vector cell){
+    public boolean addTower(ITower tower, Vector cell){
         if (!tiles[cell.x][cell.y].isOccupiedByTower() && !tiles[cell.x][cell.y].hasFoe()){
             tiles[cell.x][cell.y].addTower(tower);
             return true;
@@ -86,6 +86,6 @@ public class TileGrid {
         return tiles[cell.x][cell.y].getBoardObject();
     }
 
-    public Tower getTower(Vector cell) { return tiles[cell.x][cell.y].getTower(); }
+    public ITower getTower(Vector cell) { return tiles[cell.x][cell.y].getTower(); }
 
 }

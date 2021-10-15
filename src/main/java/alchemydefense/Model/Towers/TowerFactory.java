@@ -19,7 +19,7 @@ public class TowerFactory {
      * @return specific concrete Tower of that type.
      * @throws IllegalArgumentException if towerType doesn't exist.
      */
-    public static Tower createTower(BoardObjectType boardObjectType) throws IllegalArgumentException {
+    public static ITower createTower(BoardObjectType boardObjectType) throws IllegalArgumentException {
 
         switch (boardObjectType) {
             case RED_TOWER: return new RedTower();

@@ -1,7 +1,7 @@
 package alchemydefense.Model.Towers;
 
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.BoardObjectType;
 
 /**
@@ -26,7 +26,7 @@ public class TowerTransaction {
      * @return specific towerType created from TowerFactory.
      * @throws Exception "Not enough gold"
      */
-    public Tower buyTower(BoardObjectType boardObjectType) throws Exception {
+    public ITower buyTower(BoardObjectType boardObjectType) throws Exception {
         int price = towerPrices.getBuyPrice(boardObjectType);
         if(player.canAfford(price)) {
             player.pay(price);

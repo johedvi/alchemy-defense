@@ -8,7 +8,7 @@ import alchemydefense.Model.Board.Pathfinding.Pathfinder;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.Vector;
 
 import java.util.ArrayList;
@@ -71,14 +71,14 @@ public class ConcreteBoard implements Board {
     }
 
     @Override
-    public Tower getTower(Vector cell) { return tileGrid.getTower(cell); }
+    public ITower getTower(Vector cell) { return tileGrid.getTower(cell); }
 
     public Tile getCell(Vector point){
         return tileGrid.getCell(point);
     }
 
     @Override
-    public void placeTower(Tower tower, Vector cellCoordinate) {
+    public void placeTower(ITower tower, Vector cellCoordinate) {
         if(cellCoordinate.x == endgoalX && cellCoordinate.y == endgoalY){
             return;
         }
