@@ -26,18 +26,31 @@ public class PathfindingTest {
 
     @Test
     public void testGeneratePath(){
-        List<PathNode> pathNodes = pathfinder.generateNewPath(startPosition,endPosition);
+        List<PathNode> pathNodes = null;
+        try {
+            pathNodes = pathfinder.generateNewPath(startPosition,endPosition);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         List<PathNode> targetPathNodes = new ArrayList<>();
         for (int i = 0; i < 12; i++) {
             Vector v = new Vector(i,2);
             targetPathNodes.add(new PathNode(v));
         }
-
         Assertions.assertTrue(pathNodes.containsAll(targetPathNodes));
-
-
-
-
     }
 
+    @Test
+    public void testFaultyStartPosition(){
+        List<PathNode> pathNodes = null;
+        String actualMsg = "";
+        String expectedMsg = "Invalid path.";
+        try {
+            pathNodes = pathfinder.generateNewPath(new Vector(0,6),endPosition);
+        } catch (Exception e) {
+            actualMsg = e.getMessage();
+        }
+
+        Assertions.assertTrue(expectedMsg.equals(actualMsg));
+    }
 }
