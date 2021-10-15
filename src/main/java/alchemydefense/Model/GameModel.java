@@ -146,6 +146,7 @@ public class GameModel {
             listener.renderObjects(board);
     }
 
+    // ------- TowerStatListener -------
     public void addTowerStatListener(TowerStatListener tsl) { this.towerStatListeners.add(tsl); }
 
     public void updateTowerStatListeners(Vector cell) {
