@@ -29,6 +29,6 @@
   
   - Felix will fix bug that allows player to place a tower on a foe.
   
-  - Willem will update the scrum board with changes from last week.
+  - Willem will write more tests and update the scrum board with changes from last week
 
 6. Wrap up.
