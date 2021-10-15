@@ -1,0 +1,34 @@
+
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 15/10/2021
+	Chair: Valdemar Stenhammar
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Create a TODO-list of things to be done before final hand in.
+
+3. Reports.
+	- Johan has fixed the GUI to be more understandable and better looking.
+  
+  - Felix has written tests for pathfinder and added some methods inn the pathfinder.
+  
+  - Willem has increased the abstraction of Towers by adding an interface ITower.
+  
+  - Valdemar has created a view that displays the towers stats when they are clicked on the board.
+
+4. Discussion items.
+  - How should the MVC-structure be refactored?
+  
+  - Are there any bugs?
+
+5. Outcomes and assignments.
+	- Johan will make it impossible to place a tower on the first column.
+  
+  - Valdemar will fix the MVC-structure by moving logic from view to controller.
+  
+  - Felix will fix bug that allows player to place a tower on a foe.
+  
+  - Willem will write more tests and update the scrum board with changes from last week
+
+6. Wrap up.
