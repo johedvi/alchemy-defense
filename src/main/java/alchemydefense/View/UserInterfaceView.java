@@ -5,7 +5,6 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 
 /**
  * A view that displays the Userinterface.
@@ -45,6 +44,7 @@ public class UserInterfaceView extends Pane {
         redTowerButton.setLayoutX(scene_width / 2 - 400);
         redTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         redTowerButton.setContentDisplay(ContentDisplay.TOP);
+        redTowerButton.setFocusTraversable(false);
         redTowerButton.setOnMouseClicked(e -> {
             towerController.setRedTowerActive();
         });
@@ -58,6 +58,7 @@ public class UserInterfaceView extends Pane {
         blueTowerButton.setLayoutX(scene_width / 2 - 280);
         blueTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         blueTowerButton.setContentDisplay(ContentDisplay.TOP);
+        blueTowerButton.setFocusTraversable(false);
         blueTowerButton.setOnMouseClicked(e -> {
             towerController.setBlueTowerActive();
         });
@@ -71,6 +72,7 @@ public class UserInterfaceView extends Pane {
         greenTowerButton.setLayoutX(scene_width / 2 - 160);
         greenTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         greenTowerButton.setContentDisplay(ContentDisplay.TOP);
+        greenTowerButton.setFocusTraversable(false);
         greenTowerButton.setOnMouseClicked(e -> {
             towerController.setGreenTowerActive();
         });
@@ -84,6 +86,7 @@ public class UserInterfaceView extends Pane {
         purpleTowerButton.setLayoutX(scene_width / 2 - 40);
         purpleTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         purpleTowerButton.setContentDisplay(ContentDisplay.TOP);
+        purpleTowerButton.setFocusTraversable(false);
         purpleTowerButton.setOnMouseClicked(e -> {
             towerController.setPurpleTowerActive();
         });
@@ -97,6 +100,7 @@ public class UserInterfaceView extends Pane {
         newWaveButton.setLayoutY(unit_in_pixel - 3* unit_in_pixel / 4);
         newWaveButton.setContentDisplay(ContentDisplay.TOP);
         newWaveButton.setGraphic(PlayButton);
+        newWaveButton.setFocusTraversable(false);
         newWaveButton.setOnMouseClicked(e -> {
             towerController.startNewWave();
         });

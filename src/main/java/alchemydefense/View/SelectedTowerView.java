@@ -49,6 +49,7 @@ public class SelectedTowerView extends Pane implements TowerStatListener {
         sellTowerButton.setMaxSize(100, 100);
         sellTowerButton.setLayoutX(100);
         sellTowerButton.setLayoutY(30);
+        sellTowerButton.setFocusTraversable(false);
         sellTowerButton.setOnMouseClicked(e -> {
             towerController.sellTower();
             this.setVisible(false);
