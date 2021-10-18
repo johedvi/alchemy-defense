@@ -15,9 +15,9 @@ public class WaveTest {
     public void testWaveCreation() {
         WaveTestListener waveTestListener = new WaveTestListener();
         Wave.addWaveListener(waveTestListener);
-        Assertions.assertEquals(0, waveTestListener.waveCounter);
+        int expectedWaveCounter = waveTestListener.waveCounter + 1;
         Wave wave = new Wave();
-        Assertions.assertEquals(1,waveTestListener.waveCounter);
+        Assertions.assertEquals(expectedWaveCounter,waveTestListener.waveCounter);
     }
 
     @Test
