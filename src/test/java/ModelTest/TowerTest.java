@@ -38,7 +38,7 @@ public class TowerTest {
 
     @BeforeAll
     public static void setGameModel() {
-        gameModel = new GameModel();
+        gameModel = new GameModel(12,5);
 
     }
 
@@ -126,10 +126,10 @@ public class TowerTest {
 
     @Test
     public void testGetSellPrice() {
-        Assertions.assertEquals(10, TowerPrices.getInstance().getSellPrice(BoardObjectType.RED_TOWER));
-        Assertions.assertEquals(20, TowerPrices.getInstance().getSellPrice(BoardObjectType.BLUE_TOWER));
-        Assertions.assertEquals(40, TowerPrices.getInstance().getSellPrice(BoardObjectType.GREEN_TOWER));
-        Assertions.assertEquals(80, TowerPrices.getInstance().getSellPrice(BoardObjectType.PURPLE_TOWER));
+        Assertions.assertEquals(10, TowerPrices.getSellPrice(BoardObjectType.RED_TOWER));
+        Assertions.assertEquals(20, TowerPrices.getSellPrice(BoardObjectType.BLUE_TOWER));
+        Assertions.assertEquals(40, TowerPrices.getSellPrice(BoardObjectType.GREEN_TOWER));
+        Assertions.assertEquals(80, TowerPrices.getSellPrice(BoardObjectType.PURPLE_TOWER));
     }
 
     @Test
