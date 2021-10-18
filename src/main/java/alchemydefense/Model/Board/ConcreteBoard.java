@@ -22,24 +22,28 @@ import java.util.List;
 public class ConcreteBoard implements Board {
     private final ArrayList<Tile> cellsWithTowers = new ArrayList<>();
 
-    private Pathfinder pathfinder;
-    private GraphManager graphManager;
+    private final Pathfinder pathfinder;
+    private final GraphManager graphManager;
 
     private final static Player player = Player.getPlayer();
 
     private final TileGrid tileGrid;
-    public final int width = 12;
-    public final int height = 5;
-    public final int endgoalX = 11;
-    public final int endgoalY = 2;
+    private final int width;
+    private final int height;
+    private final int endGoalX;
+    private final int endGoalY;
 
     /**
      * Constructor that instantiates a new PositionalGrid.
      */
-    public ConcreteBoard(){
+    public ConcreteBoard(int width, int height){
+        this.height = height;
+        this.width = width;
+        this.endGoalX = width - 1;
+        this.endGoalY = height / 2;
         tileGrid = new TileGrid(width, height);
         graphManager = new GraphManager(width, height);
-        pathfinder = new Pathfinder(graphManager, new Vector(0,2), new Vector(endgoalX, endgoalY)); // Lite fult med först vektorn här?
+        pathfinder = new Pathfinder(graphManager, new Vector(0,2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
     }
 
 
@@ -79,7 +83,7 @@ public class ConcreteBoard implements Board {
 
     @Override
     public void placeTower(ITower tower, Vector cellCoordinate) {
-        if(cellCoordinate.x == endgoalX && cellCoordinate.y == endgoalY){
+        if(cellCoordinate.x == endGoalX && cellCoordinate.y == endGoalY){
             return;
         }
         if(!pathfinder.blocksPath(cellCoordinate) && tileGrid.addTower(tower, cellCoordinate)){
@@ -118,8 +122,8 @@ public class ConcreteBoard implements Board {
 
     public void foeReachedEnd() {
         Tile[][] cellGrid = tileGrid.getGrid();
-        if(cellGrid[endgoalX][endgoalY].hasFoe()) {
-            cellGrid[endgoalX][endgoalY].removeFoe();
+        if(cellGrid[endGoalX][endGoalY].hasFoe()) {
+            cellGrid[endGoalX][endGoalY].removeFoe();
             player.decreaseOneHp();
 
         }
@@ -137,7 +141,7 @@ public class ConcreteBoard implements Board {
                     foeList.add(foe);
                     List<PathNode> path = null;
                     try {
-                        path = pathfinder.generateNewPath(new Vector(i,j), new Vector(endgoalX,endgoalY));
+                        path = pathfinder.generateNewPath(new Vector(i,j), new Vector(endGoalX, endGoalY));
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
