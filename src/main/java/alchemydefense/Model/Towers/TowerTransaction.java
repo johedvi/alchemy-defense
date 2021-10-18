@@ -14,11 +14,8 @@ import alchemydefense.Utility.BoardObjectType;
 public class TowerTransaction {
 
     private static final Player player = Player.getPlayer();
-    private static final TowerPrices towerPrices = TowerPrices.getInstance();
 
-    public TowerTransaction() {
-
-    }
+    public TowerTransaction() { }
 
     /**
      * Buys the specific tower type and decreases players gold.
@@ -27,7 +24,7 @@ public class TowerTransaction {
      * @throws Exception "Not enough gold"
      */
     public ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        int price = towerPrices.getBuyPrice(boardObjectType);
+        int price = TowerPrices.getBuyPrice(boardObjectType);
         if(player.canAfford(price)) {
             player.pay(price);
             return TowerFactory.createTower(boardObjectType);
@@ -40,7 +37,7 @@ public class TowerTransaction {
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(BoardObjectType boardObjectType) {
-        player.increaseGold(towerPrices.getSellPrice(boardObjectType));
+        player.increaseGold(TowerPrices.getSellPrice(boardObjectType));
     }
 
 }

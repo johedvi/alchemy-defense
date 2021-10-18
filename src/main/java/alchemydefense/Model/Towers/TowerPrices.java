@@ -4,7 +4,7 @@ package alchemydefense.Model.Towers;
 import alchemydefense.Utility.BoardObjectType;
 
 /**
- * Singleton class that stores the values for different towers.
+ * Class that stores the values for different towers.
  *
  * @author Valdemar Stenhammar
  *
@@ -12,10 +12,6 @@ import alchemydefense.Utility.BoardObjectType;
  *
  */
 public class TowerPrices {
-
-    //TODO Should class really be singleton or should methods getBuyPrice and getSellPrice just be static?
-
-    private static TowerPrices instance = null;
 
     private static final int redTowerBuyPrice = 0;
     private static final int blueTowerBuyPrice = 100;
@@ -28,27 +24,16 @@ public class TowerPrices {
     private static final int purpleTowerSellPrice = 80;
 
     /**
-     * Private constructor to prevent instantiation of multiple objects.
+     * Private constructor to prevent instantiation of class.
      */
     private TowerPrices() {}
-
-    /**
-     * Returns an instance of TowerPrices if it exists, otherwise creates a new one.
-     * @return Instance of Towerprices.
-     */
-    public static TowerPrices getInstance() {
-        if(instance == null) {
-            instance = new TowerPrices();
-        }
-        return instance;
-    }
 
     /**
      * Gets the specific buy value of a certain towerType.
      * @param boardObjectType the tower type of which value is requested.
      * @return returns an int of the buy value for a specific tower
      */
-    public int getBuyPrice(BoardObjectType boardObjectType) {
+    public static int getBuyPrice(BoardObjectType boardObjectType) {
         int price = 0;
         switch (boardObjectType) {
             case RED_TOWER: price = redTowerBuyPrice; break;
@@ -64,7 +49,7 @@ public class TowerPrices {
      * @param boardObjectType the tower type of which value is requested.
      * @return returns an int of the sell value for a specific tower.
      */
-    public int getSellPrice(BoardObjectType boardObjectType) {
+    public static int getSellPrice(BoardObjectType boardObjectType) {
         int price = 0;
         switch (boardObjectType) {
             case RED_TOWER: price = redTowerSellPrice; break;
