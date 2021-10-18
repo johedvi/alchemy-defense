@@ -1,0 +1,46 @@
+package ModelTest;
+
+import alchemydefense.Model.Foe.ConcreteFoe;
+import alchemydefense.Model.Foe.Foe;
+import alchemydefense.Model.Wave.Wave;
+import alchemydefense.Model.Wave.WaveListener;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.util.LinkedList;
+
+public class WaveTest {
+    static WaveTestListener waveTestListener;
+
+    @BeforeAll
+    static void beforeAll() {
+        waveTestListener = new WaveTestListener();
+        Wave.addWaveListener(waveTestListener);
+    }
+
+    @Test
+    public void testWaveCreation() {
+        Assertions.assertEquals(0, waveTestListener.waveCounter);
+        Wave wave = new Wave();
+        Assertions.assertEquals(1,waveTestListener.waveCounter);
+    }
+
+    @Test
+    public void testFoeCreation() {
+        Wave wave = new Wave();
+        LinkedList<Foe> foeList = wave.createFoes();
+
+        Assertions.assertEquals(12, foeList.size());
+        Assertions.assertEquals(ConcreteFoe.class, foeList.getFirst().getClass());
+    }
+
+    static class WaveTestListener implements WaveListener {
+        int waveCounter = 0;
+        @Override
+        public void waveCounterChanged(int newWaveValue) {
+            waveCounter = newWaveValue;
+        }
+    }
+}
+

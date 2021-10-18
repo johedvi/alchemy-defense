@@ -158,4 +158,6 @@ public class GameModel {
     }
 
     public boolean isGamePaused() { return gamePaused; }
+
+    public Board getBoard() { return board; }
 }
