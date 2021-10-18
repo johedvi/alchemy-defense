@@ -35,12 +35,12 @@ public class BoardTest {
         board.damageFoes();
 
         Assertions.assertEquals(90, board.getCell(vec).getFoe().getCurrentHP());
-
+        int expectedGold = Player.getPlayer().getGold() + 10;
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {
             board.damageFoes();
         }
-        Assertions.assertEquals(110, Player.getPlayer().getGold());
+        Assertions.assertEquals(expectedGold, Player.getPlayer().getGold());
         Assertions.assertFalse(board.getCell(vec).hasFoe());
     }
 

@@ -11,16 +11,10 @@ import org.junit.jupiter.api.Test;
 import java.util.LinkedList;
 
 public class WaveTest {
-    static WaveTestListener waveTestListener;
-
-    @BeforeAll
-    static void beforeAll() {
-        waveTestListener = new WaveTestListener();
-        Wave.addWaveListener(waveTestListener);
-    }
-
     @Test
     public void testWaveCreation() {
+        WaveTestListener waveTestListener = new WaveTestListener();
+        Wave.addWaveListener(waveTestListener);
         Assertions.assertEquals(0, waveTestListener.waveCounter);
         Wave wave = new Wave();
         Assertions.assertEquals(1,waveTestListener.waveCounter);
