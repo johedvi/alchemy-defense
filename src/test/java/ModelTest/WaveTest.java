@@ -5,7 +5,6 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Wave.Wave;
 import alchemydefense.Model.Wave.WaveListener;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedList;
@@ -24,8 +23,11 @@ public class WaveTest {
     public void testFoeCreation() {
         Wave wave = new Wave();
         LinkedList<Foe> foeList = wave.createFoes();
+        WaveTestListener waveTestListener = new WaveTestListener();
+        Wave.addWaveListener(waveTestListener);
+        int expectedFoeAmount = (int) (10 * Math.pow(1.1, waveTestListener.waveCounter) - 1) + 1;
 
-        Assertions.assertEquals(12, foeList.size());
+        Assertions.assertEquals(expectedFoeAmount, foeList.size());
         Assertions.assertEquals(ConcreteFoe.class, foeList.getFirst().getClass());
     }
 
