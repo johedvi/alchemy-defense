@@ -34,17 +34,6 @@ public class TileGrid {
     }
 
     /**
-     * Adds a BoardObject to a specific cell in the grid.
-     * @param boardObject the BoardObject that should be placed on the grid
-     * @param cell the cell the BoardObject should be placed on.
-     */
-    public void add(ITower boardObject, Vector cell){
-        if (!tiles[cell.x][cell.y].isOccupiedByTower()){
-            tiles[cell.x][cell.y].addTower(boardObject);
-        }
-    }
-
-    /**
      * Adds a Tower to a specific cell in the grid.
      * @param tower the Tower that should be placed on the grid.
      * @param cell the cell the Tower should be placed on.
