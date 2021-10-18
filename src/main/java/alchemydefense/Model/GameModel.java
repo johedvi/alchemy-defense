@@ -36,8 +36,8 @@ public class GameModel {
     /**
      * Constructor that instantiates a new board and starts the first wave.
      */
-    public GameModel(){
-        board = new ConcreteBoard();
+    public GameModel(int width, int height){
+        board = new ConcreteBoard(width, height);
     }
 
     /**

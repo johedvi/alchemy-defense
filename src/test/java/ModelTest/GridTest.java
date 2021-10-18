@@ -20,8 +20,8 @@ public class GridTest {
 
     @BeforeAll
     public static void setGameModel(){
-        gameModel = new GameModel();
-        board = new ConcreteBoard();
+        gameModel = new GameModel(12,5);
+        board = new ConcreteBoard(12,5);
     }
 
     @Test
