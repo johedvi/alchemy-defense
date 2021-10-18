@@ -2,6 +2,7 @@ package ModelTest;
 
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Board.Grid.Tile;
+import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
@@ -42,7 +43,7 @@ public class GridTest {
     public void testCellsInRange() {
         Assertions.assertEquals(0,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
         board.placeTower(new RedTower(), new Vector(2,2));
-        Assertions.assertEquals(21,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
+        Assertions.assertEquals(12,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
     }
 
     @Test
@@ -70,5 +71,14 @@ public class GridTest {
         Assertions.assertFalse(tile.isUpdated());
         tile.setUpdated(true);
         Assertions.assertTrue(tile.isUpdated());
+    }
+
+    @Test
+    public void testAddFoe() {
+        TileGrid grid = new TileGrid(12,5);
+        Vector test = new Vector(1,1);
+
+        grid.addFoe(new ConcreteFoe(), test);
+        Assertions.assertTrue(grid.getCell(test).hasFoe());
     }
 }
