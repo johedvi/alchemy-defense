@@ -11,7 +11,7 @@ public class GameModelTest {
 
     @BeforeAll
     public static void beforeAll() {
-        model = new GameModel();
+        model = new GameModel(12,5);
     }
 
     @Test

@@ -24,7 +24,7 @@ import javafx.stage.Stage;
  */
 public class App extends Application {
 
-    private final GameModel model =  new GameModel();
+    private final GameModel model =  new GameModel(12,5);
 
 
     @Override
