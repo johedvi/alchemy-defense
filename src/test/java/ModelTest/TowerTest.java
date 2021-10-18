@@ -110,18 +110,18 @@ public class TowerTest {
 
     @Test
     public void testGetTowerRange() {
-        Assertions.assertEquals(3, blueTower.getRange());
-        Assertions.assertEquals(3, redTower.getRange());
+        Assertions.assertEquals(2, blueTower.getRange());
+        Assertions.assertEquals(2, redTower.getRange());
         Assertions.assertEquals(3, greenTower.getRange());
         Assertions.assertEquals(3, purpleTower.getRange());
     }
 
     @Test
     public void testGetTowerDamage() {
-        Assertions.assertEquals(10, blueTower.getDamage());
+        Assertions.assertEquals(20, blueTower.getDamage());
         Assertions.assertEquals(10, redTower.getDamage());
-        Assertions.assertEquals(10, greenTower.getDamage());
-        Assertions.assertEquals(10, purpleTower.getDamage());
+        Assertions.assertEquals(20, greenTower.getDamage());
+        Assertions.assertEquals(30, purpleTower.getDamage());
     }
 
     @Test
