@@ -52,17 +52,22 @@ public class TowerController {
 
     public void sellTower() { model.sellTower(this.towerCell); }
 
-    public void cellPressed(Vector cell) {
-        if(model.getBoardObjectInCell(cell) instanceof Tower) {
-            model.updateTowerStatListeners(cell);
-            towerCell = cell;
-            towerPressed = true;
-        }
-        else if(isHoldingTower()) {
-            createTower(cell);
-        }
-        else {
-            towerPressed = false;
+    public void cellPressed(int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
+        int xCor = x / UNIT_IN_PIXELS;
+        int yCor = (y / UNIT_IN_PIXELS) - 1;
+        Vector cell = new Vector(xCor, yCor);
+        if(xCor < GRID_WIDTH && yCor < GRID_HEIGHT) {
+            if(model.getBoardObjectInCell(cell) instanceof Tower) {
+                model.updateTowerStatListeners(cell);
+                towerCell = cell;
+                towerPressed = true;
+            }
+            else if(isHoldingTower()) {
+                createTower(cell);
+            }
+            else {
+                towerPressed = false;
+            }
         }
     }
 

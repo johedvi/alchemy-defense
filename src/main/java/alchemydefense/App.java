@@ -51,7 +51,7 @@ public class App extends Application {
         model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
-        stage.setFullScreen(true);
+        //stage.setFullScreen(true);
         stage.show();
         gameUpdate();
         letterbox(scene, view);
