@@ -8,6 +8,7 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.ITower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Model.Wave.Wave;
 import alchemydefense.Model.Wave.WaveListener;
 import alchemydefense.Utility.BoardObjectType;
@@ -152,7 +153,7 @@ public class GameModel {
     public void updateTowerStatListeners(Vector cell) {
         ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
-            listener.displayTowerStats(tower.toString(), tower.getRange(), tower.getDamage(),
+            listener.displayTowerStats(tower.getBoardObjectType().toString(), tower.getRange(), tower.getDamage(),
                     TowerTransaction.getTowerSellPrice(tower.getBoardObjectType()));
         }
     }

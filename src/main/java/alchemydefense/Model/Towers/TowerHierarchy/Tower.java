@@ -1,10 +1,10 @@
 package alchemydefense.Model.Towers.TowerHierarchy;
+import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Utility.BoardObjectType;
 
 
 /**
- * A class for an abstract tower. Concrete towers extends this class. Handles
- * all the shared logic of towers. Implements BoardObject.
+ * A class for a tower. Handles all the shared logic of towers. Implements ITower.
  *
  * @author Johan Lindén
  *
@@ -16,6 +16,7 @@ public class Tower implements ITower {
     private final String filePath;
     private final int range;
     private final int damage;
+
 
     /**
      * Another constructor for class Tower
@@ -38,4 +39,6 @@ public class Tower implements ITower {
     @Override public int getRange() { return this.range; }
 
     @Override public int getDamage() { return this.damage; }
+
+
 }
