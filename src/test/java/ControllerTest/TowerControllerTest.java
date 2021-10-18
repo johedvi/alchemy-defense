@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 public class TowerControllerTest {
     static GameModel model;
     static TowerController towerController;
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png",2,20);
 
     @BeforeAll
     public static void beforeAll() {
@@ -45,7 +46,7 @@ public class TowerControllerTest {
     public void testTowerCreation() {
         towerController.setRedTowerActive();
         towerController.createTower(new Vector(2,2));
-        Assertions.assertEquals(BoardObjectType.RED_TOWER, model.getBoardObjectInCell(new Vector(2,2)).getClass());
+        Assertions.assertEquals(testTower.getClass(), model.getBoardObjectInCell(new Vector(2,2)).getClass());
     }
 
     @Test
@@ -61,7 +62,7 @@ public class TowerControllerTest {
     @Test
     public void testSellTower() {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
-        Assertions.assertEquals(BoardObjectType.RED_TOWER, model.getBoardObjectInCell(new Vector(2,2)).getClass());
+        Assertions.assertEquals(testTower.getClass(), model.getBoardObjectInCell(new Vector(2,2)).getClass());
         towerController.cellPressed(new Vector(2,2));
         towerController.sellTower();
         Assertions.assertNull(model.getBoardObjectInCell(new Vector(2,2)));

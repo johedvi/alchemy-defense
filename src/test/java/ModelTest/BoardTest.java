@@ -38,7 +38,7 @@ public class BoardTest {
         board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png",2,20), new Vector(3,3));
         board.damageFoes();
 
-        Assertions.assertEquals(90, board.getCell(vec).getFoe().getCurrentHP());
+        Assertions.assertEquals(80, board.getCell(vec).getFoe().getCurrentHP());
         int expectedGold = Player.getPlayer().getGold() + 10;
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {

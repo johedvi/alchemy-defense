@@ -6,6 +6,7 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
@@ -18,6 +19,8 @@ public class GridTest {
     private static GameModel gameModel;
     private static ConcreteBoard board;
     Vector testPoint;
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png",2,20);
+
 
     @BeforeAll
     public static void setGameModel(){
@@ -27,16 +30,18 @@ public class GridTest {
 
     @Test
     public void testPlaceTowerInCell(){
+
         testPoint = new Vector(1,1);
         gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), BoardObjectType.RED_TOWER);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(),testTower.getClass());
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Vector(3,3);
+
         gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), BoardObjectType.RED_TOWER);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), testTower.getClass());
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
     }
