@@ -53,7 +53,8 @@ public class TowerControllerTest {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
         towerController.cellPressed(new Vector(2,2));
         Assertions.assertTrue(towerController.isTowerPressed());
-        towerController.cellPressed(new Vector(1,1));
+        towerController.setHoldingTowerFalse();
+        towerController.cellPressed(new Vector(1,2));
         Assertions.assertFalse(towerController.isTowerPressed());
     }
 
