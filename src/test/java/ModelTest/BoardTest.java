@@ -56,8 +56,10 @@ public class BoardTest {
     @Test
     public void testFoeReachedEnd() {
         GameModel model = new GameModel(12, 5);
-        model.getBoard().getCell(new Vector(11,3)).addFoe(new ConcreteFoe());
+        model.getBoard().getCell(new Vector(11,2)).addFoe(new ConcreteFoe());
+        int expectedHP = Player.getPlayer().getHp() - 1;
+        model.startNewWave();
         model.modelUpdate();
-        Assertions.assertEquals(99, Player.getPlayer().getHp());
+        Assertions.assertEquals(expectedHP, Player.getPlayer().getHp());
     }
 }
