@@ -15,7 +15,7 @@ public class GridTest {
 
     @BeforeAll
     public static void setGameModel(){
-        gameModel = new GameModel();
+        gameModel = new GameModel(12,5);
     }
 
     @Test

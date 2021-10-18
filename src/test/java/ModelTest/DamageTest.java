@@ -16,7 +16,7 @@ public class DamageTest {
 
     @BeforeEach
     public void setup(){
-        board = new ConcreteBoard();
+        board = new ConcreteBoard(12,5);
     }
 
     @Test
