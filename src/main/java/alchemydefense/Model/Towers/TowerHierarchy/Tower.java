@@ -10,7 +10,7 @@ import alchemydefense.Utility.BoardObjectType;
  *
  * Date: 2021-09-14
  */
-public abstract class Tower implements ITower {
+public class Tower implements ITower {
 
     private final BoardObjectType boardObjectType;
     private final String filePath;
