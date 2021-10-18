@@ -1,11 +1,14 @@
 package ModelTest;
 
 import alchemydefense.Model.Board.Board;
+import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
+import alchemydefense.Model.Towers.TowerFactory;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -14,6 +17,7 @@ import org.junit.jupiter.api.Assertions;
 public class BoardTest {
     static Board board;
     static Vector vec;
+    static TowerFactory towerFactory;
 
     @BeforeAll
     public static void beforeAll() {
@@ -31,7 +35,7 @@ public class BoardTest {
     @Test
     public void testDamageFoes() {
         board.getCell(vec).addFoe(new ConcreteFoe());
-        board.placeTower(new RedTower(), new Vector(3,3));
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png",2,20), new Vector(3,3));
         board.damageFoes();
 
         Assertions.assertEquals(90, board.getCell(vec).getFoe().getCurrentHP());

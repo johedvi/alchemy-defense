@@ -2,7 +2,7 @@ package ControllerTest;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
+import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.Assertions;
@@ -45,7 +45,7 @@ public class TowerControllerTest {
     public void testTowerCreation() {
         towerController.setRedTowerActive();
         towerController.createTower(new Vector(2,2));
-        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
+        Assertions.assertEquals(BoardObjectType.RED_TOWER, model.getBoardObjectInCell(new Vector(2,2)).getClass());
     }
 
     @Test
@@ -61,7 +61,7 @@ public class TowerControllerTest {
     @Test
     public void testSellTower() {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
-        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
+        Assertions.assertEquals(BoardObjectType.RED_TOWER, model.getBoardObjectInCell(new Vector(2,2)).getClass());
         towerController.cellPressed(new Vector(2,2));
         towerController.sellTower();
         Assertions.assertNull(model.getBoardObjectInCell(new Vector(2,2)));
