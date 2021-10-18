@@ -124,13 +124,7 @@ public class TowerTest {
         Assertions.assertEquals(30, purpleTower.getDamage());
     }
 
-    @Test
-    public void testGetSellPrice() {
-        Assertions.assertEquals(10, TowerPrices.getSellPrice(BoardObjectType.RED_TOWER));
-        Assertions.assertEquals(20, TowerPrices.getSellPrice(BoardObjectType.BLUE_TOWER));
-        Assertions.assertEquals(40, TowerPrices.getSellPrice(BoardObjectType.GREEN_TOWER));
-        Assertions.assertEquals(80, TowerPrices.getSellPrice(BoardObjectType.PURPLE_TOWER));
-    }
+
 
     @Test
     public void TowerFactoryTest() {

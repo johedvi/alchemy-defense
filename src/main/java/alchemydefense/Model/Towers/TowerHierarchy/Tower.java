@@ -14,7 +14,6 @@ public class Tower implements ITower {
 
     private final BoardObjectType boardObjectType;
     private final String filePath;
-
     private final int range;
     private final int damage;
 

@@ -153,7 +153,7 @@ public class GameModel {
         ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
             listener.displayTowerStats(tower.toString(), tower.getRange(), tower.getDamage(),
-                    TowerPrices.getSellPrice(tower.getBoardObjectType()));
+                    TowerTransaction.getTowerSellPrice(tower.getBoardObjectType()));
         }
     }
 
