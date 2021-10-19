@@ -1,0 +1,37 @@
+
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 18/10/2021
+	Chair: Valdemar Stenhammar
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+	- Go through feedback from peer review.
+  
+  - Continue working on todo-list created last week.
+
+3. Reports.
+	- Johan has fixed spawn bug.
+  
+  - Willem has fixed scaling of application and written JUnit tests.
+  
+  - Valdemar has fixed MVC-structure.
+  
+  - Felix has been ill and has therefore not been able to work.
+
+4. Discussion items.
+	- What from the peer review should we focus on to fix before final hand in.
+
+5. Outcomes and assignments.
+	- Johan will implement Dependency injection-pattern into Tower for easier handling of damage to foes.
+  
+  - Felix will increase abstraction in Pathfinder by creating an interface and he will fix "reaching through"-problem in Tile.
+  
+  - Willem will implement Dependency Injection-principle in ConcreteBoard to enable an easier change of size of the board.
+  
+  - Valdemar will remove usage of Singleton-principle in Player as it complicates both testing and offering different difficulties
+  with different start amounts of gold and hp.
+
+6. Wrap up.
+  - Next meeting is scheduled for Wednesday the 20:th
+	
