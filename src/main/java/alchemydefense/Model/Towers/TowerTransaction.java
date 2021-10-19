@@ -17,6 +17,7 @@ public class TowerTransaction {
 
     /**
      * Buys the specific tower type and decreases players gold.
+     * @param player the player that makes the transaction.
      * @param boardObjectType the type of tower that should be bought.
      * @return specific towerType created from TowerFactory.
      * @throws Exception "Not enough gold"
@@ -32,6 +33,7 @@ public class TowerTransaction {
 
     /**
      * Sells specific towerType and increases players gold.
+     * @param player the player that makes the transaction.
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(Player player, BoardObjectType boardObjectType) {

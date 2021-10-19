@@ -25,7 +25,7 @@ public class ConcreteBoard implements Board {
     private final Pathfinder pathfinder;
     private final GraphManager graphManager;
 
-    private final Player player;
+    private final Player currentPlayer;
 
     private final TileGrid tileGrid;
     private final int width;
@@ -35,9 +35,12 @@ public class ConcreteBoard implements Board {
 
     /**
      * Constructor that instantiates a new PositionalGrid.
+     * @param currentPlayer the player of the game.
+     * @param width the width of the board.
+     * @param height the height of the board.
      */
-    public ConcreteBoard(Player player, int width, int height) {
-        this.player = player;
+    public ConcreteBoard(Player currentPlayer, int width, int height) {
+        this.currentPlayer = currentPlayer;
         this.height = height;
         this.width = width;
         this.endGoalX = width - 1;
@@ -68,7 +71,7 @@ public class ConcreteBoard implements Board {
 
     private void removeFoe(Tile cell) {
         cell.removeFoe();
-        player.increaseGold(5);
+        currentPlayer.increaseGold(5);
     }
 
     public BoardObject getBoardObject(Vector point){
@@ -125,7 +128,7 @@ public class ConcreteBoard implements Board {
         Tile[][] cellGrid = tileGrid.getGrid();
         if(cellGrid[endGoalX][endGoalY].hasFoe()) {
             cellGrid[endGoalX][endGoalY].removeFoe();
-            player.decreaseOneHp();
+            currentPlayer.decreaseOneHp();
 
         }
 
@@ -159,6 +162,6 @@ public class ConcreteBoard implements Board {
     }
 
     public void addPlayerEventListener(PlayerEventListener listener) {
-        player.addPlayerEventListener(listener);
+        currentPlayer.addPlayerEventListener(listener);
     }
 }

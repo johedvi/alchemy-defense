@@ -25,7 +25,7 @@ import java.util.HashSet;
  */
 public class GameModel {
     private final Board board;
-    private final Player player;
+    private final Player currentPlayer;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
@@ -37,10 +37,12 @@ public class GameModel {
 
     /**
      * Constructor that instantiates a new board and starts the first wave.
+     * @param width the width of the board.
+     * @param height the height of the board.
      */
     public GameModel(int width, int height) {
-        this.player = new Player(100, 100);
-        this.board = new ConcreteBoard(this.player, width, height);
+        this.currentPlayer = new Player(100, 100);
+        this.board = new ConcreteBoard(this.currentPlayer, width, height);
     }
 
     /**
@@ -92,7 +94,7 @@ public class GameModel {
 
 
     private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        return new TowerTransaction().buyTower(this.player, boardObjectType);
+        return new TowerTransaction().buyTower(this.currentPlayer, boardObjectType);
     }
 
     /**
@@ -102,7 +104,7 @@ public class GameModel {
     public void sellTower(Vector point) {
         BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
         board.removeTower(point);
-        new TowerTransaction().sellTower(this.player, boardObjectType);
+        new TowerTransaction().sellTower(this.currentPlayer, boardObjectType);
     }
 
     // ------- Handling of BoardObjects -------

@@ -4,7 +4,7 @@ package alchemydefense.Model.Player;
 import java.util.ArrayList;
 
 /**
- * Singleton class representing a Player.
+ * Class representing a Player.
  *
  * @author Valdemar Stenhammar
  *
@@ -19,7 +19,7 @@ public class Player {
     private static int health;
 
     /**
-     * Private constructor as class is singleton and should only be instantiated once.
+     * Constructor that creates a new player with requested amount of gold and hp.
      * @param goldStartingValue how much gold the player starts with.
      * @param healthStartingValue how much health the player starts with.
      */
