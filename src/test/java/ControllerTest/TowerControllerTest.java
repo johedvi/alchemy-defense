@@ -51,10 +51,10 @@ public class TowerControllerTest {
     @Test
     public void testTowerPressed() {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
-        towerController.cellPressed(new Vector(2,2));
+        towerController.cellPressed(12, 5, 64, 160, 220);
         Assertions.assertTrue(towerController.isTowerPressed());
         towerController.setHoldingTowerFalse();
-        towerController.cellPressed(new Vector(1,2));
+        towerController.cellPressed(12, 5, 64, 95, 220);
         Assertions.assertFalse(towerController.isTowerPressed());
     }
 
@@ -62,7 +62,7 @@ public class TowerControllerTest {
     public void testSellTower() {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
         Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
-        towerController.cellPressed(new Vector(2,2));
+        towerController.cellPressed(12, 5, 64, 160, 220);
         towerController.sellTower();
         Assertions.assertNull(model.getBoardObjectInCell(new Vector(2,2)));
     }

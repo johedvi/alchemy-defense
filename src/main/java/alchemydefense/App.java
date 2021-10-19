@@ -1,6 +1,7 @@
 package alchemydefense;
 
 import alchemydefense.Controller.TowerController;
+import alchemydefense.Controller.ViewController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.View.BoardView;
 import alchemydefense.View.InformationView;
@@ -37,6 +38,9 @@ public class App extends Application {
         TowerController towerController = new TowerController(model);
         InformationView informationView = new InformationView(SCENE_WIDTH);
         SelectedTowerView selectedTowerView = new SelectedTowerView(towerController);
+
+        ViewController viewController = new ViewController(towerController, selectedTowerView);
+
         model.addPlayerEventListener(informationView);
         model.addWaveListener(informationView);
         model.addTowerStatListener(selectedTowerView);
@@ -46,7 +50,7 @@ public class App extends Application {
         UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT - 6 * UNIT_IN_PIXELS, UNIT_IN_PIXELS,
                 informationView, towerController, selectedTowerView);
 
-        BoardView view = new BoardView(root, towerController, userInterfaceView);
+        BoardView view = new BoardView(root, towerController, viewController, userInterfaceView);
         model.addBoardListener(view);
         model.addPlayerEventListener(informationView);
 

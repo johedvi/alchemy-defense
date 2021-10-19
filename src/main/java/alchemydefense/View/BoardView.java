@@ -37,9 +37,9 @@ public class BoardView extends AnchorPane implements BoardListener {
     private final ViewController viewController;
 
 
-    public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
+    public BoardView(Group root, TowerController towerController, ViewController viewController, UserInterfaceView userInterfaceView) {
         this.towerController = towerController;
-        this.viewController = new ViewController(userInterfaceView.getSelectedTowerView());
+        this.viewController = viewController;
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
@@ -87,7 +87,8 @@ public class BoardView extends AnchorPane implements BoardListener {
         root.setOnMouseClicked(mouseEvent ->
         {
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
-                towerController.cellPressed(viewController, GRID_WIDTH, GRID_HEIGHT, UNIT_IN_PIXELS, (int) mouseEvent.getX(), (int) mouseEvent.getY());
+                towerController.cellPressed(GRID_WIDTH, GRID_HEIGHT, UNIT_IN_PIXELS, (int) mouseEvent.getX(), (int) mouseEvent.getY());
+                viewController.cellPressed();
             }
 
             else if (mouseEvent.getButton() == MouseButton.SECONDARY) {

@@ -26,7 +26,7 @@ public class TowerController {
     }
 
     public void createTower(Vector cell) {
-        model.placeTowerInCell(activeTower, cell);
+        this.model.placeTowerInCell(this.activeTower, cell);
     }
 
     public void setRedTowerActive() {
@@ -44,36 +44,35 @@ public class TowerController {
     public BoardObjectType getActiveTower() { return this.activeTower; }
 
     public boolean isHoldingTower() {
-        return activeTower != null;
+        return this.activeTower != null;
     }
     public void setHoldingTowerFalse() {
-        activeTower = null;
+        this.activeTower = null;
     }
 
-    public void sellTower() { model.sellTower(this.towerCell); }
+    public void sellTower() { this.model.sellTower(this.towerCell); }
 
-    public void cellPressed(ViewController viewController, int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
+    public void cellPressed(int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
         int xCor = x / UNIT_IN_PIXELS;
         int yCor = (y / UNIT_IN_PIXELS) - 1;
         Vector cell = new Vector(xCor, yCor);
         if(xCor < GRID_WIDTH && yCor < GRID_HEIGHT) {
-            if(model.getBoardObjectInCell(cell) instanceof Tower) {
-                model.updateTowerStatListeners(cell);
-                towerCell = cell;
-                towerPressed = true;
-                viewController.displaySelectedTowerView();
+            if(this.model.getBoardObjectInCell(cell) instanceof Tower) {
+                this.model.updateTowerStatListeners(cell);
+                this.towerCell = cell;
+                this.towerPressed = true;
             }
             else if(isHoldingTower()) {
                 createTower(cell);
+                this.towerPressed = false;
             }
             else {
-                viewController.hideSelectedTowerView();
-                towerPressed = false;
+                this.towerPressed = false;
             }
         }
     }
 
-    public void startNewWave() { model.startNewWave(); }
+    public void startNewWave() { this.model.startNewWave(); }
 
     public boolean isTowerPressed() { return this.towerPressed; }
 }
