@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * A board that manages a two-dimensional grid where towers and enemies can placed.
  *
- * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
+ * @author Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class ConcreteBoard implements Board {
     private final ArrayList<Tile> cellsWithTowers = new ArrayList<>();

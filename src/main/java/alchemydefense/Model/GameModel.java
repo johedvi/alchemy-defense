@@ -21,7 +21,7 @@ import java.util.HashSet;
  * Acts as a facade for the model domain. Supplies necessary functionality
  * to set up and modify the game. Contains all the logic.
  *
- * @Author: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
+ * @author Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class GameModel {
     private final Board board;
