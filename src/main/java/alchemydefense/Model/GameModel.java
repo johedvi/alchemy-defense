@@ -44,34 +44,27 @@ public class GameModel {
      * Updates the whole model.
      */
     public void modelUpdate() {
-
-          if (firstIteration) {
-             board.updateFoes();
-             board.foeReachedEnd();
-              firstIteration = false;
-
-                } else {
-                 board.foeReachedEnd();
-                 board.updateFoes();
-}
-
+        if (firstIteration) {
+            board.updateFoes();
+            board.foeReachedEnd();
+            firstIteration = false;
+        }
+        else {
+            board.foeReachedEnd();
+            board.updateFoes();
+        }
 
         if(!isGamePaused()) {
-
             if (isWaveOver()) {
                 startNewWave();
-
-            } else {
+            }
+            else {
                 board.addFoe(activeFoes.removeFirst());
                 if(activeFoes.isEmpty()) {
                     gamePaused = true;
                 }
             }
         }
-
-
-
-
 
     }
 
