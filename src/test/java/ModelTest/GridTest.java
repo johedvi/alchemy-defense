@@ -1,12 +1,10 @@
 package ModelTest;
 
-import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +17,7 @@ public class GridTest {
     private static GameModel gameModel;
     private static ConcreteBoard board;
     Vector testPoint;
-    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png",2,20);
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", 2,20);
 
 
     @BeforeAll
@@ -48,7 +46,7 @@ public class GridTest {
     @Test
     public void testCellsInRange() {
         Assertions.assertEquals(0,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
-        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png",2,20), new Vector(2,2));
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", 2,20), new Vector(2,2));
         Assertions.assertEquals(12,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
     }
 

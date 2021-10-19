@@ -8,7 +8,6 @@ import alchemydefense.Utility.BoardObjectType;
  *
  * @author Valdemar Stenhammar
  *
- * @Modified by Johan
  *
  * Date: 2021-09-28
  *

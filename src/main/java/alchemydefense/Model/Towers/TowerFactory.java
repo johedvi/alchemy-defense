@@ -22,10 +22,10 @@ public class TowerFactory {
     public static ITower createTower(BoardObjectType boardObjectType) throws IllegalArgumentException {
 
         switch (boardObjectType) {
-            case RED_TOWER: return new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", 2, 10);
-            case BLUE_TOWER: return new Tower(BoardObjectType.BLUE_TOWER, "blue-crystal.png",2,20);
-            case GREEN_TOWER: return new Tower(BoardObjectType.GREEN_TOWER,"green-crystal.png",2,20);
-            case PURPLE_TOWER: return new Tower(BoardObjectType.PURPLE_TOWER,"purple-crystal.png",3,30);
+            case RED_TOWER: return new Tower(BoardObjectType.RED_TOWER, "red-crystal.png",2,20);
+            case BLUE_TOWER: return new Tower(BoardObjectType.BLUE_TOWER, "blue-crystal.png", 2,20);
+            case GREEN_TOWER: return new Tower(BoardObjectType.GREEN_TOWER,"green-crystal.png",  2,20);
+            case PURPLE_TOWER: return new Tower(BoardObjectType.PURPLE_TOWER,"purple-crystal.png",  3,30);
             default: throw new IllegalArgumentException();
         }
 

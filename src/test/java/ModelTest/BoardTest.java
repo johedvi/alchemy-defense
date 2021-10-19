@@ -1,7 +1,6 @@
 package ModelTest;
 
 import alchemydefense.Model.Board.Board;
-import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
@@ -35,7 +34,7 @@ public class BoardTest {
     @Test
     public void testDamageFoes() {
         board.getCell(vec).addFoe(new ConcreteFoe());
-        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png",2,20), new Vector(3,3));
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", 2,20), new Vector(3,3));
         board.damageFoes();
 
         Assertions.assertEquals(80, board.getCell(vec).getFoe().getCurrentHP());
