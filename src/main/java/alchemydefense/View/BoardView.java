@@ -1,6 +1,7 @@
 package alchemydefense.View;
 
 import alchemydefense.Controller.TowerController;
+import alchemydefense.Controller.ViewController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
@@ -32,12 +33,13 @@ public class BoardView extends AnchorPane implements BoardListener {
     private final ImageView borderImage = new ImageView();
 
     private final TowerController towerController;
-    private final UserInterfaceView userInterfaceView;
+
+    private final ViewController viewController;
 
 
     public BoardView(Group root, TowerController towerController, UserInterfaceView userInterfaceView) {
-        this.userInterfaceView = userInterfaceView;
         this.towerController = towerController;
+        this.viewController = new ViewController(userInterfaceView.getSelectedTowerView());
 
         towerImage.setFitHeight(UNIT_IN_PIXELS);
         towerImage.setFitWidth(UNIT_IN_PIXELS);
@@ -69,7 +71,6 @@ public class BoardView extends AnchorPane implements BoardListener {
         borderImage.setFitHeight(64);
         borderImage.setFitWidth(SCENE_WIDTH);
 
-
     }
 
     private void setupMouseEventHandling(Group root) {
@@ -86,8 +87,7 @@ public class BoardView extends AnchorPane implements BoardListener {
         root.setOnMouseClicked(mouseEvent ->
         {
             if (mouseEvent.getButton() == MouseButton.PRIMARY) {
-                towerController.cellPressed(GRID_WIDTH, GRID_HEIGHT, UNIT_IN_PIXELS, (int) mouseEvent.getX(), (int) mouseEvent.getY());
-                userInterfaceView.getSelectedTowerView().setVis(towerController.isTowerPressed());
+                towerController.cellPressed(viewController, GRID_WIDTH, GRID_HEIGHT, UNIT_IN_PIXELS, (int) mouseEvent.getX(), (int) mouseEvent.getY());
             }
 
             else if (mouseEvent.getButton() == MouseButton.SECONDARY) {

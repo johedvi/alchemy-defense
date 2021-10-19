@@ -52,7 +52,7 @@ public class TowerController {
 
     public void sellTower() { model.sellTower(this.towerCell); }
 
-    public void cellPressed(int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
+    public void cellPressed(ViewController viewController, int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
         int xCor = x / UNIT_IN_PIXELS;
         int yCor = (y / UNIT_IN_PIXELS) - 1;
         Vector cell = new Vector(xCor, yCor);
@@ -61,11 +61,13 @@ public class TowerController {
                 model.updateTowerStatListeners(cell);
                 towerCell = cell;
                 towerPressed = true;
+                viewController.displaySelectedTowerView();
             }
             else if(isHoldingTower()) {
                 createTower(cell);
             }
             else {
+                viewController.hideSelectedTowerView();
                 towerPressed = false;
             }
         }
