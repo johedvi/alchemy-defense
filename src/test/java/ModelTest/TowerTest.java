@@ -81,7 +81,7 @@ public class TowerTest {
     public void testBuyTowerFail() {
 
         Throwable exception = Assertions.assertThrows(Exception.class, () -> {
-                new TowerTransaction().buyTower(player, BoardObjectType.PURPLE_TOWER); });
+                TowerTransaction.buyTower(player, BoardObjectType.PURPLE_TOWER); });
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }

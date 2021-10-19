@@ -94,7 +94,7 @@ public class GameModel {
 
 
     private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        return new TowerTransaction().buyTower(this.currentPlayer, boardObjectType);
+        return TowerTransaction.buyTower(this.currentPlayer, boardObjectType);
     }
 
     /**
@@ -104,7 +104,7 @@ public class GameModel {
     public void sellTower(Vector point) {
         BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
         board.removeTower(point);
-        new TowerTransaction().sellTower(this.currentPlayer, boardObjectType);
+        TowerTransaction.sellTower(this.currentPlayer, boardObjectType);
     }
 
     // ------- Handling of BoardObjects -------
