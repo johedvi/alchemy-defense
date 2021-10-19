@@ -15,32 +15,17 @@ public class Player {
 
     private final ArrayList<PlayerEventListener> listeners = new ArrayList<>();
 
-    private static final int GOLD_STARTING_VALUE = 100;
-    private static final int HP_STARTING_VALUE = 100;
-
     private static int gold;
     private static int health;
-
-    private static Player player;
 
     /**
      * Private constructor as class is singleton and should only be instantiated once.
      * @param goldStartingValue how much gold the player starts with.
      * @param healthStartingValue how much health the player starts with.
      */
-    private Player(int goldStartingValue, int healthStartingValue) {
+    public Player(int goldStartingValue, int healthStartingValue) {
         Player.gold = goldStartingValue;
         Player.health = healthStartingValue;
-    }
-
-    /**
-     * @return the only instance of this class.
-     */
-    public static Player getPlayer() {
-        if(player == null) {
-            return player = new Player(GOLD_STARTING_VALUE, HP_STARTING_VALUE);
-        }
-        return player;
     }
 
     /**

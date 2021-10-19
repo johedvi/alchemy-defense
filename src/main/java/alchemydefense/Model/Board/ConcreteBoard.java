@@ -25,7 +25,7 @@ public class ConcreteBoard implements Board {
     private final Pathfinder pathfinder;
     private final GraphManager graphManager;
 
-    private final static Player player = Player.getPlayer();
+    private final Player player;
 
     private final TileGrid tileGrid;
     private final int width;
@@ -36,7 +36,8 @@ public class ConcreteBoard implements Board {
     /**
      * Constructor that instantiates a new PositionalGrid.
      */
-    public ConcreteBoard(int width, int height){
+    public ConcreteBoard(Player player, int width, int height) {
+        this.player = player;
         this.height = height;
         this.width = width;
         this.endGoalX = width - 1;

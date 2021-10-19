@@ -1,8 +1,5 @@
 package ModelTest;
 
-import alchemydefense.Model.Board.Board;
-import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerFactory;
@@ -15,8 +12,6 @@ import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import javax.sound.midi.SysexMessage;
-
 public class TowerTest {
 
     private static GameModel gameModel;
@@ -25,6 +20,7 @@ public class TowerTest {
     private static RedTower redTower;
     private static GreenTower greenTower;
     private static PurpleTower purpleTower;
+    private static Player player;
 
 
     @BeforeAll
@@ -33,7 +29,7 @@ public class TowerTest {
         redTower = new RedTower();
         greenTower = new GreenTower();
         purpleTower = new PurpleTower();
-
+        player = new Player(100, 100);
     }
 
     @BeforeAll
@@ -52,7 +48,7 @@ public class TowerTest {
     public void testAllTowers() {
 
 
-        Player.getPlayer().increaseGold(800);
+        player.increaseGold(800);
 
         gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
         Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
@@ -85,7 +81,7 @@ public class TowerTest {
     public void testBuyTowerFail() {
 
         Throwable exception = Assertions.assertThrows(Exception.class, () -> {
-                new TowerTransaction().buyTower(BoardObjectType.PURPLE_TOWER); });
+                new TowerTransaction().buyTower(player, BoardObjectType.PURPLE_TOWER); });
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }

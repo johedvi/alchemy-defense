@@ -12,12 +12,14 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
 public class BoardTest {
+    static Player player;
     static Board board;
     static Vector vec;
 
     @BeforeAll
     public static void beforeAll() {
-        board = new ConcreteBoard(12,5);
+        player = new Player(100, 100);
+        board = new ConcreteBoard(player,12,5);
         vec = new Vector(2,2);
     }
 
@@ -35,12 +37,12 @@ public class BoardTest {
         board.damageFoes();
 
         Assertions.assertEquals(90, board.getCell(vec).getFoe().getCurrentHP());
-        int expectedGold = Player.getPlayer().getGold() + 10;
+        int expectedGold = player.getGold() + 10;
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {
             board.damageFoes();
         }
-        Assertions.assertEquals(expectedGold, Player.getPlayer().getGold());
+        Assertions.assertEquals(expectedGold, player.getGold());
         Assertions.assertFalse(board.getCell(vec).hasFoe());
     }
 
@@ -57,9 +59,9 @@ public class BoardTest {
     public void testFoeReachedEnd() {
         GameModel model = new GameModel(12, 5);
         model.getBoard().getCell(new Vector(11,2)).addFoe(new ConcreteFoe());
-        int expectedHP = Player.getPlayer().getHp() - 1;
+        int expectedHP = player.getHp() - 1;
         model.startNewWave();
         model.modelUpdate();
-        Assertions.assertEquals(expectedHP, Player.getPlayer().getHp());
+        Assertions.assertEquals(expectedHP, player.getHp());
     }
 }

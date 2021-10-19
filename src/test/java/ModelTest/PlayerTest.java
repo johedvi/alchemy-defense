@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class PlayerTest {
-    static Player player = Player.getPlayer();
+    static Player player = new Player(100, 100);
 
     @Test
     public void playerEventListenerTest() {

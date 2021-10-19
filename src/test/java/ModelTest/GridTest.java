@@ -5,6 +5,7 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
@@ -15,13 +16,15 @@ import alchemydefense.Utility.Vector;
 
 public class GridTest {
     private static GameModel gameModel;
+    private static Player player;
     private static ConcreteBoard board;
     Vector testPoint;
 
     @BeforeAll
     public static void setGameModel(){
         gameModel = new GameModel(12,5);
-        board = new ConcreteBoard(12,5);
+        player = new Player(100, 100);
+        board = new ConcreteBoard(player,12,5);
     }
 
     @Test

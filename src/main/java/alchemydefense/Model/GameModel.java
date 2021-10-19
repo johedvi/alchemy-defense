@@ -5,6 +5,7 @@ import alchemydefense.Model.Board.BoardListener;
 import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.Foe;
+import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.ITower;
@@ -24,6 +25,7 @@ import java.util.HashSet;
  */
 public class GameModel {
     private final Board board;
+    private final Player player;
 
     private LinkedList<Foe> activeFoes = new LinkedList<>();
     private final HashSet<BoardListener> boardListeners = new HashSet<>();
@@ -36,8 +38,9 @@ public class GameModel {
     /**
      * Constructor that instantiates a new board and starts the first wave.
      */
-    public GameModel(int width, int height){
-        board = new ConcreteBoard(width, height);
+    public GameModel(int width, int height) {
+        this.player = new Player(100, 100);
+        this.board = new ConcreteBoard(this.player, width, height);
     }
 
     /**
@@ -89,7 +92,7 @@ public class GameModel {
 
 
     private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        return new TowerTransaction().buyTower(boardObjectType);
+        return new TowerTransaction().buyTower(this.player, boardObjectType);
     }
 
     /**
@@ -99,7 +102,7 @@ public class GameModel {
     public void sellTower(Vector point) {
         BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
         board.removeTower(point);
-        new TowerTransaction().sellTower(boardObjectType);
+        new TowerTransaction().sellTower(this.player, boardObjectType);
     }
 
     // ------- Handling of BoardObjects -------
