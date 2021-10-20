@@ -89,13 +89,21 @@ public class ConcreteBoard implements Board {
 
     @Override
     public void placeTower(ITower tower, Vector tileCoordinate) {
-        if (tileCoordinate.x == endGoalX && tileCoordinate.y == endGoalY) {
+        if (isEndCoordinate(tileCoordinate) || isOnStartColumn(tileCoordinate)) {
             return;
         }
         if (!pathfinder.blocksPath(tileCoordinate) && tileGrid.addTower(tower, tileCoordinate)) {
             tilesWithTowers.add(tileGrid.getTile(tileCoordinate));
             graphManager.blockPathNode(new Vector(tileCoordinate.x, tileCoordinate.y));
         }
+    }
+
+    private boolean isOnStartColumn(Vector tileCoordinate) {
+        return tileCoordinate.x == 0;
+    }
+
+    private boolean isEndCoordinate(Vector vector){
+        return (vector.x == endGoalX && vector.y == endGoalY);
     }
 
     public void removeTower(Vector point) {
@@ -126,6 +134,8 @@ public class ConcreteBoard implements Board {
         tileGrid.addFoe(foe, startPos);
     }
 
+
+    // Kanske kan kallas innefrån moveFoes?
     public void foeReachedEnd() {
         Tile[][] grid = tileGrid.getGrid();
         if (grid[endGoalX][endGoalY].hasFoe()) {
@@ -135,40 +145,9 @@ public class ConcreteBoard implements Board {
 
     }
 
-    /*
-    //NEEDS DOCS AND REFINEMENT, CAN MAKE SHORTER BY CREATING NEW METHODS IN CLASSES THAT'S BEING CALLED?
-    public void moveFoes(){
-        Tile[][] grid = tileGrid.getGrid();
-        ArrayList<Foe> foeList = new ArrayList<>();
-        for(int i=0; i< grid.length; i++) {
-            for(int j=0; j< grid[i].length; j++) {
-                if(grid[i][j].hasFoe() && !((i==11) && (j==2)) && !grid[i][j].getFoe().hasBeenUpdated()){
-                    Foe foe = grid[i][j].removeFoe();
-                    foeList.add(foe);
-                    List<PathNode> path = null;
-                    try {
-                        path = pathfinder.generateNewPath(new Vector(i,j), new Vector(endGoalX, endGoalY));
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    Vector nextVector = path.get(1).getCoordinateVector();
-                    tileGrid.addFoe(foe, nextVector);
-                    foe.setUpdateFlag(true);
-                }
-            }
-        }
-        for (Foe foe : foeList){
-            foe.setUpdateFlag(false);
-        }
-        foeList.clear();
-    }
-
-     */
-
-
     public void moveFoes() {
         Tile[][] grid = tileGrid.getGrid();
-        HashMap<Vector, Foe> foes = new LinkedHashMap<>();
+        HashMap<Vector, Foe> foes = new HashMap<>();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
                 if (grid[i][j].hasFoe() && !((i == endGoalX) && (j == endGoalY))) {
