@@ -31,9 +31,9 @@ public class InformationView extends Pane implements PlayerEventListener, WaveLi
     public InformationView(int SCENE_WIDTH) {
 
         this.setPrefSize(150, 65);
-        this.setLayoutX(SCENE_WIDTH-175);
+        this.setLayoutX(SCENE_WIDTH-225);
         this.setLayoutY(10);
-        this.setStyle("-fx-background-color: grey");
+        this.setStyle("-fx-background-color: lightgray");
         this.setBorder(new Border(new BorderStroke(Color.BLACK,
                 BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
