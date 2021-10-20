@@ -2,7 +2,7 @@ package ModelTest;
 
 import alchemydefense.Model.Board.Pathfinding.GraphManager;
 import alchemydefense.Model.Board.Pathfinding.PathNode;
-import alchemydefense.Model.Board.Pathfinding.Pathfinder;
+import alchemydefense.Model.Board.Pathfinding.BreadthFirstSearch;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class PathfindingTest {
-    Pathfinder pathfinder;
+    BreadthFirstSearch breadthFirstSearch;
     GraphManager graphManager;
     Vector startPosition, endPosition;
 
@@ -21,14 +21,14 @@ public class PathfindingTest {
         startPosition = new Vector(0,2);
         endPosition = new Vector(11,2);
         graphManager =  new GraphManager(12,5);
-        pathfinder = new Pathfinder(graphManager, startPosition, endPosition);
+        breadthFirstSearch = new BreadthFirstSearch(graphManager, startPosition, endPosition);
     }
 
     @Test
     public void testGeneratePath(){
         List<PathNode> pathNodes = null;
         try {
-            pathNodes = pathfinder.generateNewPath(startPosition,endPosition);
+            pathNodes = breadthFirstSearch.generateNewPath(startPosition,endPosition);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,7 +46,7 @@ public class PathfindingTest {
         String actualMsg = "";
         String expectedMsg = "Invalid path.";
         try {
-            pathNodes = pathfinder.generateNewPath(new Vector(0,6),endPosition);
+            pathNodes = breadthFirstSearch.generateNewPath(new Vector(0,6),endPosition);
         } catch (Exception e) {
             actualMsg = e.getMessage();
         }
@@ -54,7 +54,7 @@ public class PathfindingTest {
         Assertions.assertTrue(expectedMsg.equals(actualMsg));
 
         try {
-            pathNodes = pathfinder.generateNewPath(startPosition, new Vector(12,2));
+            pathNodes = breadthFirstSearch.generateNewPath(startPosition, new Vector(12,2));
         } catch (Exception e) {
             actualMsg = e.getMessage();
         }

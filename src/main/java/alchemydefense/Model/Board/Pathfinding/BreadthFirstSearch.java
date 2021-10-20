@@ -8,7 +8,7 @@ import alchemydefense.Utility.Vector;
  * and returns the shortest list by keeping track of the nodes with a linked list.
  * @Author Felix Jönsson
  */
-public class Pathfinder {
+public class BreadthFirstSearch implements Pathfinder{
     Vector[] directions = {Vector.right(), Vector.down(), Vector.left(), Vector.up()};
 
     Vector start;
@@ -33,7 +33,7 @@ public class Pathfinder {
      * @param testStart the start Vector used for testing possible path blocks.
      * @param testGoal the goal Vector used for testing possible path blocks.
      */
-    public Pathfinder(GraphManager graphManager, Vector testStart, Vector testGoal){
+    public BreadthFirstSearch(GraphManager graphManager, Vector testStart, Vector testGoal){
         this.pathGraph = graphManager.getGraph();
         this.testStart = testStart;
         this.testGoal = testGoal;
@@ -130,7 +130,7 @@ public class Pathfinder {
         }
     }
 
-    List<PathNode> buildPath(){
+    private List<PathNode> buildPath(){
         List<PathNode> path = new ArrayList<>();
         PathNode currentNode = destinationNode;
         path.add(currentNode);

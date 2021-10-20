@@ -4,6 +4,7 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Board.Pathfinding.GraphManager;
 import alchemydefense.Model.Board.Pathfinding.PathNode;
+import alchemydefense.Model.Board.Pathfinding.BreadthFirstSearch;
 import alchemydefense.Model.Board.Pathfinding.Pathfinder;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
@@ -47,7 +48,7 @@ public class ConcreteBoard implements Board {
         this.endGoalY = height / 2;
         tileGrid = new TileGrid(width, height);
         graphManager = new GraphManager(width, height);
-        pathfinder = new Pathfinder(graphManager, new Vector(0, 2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
+        pathfinder = new BreadthFirstSearch(graphManager, new Vector(0, 2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
     }
 
 
