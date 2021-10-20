@@ -64,19 +64,6 @@ public class ConcreteFoe implements BoardObject, Foe {
         return "ConcreteFoe";
     }
 
-
-    //TEMPORARY CODE UNTIL BETTER FIX
-    boolean updated = false;
-    @Override
-    public void setUpdateFlag(boolean b) {
-        updated = b;
-    }
-
-    @Override
-    public boolean hasBeenUpdated() {
-        return updated;
-    }
-
     @Override
     public BoardObjectType getBoardObjectType() { return this.boardObjectType; }
 }

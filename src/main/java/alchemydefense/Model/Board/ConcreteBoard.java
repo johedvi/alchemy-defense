@@ -11,8 +11,7 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.Vector;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * A board that manages a two-dimensional grid where towers and enemies can placed.
@@ -35,9 +34,10 @@ public class ConcreteBoard implements Board {
 
     /**
      * Constructor that instantiates a new PositionalGrid.
+     *
      * @param currentPlayer the player of the game.
-     * @param width the width of the board.
-     * @param height the height of the board.
+     * @param width         the width of the board.
+     * @param height        the height of the board.
      */
     public ConcreteBoard(Player currentPlayer, int width, int height) {
         this.currentPlayer = currentPlayer;
@@ -47,17 +47,17 @@ public class ConcreteBoard implements Board {
         this.endGoalY = height / 2;
         tileGrid = new TileGrid(width, height);
         graphManager = new GraphManager(width, height);
-        pathfinder = new Pathfinder(graphManager, new Vector(0,2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
+        pathfinder = new Pathfinder(graphManager, new Vector(0, 2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
     }
 
 
-    public void damageFoes(){
-        for(Tile tile : tilesWithTowers){
+    public void damageFoes() {
+        for (Tile tile : tilesWithTowers) {
             ArrayList<Tile> tilesInRange = tile.getTilesInRange(this);
-            for(Tile tileInRange : tilesInRange){
-                if(tileInRange.hasFoe()){
+            for (Tile tileInRange : tilesInRange) {
+                if (tileInRange.hasFoe()) {
                     damageFoe(tile, tileInRange);
-                    if(!tileInRange.getFoe().isAlive())
+                    if (!tileInRange.getFoe().isAlive())
                         removeFoe(tileInRange);
                 }
             }
@@ -74,23 +74,25 @@ public class ConcreteBoard implements Board {
         currentPlayer.increaseGold(5);
     }
 
-    public BoardObject getBoardObject(Vector point){
+    public BoardObject getBoardObject(Vector point) {
         return tileGrid.getBoardObject(point);
     }
 
     @Override
-    public ITower getTower(Vector tile) { return tileGrid.getTower(tile); }
+    public ITower getTower(Vector tile) {
+        return tileGrid.getTower(tile);
+    }
 
-    public Tile getTile(Vector point){
+    public Tile getTile(Vector point) {
         return tileGrid.getTile(point);
     }
 
     @Override
     public void placeTower(ITower tower, Vector tileCoordinate) {
-        if(tileCoordinate.x == endGoalX && tileCoordinate.y == endGoalY){
+        if (tileCoordinate.x == endGoalX && tileCoordinate.y == endGoalY) {
             return;
         }
-        if(!pathfinder.blocksPath(tileCoordinate) && tileGrid.addTower(tower, tileCoordinate)){
+        if (!pathfinder.blocksPath(tileCoordinate) && tileGrid.addTower(tower, tileCoordinate)) {
             tilesWithTowers.add(tileGrid.getTile(tileCoordinate));
             graphManager.blockPathNode(new Vector(tileCoordinate.x, tileCoordinate.y));
         }
@@ -119,20 +121,21 @@ public class ConcreteBoard implements Board {
 
     }
 
-    public void addFoe(Foe foe){
+    public void addFoe(Foe foe) {
         Vector startPos = new Vector(0, (int) (getBoardHeight() * Math.random()));
         tileGrid.addFoe(foe, startPos);
     }
 
     public void foeReachedEnd() {
         Tile[][] grid = tileGrid.getGrid();
-        if(grid[endGoalX][endGoalY].hasFoe()) {
+        if (grid[endGoalX][endGoalY].hasFoe()) {
             grid[endGoalX][endGoalY].removeFoe();
             currentPlayer.decreaseOneHp();
         }
 
     }
 
+    /*
     //NEEDS DOCS AND REFINEMENT, CAN MAKE SHORTER BY CREATING NEW METHODS IN CLASSES THAT'S BEING CALLED?
     public void moveFoes(){
         Tile[][] grid = tileGrid.getGrid();
@@ -158,6 +161,35 @@ public class ConcreteBoard implements Board {
             foe.setUpdateFlag(false);
         }
         foeList.clear();
+    }
+
+     */
+
+
+    public void moveFoes() {
+        Tile[][] grid = tileGrid.getGrid();
+        HashMap<Vector, Foe> foes = new LinkedHashMap<>();
+        for (int i = 0; i < grid.length; i++) {
+            for (int j = 0; j < grid[i].length; j++) {
+                if (grid[i][j].hasFoe() && !((i == endGoalX) && (j == endGoalY))) {
+                    Foe foe = grid[i][j].removeFoe();
+                    foes.put(new Vector(i, j), foe);
+                }
+            }
+        }
+
+        List<PathNode> path = null;
+        for (Map.Entry<Vector, Foe> entry : foes.entrySet()) {
+            try {
+                path = pathfinder.generateNewPath(entry.getKey(), new Vector(endGoalX, endGoalY));
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            Vector nextVector = path.get(1).getCoordinateVector();
+            tileGrid.addFoe(entry.getValue(), nextVector);
+        }
+
+        foes.clear();
     }
 
     public void addPlayerEventListener(PlayerEventListener listener) {
