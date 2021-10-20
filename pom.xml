@@ -19,11 +19,6 @@
             <version>11</version>
         </dependency>
         <dependency>
-            <groupId>org.openjfx</groupId>
-            <artifactId>javafx-fxml</artifactId>
-            <version>11.0.2</version>
-        </dependency>
-        <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
@@ -70,12 +65,6 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.22.1</version>
             </plugin>
-
-	<plugin>
-		<artifactId>maven-surefire-plugin</artifactId>
-		<version>2.22.1</version>
-	</plugin>
-
         </plugins>
 	
     </build>
