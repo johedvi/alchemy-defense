@@ -22,24 +22,41 @@
 <h2 id="overview"> :cloud: Overview</h2>
 
 <p align="justify"> 
-  Alchemy Defense is a tower defense game with dynamic pathfinding. The player is tasked with defending the philosopher's stone from waves of various sacrilegious entities.  
+Alchemy Defense is a tower defense game prototype that utilies dynamic pathfinding. It's currently only a rudimentary prototype of the core gameplay and has no further plan on being developed. 
 </p>
 
 <!-- PROJECT FILES DESCRIPTION -->
 <h2 id="project-files-description"> :floppy_disk: Project Files Description</h2>
-WIP
+<p align="justify"> 
+
+* **documentation**: Contains meeting protocols, RAD and SSD.
+* **src**: Project codebase.
+  
+</p>
+
 
 <!-- GETTING STARTED -->
 <h2 id="getting-started"> :video_game: Getting Started</h2>
-WIP
+<p align="justify"> 
+
+</p>
 
 <!-- LINKS -->
 <h2 id="links"> :link: Links </h2>
-https://lucid.app/lucidchart/132eace1-782c-4565-8cd4-7f884120e5eb/edit?viewport_loc=913%2C1390%2C2667%2C1516%2CHWEp-vi-RSFO
 
-https://trello.com/b/LVPQ76BL/handymen
-
+<p align="justify"> 
+<ul>
+    <li><a href="https://trello.com/b/LVPQ76BL/handymen"> Scrum-board </a></li>
+    <li><a href="https://lucid.app/lucidchart/132eace1-782c-4565-8cd4-7f884120e5eb/edit?viewport_loc=913%2C1390%2C2667%2C1516%2CHWEp-vi-RSFO"> UML-diagrams </a></a></li>
+</ul>
 
 <!-- CREDITS -->
 <h2 id="credits"> :scroll: Credits</h2>
-WIP
+<p align="justify"> 
+
+* Felix Jönsson
+* Johan Linden
+* Valdemar Stenhammar
+* Willem Brahmstaedt
+  
+</p>
