@@ -2,8 +2,6 @@ package ModelTest;
 
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.ITower;
-import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.Assertions;
@@ -12,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 public class GameModelTest {
     static GameModel model;
-    static ITower tower;
 
     @BeforeAll
     public static void beforeAll() {
@@ -21,8 +18,7 @@ public class GameModelTest {
 
     @Test
     public void testTowerCreationFail() {
-        tower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
-        model.placeTowerInCell(tower, new Vector(2,2));
+        model.placeTowerInCell(BoardObjectType.BLUE_TOWER, new Vector(2,2));
     }
 
     @Test

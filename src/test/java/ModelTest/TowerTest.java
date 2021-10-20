@@ -1,7 +1,6 @@
 package ModelTest;
 
 import alchemydefense.Model.Towers.ITower;
-import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
@@ -11,13 +10,20 @@ import org.junit.jupiter.api.Test;
 public class TowerTest {
 
 
-    private ITower ITower;
+
+
+
+
+
+
+
+
 
     @Test
     public void testBuyTowerFail() {
-        ITower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
+        ITower tower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
         Throwable exception = Assertions.assertThrows(Exception.class, () -> {
-                new TowerTransaction().buyTower(ITower); });
+                new TowerTransaction().buyTower(tower); });
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }

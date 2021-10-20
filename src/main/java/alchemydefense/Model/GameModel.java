@@ -83,17 +83,20 @@ public class GameModel {
      * @param boardObjectType tower type to construct.
      * @param point tile coordinate to place the tower in.
      */
-    public void placeTowerInCell(ITower Tower, Vector point) {
+    public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
-            buyTower(Tower);
-            board.placeTower(Tower, point);
+             ITower tower = createTower(boardObjectType);
+             buyTower(tower);
+            board.placeTower(tower, point);
         }
         catch (Exception e){
             System.out.println("Not able to create the tower mentioned. Error: " + e.getMessage());
         }
     }
 
-
+    public ITower createTower (BoardObjectType boardObjectType) {
+        return TowerFactory.createTower(boardObjectType);
+    }
 
     private ITower buyTower(ITower tower) throws Exception {
         return new TowerTransaction().buyTower(tower);

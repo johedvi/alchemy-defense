@@ -18,7 +18,8 @@ public class TowerController {
     private boolean towerPressed = false;
 
     private final GameModel model;
-    private ITower activeTower = null;
+    private BoardObjectType activeTower = null;
+
 
     private Vector towerCell = null;
 
@@ -27,15 +28,12 @@ public class TowerController {
     }
 
     public void createTower(Vector cell) {
+
         model.placeTowerInCell(activeTower, cell);
     }
 
-    public void setTowerActive() {
-        this.activeTower = activeTower.getBoardObjectType();
-    }
-
     public void setRedTowerActive() {
-        this.activeTower = activeTower.getBoardObjectType();
+        this.activeTower = BoardObjectType.RED_TOWER;
     }
     public void setBlueTowerActive() {
         this.activeTower = BoardObjectType.BLUE_TOWER;
