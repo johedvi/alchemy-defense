@@ -13,8 +13,7 @@ public class Tower implements ITower {
 
     private final BoardObjectType boardObjectType;
     private final String filePath;
-    private final int range;
-    private final int damage;
+    private final AttackDamageSystem attackDamageSystem;
 
 
 
@@ -26,11 +25,11 @@ public class Tower implements ITower {
      * @param damage damage value for the specific tower.
 
      */
-    public Tower(BoardObjectType boardObjectType, String filePath, int range, int damage) {
+    public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem) {
         this.boardObjectType = boardObjectType;
         this.filePath = filePath;
-        this.range = range;
-        this.damage = damage;
+        this.attackDamageSystem = attackDamageSystem;
+
 
     }
 
@@ -38,9 +37,9 @@ public class Tower implements ITower {
 
     @Override public String getImageFilePath() { return this.filePath; }
 
-    @Override public int getRange() { return this.range; }
+    @Override public int getRange() { return this.attackDamageSystem.getRange(); }
 
-    @Override public int getDamage() { return this.damage; }
+    @Override public int getDamage() { return this.attackDamageSystem.getDamage(); }
 
 
 

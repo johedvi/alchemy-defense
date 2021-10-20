@@ -6,7 +6,6 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerFactory;
-import alchemydefense.Model.Towers.TowerHierarchy.*;
 import alchemydefense.Model.Towers.TowerPrices;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
