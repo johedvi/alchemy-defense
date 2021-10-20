@@ -2,6 +2,7 @@ package ControllerTest;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Towers.AttackDamageSystem;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
@@ -12,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class TowerControllerTest {
     static GameModel model;
     static TowerController towerController;
-    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", 2,20);
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", new AttackDamageSystem(2,20));
 
     @BeforeAll
     public static void beforeAll() {
