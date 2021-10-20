@@ -20,7 +20,6 @@ public class TowerController {
     private final GameModel model;
     private BoardObjectType activeTower = null;
 
-
     private Vector towerCell = null;
 
     public TowerController(GameModel model) {
