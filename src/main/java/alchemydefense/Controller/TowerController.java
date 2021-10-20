@@ -29,6 +29,7 @@ public class TowerController {
     public void createTower(Vector cell) {
 
         model.placeTowerInCell(activeTower, cell);
+
     }
 
     public void setRedTowerActive() {

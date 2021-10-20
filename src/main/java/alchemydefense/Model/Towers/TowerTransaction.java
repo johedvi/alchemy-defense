@@ -36,11 +36,9 @@ public class TowerTransaction {
 
     /**
      * Sells specific towerType and increases players gold.
-     * @param boardObjectType the type of tower that should be sold.
-     */
-    public void sellTower(BoardObjectType boardObjectType) {
 
-        ITower tower = TowerFactory.createTower(boardObjectType); //TODO: Bättre lösning
+     */
+    public void sellTower(ITower tower) {
 
         int price = tower.getSellPrice();
 
