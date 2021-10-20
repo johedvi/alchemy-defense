@@ -23,8 +23,8 @@ public class Tower implements ITower {
      * @param boardObjectType specific towerType of enum TowerType.
      * @param filePath Location for the image that resembles the Tower..
      * @param priceSystem
-
      */
+
     public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem, PriceSystem priceSystem) {
         this.boardObjectType = boardObjectType;
         this.filePath = filePath;

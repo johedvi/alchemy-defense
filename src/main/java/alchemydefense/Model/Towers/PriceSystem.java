@@ -2,7 +2,7 @@ package alchemydefense.Model.Towers;
 
 public class PriceSystem {
 
-    public final int buyPrice;
+    private final int buyPrice;
     private final int sellPrice;
 
     public PriceSystem(int buyPrice, int sellPrice) {

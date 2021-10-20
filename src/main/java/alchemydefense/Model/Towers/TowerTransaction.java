@@ -26,10 +26,12 @@ public class TowerTransaction {
      */
     public ITower buyTower(BoardObjectType boardObjectType) throws Exception {
 
-        int price = getTowerBuyPrice(boardObjectType);
+        ITower tower = TowerFactory.createTower(boardObjectType);
+        int price = tower.getBuyPrice();
+
         if(player.canAfford(price)) {
             player.pay(price);
-            return TowerFactory.createTower(boardObjectType);
+            return tower;
         }
         throw new Exception("Not enough gold.");
     }
@@ -39,48 +41,13 @@ public class TowerTransaction {
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(BoardObjectType boardObjectType) {
-
-        player.increaseGold(getTowerSellPrice(boardObjectType));
+        ITower tower = TowerFactory.createTower(boardObjectType);
+        int price = tower.getSellPrice();
+        player.increaseGold(price);
     }
 
 
-    /**
-     * Gets the specific buy value of a certain towerType.
-     * @param boardObjectType the tower type of which value is requested.
-     * @return returns an int of the buy value for a specific tower
-     */
 
-    public static int getTowerBuyPrice(BoardObjectType boardObjectType) {
-     int price;
-        switch (boardObjectType) {
-            case RED_TOWER: price = TowerPrices.redTowerBuyPrice; break;
-            case BLUE_TOWER: price = TowerPrices.blueTowerBuyPrice; break;
-            case GREEN_TOWER: price = TowerPrices.greenTowerBuyPrice; break;
-            case PURPLE_TOWER: price =TowerPrices. purpleTowerBuyPrice; break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + boardObjectType);
-        }
-        return price;
-    }
-
-    /**
-     * Gets the specific price sell value of a certain towerType.
-     * @param boardObjectType the tower type of which value is requested.
-     * @return returns an int of the sell value for a specific tower.
-     */
-
-    public static int getTowerSellPrice(BoardObjectType boardObjectType) {
-        int price;
-        switch (boardObjectType) {
-            case RED_TOWER: price = TowerPrices.redTowerSellPrice; break;
-            case BLUE_TOWER: price = TowerPrices.blueTowerSellPrice; break;
-            case GREEN_TOWER: price = TowerPrices.greenTowerSellPrice; break;
-            case PURPLE_TOWER: price =TowerPrices. purpleTowerSellPrice; break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + boardObjectType);
-        }
-        return price;
-    }
 
 
 

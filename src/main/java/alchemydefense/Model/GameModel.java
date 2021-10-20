@@ -95,8 +95,8 @@ public class GameModel {
 
 
 
-    private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        return new TowerTransaction().buyTower(boardObjectType);
+    private ITower buyTower(BoardObjectType boardObject) throws Exception {
+        return new TowerTransaction().buyTower(boardObject);
     }
 
     /**
@@ -153,7 +153,7 @@ public class GameModel {
         ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
             listener.displayTowerStats(tower.getBoardObjectType().toString(), tower.getRange(), tower.getDamage(),
-                    TowerTransaction.getTowerSellPrice(tower.getBoardObjectType()));
+                    tower.getSellPrice());
         }
     }
 

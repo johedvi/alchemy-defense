@@ -1,20 +1,9 @@
 package ModelTest;
 
-import alchemydefense.Model.Board.Board;
-import alchemydefense.Model.Foe.ConcreteFoe;
-import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerFactory;
-import alchemydefense.Model.Towers.TowerPrices;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
-import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-
-import javax.sound.midi.SysexMessage;
 
 public class TowerTest {
 
