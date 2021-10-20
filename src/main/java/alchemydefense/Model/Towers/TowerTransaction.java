@@ -39,6 +39,7 @@ public class TowerTransaction {
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(BoardObjectType boardObjectType) {
+
         player.increaseGold(getTowerSellPrice(boardObjectType));
     }
 

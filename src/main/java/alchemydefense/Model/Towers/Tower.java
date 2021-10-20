@@ -14,6 +14,7 @@ public class Tower implements ITower {
     private final BoardObjectType boardObjectType;
     private final String filePath;
     private final AttackDamageSystem attackDamageSystem;
+    private final PriceSystem priceSystem;
 
 
 
@@ -21,14 +22,14 @@ public class Tower implements ITower {
      * Another constructor for class Tower
      * @param boardObjectType specific towerType of enum TowerType.
      * @param filePath Location for the image that resembles the Tower..
+     * @param priceSystem
 
      */
-    public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem) {
+    public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem, PriceSystem priceSystem) {
         this.boardObjectType = boardObjectType;
         this.filePath = filePath;
         this.attackDamageSystem = attackDamageSystem;
-
-
+        this.priceSystem = priceSystem;
     }
 
     @Override public BoardObjectType getBoardObjectType() { return this.boardObjectType; }
@@ -38,6 +39,10 @@ public class Tower implements ITower {
     @Override public int getRange() { return this.attackDamageSystem.getRange(); }
 
     @Override public int getDamage() { return this.attackDamageSystem.getDamage(); }
+
+    @Override public int getBuyPrice() { return this.priceSystem.getBuyPrice(); }
+
+    @Override public int getSellPrice() { return this.priceSystem.getSellPrice(); }
 
 
 

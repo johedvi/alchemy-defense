@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test;
 public class TowerControllerTest {
     static GameModel model;
     static TowerController towerController;
-    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", new AttackDamageSystem(2,20));
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", new AttackDamageSystem(2,20), priceSystem);
 
     @BeforeAll
     public static void beforeAll() {

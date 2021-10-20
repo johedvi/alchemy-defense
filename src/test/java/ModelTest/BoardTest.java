@@ -35,7 +35,7 @@ public class BoardTest {
     @Test
     public void testDamageFoes() {
         board.getCell(vec).addFoe(new ConcreteFoe());
-        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20)), new Vector(3,3));
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), priceSystem), new Vector(3,3));
         board.damageFoes();
 
         Assertions.assertEquals(80, board.getCell(vec).getFoe().getCurrentHP());
