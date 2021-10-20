@@ -1,6 +1,6 @@
 package alchemydefense.View;
 
-import alchemydefense.Controller.TowerController;
+import alchemydefense.Controller.ITowerController;
 import alchemydefense.Controller.ViewController;
 import alchemydefense.Model.Board.Board;
 import alchemydefense.Model.Board.BoardListener;
@@ -32,12 +32,12 @@ public class BoardView extends AnchorPane implements BoardListener {
     private final ImageView endGoalImage = new ImageView();
     private final ImageView borderImage = new ImageView();
 
-    private final TowerController towerController;
+    private final ITowerController towerController;
 
     private final ViewController viewController;
 
 
-    public BoardView(Group root, TowerController towerController, ViewController viewController, UserInterfaceView userInterfaceView) {
+    public BoardView(Group root, ITowerController towerController, ViewController viewController, UserInterfaceView userInterfaceView) {
         this.towerController = towerController;
         this.viewController = viewController;
 

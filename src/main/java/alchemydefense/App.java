@@ -2,6 +2,7 @@ package alchemydefense;
 
 import alchemydefense.Controller.TowerController;
 import alchemydefense.Controller.ViewController;
+import alchemydefense.Controller.WaveController;
 import alchemydefense.Model.GameModel;
 import alchemydefense.View.BoardView;
 import alchemydefense.View.InformationView;
@@ -36,26 +37,26 @@ public class App extends Application {
 
         int SCENE_WIDTH = 832;
         TowerController towerController = new TowerController(model);
+        WaveController waveController = new WaveController(model);
         InformationView informationView = new InformationView(SCENE_WIDTH);
         SelectedTowerView selectedTowerView = new SelectedTowerView(towerController);
 
         ViewController viewController = new ViewController(towerController, selectedTowerView);
 
-        model.addPlayerEventListener(informationView);
-        model.addWaveListener(informationView);
-        model.addTowerStatListener(selectedTowerView);
-
         int UNIT_IN_PIXELS = 64;
         int SCENE_HEIGHT = 468;
         UserInterfaceView userInterfaceView = new UserInterfaceView(SCENE_WIDTH, SCENE_HEIGHT - 6 * UNIT_IN_PIXELS, UNIT_IN_PIXELS,
-                informationView, towerController, selectedTowerView);
+                informationView, towerController, waveController, selectedTowerView);
 
         BoardView view = new BoardView(root, towerController, viewController, userInterfaceView);
+
+        model.addPlayerEventListener(informationView);
+        model.addWaveListener(informationView);
+        model.addTowerStatListener(selectedTowerView);
         model.addBoardListener(view);
         model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
-        //stage.setFullScreen(true);
         stage.show();
         gameUpdate();
         letterbox(scene, view);

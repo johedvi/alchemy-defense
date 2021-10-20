@@ -1,6 +1,6 @@
 package alchemydefense.View;
 
-import alchemydefense.Controller.TowerController;
+import alchemydefense.Controller.ITowerController;
 import alchemydefense.Model.Towers.TowerStatListener;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -19,7 +19,7 @@ public class SelectedTowerView extends Pane implements TowerStatListener {
     private final Label damageLabel;
     private final Label sellPriceLabel;
 
-    public SelectedTowerView(TowerController towerController) {
+    public SelectedTowerView(ITowerController towerController) {
         this.setPrefSize(150, 65);
         this.setLayoutX(25);
         this.setLayoutY(15);

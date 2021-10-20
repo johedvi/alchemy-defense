@@ -1,6 +1,6 @@
 package alchemydefense.Controller;
 
-import alchemydefense.Model.GameModel;
+import alchemydefense.Model.ITowerHandler;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
@@ -12,53 +12,61 @@ import alchemydefense.Utility.Vector;
  *
  * Date: 2021-09-26
  */
-public class TowerController {
+public class TowerController implements ITowerController {
 
     private boolean towerPressed = false;
 
-    private final GameModel model;
+    private final ITowerHandler towerHandler;
     private BoardObjectType activeTower = null;
 
     private Vector towerCell = null;
 
-    public TowerController(GameModel model) {
-        this.model = model;
+    public TowerController(ITowerHandler model) {
+        this.towerHandler = model;
     }
 
+    @Override
     public void createTower(Vector cell) {
-        this.model.placeTowerInCell(this.activeTower, cell);
+        this.towerHandler.placeTowerInCell(this.activeTower, cell);
     }
-
+    @Override
     public void setRedTowerActive() {
         this.activeTower = BoardObjectType.RED_TOWER;
     }
+    @Override
     public void setBlueTowerActive() {
         this.activeTower = BoardObjectType.BLUE_TOWER;
     }
+    @Override
     public void setGreenTowerActive() {
         this.activeTower = BoardObjectType.GREEN_TOWER;
     }
+    @Override
     public void setPurpleTowerActive() {
         this.activeTower = BoardObjectType.PURPLE_TOWER;
     }
+    @Override
     public BoardObjectType getActiveTower() { return this.activeTower; }
 
+    @Override
     public boolean isHoldingTower() {
         return this.activeTower != null;
     }
+    @Override
     public void setHoldingTowerFalse() {
         this.activeTower = null;
     }
+    @Override
+    public void sellTower() { this.towerHandler.sellTower(this.towerCell); }
 
-    public void sellTower() { this.model.sellTower(this.towerCell); }
-
+    @Override
     public void cellPressed(int GRID_WIDTH, int GRID_HEIGHT, int UNIT_IN_PIXELS, int x, int y) {
         int xCor = x / UNIT_IN_PIXELS;
         int yCor = (y / UNIT_IN_PIXELS) - 1;
         Vector cell = new Vector(xCor, yCor);
         if(xCor < GRID_WIDTH && yCor < GRID_HEIGHT) {
-            if(this.model.getBoardObjectInCell(cell) instanceof Tower) {
-                this.model.updateTowerStatListeners(cell);
+            if(this.towerHandler.getBoardObjectInCell(cell) instanceof Tower) {
+                this.towerHandler.updateTowerStatListeners(cell);
                 this.towerCell = cell;
                 this.towerPressed = true;
             }
@@ -72,7 +80,6 @@ public class TowerController {
         }
     }
 
-    public void startNewWave() { this.model.startNewWave(); }
-
+    @Override
     public boolean isTowerPressed() { return this.towerPressed; }
 }

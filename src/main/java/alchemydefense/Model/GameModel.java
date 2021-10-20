@@ -23,7 +23,7 @@ import java.util.HashSet;
  *
  * @author Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
-public class GameModel {
+public class GameModel implements ITowerHandler, IWaveHandler {
     private final Board board;
     private final Player currentPlayer;
 
@@ -81,6 +81,7 @@ public class GameModel {
      * @param boardObjectType tower type to construct.
      * @param point tile coordinate to place the tower in.
      */
+    @Override
     public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
             ITower tower = buyTower(boardObjectType);
@@ -101,6 +102,7 @@ public class GameModel {
      * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
      * @param point tile position of the tower.
      */
+    @Override
     public void sellTower(Vector point) {
         BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
         board.removeTower(point);
@@ -108,6 +110,7 @@ public class GameModel {
     }
 
     // ------- Handling of BoardObjects -------
+    @Override
     public BoardObject getBoardObjectInCell(Vector point){
         return board.getBoardObject(point);
     }
@@ -117,6 +120,7 @@ public class GameModel {
     }
 
     // ------- Wave methods -------
+    @Override
     public void startNewWave() {
         if(isWaveOver()) {
 
@@ -145,8 +149,10 @@ public class GameModel {
     }
 
     // ------- TowerStatListener -------
+    @Override
     public void addTowerStatListener(TowerStatListener tsl) { this.towerStatListeners.add(tsl); }
 
+    @Override
     public void updateTowerStatListeners(Vector cell) {
         ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
