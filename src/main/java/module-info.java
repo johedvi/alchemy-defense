@@ -3,7 +3,6 @@ module alchemydefense {
     requires java.datatransfer;
     requires java.desktop;
 
-    opens alchemydefense to javafx.fxml;
     exports alchemydefense;
     exports alchemydefense.Model;
     exports alchemydefense.Model.Board.Grid;
