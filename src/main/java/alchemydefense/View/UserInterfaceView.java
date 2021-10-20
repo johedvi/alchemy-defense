@@ -1,6 +1,7 @@
 package alchemydefense.View;
 
-import alchemydefense.Controller.TowerController;
+import alchemydefense.Controller.ITowerController;
+import alchemydefense.Controller.IWaveController;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -28,7 +29,7 @@ public class UserInterfaceView extends Pane {
     ImageView PlayButton = new ImageView(play);
 
     public UserInterfaceView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView,
-                             TowerController towerController, SelectedTowerView selectedTowerView) {
+                             ITowerController towerController, IWaveController waveController, SelectedTowerView selectedTowerView) {
 
         this.selectedTowerView = selectedTowerView;
 
@@ -102,7 +103,7 @@ public class UserInterfaceView extends Pane {
         newWaveButton.setGraphic(PlayButton);
         newWaveButton.setFocusTraversable(false);
         newWaveButton.setOnMouseClicked(e -> {
-            towerController.startNewWave();
+            waveController.startNewWave();
         });
         this.getChildren().add(newWaveButton);
 
