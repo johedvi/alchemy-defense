@@ -3,7 +3,8 @@ package alchemydefense.View;
 import alchemydefense.Controller.ITowerController;
 import alchemydefense.Model.Towers.TowerStatListener;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 
 /**
  * A view that displays sell / buy / uppgrade cost when you select a Tower.
@@ -21,9 +22,11 @@ public class SelectedTowerView extends Pane implements TowerStatListener {
 
     public SelectedTowerView(ITowerController towerController) {
         this.setPrefSize(150, 65);
-        this.setLayoutX(25);
-        this.setLayoutY(15);
-        this.setStyle("-fx-background-color: white");
+        this.setLayoutX(445);
+        this.setLayoutY(10);
+        this.setStyle("-fx-background-color: lightgray");
+        this.setBorder(new Border(new BorderStroke(Color.BLACK,
+                BorderStrokeStyle.SOLID, CornerRadii.EMPTY, BorderWidths.DEFAULT)));
 
         this.towerTypeLabel = new Label();
         this.towerTypeLabel.setLayoutX(10);

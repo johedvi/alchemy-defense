@@ -41,7 +41,7 @@ public class UserInterfaceView extends Pane {
         javafx.scene.control.Button redTowerButton = new javafx.scene.control.Button("Red Tower");
         redTowerButton.setMaxSize(100, 200);
         redTowerButton.setPrefHeight(50);
-        redTowerButton.setPrefWidth(100);
+        redTowerButton.setPrefWidth(90);
         redTowerButton.setLayoutX(scene_width / 2 - 400);
         redTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         redTowerButton.setContentDisplay(ContentDisplay.TOP);
@@ -55,8 +55,8 @@ public class UserInterfaceView extends Pane {
         javafx.scene.control.Button blueTowerButton = new javafx.scene.control.Button("Blue Tower");
         blueTowerButton.setMaxSize(100, 200);
         blueTowerButton.setPrefHeight(50);
-        blueTowerButton.setPrefWidth(100);
-        blueTowerButton.setLayoutX(scene_width / 2 - 280);
+        blueTowerButton.setPrefWidth(90);
+        blueTowerButton.setLayoutX(scene_width / 2 - 290);
         blueTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         blueTowerButton.setContentDisplay(ContentDisplay.TOP);
         blueTowerButton.setFocusTraversable(false);
@@ -69,8 +69,8 @@ public class UserInterfaceView extends Pane {
         javafx.scene.control.Button greenTowerButton = new javafx.scene.control.Button("Green Tower");
         greenTowerButton.setMaxSize(100, 200);
         greenTowerButton.setPrefHeight(50);
-        greenTowerButton.setPrefWidth(100);
-        greenTowerButton.setLayoutX(scene_width / 2 - 160);
+        greenTowerButton.setPrefWidth(90);
+        greenTowerButton.setLayoutX(scene_width / 2 - 180);
         greenTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         greenTowerButton.setContentDisplay(ContentDisplay.TOP);
         greenTowerButton.setFocusTraversable(false);
@@ -83,8 +83,8 @@ public class UserInterfaceView extends Pane {
         javafx.scene.control.Button purpleTowerButton = new javafx.scene.control.Button("Purple Tower");
         purpleTowerButton.setMaxSize(100, 200);
         purpleTowerButton.setPrefHeight(50);
-        purpleTowerButton.setPrefWidth(100);
-        purpleTowerButton.setLayoutX(scene_width / 2 - 40);
+        purpleTowerButton.setPrefWidth(90);
+        purpleTowerButton.setLayoutX(scene_width / 2 - 70);
         purpleTowerButton.setLayoutY(unit_in_pixel - 3 * unit_in_pixel / 4);
         purpleTowerButton.setContentDisplay(ContentDisplay.TOP);
         purpleTowerButton.setFocusTraversable(false);
@@ -94,11 +94,11 @@ public class UserInterfaceView extends Pane {
         purpleTowerButton.setGraphic(purpleCrystal);
         this.getChildren().add(purpleTowerButton);
 
-        javafx.scene.control.Button newWaveButton = new javafx.scene.control.Button("Start new wave");
+        javafx.scene.control.Button newWaveButton = new javafx.scene.control.Button("Play");
         newWaveButton.setMaxSize(100, 200);
-        newWaveButton.setPrefSize(100,50);
-        newWaveButton.setLayoutX(scene_width / 2 + 100);
-        newWaveButton.setLayoutY(unit_in_pixel - 3* unit_in_pixel / 4);
+        newWaveButton.setPrefSize(50,50);
+        newWaveButton.setLayoutX(scene_width / 2 + 350);
+        newWaveButton.setLayoutY(15);
         newWaveButton.setContentDisplay(ContentDisplay.TOP);
         newWaveButton.setGraphic(PlayButton);
         newWaveButton.setFocusTraversable(false);
