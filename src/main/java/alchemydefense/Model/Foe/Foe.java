@@ -11,7 +11,4 @@ import alchemydefense.Model.Board.BoardObject;
  * Date: 2021-09-14
  */
 public interface Foe extends Health, BoardObject {
-    void setUpdateFlag(boolean b);
-
-    boolean hasBeenUpdated();
 }

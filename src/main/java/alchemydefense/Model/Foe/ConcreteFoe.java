@@ -34,7 +34,7 @@ public class ConcreteFoe implements BoardObject, Foe {
      * @param damageCount Represents how much damage that shall be taken
      */
     @Override
-    public void takeDamage(int damageCount) { setCurrentHP(getCurrentHP() - damageCount); }
+    public void takeDamage(int damageCount) { setCurrentHP(currentHP - damageCount); }
 
     @Override
     public String getImageFilePath() { return imageFilePath; }
@@ -62,19 +62,6 @@ public class ConcreteFoe implements BoardObject, Foe {
     @Override
     public String toString(){
         return "ConcreteFoe";
-    }
-
-
-    //TEMPORARY CODE UNTIL BETTER FIX
-    boolean updated = false;
-    @Override
-    public void setUpdateFlag(boolean b) {
-        updated = b;
-    }
-
-    @Override
-    public boolean hasBeenUpdated() {
-        return updated;
     }
 
     @Override

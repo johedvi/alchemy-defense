@@ -44,9 +44,9 @@ public class GridTest {
     }
     @Test
     public void testCellsInRange() {
-        Assertions.assertEquals(0,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
+        Assertions.assertEquals(0,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
         board.placeTower(new RedTower(), new Vector(2,2));
-        Assertions.assertEquals(12,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
+        Assertions.assertEquals(12,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
     }
 
     @Test
@@ -82,6 +82,6 @@ public class GridTest {
         Vector test = new Vector(1,1);
 
         grid.addFoe(new ConcreteFoe(), test);
-        Assertions.assertTrue(grid.getCell(test).hasFoe());
+        Assertions.assertTrue(grid.getTile(test).hasFoe());
     }
 }
