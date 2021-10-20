@@ -64,9 +64,9 @@ public class ConcreteBoard implements Board {
         }
     }
 
-    private void damageFoe(Tile cellTower, Tile cellFoe) {
-        int damage = cellTower.getTower().getDamage();
-        cellFoe.getFoe().takeDamage(damage);
+    private void damageFoe(Tile tileWithTower, Tile tileWithFoe) {
+        int damage = tileWithTower.getTowerDamage();
+        tileWithFoe.dealDamageToFoe(damage);
     }
 
     private void removeFoe(Tile tile) {

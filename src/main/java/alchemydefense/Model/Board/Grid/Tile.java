@@ -51,9 +51,6 @@ public class Tile {
         return isOccupiedByTower;
     }
 
-    public Vector getCellCoordinate(){
-        return cellCoordinate;
-    }
     public boolean isUpdated() { return updated; }
 
     public BoardObject getBoardObject(){
@@ -69,8 +66,13 @@ public class Tile {
     public ITower getTower(){
         return tower;
     }
+
     public Foe getFoe(){
         return foe;
+    }
+
+    public void dealDamageToFoe(int dmg){
+        foe.takeDamage(dmg);
     }
 
     /**
@@ -92,6 +94,9 @@ public class Tile {
         isOccupiedByTower = false;
     }
 
+    public int getTowerDamage(){
+        return tower.getDamage();
+    }
 
 
     /**
