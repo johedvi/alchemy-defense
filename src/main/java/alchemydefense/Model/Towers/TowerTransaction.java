@@ -20,13 +20,11 @@ public class TowerTransaction {
 
     /**
      * Buys the specific tower type and decreases players gold.
-     * @param boardObjectType the type of tower that should be bought.
      * @return specific towerType created from TowerFactory.
      * @throws Exception "Not enough gold"
      */
-    public ITower buyTower(BoardObjectType boardObjectType) throws Exception {
+    public ITower buyTower(ITower tower) throws Exception {
 
-        ITower tower = TowerFactory.createTower(boardObjectType); //TODO: Bättre lösning
         int price = tower.getBuyPrice();
 
         if(player.canAfford(price)) {
@@ -41,9 +39,11 @@ public class TowerTransaction {
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(BoardObjectType boardObjectType) {
+
         ITower tower = TowerFactory.createTower(boardObjectType); //TODO: Bättre lösning
 
         int price = tower.getSellPrice();
+
         player.increaseGold(price);
     }
 
