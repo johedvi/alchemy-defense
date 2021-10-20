@@ -4,22 +4,9 @@
   <img src="https://user-images.githubusercontent.com/66305341/132998966-2b1598f3-ed3f-4aae-a48e-28b829253a59.gif"  alt="Full Example"/>
 </p>
 
-<!-- TABLE OF CONTENTS -->
-<h2 id="table-of-contents"> :book: Table of Contents</h2>
-
-<details open="open">
-  <summary>Table of Contents</summary>
-  <ol>
-    <li><a href="#overview"> ➤ Overview</a></li>
-    <li><a href="#project-files-description"> ➤ Project Files Description</a></li>
-    <li><a href="#getting-started"> ➤ Getting Started</a></li>
-    <li><a href="#links"> ➤ Links</a></li>
-    <li><a href="#credits"> ➤ Credits</a></li>
-  </ol>
-</details>
 
 <!-- OVERVIEW -->
-<h2 id="overview"> :cloud: Overview</h2>
+<h2 id="overview"> :book: Overview</h2>
 
 <p align="justify"> 
 Alchemy Defense is a tower defense game prototype that utilies dynamic pathfinding. It's currently only a rudimentary prototype of the core gameplay and has no further plan on being developed. 
