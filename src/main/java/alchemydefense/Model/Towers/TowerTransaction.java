@@ -26,7 +26,7 @@ public class TowerTransaction {
      */
     public ITower buyTower(BoardObjectType boardObjectType) throws Exception {
 
-        ITower tower = TowerFactory.createTower(boardObjectType);
+        ITower tower = TowerFactory.createTower(boardObjectType); //TODO: Bättre lösning
         int price = tower.getBuyPrice();
 
         if(player.canAfford(price)) {
@@ -41,7 +41,8 @@ public class TowerTransaction {
      * @param boardObjectType the type of tower that should be sold.
      */
     public void sellTower(BoardObjectType boardObjectType) {
-        ITower tower = TowerFactory.createTower(boardObjectType);
+        ITower tower = TowerFactory.createTower(boardObjectType); //TODO: Bättre lösning
+
         int price = tower.getSellPrice();
         player.increaseGold(price);
     }
