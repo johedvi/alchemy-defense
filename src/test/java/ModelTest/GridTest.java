@@ -5,7 +5,7 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;

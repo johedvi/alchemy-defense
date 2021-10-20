@@ -1,7 +1,6 @@
 package alchemydefense.Model.Towers;
 
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Utility.BoardObjectType;
 
 /**

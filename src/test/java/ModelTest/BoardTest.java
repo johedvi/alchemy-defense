@@ -6,7 +6,7 @@ import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerFactory;
-import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.BeforeAll;

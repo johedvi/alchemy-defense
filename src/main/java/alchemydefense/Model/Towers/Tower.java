@@ -1,4 +1,4 @@
-package alchemydefense.Model.Towers.TowerHierarchy;
+package alchemydefense.Model.Towers;
 import alchemydefense.Utility.BoardObjectType;
 
 
