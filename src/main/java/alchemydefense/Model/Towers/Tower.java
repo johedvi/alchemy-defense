@@ -20,9 +20,7 @@ public class Tower implements ITower {
     /**
      * Another constructor for class Tower
      * @param boardObjectType specific towerType of enum TowerType.
-     * @param filePath Location for the image that resembles the Tower.
-     * @param range range value for the specific tower.
-     * @param damage damage value for the specific tower.
+     * @param filePath Location for the image that resembles the Tower..
 
      */
     public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem) {
