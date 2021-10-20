@@ -100,7 +100,7 @@ public class Tile {
      * @return an ArrayList of all other PositionalCells within range of this PositionalCells tower.
      */
 
-    public ArrayList<Tile> getPositionalCellsWithinRange(Board board){
+    public ArrayList<Tile> getTilesInRange(Board board){
         ArrayList<Tile> cellsInRange = new ArrayList<>();
 
         if(tower == null || tower.getRange() == 0){
@@ -133,7 +133,7 @@ public class Tile {
         Vector currentCellPosition = new Vector(cellCoordinate.x + x, cellCoordinate.y + y);
         if(currentCellPosition.x >= 0 && currentCellPosition.x < board.getBoardWidth() &&
                 currentCellPosition.y >= 0 && currentCellPosition.y < board.getBoardHeight()){
-            cellsInRange.add(board.getCell(currentCellPosition));
+            cellsInRange.add(board.getTile(currentCellPosition));
         }
     }
 

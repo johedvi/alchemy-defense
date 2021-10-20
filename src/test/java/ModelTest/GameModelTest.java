@@ -29,7 +29,7 @@ public class GameModelTest {
         boolean foeCreated = false;
 
         for (int i = 0; i < board.getBoardHeight(); i++) {
-            foeCreated = foeCreated || board.getCell(new Vector(0,i)).hasFoe();
+            foeCreated = foeCreated || board.getTile(new Vector(0,i)).hasFoe();
         }
 
         Assertions.assertTrue(foeCreated);

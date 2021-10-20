@@ -25,25 +25,25 @@ public class BoardTest {
 
     @Test
     public void testMoveFoe() {
-        board.getCell(vec).addFoe(new ConcreteFoe());
+        board.getTile(vec).addFoe(new ConcreteFoe());
         board.updateFoes();
-        Assertions.assertTrue(board.getCell(new Vector(3,2)).hasFoe());
+        Assertions.assertTrue(board.getTile(new Vector(3,2)).hasFoe());
     }
 
     @Test
     public void testDamageFoes() {
-        board.getCell(vec).addFoe(new ConcreteFoe());
+        board.getTile(vec).addFoe(new ConcreteFoe());
         board.placeTower(new RedTower(), new Vector(3,3));
         board.damageFoes();
 
-        Assertions.assertEquals(90, board.getCell(vec).getFoe().getCurrentHP());
+        Assertions.assertEquals(90, board.getTile(vec).getFoe().getCurrentHP());
         int expectedGold = player.getGold() + 10;
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {
             board.damageFoes();
         }
         Assertions.assertEquals(expectedGold, player.getGold());
-        Assertions.assertFalse(board.getCell(vec).hasFoe());
+        Assertions.assertFalse(board.getTile(vec).hasFoe());
     }
 
     @Test
@@ -51,14 +51,14 @@ public class BoardTest {
         board.addFoe(new ConcreteFoe());
         boolean foeCreated = false;
         for (int i = 0; i < board.getBoardHeight(); i++)
-            foeCreated = foeCreated || board.getCell(new Vector(0,i)).hasFoe();
+            foeCreated = foeCreated || board.getTile(new Vector(0,i)).hasFoe();
         Assertions.assertTrue(foeCreated);
     }
 
     @Test
     public void testFoeReachedEnd() {
         GameModel model = new GameModel(12, 5);
-        model.getBoard().getCell(new Vector(11,2)).addFoe(new ConcreteFoe());
+        model.getBoard().getTile(new Vector(11,2)).addFoe(new ConcreteFoe());
         int expectedHP = player.getHp() - 1;
         model.startNewWave();
         model.modelUpdate();

@@ -20,7 +20,7 @@ import java.util.List;
  * @author Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt
  */
 public class ConcreteBoard implements Board {
-    private final ArrayList<Tile> cellsWithTowers = new ArrayList<>();
+    private final ArrayList<Tile> tilesWithTowers = new ArrayList<>();
 
     private final Pathfinder pathfinder;
     private final GraphManager graphManager;
@@ -52,13 +52,13 @@ public class ConcreteBoard implements Board {
 
 
     public void damageFoes(){
-        for(Tile cell : cellsWithTowers){
-            ArrayList<Tile> cellsInRange = cell.getPositionalCellsWithinRange(this);
-            for(Tile cellInRange : cellsInRange){
-                if(cellInRange.hasFoe()){
-                    damageFoe(cell, cellInRange);
-                    if(!cellInRange.getFoe().isAlive())
-                        removeFoe(cellInRange);
+        for(Tile tile : tilesWithTowers){
+            ArrayList<Tile> tilesInRange = tile.getTilesInRange(this);
+            for(Tile tileInRange : tilesInRange){
+                if(tileInRange.hasFoe()){
+                    damageFoe(tile, tileInRange);
+                    if(!tileInRange.getFoe().isAlive())
+                        removeFoe(tileInRange);
                 }
             }
         }
@@ -69,8 +69,8 @@ public class ConcreteBoard implements Board {
         cellFoe.getFoe().takeDamage(damage);
     }
 
-    private void removeFoe(Tile cell) {
-        cell.removeFoe();
+    private void removeFoe(Tile tile) {
+        tile.removeFoe();
         currentPlayer.increaseGold(5);
     }
 
@@ -79,25 +79,25 @@ public class ConcreteBoard implements Board {
     }
 
     @Override
-    public ITower getTower(Vector cell) { return tileGrid.getTower(cell); }
+    public ITower getTower(Vector tile) { return tileGrid.getTower(tile); }
 
-    public Tile getCell(Vector point){
-        return tileGrid.getCell(point);
+    public Tile getTile(Vector point){
+        return tileGrid.getTile(point);
     }
 
     @Override
-    public void placeTower(ITower tower, Vector cellCoordinate) {
-        if(cellCoordinate.x == endGoalX && cellCoordinate.y == endGoalY){
+    public void placeTower(ITower tower, Vector tileCoordinate) {
+        if(tileCoordinate.x == endGoalX && tileCoordinate.y == endGoalY){
             return;
         }
-        if(!pathfinder.blocksPath(cellCoordinate) && tileGrid.addTower(tower, cellCoordinate)){
-            cellsWithTowers.add(tileGrid.getCell(cellCoordinate));
-            graphManager.blockPathNode(new Vector(cellCoordinate.x, cellCoordinate.y));
+        if(!pathfinder.blocksPath(tileCoordinate) && tileGrid.addTower(tower, tileCoordinate)){
+            tilesWithTowers.add(tileGrid.getTile(tileCoordinate));
+            graphManager.blockPathNode(new Vector(tileCoordinate.x, tileCoordinate.y));
         }
     }
 
     public void removeTower(Vector point) {
-        cellsWithTowers.remove(tileGrid.getCell(point));
+        tilesWithTowers.remove(tileGrid.getTile(point));
         tileGrid.remove(point);
         graphManager.unblockPathNode(point);
     }
@@ -125,23 +125,22 @@ public class ConcreteBoard implements Board {
     }
 
     public void foeReachedEnd() {
-        Tile[][] cellGrid = tileGrid.getGrid();
-        if(cellGrid[endGoalX][endGoalY].hasFoe()) {
-            cellGrid[endGoalX][endGoalY].removeFoe();
+        Tile[][] grid = tileGrid.getGrid();
+        if(grid[endGoalX][endGoalY].hasFoe()) {
+            grid[endGoalX][endGoalY].removeFoe();
             currentPlayer.decreaseOneHp();
-
         }
 
     }
 
     //NEEDS DOCS AND REFINEMENT, CAN MAKE SHORTER BY CREATING NEW METHODS IN CLASSES THAT'S BEING CALLED?
     public void moveFoes(){
-        Tile[][] cellGrid = tileGrid.getGrid();
+        Tile[][] grid = tileGrid.getGrid();
         ArrayList<Foe> foeList = new ArrayList<>();
-        for(int i=0; i< cellGrid.length; i++) {
-            for(int j=0; j< cellGrid[i].length; j++) {
-                if(cellGrid[i][j].hasFoe() && !((i==11) && (j==2)) && !cellGrid[i][j].getFoe().hasBeenUpdated()){
-                    Foe foe = cellGrid[i][j].removeFoe();
+        for(int i=0; i< grid.length; i++) {
+            for(int j=0; j< grid[i].length; j++) {
+                if(grid[i][j].hasFoe() && !((i==11) && (j==2)) && !grid[i][j].getFoe().hasBeenUpdated()){
+                    Foe foe = grid[i][j].removeFoe();
                     foeList.add(foe);
                     List<PathNode> path = null;
                     try {

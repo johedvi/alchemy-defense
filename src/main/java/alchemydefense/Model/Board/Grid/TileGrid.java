@@ -67,7 +67,7 @@ public class TileGrid {
         }
     }
 
-    public Tile getCell(Vector cell){
+    public Tile getTile(Vector cell){
         return tiles[cell.x][cell.y];
     }
 
