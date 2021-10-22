@@ -12,8 +12,6 @@ import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Foe.Wave;
 import alchemydefense.Model.Foe.WaveListener;
 
-import alchemydefense.Model.Towers.ITower;
-
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 

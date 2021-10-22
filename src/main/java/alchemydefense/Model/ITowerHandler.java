@@ -1,7 +1,6 @@
 package alchemydefense.Model;
 
 import alchemydefense.Model.Board.BoardObject;
-import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerStatListener;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
