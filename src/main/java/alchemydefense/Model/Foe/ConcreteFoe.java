@@ -17,7 +17,7 @@ import alchemydefense.Utility.BoardObjectType;
  * Date: 2021-09-20, By Valdemar; Changed method takeDamage to void and added method boolean isAlive instead.
  *
  */
-public class ConcreteFoe implements BoardObject, Foe {
+public class ConcreteFoe implements Foe {
     private final int MAX_HP = 100;
     private int currentHP;
     private final String imageFilePath = "/foe.png";
