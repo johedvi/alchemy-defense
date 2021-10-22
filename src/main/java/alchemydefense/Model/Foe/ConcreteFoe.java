@@ -1,6 +1,5 @@
 package alchemydefense.Model.Foe;
 
-import alchemydefense.Model.Board.BoardObject;
 import alchemydefense.Utility.BoardObjectType;
 
 /**

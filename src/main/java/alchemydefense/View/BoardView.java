@@ -33,7 +33,6 @@ public class BoardView extends AnchorPane implements BoardListener {
     private final ImageView borderImage = new ImageView();
 
     private final ITowerController towerController;
-
     private final IViewController viewController;
 
 
