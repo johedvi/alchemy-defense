@@ -1,7 +1,6 @@
 package alchemydefense.Model.Towers;
 
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Utility.BoardObjectType;
 
 /**
  * Class representing the logic behind buying and selling a specific tower.

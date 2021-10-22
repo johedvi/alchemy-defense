@@ -3,9 +3,6 @@ package alchemydefense.Controller;
 
 import alchemydefense.Model.ITowerHandler;
 
-
-import alchemydefense.Model.GameModel;
-import alchemydefense.Model.Towers.ITower;
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
