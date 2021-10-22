@@ -11,7 +11,7 @@ import alchemydefense.View.SelectedTowerView;
  */
 public class ViewController implements IViewController {
 
-    private final TowerController towerController;
+    private final ITowerController towerController;
     private final SelectedTowerView selectedTowerView;
 
     public ViewController(TowerController towerController, SelectedTowerView selectedTowerView) {
