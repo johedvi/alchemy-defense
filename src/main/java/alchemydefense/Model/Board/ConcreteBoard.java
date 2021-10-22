@@ -104,7 +104,7 @@ public class ConcreteBoard implements Board {
     }
 
     private boolean isEndCoordinate(Vector vector){
-        return (vector.x == endGoalX && vector.y == endGoalY);
+        return vector.x == endGoalX && vector.y == endGoalY;
     }
 
     public void removeTower(Vector point) {
@@ -151,7 +151,7 @@ public class ConcreteBoard implements Board {
         HashMap<Vector, Foe> foes = new HashMap<>();
         for (int i = 0; i < grid.length; i++) {
             for (int j = 0; j < grid[i].length; j++) {
-                if (grid[i][j].hasFoe() && !((i == endGoalX) && (j == endGoalY))) {
+                if (grid[i][j].hasFoe() && !(i == endGoalX && j == endGoalY)) {
                     Foe foe = grid[i][j].removeFoe();
                     foes.put(new Vector(i, j), foe);
                 }
