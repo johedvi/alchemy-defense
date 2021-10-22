@@ -1,11 +1,9 @@
 package ModelTest;
 
-<<<<<<< HEAD
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
-=======
+
 import alchemydefense.Model.Towers.ITower;
->>>>>>> towerRefactor
 import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
@@ -14,41 +12,24 @@ import org.junit.jupiter.api.Test;
 
 public class TowerTest {
 
-<<<<<<< HEAD
+
     private static GameModel gameModel;
-    private static Vector testPoint;
-    private static BlueTower blueTower;
-    private static RedTower redTower;
-    private static GreenTower greenTower;
-    private static PurpleTower purpleTower;
     private static Player player;
 
 
     @BeforeAll
     public static void setTowers(){
-        blueTower = new BlueTower();
-        redTower = new RedTower();
-        greenTower = new GreenTower();
-        purpleTower = new PurpleTower();
         player = new Player(100, 100);
     }
 
     @BeforeAll
     public static void setGameModel() {
-        gameModel = new GameModel(12,5);
-=======
->>>>>>> towerRefactor
+        gameModel = new GameModel(12, 5);
 
-
-
-
-
-<<<<<<< HEAD
         player.increaseGold(800);
-=======
->>>>>>> towerRefactor
 
 
+    }
 
 
 
@@ -56,11 +37,9 @@ public class TowerTest {
     public void testBuyTowerFail() {
         ITower tower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
         Throwable exception = Assertions.assertThrows(Exception.class, () -> {
-<<<<<<< HEAD
-                TowerTransaction.buyTower(player, BoardObjectType.PURPLE_TOWER); });
-=======
-                new TowerTransaction().buyTower(tower); });
->>>>>>> towerRefactor
+
+                 TowerTransaction.buyTower(tower,player); });
+
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }

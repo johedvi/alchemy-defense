@@ -5,14 +5,11 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
-<<<<<<< HEAD
+
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
-=======
 import alchemydefense.Model.Towers.AttackDamageSystem;
 import alchemydefense.Model.Towers.PriceSystem;
 import alchemydefense.Model.Towers.Tower;
->>>>>>> towerRefactor
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -54,15 +51,11 @@ public class GridTest {
     }
     @Test
     public void testCellsInRange() {
-<<<<<<< HEAD
+
         Assertions.assertEquals(0,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
-        board.placeTower(new RedTower(), new Vector(2,2));
-        Assertions.assertEquals(12,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
-=======
-        Assertions.assertEquals(0,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
         board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)), new Vector(2,2));
-        Assertions.assertEquals(12,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
->>>>>>> towerRefactor
+        Assertions.assertEquals(12,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
+
     }
 
     @Test

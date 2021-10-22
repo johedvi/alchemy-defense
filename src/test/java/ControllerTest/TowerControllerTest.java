@@ -64,13 +64,12 @@ public class TowerControllerTest {
     @Test
     public void testSellTower() {
         model.placeTowerInCell(BoardObjectType.RED_TOWER, new Vector(2,2));
-<<<<<<< HEAD
-        Assertions.assertEquals(RedTower.class, model.getBoardObjectInCell(new Vector(2,2)).getClass());
+
         towerController.cellPressed(12, 5, 64, 160, 220);
-=======
+
         Assertions.assertEquals(testTower.getClass(), model.getBoardObjectInCell(new Vector(2,2)).getClass());
-        towerController.cellPressed(new Vector(2,2));
->>>>>>> towerRefactor
+        towerController.cellPressed(12, 5, 64, 160, 220);
+
         towerController.sellTower();
         Assertions.assertNull(model.getBoardObjectInCell(new Vector(2,2)));
     }

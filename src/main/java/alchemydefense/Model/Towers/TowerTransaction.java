@@ -12,6 +12,9 @@ import alchemydefense.Utility.BoardObjectType;
  */
 public class TowerTransaction {
 
+
+
+
     /**
      * Private constructor to prevent instantiation of class.
      */
@@ -22,22 +25,14 @@ public class TowerTransaction {
     /**
      * Buys the specific tower type and decreases players gold.
 <<<<<<< HEAD
-     * @param player the player that makes the transaction.
-     * @param boardObjectType the type of tower that should be bought.
      * @return specific towerType created from TowerFactory.
      * @throws Exception "Not enough gold"
      */
-    public static ITower buyTower(Player player, BoardObjectType boardObjectType) throws Exception {
-        int price = TowerPrices.getBuyPrice(boardObjectType);
-=======
-     * @return specific towerType created from TowerFactory.
-     * @throws Exception "Not enough gold"
-     */
-    public ITower buyTower(ITower tower) throws Exception {
+
+    public static ITower buyTower(ITower tower, Player player) throws Exception {
 
         int price = tower.getBuyPrice();
 
->>>>>>> towerRefactor
         if(player.canAfford(price)) {
             player.pay(price);
             return tower;
@@ -48,20 +43,17 @@ public class TowerTransaction {
     /**
      * Sells specific towerType and increases players gold.
 <<<<<<< HEAD
-     * @param player the player that makes the transaction.
-     * @param boardObjectType the type of tower that should be sold.
-     */
-    public static void sellTower(Player player, BoardObjectType boardObjectType) {
-        player.increaseGold(TowerPrices.getSellPrice(boardObjectType));
-=======
 
      */
-    public void sellTower(ITower tower) {
+
+    public static void sellTower(ITower tower, Player player) {
 
         int price = tower.getSellPrice();
 
+
+
         player.increaseGold(price);
->>>>>>> towerRefactor
+
     }
 
 

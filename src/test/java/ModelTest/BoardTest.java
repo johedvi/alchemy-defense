@@ -37,21 +37,16 @@ public class BoardTest {
 
     @Test
     public void testDamageFoes() {
-<<<<<<< HEAD
+
         board.getTile(vec).addFoe(new ConcreteFoe());
-        board.placeTower(new RedTower(), new Vector(3,3));
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)),  new Vector(3,3));
         board.damageFoes();
 
         Assertions.assertEquals(90, board.getTile(vec).getFoe().getCurrentHP());
         int expectedGold = player.getGold() + 10;
-=======
-        board.getCell(vec).addFoe(new ConcreteFoe());
-        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)),  new Vector(3,3));
-        board.damageFoes();
 
-        Assertions.assertEquals(80, board.getCell(vec).getFoe().getCurrentHP());
-        int expectedGold = Player.getPlayer().getGold() + 10;
->>>>>>> towerRefactor
+
+
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {
             board.damageFoes();

@@ -8,15 +8,12 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
-<<<<<<< HEAD
-import alchemydefense.Model.Towers.TowerHierarchy.ITower;
+
 import alchemydefense.Model.Foe.Wave;
 import alchemydefense.Model.Foe.WaveListener;
-=======
+
 import alchemydefense.Model.Towers.ITower;
-import alchemydefense.Model.Wave.Wave;
-import alchemydefense.Model.Wave.WaveListener;
->>>>>>> towerRefactor
+
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
@@ -91,7 +88,7 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
              ITower tower = createTower(boardObjectType);
-             buyTower(tower);
+             buyTower(tower, currentPlayer);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -103,14 +100,10 @@ public class GameModel implements ITowerHandler, IWaveHandler {
         return TowerFactory.createTower(boardObjectType);
     }
 
-<<<<<<< HEAD
 
-    private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
-        return TowerTransaction.buyTower(this.currentPlayer, boardObjectType);
-=======
-    private ITower buyTower(ITower tower) throws Exception {
-        return new TowerTransaction().buyTower(tower);
->>>>>>> towerRefactor
+    private ITower buyTower(ITower tower, Player currentPlayer) throws Exception {
+        return TowerTransaction.buyTower(tower, currentPlayer);
+
     }
 
     /**
@@ -121,11 +114,9 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     public void sellTower(Vector point) {
         ITower tower = board.getTower(point);
         board.removeTower(point);
-<<<<<<< HEAD
-        TowerTransaction.sellTower(this.currentPlayer, boardObjectType);
-=======
-        new TowerTransaction().sellTower(tower);
->>>>>>> towerRefactor
+
+        TowerTransaction.sellTower(tower,currentPlayer);
+
     }
 
     // ------- Handling of BoardObjects -------
