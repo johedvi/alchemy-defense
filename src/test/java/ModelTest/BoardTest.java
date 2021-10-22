@@ -5,7 +5,11 @@ import alchemydefense.Model.Board.ConcreteBoard;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
-import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
+import alchemydefense.Model.Towers.AttackDamageSystem;
+import alchemydefense.Model.Towers.PriceSystem;
+import alchemydefense.Model.Towers.TowerFactory;
+import alchemydefense.Model.Towers.Tower;
+import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
@@ -15,6 +19,7 @@ public class BoardTest {
     static Player player;
     static Board board;
     static Vector vec;
+    static TowerFactory towerFactory;
 
     @BeforeAll
     public static void beforeAll() {
@@ -32,12 +37,21 @@ public class BoardTest {
 
     @Test
     public void testDamageFoes() {
+<<<<<<< HEAD
         board.getTile(vec).addFoe(new ConcreteFoe());
         board.placeTower(new RedTower(), new Vector(3,3));
         board.damageFoes();
 
         Assertions.assertEquals(90, board.getTile(vec).getFoe().getCurrentHP());
         int expectedGold = player.getGold() + 10;
+=======
+        board.getCell(vec).addFoe(new ConcreteFoe());
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)),  new Vector(3,3));
+        board.damageFoes();
+
+        Assertions.assertEquals(80, board.getCell(vec).getFoe().getCurrentHP());
+        int expectedGold = Player.getPlayer().getGold() + 10;
+>>>>>>> towerRefactor
         // Check that killing the foe works as intended
         for (int i = 0; i < 9; i++) {
             board.damageFoes();

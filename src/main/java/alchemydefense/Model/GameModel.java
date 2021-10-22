@@ -8,9 +8,15 @@ import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
+<<<<<<< HEAD
 import alchemydefense.Model.Towers.TowerHierarchy.ITower;
 import alchemydefense.Model.Foe.Wave;
 import alchemydefense.Model.Foe.WaveListener;
+=======
+import alchemydefense.Model.Towers.ITower;
+import alchemydefense.Model.Wave.Wave;
+import alchemydefense.Model.Wave.WaveListener;
+>>>>>>> towerRefactor
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
@@ -84,7 +90,8 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     @Override
     public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
-            ITower tower = buyTower(boardObjectType);
+             ITower tower = createTower(boardObjectType);
+             buyTower(tower);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -92,10 +99,18 @@ public class GameModel implements ITowerHandler, IWaveHandler {
         }
     }
 
+    public ITower createTower (BoardObjectType boardObjectType) {
+        return TowerFactory.createTower(boardObjectType);
+    }
 
+<<<<<<< HEAD
 
     private ITower buyTower(BoardObjectType boardObjectType) throws Exception {
         return TowerTransaction.buyTower(this.currentPlayer, boardObjectType);
+=======
+    private ITower buyTower(ITower tower) throws Exception {
+        return new TowerTransaction().buyTower(tower);
+>>>>>>> towerRefactor
     }
 
     /**
@@ -104,9 +119,13 @@ public class GameModel implements ITowerHandler, IWaveHandler {
      */
     @Override
     public void sellTower(Vector point) {
-        BoardObjectType boardObjectType = board.getBoardObject(point).getBoardObjectType();
+        ITower tower = board.getTower(point);
         board.removeTower(point);
+<<<<<<< HEAD
         TowerTransaction.sellTower(this.currentPlayer, boardObjectType);
+=======
+        new TowerTransaction().sellTower(tower);
+>>>>>>> towerRefactor
     }
 
     // ------- Handling of BoardObjects -------
@@ -156,8 +175,8 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     public void updateTowerStatListeners(Vector cell) {
         ITower tower = board.getTower(cell);
         for(TowerStatListener listener : towerStatListeners) {
-            listener.displayTowerStats(tower.toString(), tower.getRange(), tower.getDamage(),
-                    TowerPrices.getSellPrice(tower.getBoardObjectType()));
+            listener.displayTowerStats(tower.getBoardObjectType().toString(), tower.getRange(), tower.getDamage(),
+                    tower.getSellPrice());
         }
     }
 

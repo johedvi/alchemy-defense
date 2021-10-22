@@ -57,6 +57,10 @@ public class App extends Application {
         model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
+<<<<<<< HEAD
+=======
+       // stage.setFullScreen(true);
+>>>>>>> towerRefactor
         stage.show();
         gameUpdate();
         letterbox(scene, view);

@@ -9,7 +9,7 @@ import alchemydefense.Model.Board.Pathfinding.Pathfinder;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.TowerHierarchy.ITower;
+import alchemydefense.Model.Towers.ITower;
 import alchemydefense.Utility.Vector;
 
 import java.util.*;

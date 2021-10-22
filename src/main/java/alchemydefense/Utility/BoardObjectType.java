@@ -1,5 +1,7 @@
 package alchemydefense.Utility;
 
+import alchemydefense.Model.Towers.Tower;
+
 /**
  * Enum representing different board object types.
  *
@@ -25,4 +27,7 @@ public enum BoardObjectType {
         }
         return string;
     }
+
+
+
 }

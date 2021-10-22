@@ -1,7 +1,13 @@
 package alchemydefense.Controller;
 
+<<<<<<< HEAD
 import alchemydefense.Model.ITowerHandler;
 import alchemydefense.Model.Towers.TowerHierarchy.Tower;
+=======
+import alchemydefense.Model.GameModel;
+import alchemydefense.Model.Towers.ITower;
+import alchemydefense.Model.Towers.Tower;
+>>>>>>> towerRefactor
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 
@@ -27,7 +33,13 @@ public class TowerController implements ITowerController {
 
     @Override
     public void createTower(Vector cell) {
+<<<<<<< HEAD
         this.towerHandler.placeTowerInCell(this.activeTower, cell);
+=======
+
+        model.placeTowerInCell(activeTower, cell);
+
+>>>>>>> towerRefactor
     }
     @Override
     public void setRedTowerActive() {

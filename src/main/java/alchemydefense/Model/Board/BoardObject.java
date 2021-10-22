@@ -13,4 +13,6 @@ public interface BoardObject {
     String getImageFilePath();
 
     BoardObjectType getBoardObjectType();
+
+
 }

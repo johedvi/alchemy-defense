@@ -5,8 +5,14 @@ import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Board.Grid.TileGrid;
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.GameModel;
+<<<<<<< HEAD
 import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Towers.TowerHierarchy.RedTower;
+=======
+import alchemydefense.Model.Towers.AttackDamageSystem;
+import alchemydefense.Model.Towers.PriceSystem;
+import alchemydefense.Model.Towers.Tower;
+>>>>>>> towerRefactor
 import alchemydefense.Utility.BoardObjectType;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -19,6 +25,8 @@ public class GridTest {
     private static Player player;
     private static ConcreteBoard board;
     Vector testPoint;
+    Tower testTower = new Tower(BoardObjectType.RED_TOWER, "red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10));
+
 
     @BeforeAll
     public static void setGameModel(){
@@ -29,24 +37,32 @@ public class GridTest {
 
     @Test
     public void testPlaceTowerInCell(){
+
         testPoint = new Vector(1,1);
         gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(),testTower.getClass());
     }
 
     @Test
     public void testRemoveTowerFromCell(){
         testPoint = new Vector(3,3);
+
         gameModel.placeTowerInCell(BoardObjectType.RED_TOWER, testPoint);
-        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), RedTower.class);
+        Assertions.assertEquals(gameModel.getBoardObjectInCell(testPoint).getClass(), testTower.getClass());
         gameModel.removeBoardObjectInCell(testPoint);
         Assertions.assertNull(gameModel.getBoardObjectInCell(testPoint));
     }
     @Test
     public void testCellsInRange() {
+<<<<<<< HEAD
         Assertions.assertEquals(0,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
         board.placeTower(new RedTower(), new Vector(2,2));
         Assertions.assertEquals(12,board.getTile(new Vector(2,2)).getTilesInRange(board).size());
+=======
+        Assertions.assertEquals(0,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
+        board.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)), new Vector(2,2));
+        Assertions.assertEquals(12,board.getCell(new Vector(2,2)).getPositionalCellsWithinRange(board).size());
+>>>>>>> towerRefactor
     }
 
     @Test

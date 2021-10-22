@@ -3,7 +3,7 @@ package alchemydefense.Model.Board;
 import alchemydefense.Model.Board.Grid.Tile;
 import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Towers.TowerHierarchy.ITower;
+import alchemydefense.Model.Towers.ITower;
 import alchemydefense.Utility.Vector;
 
 /**
