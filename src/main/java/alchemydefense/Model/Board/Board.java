@@ -15,7 +15,6 @@ import alchemydefense.Utility.Vector;
  */
 public interface Board {
 
-
     /**
      * Place a tower in the specified tile if the tile is empty.
      * @param tower the tower that should be placed on the board.

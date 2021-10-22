@@ -16,7 +16,6 @@ import javafx.scene.layout.*;
  */
 public class UserInterfaceView extends Pane {
 
-    private final SelectedTowerView selectedTowerView;
     Image red = new Image("red-crystal.png");
     ImageView redCrystal = new ImageView(red);
     Image green = new Image("green-crystal.png");
@@ -30,8 +29,6 @@ public class UserInterfaceView extends Pane {
 
     public UserInterfaceView(int scene_width, int scene_height, int unit_in_pixel, InformationView informationView,
                              ITowerController towerController, IWaveController waveController, SelectedTowerView selectedTowerView) {
-
-        this.selectedTowerView = selectedTowerView;
 
         this.setPrefSize(scene_width, scene_height);
         this.setLayoutX(0);
@@ -117,8 +114,4 @@ public class UserInterfaceView extends Pane {
                 BackgroundSize.DEFAULT);
         setBackground(new Background(backgroundImage));
     }
-
-
-
-    public SelectedTowerView getSelectedTowerView() { return this.selectedTowerView; }
 }

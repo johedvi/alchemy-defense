@@ -12,7 +12,11 @@ import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.ITower;
 import alchemydefense.Utility.Vector;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * A board that manages a two-dimensional grid where towers and enemies can placed.
@@ -51,7 +55,7 @@ public class ConcreteBoard implements Board {
         pathfinder = new BreadthFirstSearch(graphManager, new Vector(0, 2), new Vector(endGoalX, endGoalY)); // Lite fult med först vektorn här?
     }
 
-
+    @Override
     public void damageFoes() {
         for (Tile tile : tilesWithTowers) {
             ArrayList<Tile> tilesInRange = tile.getTilesInRange(this);
@@ -75,6 +79,7 @@ public class ConcreteBoard implements Board {
         currentPlayer.increaseGold(5);
     }
 
+    @Override
     public BoardObject getBoardObject(Vector point) {
         return tileGrid.getBoardObject(point);
     }
@@ -84,6 +89,7 @@ public class ConcreteBoard implements Board {
         return tileGrid.getTower(tile);
     }
 
+    @Override
     public Tile getTile(Vector point) {
         return tileGrid.getTile(point);
     }
@@ -107,6 +113,7 @@ public class ConcreteBoard implements Board {
         return vector.x == endGoalX && vector.y == endGoalY;
     }
 
+    @Override
     public void removeTower(Vector point) {
         tilesWithTowers.remove(tileGrid.getTile(point));
         tileGrid.remove(point);
@@ -130,6 +137,7 @@ public class ConcreteBoard implements Board {
 
     }
 
+    @Override
     public void addFoe(Foe foe) {
         Vector startPos = new Vector(0, (int) (getBoardHeight() * Math.random()));
         tileGrid.addFoe(foe, startPos);
@@ -137,6 +145,7 @@ public class ConcreteBoard implements Board {
 
 
     // Kanske kan kallas innefrån moveFoes?
+    @Override
     public void foeReachedEnd() {
         Tile[][] grid = tileGrid.getGrid();
         if (grid[endGoalX][endGoalY].hasFoe()) {
@@ -146,6 +155,7 @@ public class ConcreteBoard implements Board {
 
     }
 
+    @Override
     public void moveFoes() {
         Tile[][] grid = tileGrid.getGrid();
         HashMap<Vector, Foe> foes = new HashMap<>();
@@ -172,6 +182,7 @@ public class ConcreteBoard implements Board {
         foes.clear();
     }
 
+    @Override
     public void addPlayerEventListener(PlayerEventListener listener) {
         currentPlayer.addPlayerEventListener(listener);
     }

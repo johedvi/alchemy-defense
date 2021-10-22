@@ -9,9 +9,9 @@ import alchemydefense.View.SelectedTowerView;
  *
  * Date: 2021-10-19
  */
-public class ViewController {
+public class ViewController implements IViewController {
 
-    private final TowerController towerController;
+    private final ITowerController towerController;
     private final SelectedTowerView selectedTowerView;
 
     public ViewController(TowerController towerController, SelectedTowerView selectedTowerView) {
@@ -19,6 +19,7 @@ public class ViewController {
         this.selectedTowerView = selectedTowerView;
     }
 
+    @Override
     public void cellPressed() {
         this.selectedTowerView.setVis(towerController.isTowerPressed());
     }
