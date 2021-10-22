@@ -1,4 +1,4 @@
-package alchemydefense.Model.Wave;
+package alchemydefense.Model.Foe;
 
 /**
  * Interface to notify when a new wave is started.

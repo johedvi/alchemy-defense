@@ -1,7 +1,5 @@
-package alchemydefense.Model.Wave;
+package alchemydefense.Model.Foe;
 
-import alchemydefense.Model.Foe.FoeFactory;
-import alchemydefense.Model.Foe.Foe;
 import alchemydefense.Utility.BoardObjectType;
 
 import java.util.ArrayList;

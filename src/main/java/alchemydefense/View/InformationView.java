@@ -1,7 +1,7 @@
 package alchemydefense.View;
 
 import alchemydefense.Model.Player.PlayerEventListener;
-import alchemydefense.Model.Wave.WaveListener;
+import alchemydefense.Model.Foe.WaveListener;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

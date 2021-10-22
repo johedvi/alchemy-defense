@@ -9,8 +9,8 @@ import alchemydefense.Model.Player.Player;
 import alchemydefense.Model.Player.PlayerEventListener;
 import alchemydefense.Model.Towers.*;
 import alchemydefense.Model.Towers.TowerHierarchy.ITower;
-import alchemydefense.Model.Wave.Wave;
-import alchemydefense.Model.Wave.WaveListener;
+import alchemydefense.Model.Foe.Wave;
+import alchemydefense.Model.Foe.WaveListener;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
 

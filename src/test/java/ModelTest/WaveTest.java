@@ -2,8 +2,8 @@ package ModelTest;
 
 import alchemydefense.Model.Foe.ConcreteFoe;
 import alchemydefense.Model.Foe.Foe;
-import alchemydefense.Model.Wave.Wave;
-import alchemydefense.Model.Wave.WaveListener;
+import alchemydefense.Model.Foe.Wave;
+import alchemydefense.Model.Foe.WaveListener;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
