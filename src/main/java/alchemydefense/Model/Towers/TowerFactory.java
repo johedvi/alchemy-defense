@@ -25,7 +25,7 @@ public class TowerFactory {
             case BLUE_TOWER: return new Tower(BoardObjectType.BLUE_TOWER, "blue-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(100,20));
             case GREEN_TOWER: return new Tower(BoardObjectType.GREEN_TOWER,"green-crystal.png",  new AttackDamageSystem(2,20), new PriceSystem(200,40));
             case PURPLE_TOWER: return new Tower(BoardObjectType.PURPLE_TOWER,"purple-crystal.png",  new AttackDamageSystem(3,30), new PriceSystem(400,80));
-            default: throw new IllegalArgumentException();
+            default: throw new IllegalArgumentException("Type does not exist");
         }
 
     }
