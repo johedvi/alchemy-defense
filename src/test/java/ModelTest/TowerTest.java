@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+
 public class TowerTest {
 
 
@@ -27,12 +28,7 @@ public class TowerTest {
     public static void setGameModel() {
         gameModel = new GameModel(12, 5);
 
-        player.increaseGold(800);
-
-
     }
-
-
 
     @Test
     public void testBuyTowerFail() {
@@ -45,42 +41,45 @@ public class TowerTest {
 
         }
 
-/*
-    @Test
-    public void testToStringAllTowers() {
-        Assertions.assertEquals("Blue Tower", blueTower.toString());
-        Assertions.assertEquals("Red Tower", redTower.toString());
-        Assertions.assertEquals("Green Tower", greenTower.toString());
-        Assertions.assertEquals("Purple Tower", purpleTower.toString());
 
-    }
 
     @Test
     public void testImageFilePath() {
-        Assertions.assertEquals("blue-crystal.png", Tower.getImageFilePath());
-        Assertions.assertEquals("red-crystal.png", redTower.getImageFilePath());
-        Assertions.assertEquals("green-crystal.png", greenTower.getImageFilePath());
-        Assertions.assertEquals("purple-crystal.png", purpleTower.getImageFilePath());
+        ITower tower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
+        Assertions.assertEquals("purple-crystal.png", tower.getImageFilePath());
+
+        ITower tower1 = TowerFactory.createTower(BoardObjectType.RED_TOWER);
+        Assertions.assertEquals("red-crystal.png", tower1.getImageFilePath());
+
+        ITower tower2 = TowerFactory.createTower(BoardObjectType.GREEN_TOWER);
+        Assertions.assertEquals("green-crystal.png", tower2.getImageFilePath());
+
+        ITower tower3 = TowerFactory.createTower(BoardObjectType.BLUE_TOWER);
+        Assertions.assertEquals("blue-crystal.png", tower3.getImageFilePath());
+
     }
 
     @Test
-    public void testGetTowerRange() {
-        Assertions.assertEquals(2, blueTower.getRange());
-        Assertions.assertEquals(2, redTower.getRange());
-        Assertions.assertEquals(3, greenTower.getRange());
-        Assertions.assertEquals(3, purpleTower.getRange());
+    public void testBoardObjectType() {
+        ITower tower = TowerFactory.createTower(BoardObjectType.PURPLE_TOWER);
+        Assertions.assertEquals(BoardObjectType.PURPLE_TOWER, tower.getBoardObjectType());
+
+        ITower tower1 = TowerFactory.createTower(BoardObjectType.RED_TOWER);
+        Assertions.assertEquals(BoardObjectType.RED_TOWER, tower1.getBoardObjectType());
+
+        ITower tower2 = TowerFactory.createTower(BoardObjectType.GREEN_TOWER);
+        Assertions.assertEquals(BoardObjectType.GREEN_TOWER, tower2.getBoardObjectType());
+
+
+        ITower tower3 = TowerFactory.createTower(BoardObjectType.BLUE_TOWER);
+        Assertions.assertEquals(BoardObjectType.BLUE_TOWER, tower3.getBoardObjectType());
+
     }
 
-    @Test
-    public void testGetTowerDamage() {
-        Assertions.assertEquals(20, blueTower.getDamage());
-        Assertions.assertEquals(10, redTower.getDamage());
-        Assertions.assertEquals(20, greenTower.getDamage());
-        Assertions.assertEquals(30, purpleTower.getDamage());
-    }
 
 
-*/
+
+
 
 
 
