@@ -9,6 +9,7 @@ import alchemydefense.Utility.BoardObjectType;
  *
  * Date: 2021-09-14
  */
+
 public class Tower implements ITower {
 
     private final BoardObjectType boardObjectType;
@@ -22,7 +23,9 @@ public class Tower implements ITower {
      * Another constructor for class Tower
      * @param boardObjectType specific towerType of enum TowerType.
      * @param filePath Location for the image that resembles the Tower..
-     * @param priceSystem
+     * @param attackDamageSystem A class that holds range and damage for a tower.
+     * @param priceSystem A class that holds buy and sell prices for a tower.
+
      */
 
     public Tower(BoardObjectType boardObjectType, String filePath, AttackDamageSystem attackDamageSystem, PriceSystem priceSystem) {

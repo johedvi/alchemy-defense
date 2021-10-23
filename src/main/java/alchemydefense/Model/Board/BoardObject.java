@@ -9,6 +9,9 @@ import alchemydefense.Utility.BoardObjectType;
  *
  * Date: 2021-09-14
  */
+
+
+
 public interface BoardObject {
     String getImageFilePath();
 

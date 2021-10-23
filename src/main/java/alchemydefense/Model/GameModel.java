@@ -77,7 +77,7 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     // ------- Create and place tower -------
 
     /**
-     * Creates a new tower from if the player has sufficient gold.
+     * Creates a new tower if the player has sufficient gold.
      * Will throw an exception if tower the construction failed.
      * @param boardObjectType tower type to construct.
      * @param point tile coordinate to place the tower in.
@@ -85,8 +85,8 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     @Override
     public void placeTowerInCell(BoardObjectType boardObjectType, Vector point) {
         try {
-             ITower tower = createTower(boardObjectType);
-             buyTower(tower, currentPlayer);
+             ITower tower = TowerFactory.createTower(boardObjectType);
+             TowerTransaction.buyTower(tower, currentPlayer);
             board.placeTower(tower, point);
         }
         catch (Exception e){
@@ -94,15 +94,8 @@ public class GameModel implements ITowerHandler, IWaveHandler {
         }
     }
 
-    public ITower createTower (BoardObjectType boardObjectType) {
-        return TowerFactory.createTower(boardObjectType);
-    }
 
 
-    private ITower buyTower(ITower tower, Player currentPlayer) throws Exception {
-        return TowerTransaction.buyTower(tower, currentPlayer);
-
-    }
 
     /**
      * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
