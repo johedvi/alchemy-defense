@@ -4,6 +4,7 @@ import alchemydefense.Model.GameModel;
 import alchemydefense.Model.Player.Player;
 
 import alchemydefense.Model.Towers.ITower;
+import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Model.Towers.TowerFactory;
 import alchemydefense.Model.Towers.TowerTransaction;
 import alchemydefense.Utility.BoardObjectType;
@@ -40,6 +41,17 @@ public class TowerTest {
         Assertions.assertEquals("Not enough gold.", exception.getMessage());
 
         }
+
+    @Test
+    public void testTowerFactoryFail() {
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            TowerFactory.createTower(BoardObjectType.CONCRETE_FOE);
+        });
+
+
+    }
+
 
 
 
