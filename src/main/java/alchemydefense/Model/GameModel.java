@@ -44,7 +44,7 @@ public class GameModel implements ITowerHandler, IWaveHandler {
      * @param height the height of the board.
      */
     public GameModel(int width, int height) {
-        this.currentPlayer = new Player(100, 100);
+        this.currentPlayer = new Player(250, 100);
         this.board = new ConcreteBoard(this.currentPlayer, width, height);
     }
 
