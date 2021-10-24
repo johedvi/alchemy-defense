@@ -36,7 +36,7 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     private static boolean gamePaused = true;
     private static boolean firstIteration = true;
 
-    private int spawnFoe = 0;
+    private int spawnFoe = 1;
 
     /**
      * Constructor that instantiates a new board and starts the first wave.
