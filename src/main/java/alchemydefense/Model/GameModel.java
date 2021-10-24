@@ -36,6 +36,8 @@ public class GameModel implements ITowerHandler, IWaveHandler {
     private static boolean gamePaused = true;
     private static boolean firstIteration = true;
 
+    private int spawnFoe = 0;
+
     /**
      * Constructor that instantiates a new board and starts the first wave.
      * @param width the width of the board.
@@ -65,13 +67,19 @@ public class GameModel implements ITowerHandler, IWaveHandler {
                 startNewWave();
             }
             else {
-                board.addFoe(activeFoes.removeFirst());
+                if(shouldSpawnFoe())
+                    board.addFoe(activeFoes.removeFirst());
                 if(activeFoes.isEmpty()) {
                     gamePaused = true;
                 }
             }
         }
 
+    }
+
+    private boolean shouldSpawnFoe() {
+        spawnFoe++;
+        return spawnFoe % 2 == 0;
     }
 
     // ------- Create and place tower -------
