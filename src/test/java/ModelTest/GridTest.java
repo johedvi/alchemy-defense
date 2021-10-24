@@ -63,7 +63,7 @@ public class GridTest {
         Tile tile = new Tile(2,2);
 
         Assertions.assertFalse(tile.hasFoe());
-        tile.addFoe(new ConcreteFoe());
+        tile.addFoe(new ConcreteFoe(100));
         Assertions.assertTrue(tile.hasFoe());
         tile.removeFoe();
         Assertions.assertFalse(tile.hasFoe());
@@ -90,7 +90,7 @@ public class GridTest {
         TileGrid grid = new TileGrid(12,5);
         Vector test = new Vector(1,1);
 
-        grid.addFoe(new ConcreteFoe(), test);
+        grid.addFoe(new ConcreteFoe(100), test);
         Assertions.assertTrue(grid.getTile(test).hasFoe());
     }
 }

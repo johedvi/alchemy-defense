@@ -30,7 +30,7 @@ public class BoardTest {
 
     @Test
     public void testMoveFoe() {
-        board.getTile(vec).addFoe(new ConcreteFoe());
+        board.getTile(vec).addFoe(new ConcreteFoe(100));
         board.updateFoes();
         Assertions.assertTrue(board.getTile(new Vector(3,2)).hasFoe());
     }
@@ -39,7 +39,7 @@ public class BoardTest {
     public void testDamageFoes() {
         Board newBoard = new ConcreteBoard(new Player(100,100), 12, 5);
 
-        newBoard.getTile(vec).addFoe(new ConcreteFoe());
+        newBoard.getTile(vec).addFoe(new ConcreteFoe(100));
         newBoard.placeTower(new Tower(BoardObjectType.RED_TOWER,"red-crystal.png", new AttackDamageSystem(2,20), new PriceSystem(0,10)),  new Vector(3,3));
         newBoard.damageFoes();
 
@@ -58,7 +58,7 @@ public class BoardTest {
 
     @Test
     public void testAddFoe() {
-        board.addFoe(new ConcreteFoe());
+        board.addFoe(new ConcreteFoe(100));
         boolean foeCreated = false;
         for (int i = 0; i < board.getBoardHeight(); i++)
             foeCreated = foeCreated || board.getTile(new Vector(0,i)).hasFoe();
@@ -68,7 +68,7 @@ public class BoardTest {
     @Test
     public void testFoeReachedEnd() {
         GameModel model = new GameModel(12, 5);
-        model.getBoard().getTile(new Vector(11,2)).addFoe(new ConcreteFoe());
+        model.getBoard().getTile(new Vector(11,2)).addFoe(new ConcreteFoe(100));
         int expectedHP = player.getHp() - 1;
         model.startNewWave();
         model.modelUpdate();
