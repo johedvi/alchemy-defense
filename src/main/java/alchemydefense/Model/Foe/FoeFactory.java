@@ -17,9 +17,9 @@ public class FoeFactory {
      * @return specific concrete Foe of that type.
      * @throws IllegalArgumentException
      * */
-    public static Foe createFoe(BoardObjectType foeType)  {
+    public static Foe createFoe(BoardObjectType foeType, int HP)  {
         if (foeType == BoardObjectType.CONCRETE_FOE) {
-            return new ConcreteFoe();
+            return new ConcreteFoe(HP);
         }
         else
             throw new IllegalArgumentException();

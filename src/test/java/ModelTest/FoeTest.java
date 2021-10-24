@@ -24,14 +24,14 @@ public class FoeTest {
     @BeforeAll
     public static void beforeTestMethod() {
         boardHeight = 200;
-        foe = FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE);
+        foe = FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE, 100);
     }
 
     @Test
     public void testFoeCreation() {
-        Assertions.assertEquals(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE).getClass(), ConcreteFoe.class);
+        Assertions.assertEquals(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE, 100).getClass(), ConcreteFoe.class);
         Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            FoeFactory.createFoe(null).getClass();
+            FoeFactory.createFoe(null, 100).getClass();
         });
     }
 

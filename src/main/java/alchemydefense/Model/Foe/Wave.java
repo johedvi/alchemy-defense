@@ -36,9 +36,10 @@ public class Wave {
      */
     public LinkedList<Foe> createFoes() {
         int nFoes = (int) (FIRST_WAVE_FOE_AMOUNT * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter - 1));
+        int hp = (int) (100 * Math.pow(WAVE_DIFFICULTY_FACTOR, waveCounter - 1));
         LinkedList<Foe> foes = new LinkedList<>();
         for(int i = 0; i <= nFoes; i++) {
-            foes.add(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE));
+            foes.add(FoeFactory.createFoe(BoardObjectType.CONCRETE_FOE, hp));
         }
         return foes;
     }
