@@ -26,7 +26,7 @@ Alchemy Defense is a tower defense game prototype that utilies dynamic pathfindi
 <h2 id="getting-started"> :video_game: Getting Started</h2>
 <p align="justify"> 
   
-* **How to run** : 
+* **How to run** : Clone the repository and run "mvn clean javafx:run" in the directory containing pom.xml. You could also open the maven project in your prefered IDE and run it through there. 
   
 * **Controls** : Left click on a tower to select it and left click again on an available tile to place it there if able. Right click while holding a tower to deselect it. You can toggle an active tower to recieve some information about it.
   
