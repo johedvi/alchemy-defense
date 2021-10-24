@@ -11,6 +11,7 @@ import alchemydefense.Utility.Vector;
  * @author Willem Brahmstaedt
  */
 public interface ITowerHandler {
+
     /**
      * Places a BoardObject of specified type on the given cell
      *

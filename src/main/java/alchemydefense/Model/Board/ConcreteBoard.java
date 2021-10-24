@@ -17,7 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-
 /**
  * A board that manages a two-dimensional grid where towers and enemies can placed.
  *
@@ -30,8 +29,8 @@ public class ConcreteBoard implements Board {
     private final GraphManager graphManager;
 
     private final Player currentPlayer;
-
     private final TileGrid tileGrid;
+
     private final int width;
     private final int height;
     private final int endGoalX;
@@ -134,7 +133,6 @@ public class ConcreteBoard implements Board {
     public void updateFoes() {
         damageFoes();
         moveFoes();
-
     }
 
     @Override
@@ -143,8 +141,6 @@ public class ConcreteBoard implements Board {
         tileGrid.addFoe(foe, startPos);
     }
 
-
-    // Kanske kan kallas innefrån moveFoes?
     @Override
     public void foeReachedEnd() {
         Tile[][] grid = tileGrid.getGrid();
@@ -152,7 +148,6 @@ public class ConcreteBoard implements Board {
             grid[endGoalX][endGoalY].removeFoe();
             currentPlayer.decreaseOneHp();
         }
-
     }
 
     @Override
@@ -178,7 +173,6 @@ public class ConcreteBoard implements Board {
             Vector nextVector = path.get(1).getCoordinateVector();
             tileGrid.addFoe(entry.getValue(), nextVector);
         }
-
         foes.clear();
     }
 

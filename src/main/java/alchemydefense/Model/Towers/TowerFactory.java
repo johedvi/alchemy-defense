@@ -1,6 +1,5 @@
 package alchemydefense.Model.Towers;
 
-
 import alchemydefense.Utility.BoardObjectType;
 
 /**
@@ -27,7 +26,6 @@ public class TowerFactory {
             case PURPLE_TOWER: return new Tower(BoardObjectType.PURPLE_TOWER,"purple-crystal.png",  new AttackDamageSystem(3,30), new PriceSystem(400,80));
             default: throw new IllegalArgumentException("Type does not exist");
         }
-
     }
 }
 

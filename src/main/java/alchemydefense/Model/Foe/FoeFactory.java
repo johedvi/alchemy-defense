@@ -15,7 +15,7 @@ public class FoeFactory {
      * Creates a specific Foe of a certain FoeType.
      * @param foeType Type of foe.
      * @return specific concrete Foe of that type.
-     * @throws IllegalArgumentException
+     * @throws IllegalArgumentException if foeType doesn't exist.
      * */
     public static Foe createFoe(BoardObjectType foeType, int HP)  {
         if (foeType == BoardObjectType.CONCRETE_FOE) {
