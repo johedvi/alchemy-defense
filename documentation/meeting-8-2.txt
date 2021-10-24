@@ -1,0 +1,23 @@
+
+1. Meeting Agenda.
+	Group: HandyMen
+	Date: 22/10/2021
+	Chair: Felix Jönsson
+	Participants: Felix Jönsson, Johan Linden, Valdemar Stenhammar, Willem Brahmstaedt.
+
+2. Objectives.
+ - Finalise the project with focus on the documentation. 
+ - Assign different areas to talk about during the presentation next week. 
+
+3. Reports.
+ - Everyone in group has been busy with working on the documentation and polishing the code base for the hand in. 
+
+4. Discussion items.
+ - What remains after todays work to fix before last hand in?
+
+5. Outcomes and assignments.
+ - Produced another todo list with minor small fixes before hand in. Assigned each member to different tasks. 
+
+6. Wrap up.
+  - Thanks and good bye. 
+	
