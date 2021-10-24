@@ -54,11 +54,8 @@ public class App extends Application {
         model.addWaveListener(informationView);
         model.addTowerStatListener(selectedTowerView);
         model.addBoardListener(view);
-        model.addPlayerEventListener(informationView);
 
         stage.setScene(scene);
-
-
 
         stage.show();
         gameUpdate();
