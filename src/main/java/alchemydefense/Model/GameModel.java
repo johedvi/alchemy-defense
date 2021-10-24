@@ -102,9 +102,6 @@ public class GameModel implements ITowerHandler, IWaveHandler {
         }
     }
 
-
-
-
     /**
      * Sells the tower and returns a set amount of gold to the player. The transaction is handled by an internal class.
      * @param point tile position of the tower.

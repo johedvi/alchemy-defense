@@ -40,6 +40,7 @@ public class Tile {
     public void setOccupied(boolean isOccupied) {
         this.isOccupiedByTower = isOccupied;
     }
+
     public void setUpdated(boolean b){
         updated = b;
     }
@@ -47,6 +48,7 @@ public class Tile {
     public boolean hasFoe(){
         return foe != null;
     }
+
     public boolean isOccupiedByTower() {
         return isOccupiedByTower;
     }
@@ -148,7 +150,6 @@ public class Tile {
         return foe;
     }
 
-    //Allow multiple foes? Possible solution = store foes as a list.
     public void addFoe(Foe foe){
         if(!hasFoe()){
             this.foe = foe;

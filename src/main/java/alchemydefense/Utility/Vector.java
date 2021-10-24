@@ -6,6 +6,7 @@ package alchemydefense.Utility;
  * @author Felix Jönsson
  */
 public class Vector {
+
     public int x;
     public int y;
 
@@ -45,8 +46,8 @@ public class Vector {
 
     /**
      * Calculates the distance between two int vectors and trunks the result.
-     * @param vector1
-     * @param vector2
+     * @param vector1 the first vector.
+     * @param vector2 the second vector.
      * @return the absolut value of the distance trunked to the nearest integer.
      */
     public static int distanceBetweenVectorPoints(Vector vector1, Vector vector2){
@@ -71,8 +72,8 @@ public class Vector {
 
     /**
      * Updates a vector with new x- and y-values.
-     * @param x
-     * @param y
+     * @param x the x-value.
+     * @param y the y-value.
      */
     public void setVector(int x, int y) {
         this.x = x;

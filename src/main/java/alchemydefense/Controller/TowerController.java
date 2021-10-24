@@ -1,8 +1,6 @@
 package alchemydefense.Controller;
 
-
 import alchemydefense.Model.ITowerHandler;
-
 import alchemydefense.Model.Towers.Tower;
 import alchemydefense.Utility.BoardObjectType;
 import alchemydefense.Utility.Vector;
@@ -29,28 +27,29 @@ public class TowerController implements ITowerController {
 
     @Override
     public void createTower(Vector cell) {
-
         this.towerHandler.placeTowerInCell(this.activeTower, cell);
-
-
-
     }
+
     @Override
     public void setRedTowerActive() {
         this.activeTower = BoardObjectType.RED_TOWER;
     }
+
     @Override
     public void setBlueTowerActive() {
         this.activeTower = BoardObjectType.BLUE_TOWER;
     }
+
     @Override
     public void setGreenTowerActive() {
         this.activeTower = BoardObjectType.GREEN_TOWER;
     }
+
     @Override
     public void setPurpleTowerActive() {
         this.activeTower = BoardObjectType.PURPLE_TOWER;
     }
+
     @Override
     public BoardObjectType getActiveTower() { return this.activeTower; }
 
@@ -58,10 +57,12 @@ public class TowerController implements ITowerController {
     public boolean isHoldingTower() {
         return this.activeTower != null;
     }
+
     @Override
     public void setHoldingTowerFalse() {
         this.activeTower = null;
     }
+
     @Override
     public void sellTower() { this.towerHandler.sellTower(this.towerCell); }
 

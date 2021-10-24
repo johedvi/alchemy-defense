@@ -1,12 +1,13 @@
 package alchemydefense.Model.Board.Pathfinding;
 
-import java.util.*;
 import alchemydefense.Utility.Vector;
+
+import java.util.*;
 
 /**
  * Pathfinder class that can create paths when supplied a graph through a GraphManager to traverse. Uses breadth first search to search the graph
  * and returns the shortest list by keeping track of the nodes with a linked list.
- * @Author Felix Jönsson
+ * @author Felix Jönsson
  */
 public class BreadthFirstSearch implements Pathfinder{
     Vector[] directions = {Vector.right(), Vector.down(), Vector.left(), Vector.up()};
@@ -100,7 +101,6 @@ public class BreadthFirstSearch implements Pathfinder{
             }
         }
     }
-
 
     private void setup(Vector start, Vector end) {
         this.start = start;

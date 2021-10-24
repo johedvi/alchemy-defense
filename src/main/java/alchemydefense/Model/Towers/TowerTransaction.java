@@ -14,15 +14,10 @@ import alchemydefense.Model.Player.Player;
  */
 public class TowerTransaction {
 
-
-
-
     /**
      * Private constructor to prevent instantiation of class.
      */
     private TowerTransaction() { }
-
-
 
     /**
      * Buys the specific tower type and decreases players gold.
@@ -31,7 +26,6 @@ public class TowerTransaction {
      * @return specific towerType created from TowerFactory.
      * @throws Exception "Not enough gold"
      */
-
     public static ITower buyTower(ITower tower, Player player) throws Exception {
 
         int price = tower.getBuyPrice();
@@ -48,13 +42,9 @@ public class TowerTransaction {
      * @param tower The specific tower of a certain type.
      * @param player The current player.
      */
-
     public static void sellTower(ITower tower, Player player) {
-
         int price = tower.getSellPrice();
-
         player.increaseGold(price);
-
     }
 
 

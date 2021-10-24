@@ -8,13 +8,14 @@ import alchemydefense.Utility.Vector;
  *
  * @author Willem Brahmstaedt
  */
-
 public interface ITowerController {
+
     /**
      * Creates a Tower at the given cell
      * @param cell Returns the cell on which a Tower shall be put
      */
     void createTower(Vector cell);
+
     /**
      * Set RedTower as the active Tower
      */
@@ -23,14 +24,17 @@ public interface ITowerController {
      * Set BlueTower as the active Tower
      */
     void setBlueTowerActive();
+
     /**
      * Set GreenTower as the active Tower
      */
     void setGreenTowerActive();
+
     /**
      * Set PurpleTower as the active Tower
      */
     void setPurpleTowerActive();
+
     /**
      * Get the currently active Tower
      * @return The current active Tower as a BoardObjectType

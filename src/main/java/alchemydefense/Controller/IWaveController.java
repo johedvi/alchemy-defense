@@ -6,6 +6,7 @@ package alchemydefense.Controller;
  * @author Willem Brahmstaedt
  */
 public interface IWaveController {
+
     /**
      * Starts a new wave
      */

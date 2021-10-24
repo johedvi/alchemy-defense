@@ -6,6 +6,7 @@ package alchemydefense.Model;
  * @author Willem Brahmstaedt
  */
 public interface IWaveHandler {
+
     /**
      * Starts a new wave
      */

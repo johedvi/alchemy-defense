@@ -2,7 +2,6 @@ package alchemydefense.Controller;
 
 import alchemydefense.Model.IWaveHandler;
 
-
 /**
  * Controller used for starting a new wave
  *

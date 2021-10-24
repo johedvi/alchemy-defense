@@ -17,7 +17,7 @@ import alchemydefense.Utility.BoardObjectType;
  *
  */
 public class ConcreteFoe implements Foe {
-    private int MAX_HP = 100;
+    private final int MAX_HP;
     private int currentHP;
     private final String imageFilePath = "/foe.png";
     private final BoardObjectType boardObjectType;

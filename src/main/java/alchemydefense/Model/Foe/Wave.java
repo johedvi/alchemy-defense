@@ -12,7 +12,6 @@ import java.util.LinkedList;
  *
  * Date: 2021-09-16
  */
-
 public class Wave {
 
     private static final ArrayList<WaveListener> listeners = new ArrayList<>();

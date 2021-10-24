@@ -7,8 +7,6 @@ package alchemydefense.Model.Towers;
  *
  * Date: 2021-09-26
  */
-
-
 public class PriceSystem {
 
     private final int buyPrice;
@@ -18,7 +16,6 @@ public class PriceSystem {
         this.buyPrice = buyPrice;
         this.sellPrice = sellPrice;
     }
-
 
     public int getBuyPrice() {
         return buyPrice;
