@@ -16,8 +16,8 @@ Alchemy Defense is a tower defense game prototype that utilies dynamic pathfindi
 <h2 id="project-files-description"> :floppy_disk: Project Files Description</h2>
 <p align="justify"> 
 
-* **documentation**: Contains meeting protocols, RAD and SSD.
-* **src**: Project codebase.
+* **documentation** : Contains meeting protocols, RAD and SSD.
+* **src** : Project codebase.
   
 </p>
 
@@ -25,7 +25,11 @@ Alchemy Defense is a tower defense game prototype that utilies dynamic pathfindi
 <!-- GETTING STARTED -->
 <h2 id="getting-started"> :video_game: Getting Started</h2>
 <p align="justify"> 
-
+  
+* **How to run** : 
+  
+* **Controls** : Left click on a tower to select it and left click again on an available tile to place it there if able. Right click while holding a tower to deselect it. You can toggle an active tower to recieve some information about it.
+  
 </p>
 
 <!-- LINKS -->
