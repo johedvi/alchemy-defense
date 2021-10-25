@@ -45,9 +45,9 @@ Alchemy Defense is a tower defense game prototype that utilies dynamic pathfindi
 <h2 id="credits"> :scroll: Credits</h2>
 <p align="justify"> 
 
-* Felix Jönsson
-* Johan Linden
-* Valdemar Stenhammar
-* Willem Brahmstaedt
+* Felix Jönsson - "Art" and coding
+* Johan Linden - Coding
+* Valdemar Stenhammar - Coding
+* Willem Brahmstaedt - Coding
   
 </p>
